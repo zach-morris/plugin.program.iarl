@@ -1,0 +1,20 @@
+<parserConfig>
+    <GameGrammar type="xml" root="game">
+        <romname>./@name</romname>
+        <sourcefile>./@sourcefile</sourcefile>
+        <romof>./@romof</romof>
+        <cloneof>./@cloneof</cloneof>
+        <runnable>./@runnable</runnable>
+        <isbios>./isbios</isbios>
+        <isdevice>./@isdevice</isdevice>
+        <ismechanical>./@ismechanical</ismechanical>
+        <year>year</year>
+        <manufacturer>manufacturer</manufacturer>        
+        <description>description</description>
+        <romcontents>rom/@name</romcontents>
+        <crc>rom/@crc</crc>
+        <size>rom/@size</size>
+        <deviceref>device_ref/@name</deviceref>
+        <driverstatus>driver/@status</driverstatus>
+    </GameGrammar>
+</parserConfig>
