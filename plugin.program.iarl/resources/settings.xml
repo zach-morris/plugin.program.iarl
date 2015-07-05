@@ -3,8 +3,8 @@
     <category label="Config File">
     	<setting id="iarl_setting_cache_list" type="bool" label="Cache ROM Lists After Parsing" default="true"/>
     	<setting id="iarl_setting_clean_list" type="bool" label="Clean ROM Names" default="true"/>
-    	<setting id="iarl_setting_items_pp" type="enum" label="Number of Items Per Page" values="10|25|50|100|150|200|250|300|350|400|450|500|List All" default="50"/>
-    	<setting id="iarl_setting_default_action" type="enum" label="Default Action on Selecting ROM" values="Download and Launch|Download Only|ROM Info Page" default="Rom Info Page"/>
-        <setting id="iarl_setting_dl_cache" type="enum" label="Temporary Download Folder Size (MB)" values="Zero (One ROM and Supporting Files Only)|10 MB|25MB|50MB|100MB|150MB|200MB|250MB|300MB|350MB|400MB|450MB|500MB" default="Zero (One ROM and Supporting Files Only)"/>
+    	<setting id="iarl_setting_items_pp" type="select" label="Number of Items Per Page" values="10|25|50|100|150|200|250|300|350|400|450|500|List All" default="50"/>
+    	<setting id="iarl_setting_default_action" type="select" label="Default Action on Selecting ROM" values="Download and Launch|Download Only|ROM Info Page" default="Rom Info Page"/>
+        <setting id="iarl_setting_dl_cache" type="select" label="Temporary Download Folder Size (MB)" values="Zero (One ROM and Supporting Files Only)|10 MB|25MB|50MB|100MB|150MB|200MB|250MB|300MB|350MB|400MB|450MB|500MB" default="Zero (One ROM and Supporting Files Only)"/>
     </category>
 </settings>

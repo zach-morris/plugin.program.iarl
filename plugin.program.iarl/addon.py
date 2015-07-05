@@ -15,13 +15,15 @@ plugin = Plugin()
 iarl_setting_cache_list = plugin.get_setting('iarl_setting_cache_list',bool)
 iarl_setting_clean_list = plugin.get_setting('iarl_setting_clean_list',bool)
 
+items_pp_options = {'10':10,'25':25,'50':50,'100':100,'150':150,'200':200,'250':250,'300':300,'350':350,'400':400,'450':450,'500':500,'List All':99999}
 try:
-    iarl_setting_items_pp = plugin.get_setting('iarl_setting_items_pp',int)
+    iarl_setting_items_pp = items_pp_options[plugin.get_setting('iarl_setting_items_pp',unicode)]
 except ValueError:
     iarl_setting_items_pp = 99999
 
+cache_options = {'Zero (One ROM and Supporting Files Only)':0,'10 MB':10*1e6,'25MB':25*1e6,'50MB':50*1e6,'100MB':100*1e6,'150MB':150*1e6,'200MB':200*1e6,'250MB':250*1e6,'300MB':300*1e6,'350MB':350*1e6,'400MB':400*1e6,'450MB':450*1e6,'500MB':500*1e6}
 try:
-    iarl_setting_dl_cache = plugin.get_setting('iarl_setting_items_pp',int) * 1e6
+    iarl_setting_dl_cache = cache_options[plugin.get_setting('iarl_setting_dl_cache',unicode)]
 except ValueError:
     iarl_setting_dl_cache = 0
 
