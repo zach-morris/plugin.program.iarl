@@ -14,10 +14,16 @@ plugin = Plugin()
 
 iarl_setting_cache_list = plugin.get_setting('iarl_setting_cache_list',bool)
 iarl_setting_clean_list = plugin.get_setting('iarl_setting_clean_list',bool)
-iarl_options_items_pp = [10, 25, 50, 100, 150 ,200, 250, 300, 350, 400, 450, 500, 99999]
-iarl_setting_items_pp = iarl_options_items_pp[plugin.get_setting('iarl_setting_items_pp',int)]
-iarl_options_dl_cache = [0, 10*1e6, 25*1e6, 50*1e6, 100*1e6, 150*1e6, 200*1e6, 250*1e6, 300*1e6, 350*1e6, 400*1e6, 450*1e6, 500*1e6]
-iarl_setting_dl_cache = iarl_options_dl_cache[plugin.get_setting('iarl_setting_dl_cache',int)]
+
+try:
+    iarl_setting_items_pp = plugin.get_setting('iarl_setting_items_pp',int)
+except ValueError:
+    iarl_setting_items_pp = 99999
+
+try:
+    iarl_setting_dl_cache = plugin.get_setting('iarl_setting_items_pp',int) * 1e6
+except ValueError:
+    iarl_setting_dl_cache = 0
 
 if not iarl_setting_cache_list:
     plugin.clear_function_cache() #Clear the cache every run
