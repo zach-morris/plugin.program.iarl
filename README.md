@@ -1,6 +1,6 @@
 Internet Archive ROM Launcher
 ==========================
-![enter image description here](https://raw.githubusercontent.com/zach-morris/Internet-Archive-ROM-Launcher/master/plugin.program.iarl/fanart.jpg)
+![enter image description here](https://github.com/zach-morris/plugin.program.iarl/blob/master/fanart.jpg)
 
 The Internet Archive ROM Launcher (IARL) will launch Games using [Kodi](http://kodi.tv) and [Retroplayer](https://github.com/garbear/xbmc).
 
