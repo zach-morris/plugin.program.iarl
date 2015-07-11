@@ -178,11 +178,11 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname):
     current_save_fname = current_path+'/'+rom_save_fname
     current_save_sfname = current_path+'/'+rom_save_sfname
 
-    print rom_save_fname
+    print quote_url(rom_fname)
     print rom_save_sfname
 
     if rom_save_fname:
-        download_tools().Downloader(rom_fname,current_save_fname,rom_save_fname,'Downloading, please wait...')
+        download_tools().Downloader(quote_url(rom_fname),current_save_fname,rom_save_fname,'Downloading, please wait...')
 
     if rom_save_sfname:
         if rom_save_sfname != 'None':

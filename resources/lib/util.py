@@ -442,12 +442,14 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
 		current_fname = []
 		if entries['rom_filename']:
 			current_fname = xml_header_info['emu_baseurl'][0]+str(entries['rom_filename'][0])
+			current_fname = html_unescape(current_fname)
 		else:
 			current_fname = None
 
 		current_save_fname = []
 		if entries['rom_filename']:
 			current_save_fname = str(entries['rom_filename'][0])
+			current_save_fname = html_unescape(current_save_fname)
 		else:
 			current_save_fname = None
 
@@ -472,12 +474,14 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
 		current_sfname = []
 		if entries['rom_supporting_file']:
 			current_sfname = xml_header_info['emu_baseurl'][0]+str(entries['rom_supporting_file'][0])
+			current_sfname = html_unescape(current_sfname)
 		else:
 			current_sfname = None
 
 		current_save_sfname = []
 		if entries['rom_supporting_file']:
 			current_save_sfname = str(entries['rom_supporting_file'][0])
+			current_save_sfname = html_unescape(current_save_sfname)
 		else:
 			current_save_sfname = None
 
