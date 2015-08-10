@@ -1,4 +1,5 @@
 from xbmcswift2 import Plugin
+from xbmcswift2 import actions
 import os, sys, xbmc, xbmcgui, xbmcvfs, textwrap
 # import pyxbmct.addonwindow as pyxbmct
 from resources.lib.util import *
@@ -30,18 +31,57 @@ except ValueError:
 if not iarl_setting_cache_list:
     plugin.clear_function_cache() #Clear the cache every run
 
+
+@plugin.route('/update_xml/<xml_id>')
+def update_xml_value(xml_id):
+    args_in = plugin.request.args
+    try:
+        tag_value = args_in['tag_value'][0]
+    except:
+        tag_value = None
+
+    if tag_value == 'emu_downloadpath':
+        print 'Updating Download Path for '+xml_id
+        set_new_dl_path(xml_id)
+
+    elif tag_value == 'emu_postdlaction':
+        print 'Updating Post DL Action'
+        #Not implemented yet
+
+    elif tag_value == 'emu_launcher':
+        print 'Updating Emu Launcher'
+        #Not implemented yet
+
+    elif tag_value == 'emu_ext_launch_cmd':
+        print 'Updating External Launch Command'
+        #Not implemented yet
+
+    else:
+        pass #Do Nothing
+
+def update_context(xml_id_in,tag_value_in,context_label):
+    new_url = plugin.url_for('update_xml_value', xml_id=xml_id_in, tag_value = tag_value_in)
+    return (context_label, actions.background(new_url))
+
 @plugin.route('/') #Start Page
 def index():
     items = []
-
     emu_info = scape_xml_headers() #Find all xml dat files and get the header info
 
     for ii in range(0,len(emu_info['emu_name'])):
+        
+        #Generate the context menu
+        context_menus = [update_context(emu_info['emu_location'][ii],'emu_downloadpath','Update Download Path'),
+                        update_context(emu_info['emu_location'][ii],'emu_postdlaction','Update Post DL Action'),
+                        update_context(emu_info['emu_location'][ii],'emu_launcher','Update Launcher'),
+                        update_context(emu_info['emu_location'][ii],'emu_ext_launch_cmd','Update Ext Launcher Command'),]
+
         items.append({ 
         'label' : emu_info['emu_name'][ii], 'path': plugin.url_for('get_rom_list', category_id=emu_info['emu_name'][ii],page_id='1',parser_id=emu_info['emu_parser'][ii],xml_id=emu_info['emu_location'][ii]), 'icon': emu_info['emu_logo'][ii],
         'thumbnail' : emu_info['emu_thumb'][ii],
         'info' : {'genre': emu_info['emu_category'][ii], 'credits': emu_info['emu_author'][ii], 'date': emu_info['emu_date'][ii], 'plot': emu_info['emu_comment'][ii], 'trailer': getYouTubePluginurl(emu_info['emu_trailer'][ii]), 'FolderPath': emu_info['emu_baseurl'][ii]},
-        'properties' : {'fanart_image' : emu_info['emu_fanart'][ii], 'banner' : emu_info['emu_banner'][ii], 'clearlogo': emu_info['emu_logo'][ii]}
+        'properties' : {'fanart_image' : emu_info['emu_fanart'][ii], 'banner' : emu_info['emu_banner'][ii], 'clearlogo': emu_info['emu_logo'][ii]},
+        'context_menu' : context_menus
         })
     
     return items
@@ -168,33 +208,52 @@ def get_selected_rom(romname):
     current_release_date = xbmc.getInfoLabel('ListItem.Date')
     current_plot = xbmc.getInfoLabel('ListItem.Plot')
     current_trailer = xbmc.getInfoLabel('ListItem.Trailer')
-    MyROMWindow = ROMWindow('default.xml',getAddonInstallPath(),'Default','720p',rom_fname=current_rom_fname, rom_sfname=current_rom_sfname, rom_save_fname=current_rom_save_fname, rom_save_sfname=current_rom_save_sfname, emu_name=current_emu_name, logo=current_emu_logo, emu_fanart=current_emu_fanart, title=current_title, plot=current_plot, fanart=filter(bool, current_fanart), boxart=filter(bool, current_boxart), snapshot=filter(bool, current_snapshot), banner=filter(bool, current_banner), trailer=current_trailer, nplayers=current_nplayers, studio=current_studio, genre=current_genre, release_date=current_release_date)
+    current_emu_downloadpath = xbmc.getInfoLabel('ListItem.Property(emu_downloadpath)')
+    current_emu_postdlaction = xbmc.getInfoLabel('ListItem.Property(emu_postdlaction)')
+    current_emu_launcher = xbmc.getInfoLabel('ListItem.Property(emu_launcher)')
+    current_emu_ext_launch_cmd = xbmc.getInfoLabel('ListItem.Property(emu_ext_launch_cmd)')
+
+    MyROMWindow = ROMWindow('default.xml',getAddonInstallPath(),'Default','720p',rom_fname=current_rom_fname, rom_sfname=current_rom_sfname, rom_save_fname=current_rom_save_fname, rom_save_sfname=current_rom_save_sfname, emu_name=current_emu_name, logo=current_emu_logo, emu_fanart=current_emu_fanart, title=current_title, plot=current_plot, fanart=filter(bool, current_fanart), boxart=filter(bool, current_boxart), snapshot=filter(bool, current_snapshot), banner=filter(bool, current_banner), trailer=current_trailer, nplayers=current_nplayers, studio=current_studio, genre=current_genre, release_date=current_release_date, emu_downloadpath=current_emu_downloadpath, emu_postdlaction=current_emu_postdlaction, emu_launcher=current_emu_launcher, emu_ext_launch_cmd=current_emu_ext_launch_cmd)
     MyROMWindow.doModal()
 
-def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname):
+def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom_dl_path):
     print 'Download Only Selected'
-    current_path = getTempDir()
-    check_temp_folder_and_clean(iarl_setting_dl_cache)
-    current_save_fname = current_path+'/'+rom_save_fname
+    print rom_dl_path
+
+    if rom_dl_path == 'default':
+        current_path = getTempDir()
+        check_temp_folder_and_clean(iarl_setting_dl_cache)
+    else:
+        current_path = rom_dl_path
+
+    #Clean the savefilenames so it's only the last thing listed in the ROM argument (no folders)
+    cleaned_save_fname = rom_save_fname.split('/')[-1:][0]
+    cleaned_save_fname = cleaned_save_fname.split('%2F')[-1:][0]
+    cleaned_save_sfname = rom_save_sfname.split('/')[-1:][0]
+    cleaned_save_sfname = cleaned_save_sfname.split('%2F')[-1:][0]
+    
+    current_save_fname = current_path+'/'+cleaned_save_fname
     current_save_sfname = current_path+'/'+rom_save_sfname
 
-    print quote_url(rom_fname)
-    print rom_save_sfname
+    # print quote_url(rom_fname)
+    # print 'test'
+    # print current_save_fname
 
     if rom_save_fname:
         download_tools().Downloader(quote_url(rom_fname),current_save_fname,rom_save_fname,'Downloading, please wait...')
+        check_downloaded_file(current_save_fname)
 
     if rom_save_sfname:
         if rom_save_sfname != 'None':
             download_tools().Downloader(rom_sfname,current_save_sfname,rom_save_sfname,'Downloading additional, please wait...')
 
-def download_and_launch_rom(romwindow,rom_fname,rom_sfname, rom_save_fname, rom_save_sfname):
+def download_and_launch_rom(romwindow,rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom_dl_path):
     print 'Download and Launch Selected'
     
     success, selectedcore = selectlibretrocore()
 
     if selectedcore:
-        download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname)
+        download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom_dl_path)
         current_path = getTempDir()
         current_save_fname = current_path+'/'+rom_save_fname
         launch_game_listitem = xbmcgui.ListItem(current_save_fname, "0", "", "")
@@ -233,6 +292,10 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
         self.studio = kwargs['studio']
         self.genre = kwargs['genre']
         self.release_date = kwargs['release_date']
+        self.emu_downloadpath = kwargs['emu_downloadpath']
+        self.emu_postdlaction = kwargs['emu_postdlaction']
+        self.emu_launcher = kwargs['emu_launcher']
+        self.emu_ext_launch_cmd= kwargs['emu_ext_launch_cmd']
         pass
 
     def onInit(self):
@@ -332,14 +395,14 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
                 xbmc.Player().stop()
                 xbmc.sleep(100)
 
-            download_rom_only(self.rom_fname, self.rom_sfname, self.rom_save_fname, self.rom_save_sfname)
+            download_rom_only(self.rom_fname, self.rom_sfname, self.rom_save_fname, self.rom_save_sfname, self.emu_downloadpath)
 
         if controlId == self.control_id_button_action2:
             if xbmc.Player().isPlaying():
                 xbmc.Player().stop()
                 xbmc.sleep(100)
 
-            download_and_launch_rom(self,self.rom_fname, self.rom_sfname, self.rom_save_fname, self.rom_save_sfname)
+            download_and_launch_rom(self,self.rom_fname, self.rom_sfname, self.rom_save_fname, self.rom_save_sfname, self.emu_downloadpath)
 
         if controlId == self.control_id_button_action3: #Play the trailer if it exists
             if self.trailer:

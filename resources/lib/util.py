@@ -322,6 +322,8 @@ def get_xml_header_paths(xmlfilename):
 	emu_baseurl = list()
 	emu_downloadpath = list()
 	emu_postdlaction = list()
+	emu_launcher = list()
+	emu_ext_launch_cmd = list()
 
 	while header_end < 1:
 		line=f.readline()    
@@ -336,6 +338,8 @@ def get_xml_header_paths(xmlfilename):
 			emu_baseurl.append(header_text.split('<emu_baseurl>')[1].split('</emu_baseurl>')[0])
 			emu_downloadpath.append(header_text.split('<emu_downloadpath>')[1].split('</emu_downloadpath>')[0])
 			emu_postdlaction.append(header_text.split('<emu_postdlaction>')[1].split('</emu_postdlaction>')[0])
+			emu_launcher.append(header_text.split('<emu_launcher>')[1].split('</emu_launcher>')[0])
+			emu_ext_launch_cmd.append(header_text.split('<emu_ext_launch_cmd>')[1].split('</emu_ext_launch_cmd>')[0])
 			f.close()
 		if line_num == total_lines:  #Couldn't find the header
 			header_end = 1
@@ -349,6 +353,8 @@ def get_xml_header_paths(xmlfilename):
 	'emu_baseurl' : emu_baseurl,
 	'emu_downloadpath' : emu_downloadpath,
 	'emu_postdlaction' : emu_postdlaction,
+	'emu_launcher' : emu_launcher,
+	'emu_ext_launch_cmd' : emu_ext_launch_cmd,
 	}
 
 	return dat_file_table
@@ -470,6 +476,30 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
 			current_emu_fanart = xml_header_info['emu_fanart'][0]
 		else:
 			current_emu_fanart = None
+
+		current_emu_downloadpath = []
+		if xml_header_info['emu_downloadpath']:
+			current_emu_downloadpath = xml_header_info['emu_downloadpath'][0]
+		else:
+			current_emu_downloadpath = None
+
+		current_emu_postdlaction = []
+		if xml_header_info['emu_postdlaction']:
+			current_emu_postdlaction = xml_header_info['emu_postdlaction'][0]
+		else:
+			current_emu_postdlaction = None
+
+		current_emu_launcher = []
+		if xml_header_info['emu_launcher']:
+			current_emu_launcher = xml_header_info['emu_launcher'][0]
+		else:
+			current_emu_launcher = None
+
+		current_emu_ext_launch_cmd = []
+		if xml_header_info['emu_ext_launch_cmd']:
+			current_emu_ext_launch_cmd = xml_header_info['emu_ext_launch_cmd'][0]
+		else:
+			current_emu_ext_launch_cmd = None
 
 		current_sfname = []
 		if entries['rom_supporting_file']:
@@ -593,7 +623,8 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
         'banner1': current_banner[0], 'banner2': current_banner[1], 'banner3': current_banner[2], 'banner4': current_banner[3], 'banner5': current_banner[4], 'banner6': current_banner[5], 'banner7': current_banner[6], 'banner8': current_banner[7], 'banner9': current_banner[8], 'banner10': current_banner[9],
         'snapshot1': current_snapshot[0], 'snapshot2': current_snapshot[1], 'snapshot3': current_snapshot[2], 'snapshot4': current_snapshot[3], 'snapshot5': current_snapshot[4], 'snapshot6': current_snapshot[5], 'snapshot7': current_snapshot[6], 'snapshot8': current_snapshot[7], 'snapshot9': current_snapshot[8], 'snapshot10': current_snapshot[9],
         'boxart1': current_thumbnail[0], 'boxart2': current_thumbnail[1], 'boxart3': current_thumbnail[2], 'boxart4': current_thumbnail[3], 'boxart5': current_thumbnail[4], 'boxart6': current_thumbnail[5], 'boxart7': current_thumbnail[6], 'boxart8': current_thumbnail[7], 'boxart9': current_thumbnail[8], 'boxart10': current_thumbnail[9],
-        'nplayers': current_nplayers, 'emu_logo': current_emu_logo, 'emu_fanart': current_emu_fanart, 'emu_name': current_emu_name, 'rom_fname': current_fname, 'rom_sfname': current_sfname, 'rom_save_fname': current_save_fname, 'rom_save_sfname': current_save_sfname}
+        'nplayers': current_nplayers, 'emu_logo': current_emu_logo, 'emu_fanart': current_emu_fanart, 'emu_name': current_emu_name, 'rom_fname': current_fname, 'rom_sfname': current_sfname, 'rom_save_fname': current_save_fname, 'rom_save_sfname': current_save_sfname,
+        'emu_downloadpath': current_emu_downloadpath, 'emu_postdlaction': current_emu_postdlaction, 'emu_launcher': current_emu_launcher, 'emu_ext_launch_cmd': current_emu_ext_launch_cmd}
         }
 		items.append(current_item)
 
@@ -694,6 +725,72 @@ def readLibretroCores(enabledParam):
 		return True, addons
 	# Logutil.log("addons: %s" %str(addons), util.LOG_LEVEL_INFO)
 	return True, addons
+
+def update_xml_header(current_path,current_filename,reg_exp,new_value):
+	full_reg_exp = '</'+reg_exp+'>' #Look for this
+	fout = open(current_path+'temp.xml', 'w') # out file
+	full_new_val = '<'+reg_exp+'>'+new_value+'</'+reg_exp+'>' #replacement value
+
+	value_updated = False
+
+	with open(current_path+current_filename, 'rU') as fin:
+		while True:
+			line = fin.readline()
+			if full_reg_exp in line:
+				try:
+					beg_of_line = line.split('<')
+					end_of_line = line.split('>')
+					my_new_line = beg_of_line[0]+full_new_val+end_of_line[-1:][0] #Match the characters that were previously on the line
+					fout.write(my_new_line)
+				except:
+					fout.write(full_new_val)
+				value_updated = True				
+			else:
+				fout.write(line)
+			if not line:
+				break
+				pass
+
+	fout.close()
+
+	if value_updated:
+		os.remove(current_path+current_filename) #Remove Old File
+		os.rename(current_path+'temp.xml',current_path+current_filename) #Rename Temp File
+		print 'File Updated: '+current_filename
+
+def set_new_dl_path(xml_id):
+	current_xml_fileparts = os.path.split(xml_id)
+	current_xml_filename = current_xml_fileparts[1]
+	current_xml_path = current_xml_fileparts[0] + '/'
+
+	print current_xml_filename
+	print current_xml_path
+	current_dialog = xbmcgui.Dialog()
+
+	ret1 = current_dialog.select('Select Download Path Type', ['Default','Custom'])
+
+	if ret1 == 0:
+		ret2 = current_dialog.select('Are you sure you want to update the current Download Path for '+current_xml_filename, ['Yes','Cancel'])
+		if ret2<1:
+			update_xml_header(current_xml_path,current_xml_filename,'emu_downloadpath','default')
+			ok_ret = current_dialog.ok('Complete','Download Path was updated to default')
+	elif ret1 == 1:
+		new_path = current_dialog.browse(0,'Update Download Path','files')
+		ret2 = current_dialog.select('Are you sure you want to update the current Download Path for '+current_xml_filename, ['Yes','Cancel'])
+		if ret2<1:
+			update_xml_header(current_xml_path,current_xml_filename,'emu_downloadpath',new_path)
+			ok_ret = current_dialog.ok('Complete','Download Path was updated to your custom folder')
+	else:
+		pass
+
+def check_downloaded_file(file_path):
+
+	st = os.stat(file_path)
+	# print st
+	if st.st_size < 1: #Zero Byte File
+		current_dialog = xbmcgui.Dialog()
+		ok_ret = current_dialog.ok('Error','The selected file was not available in the Archive[CR]Sorry about that')
+		os.remove(file_path) #Remove Zero Byte File
 
 def getScrapingMode(settings):
 	scrapingMode = 0
