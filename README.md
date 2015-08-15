@@ -2,6 +2,10 @@ Internet Archive ROM Launcher
 ==========================
 ![enter image description here](https://github.com/zach-morris/plugin.program.iarl/blob/master/fanart.jpg)
 
+Are you interested in having a large game collection, but not interested in storing all that data on your computer?
+
+_Then IARL is for you!_
+
 The Internet Archive ROM Launcher (IARL) will launch Games using [Kodi](http://kodi.tv) and [Retroplayer](https://github.com/garbear/xbmc).
 
 ----------
