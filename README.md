@@ -24,6 +24,4 @@ To do
    
  - Add additional sources.  This depends on which cores for retroplayer are available / working.
    
- - Add functionality for downloading ROMs to a different location (currently downloads only go to the userdata folder)
-   
  - Bug fixes / code robustness
