@@ -1,4 +1,4 @@
-import os, sys, re, shutil, json
+import os, sys, re, shutil, json, zipfile
 import os.path
 import xbmc, xbmcaddon, xbmcvfs
 from xbmcswift2 import xbmcgui
@@ -79,6 +79,21 @@ def joinPath(part1, *parts):
 #
 # METHODS #
 #
+
+def get_Operating_System():
+	current_OS = None
+
+	if 'win32' in sys.platform:
+		current_OS = 'Windows'
+	elif 'linux' in sys.platform:
+		current_OS = 'Nix'
+	elif 'darwin' in sys.platform:
+		if 'USER' in os.environ and os.environ['USER'] in ('mobile','frontrow',):
+			current_OS = 'IOS'
+		else: 
+			current_OS = 'OSX'
+
+	return current_OS
 
 def getEnvironment():
 	return ( os.environ.get( "OS", "win32" ), "win32", )[ os.environ.get( "OS", "win32" ) == "xbox" ]
@@ -191,6 +206,41 @@ def getConfigXmlPath():
 	Logutil.log('Path to configuration file: ' +str(configFile), LOG_LEVEL_INFO)
 	return configFile
 
+def update_external_launch_commands(current_os,retroarch_path,xml_id):
+
+	current_xml_fileparts = os.path.split(xml_id)
+	current_xml_filename = current_xml_fileparts[1]
+	current_xml_path = current_xml_fileparts[0] + '/'
+
+	parserfile = getParserFilePath('external_launcher_parser.xml')
+	launchersfile = getParserFilePath('external_command_databse.xml')
+	descParser = DescriptionParserFactory.getParser(parserfile)
+	results = descParser.parseDescription(launchersfile,'xml')
+	user_options = list()
+	launch_command = list()
+	new_launch_command = None
+
+	if current_os == 'OSX':
+		retroarch_path = retroarch_path.split('.app')[0]+'.app' #Make App Path for OSX only up to the container
+
+	for entries in results: #Create list of available commands for the current OS
+		if entries['operating_system'][0] == current_os:
+			user_options.append(entries['launcher'][0])
+			launch_command.append(entries['launcher_command'][0])
+
+	user_options.append('None')
+	launch_command.append('none')
+
+	current_dialog = xbmcgui.Dialog()
+	ret1 = current_dialog.select('Select from the available launch commands', user_options)
+
+	if ret1>=0:
+		ret2 = current_dialog.select('Are you sure you want to update[CR]the current External Launch Command?', ['Yes','Cancel'])
+		if ret2<1:
+			new_launch_command = launch_command[ret1]
+			new_launch_command = new_launch_command.replace('%APP_PATH%',retroarch_path)
+			update_xml_header(current_xml_path,current_xml_filename,'emu_ext_launch_cmd',new_launch_command)
+			ok_ret = current_dialog.ok('Complete','External Launch Command was updated')
 
 def copyFile(oldPath, newPath):
 	Logutil.log('new path = %s' %newPath, LOG_LEVEL_INFO)
@@ -758,13 +808,44 @@ def update_xml_header(current_path,current_filename,reg_exp,new_value):
 		os.rename(current_path+'temp.xml',current_path+current_filename) #Rename Temp File
 		print 'File Updated: '+current_filename
 
+def unzip_file(current_fname):
+	zip_success = False
+	uz_file_extension = None
+	new_fname = None
+
+	if zipfile.is_zipfile(current_fname):
+		try:
+			current_zip_fileparts = os.path.split(current_fname)
+			current_zip_path = current_zip_fileparts[0] + '/'
+			z_file = zipfile.ZipFile(current_fname)
+			uz_file_extension = os.path.splitext(z_file.namelist()[0])[1] #Get rom extension
+			z_file.extractall(current_zip_path)
+			zip_success = True
+			print 'Unzip Successful'
+		except:
+			zip_success = False
+			print 'Unzip Failed'
+
+		if zip_success:
+			os.remove(current_fname)
+	else:
+		print current_fname + ' was not regognized as a zipfile and not extracted'
+
+	if uz_file_extension is not None: #The file was unzipped, change from zip to rom extension
+		new_fname = os.path.splitext(current_fname)[0]+uz_file_extension
+		xbmc.sleep(500) #Some sort of issue with launching after it's been unzipped and calling the launch to quickly, so sleep here
+	else:
+		new_fname = current_fname #Didn't unzip or didn't find a file extension
+
+
+	return zip_success, new_fname
+
+
 def set_new_dl_path(xml_id):
 	current_xml_fileparts = os.path.split(xml_id)
 	current_xml_filename = current_xml_fileparts[1]
 	current_xml_path = current_xml_fileparts[0] + '/'
 
-	print current_xml_filename
-	print current_xml_path
 	current_dialog = xbmcgui.Dialog()
 
 	ret1 = current_dialog.select('Select Download Path Type', ['Default','Custom'])
@@ -783,7 +864,55 @@ def set_new_dl_path(xml_id):
 	else:
 		pass
 
+
+def set_new_post_dl_action(xml_id):
+	current_xml_fileparts = os.path.split(xml_id)
+	current_xml_filename = current_xml_fileparts[1]
+	current_xml_path = current_xml_fileparts[0] + '/'
+
+	current_dialog = xbmcgui.Dialog()
+
+	ret1 = current_dialog.select('Select New Post Download Action', ['None','Unzip','Cancel'])
+
+	if ret1 == 0:
+		ret2 = current_dialog.select('Are you sure you want to set the post DL action to none for '+current_xml_filename, ['Yes','Cancel'])
+		if ret2<1:
+			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','none')
+			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to None')
+	elif ret1 == 1:
+		ret2 = current_dialog.select('Are you sure you want to set the post DL action to Unzip for '+current_xml_filename, ['Yes','Cancel'])
+		if ret2<1:
+			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','unzip_rom')
+			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to Unzip')
+	else:
+		pass
+
+
+def set_new_emu_launcher(xml_id):
+	current_xml_fileparts = os.path.split(xml_id)
+	current_xml_filename = current_xml_fileparts[1]
+	current_xml_path = current_xml_fileparts[0] + '/'
+
+	current_dialog = xbmcgui.Dialog()
+
+	ret1 = current_dialog.select('Select New Emulator Launcher', ['Kodi RetroPlayer','External','Cancel'])
+
+	if ret1 == 0:
+		ret2 = current_dialog.select('Are you sure you want to set the Emulator to Kodi Retroplayer for '+current_xml_filename, ['Yes','Cancel'])
+		if ret2<1:
+			update_xml_header(current_xml_path,current_xml_filename,'emu_launcher','retroplayer')
+			ok_ret = current_dialog.ok('Complete','Emulator updated to Kodi Retroplayer')
+	elif ret1 == 1:
+		ret2 = current_dialog.select('Are you sure you want to set the Emulator to External Program for '+current_xml_filename, ['Yes','Cancel'])
+		if ret2<1:
+			update_xml_header(current_xml_path,current_xml_filename,'emu_launcher','external')
+			ok_ret = current_dialog.ok('Complete','Emulator updated to External Program')
+	else:
+		pass
+
 def check_downloaded_file(file_path):
+
+	bad_file_found = False
 
 	st = os.stat(file_path)
 	# print st
@@ -791,6 +920,9 @@ def check_downloaded_file(file_path):
 		current_dialog = xbmcgui.Dialog()
 		ok_ret = current_dialog.ok('Error','The selected file was not available in the Archive[CR]Sorry about that')
 		os.remove(file_path) #Remove Zero Byte File
+		bad_file_found = True
+
+	return bad_file_found
 
 def getScrapingMode(settings):
 	scrapingMode = 0

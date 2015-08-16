@@ -1,0 +1,7 @@
+<parserConfig>
+    <GameGrammar type="xml" root="launcher">
+        <launcher>./@name</launcher>
+        <operating_system>./@os</operating_system>
+        <launcher_command>launcher_command</launcher_command>
+    </GameGrammar>
+</parserConfig>
