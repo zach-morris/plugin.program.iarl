@@ -17,6 +17,14 @@ IARL uses xml files to provide the information for Games on the [Internet Archiv
 
 ----------
 
+Screenshots
+-------------------
+![Screen #1](https://raw.githubusercontent.com/zach-morris/plugin.program.iarl/master/support/media/screen1.jpg)
+
+![Screen #2](https://raw.githubusercontent.com/zach-morris/plugin.program.iarl/master/support/media/screen2.jpg)
+
+![Screen #3](https://raw.githubusercontent.com/zach-morris/plugin.program.iarl/master/support/media/screen3.jpg)
+
 To do
 -------------------
 
