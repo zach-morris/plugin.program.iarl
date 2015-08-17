@@ -10,12 +10,14 @@ The Internet Archive ROM Launcher (IARL) will launch Games using [Kodi](http://k
 
 ----------
 
+
 How does it work
 -------------
 
 IARL uses xml files to provide the information for Games on the [Internet Archive](https://archive.org).  The database can also provide media for each Game (Fanart / Boxart / Snapshots / Trailer / etc).   You can use the xml files I've created or create your own.  If you create more please let me know and I can include them.
 
 ----------
+
 
 Screenshots
 -------------------
@@ -24,6 +26,8 @@ Screenshots
 ![Screen #2](https://raw.githubusercontent.com/zach-morris/plugin.program.iarl/master/support/media/screen2.jpg)
 
 ![Screen #3](https://raw.githubusercontent.com/zach-morris/plugin.program.iarl/master/support/media/screen3.jpg)
+----------
+
 
 To do
 -------------------
