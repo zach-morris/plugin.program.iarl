@@ -310,7 +310,7 @@ def download_and_launch_rom(romwindow,rom_fname,rom_sfname, rom_save_fname, rom_
                 current_save_sfname = new_rom_sfname
             
             launch_game_listitem = xbmcgui.ListItem(current_save_fname, "0", "", "")
-            parameters = { "gameclient": selectedcore }
+            parameters = { "Addon.ID": selectedcore }
             print selectedcore
             launch_game_listitem.setInfo( type="game", infoLabels=parameters)
 
