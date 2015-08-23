@@ -206,7 +206,6 @@ def get_selected_rom(romname):
     current_rom_sfname = xbmc.getInfoLabel('ListItem.Property(rom_sfname)') #Full URL of supporting ROMs
     current_rom_save_fname = xbmc.getInfoLabel('ListItem.Property(rom_save_fname)') #Filename to save for ROM
     current_rom_save_sfname = xbmc.getInfoLabel('ListItem.Property(rom_save_sfname)') #Filename to save for supporting ROMs
-    current_emu_name = xbmc.getInfoLabel('ListItem.Property(emu_name)')
     current_genre = xbmc.getInfoLabel('ListItem.Genre')
     current_release_date = xbmc.getInfoLabel('ListItem.Date')
     current_plot = xbmc.getInfoLabel('ListItem.Plot')
@@ -311,7 +310,7 @@ def download_and_launch_rom(romwindow,rom_fname,rom_sfname, rom_save_fname, rom_
                 current_save_sfname = new_rom_sfname
             
             launch_game_listitem = xbmcgui.ListItem(current_save_fname, "0", "", "")
-            parameters = { "gameclient": selectedcore }
+            parameters = { "Addon.ID": selectedcore }
             print selectedcore
             launch_game_listitem.setInfo( type="game", infoLabels=parameters)
 
