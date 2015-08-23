@@ -91,7 +91,7 @@
          <visible>true</visible>
          <colordiffuse>FFFFFFFF</colordiffuse>
          <font>font13</font>
-         <textcolor>FFFFFFFF</textcolor>
+         <textcolor>white</textcolor>
          <pulseonselect></pulseonselect>
          <pagecontrol>13</pagecontrol>
          <scrolltime>200</scrolltime>
@@ -200,7 +200,7 @@
            <visible>true</visible>
            <colordiffuse>FFFFFFFF</colordiffuse>
            <font>font14</font>
-           <textcolor>FFFFFFFF</textcolor>
+           <textcolor>black</textcolor>
            <scrolltime>200</scrolltime>
            <autoscroll delay="3000" time="1000" repeat="10000"></autoscroll>
            <label>Unknown</label>
@@ -219,7 +219,7 @@
            <visible>true</visible>
            <colordiffuse>FFFFFFFF</colordiffuse>
            <font>font14</font>
-           <textcolor>FFFFFFFF</textcolor>
+           <textcolor>black</textcolor>
            <scrolltime>200</scrolltime>
            <autoscroll delay="3000" time="1000" repeat="10000"></autoscroll>
            <label>Unknown</label>
@@ -238,7 +238,7 @@
            <visible>true</visible>
            <colordiffuse>FFFFFFFF</colordiffuse>
            <font>font14</font>
-           <textcolor>FFFFFFFF</textcolor>
+           <textcolor>black</textcolor>
            <scrolltime>200</scrolltime>
            <autoscroll delay="3000" time="1000" repeat="10000"></autoscroll>
            <label>Unknown</label>
@@ -257,7 +257,7 @@
            <visible>true</visible>
            <colordiffuse>FFFFFFFF</colordiffuse>
            <font>font14</font>
-           <textcolor>FFFFFFFF</textcolor>
+           <textcolor>black</textcolor>
            <scrolltime>200</scrolltime>
            <autoscroll delay="3000" time="1000" repeat="10000"></autoscroll>
            <label>Unknown</label>
