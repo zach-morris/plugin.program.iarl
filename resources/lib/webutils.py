@@ -119,3 +119,7 @@ def clean(text):
 def quote_url(text):
 	new_url = urllib.quote(text,':%/')
 	return new_url
+
+def unquote_name(text):
+	new_text = urllib.unquote(text)
+	return new_text

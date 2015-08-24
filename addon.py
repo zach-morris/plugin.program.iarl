@@ -234,8 +234,13 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom
     #Clean the savefilenames so it's only the last thing listed in the ROM argument (no folders)
     cleaned_save_fname = rom_save_fname.split('/')[-1:][0]
     cleaned_save_fname = cleaned_save_fname.split('%2F')[-1:][0]
+    cleaned_save_fname = unquote_name(cleaned_save_fname) #Added 082415, issue with launching if the filename is quoted
     cleaned_save_sfname = rom_save_sfname.split('/')[-1:][0]
     cleaned_save_sfname = cleaned_save_sfname.split('%2F')[-1:][0]
+    cleaned_save_sfname = unquote_name(cleaned_save_sfname) #Added 082415, issue with launching if the filename is quoted
+
+    # print cleaned_save_fname
+    # print cleaned_save_sfname
     
     current_save_fname = current_path+'/'+cleaned_save_fname
     current_save_sfname = current_path+'/'+rom_save_sfname
