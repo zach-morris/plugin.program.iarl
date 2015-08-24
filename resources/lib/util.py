@@ -631,6 +631,11 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
 		else:
 			current_trailer = None
 
+		if entries['rom_emu_command']:
+			current_rom_emu_command = entries['rom_emu_command'][0]
+		else:
+			current_rom_emu_command = None
+
 		current_fanart = list()
 		for ii in range(0,total_arts):
 			if entries['rom_fanart'+str(ii+1)]:
@@ -674,7 +679,7 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
         'snapshot1': current_snapshot[0], 'snapshot2': current_snapshot[1], 'snapshot3': current_snapshot[2], 'snapshot4': current_snapshot[3], 'snapshot5': current_snapshot[4], 'snapshot6': current_snapshot[5], 'snapshot7': current_snapshot[6], 'snapshot8': current_snapshot[7], 'snapshot9': current_snapshot[8], 'snapshot10': current_snapshot[9],
         'boxart1': current_thumbnail[0], 'boxart2': current_thumbnail[1], 'boxart3': current_thumbnail[2], 'boxart4': current_thumbnail[3], 'boxart5': current_thumbnail[4], 'boxart6': current_thumbnail[5], 'boxart7': current_thumbnail[6], 'boxart8': current_thumbnail[7], 'boxart9': current_thumbnail[8], 'boxart10': current_thumbnail[9],
         'nplayers': current_nplayers, 'emu_logo': current_emu_logo, 'emu_fanart': current_emu_fanart, 'emu_name': current_emu_name, 'rom_fname': current_fname, 'rom_sfname': current_sfname, 'rom_save_fname': current_save_fname, 'rom_save_sfname': current_save_sfname,
-        'emu_downloadpath': current_emu_downloadpath, 'emu_postdlaction': current_emu_postdlaction, 'emu_launcher': current_emu_launcher, 'emu_ext_launch_cmd': current_emu_ext_launch_cmd}
+        'emu_downloadpath': current_emu_downloadpath, 'emu_postdlaction': current_emu_postdlaction, 'emu_launcher': current_emu_launcher, 'emu_ext_launch_cmd': current_emu_ext_launch_cmd, 'rom_emu_command': current_rom_emu_command}
         }
 		items.append(current_item)
 
@@ -782,13 +787,44 @@ def unzip_file(current_fname):
 
 	if uz_file_extension is not None: #The file was unzipped, change from zip to rom extension
 		new_fname = os.path.splitext(current_fname)[0]+uz_file_extension
-		# xbmc.sleep(500) #Some sort of issue with launching after it's been unzipped and calling the launch to quickly, so sleep here
 	else:
 		new_fname = current_fname #Didn't unzip or didn't find a file extension
 
 
 	return zip_success, new_fname
 
+def unzip_dosbox_file(current_fname,current_rom_emu_command):
+	zip_success = False
+	new_fname = None
+
+	if zipfile.is_zipfile(current_fname):
+		try:
+			current_zip_fileparts = os.path.split(current_fname)
+			current_zip_path = current_zip_fileparts[0] + '/'
+			z_file = zipfile.ZipFile(current_fname)
+			# uz_file_extension = os.path.splitext(z_file.namelist()[0])[1] #Get rom extension
+			z_file.extractall(current_zip_path)
+			zip_success = True
+			print 'Unzip Successful'
+		except:
+			zip_success = False
+			print 'Unzip Failed'
+
+		if zip_success:
+			os.remove(current_fname)
+	else:
+		print current_fname + ' was not regognized as a zipfile and not extracted'
+
+	if current_rom_emu_command: #The file was unzipped, change from zip to rom extension
+		try:
+			new_fname = current_zip_path+current_rom_emu_command
+		except:
+			new_fname = current_fname #Didn't unzip or didn't find a file extension
+	else:
+		new_fname = current_fname #Didn't unzip or didn't find a file extension
+
+
+	return zip_success, new_fname
 
 def set_new_dl_path(xml_id):
 	current_xml_fileparts = os.path.split(xml_id)
@@ -821,7 +857,7 @@ def set_new_post_dl_action(xml_id):
 
 	current_dialog = xbmcgui.Dialog()
 
-	ret1 = current_dialog.select('Select New Post Download Action', ['None','Unzip','Cancel'])
+	ret1 = current_dialog.select('Select New Post Download Action', ['None','Unzip','Unzip and Update DOSBox CMD','Cancel'])
 
 	if ret1 == 0:
 		ret2 = current_dialog.select('Are you sure you want to set the post DL action to none for '+current_xml_filename, ['Yes','Cancel'])
@@ -833,6 +869,11 @@ def set_new_post_dl_action(xml_id):
 		if ret2<1:
 			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','unzip_rom')
 			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to Unzip')
+	elif ret1 == 2:
+		ret2 = current_dialog.select('Are you sure you want to set the post DL action to Unzip and Update DOSBox CMDs for '+current_xml_filename, ['Yes','Cancel'])
+		if ret2<1:
+			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','unzip_update_rom_path_dosbox')
+			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to Unzip and Update DOSBox CMDs')
 	else:
 		pass
 

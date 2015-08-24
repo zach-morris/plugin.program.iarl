@@ -9,6 +9,7 @@
         <rom_author>studio</rom_author>
         <rom_category>genre</rom_category>
         <rom_players>nplayers</rom_players>
+        <rom_emu_command>emu_command</rom_emu_command>
         <rom_snapshot1>snapshot1</rom_snapshot1>
         <rom_snapshot2>snapshot2</rom_snapshot2>
         <rom_snapshot3>snapshot3</rom_snapshot3>
