@@ -725,57 +725,6 @@ def dlfile(url,dest):
     return result
 
 
-def selectlibretrocore():
-		
-	selectedCore = ''
-	addons = ['None']
-	
-	# success, installedAddons = readLibretroCores("all", True, platform)
-	success, installedAddons = readLibretroCores("all")
-	if(not success):
-		return False, ""
-	addons.extend(installedAddons)
-	
-	# success, uninstalledAddons = readLibretroCores("uninstalled", False, platform)
-	success, uninstalledAddons = readLibretroCores("uninstalled")
-	if(not success):
-		return False, ""
-	addons.extend(uninstalledAddons)
-	
-	dialog = xbmcgui.Dialog()
-	index = dialog.select('Select libretro core', addons)
-	print "index = " +str(index)
-	if(index == -1):
-		return False, ""
-	elif(index == 0):
-		print "return success"
-		return True, ""
-	else:
-		selectedCore = addons[index]
-		return True, selectedCore
-
-def readLibretroCores(enabledParam):
-	
-	addons = []
-	addonsJson = xbmc.executeJSONRPC('{ "jsonrpc": "2.0", "id": 1, "method": "Addons.GetAddons", "params": { "type": "kodi.gameclient", "enabled": "%s" } }' %enabledParam)
-	jsonResult = json.loads(addonsJson)	
-			
-	try:
-		for addonObj in jsonResult[u'result'][u'addons']:
-			id = addonObj[u'addonid']
-			# addon = xbmcaddon.Addon(id, installed=installedParam)
-			# # extensions and platforms are "|" separated, extensions may or may not have a leading "."
-			# addonPlatformStr = addon.getAddonInfo('platforms')
-			# addonPlatforms = addonPlatformStr.split("|")
-			# # for addonPlatform in addonPlatforms:
-			# # 	if(addonPlatform == platform):
-			addons.append(id)
-	except KeyError:
-		#no addons installed or found
-		return True, addons
-	# Logutil.log("addons: %s" %str(addons), util.LOG_LEVEL_INFO)
-	return True, addons
-
 def update_xml_header(current_path,current_filename,reg_exp,new_value):
 	full_reg_exp = '</'+reg_exp+'>' #Look for this
 	fout = open(current_path+'temp.xml', 'w') # out file
