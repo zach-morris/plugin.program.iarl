@@ -295,32 +295,28 @@ def download_and_launch_rom(romwindow,rom_fname,rom_sfname, rom_save_fname, rom_
             print 'IARL Error:  No external launch command is defined'
 
     else: #Otherwise use retroplayer
-        success, selectedcore = selectlibretrocore()
+        download_success, new_rom_fname, new_rom_sfname = download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom_dl_path, rom_postdlaction)
+        current_path = getTempDir()
+        current_save_fname = current_path+'/'+rom_save_fname
+        current_save_sfname = current_path+'/'+rom_save_sfname
 
-        if selectedcore:
-            download_success, new_rom_fname, new_rom_sfname = download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom_dl_path, rom_postdlaction)
-            current_path = getTempDir()
-            current_save_fname = current_path+'/'+rom_save_fname
-            current_save_sfname = current_path+'/'+rom_save_sfname
+        if new_rom_fname is not None: #The file was unzipped, change from zip to the correct rom extension
+            current_save_fname = new_rom_fname
 
-            if new_rom_fname is not None: #The file was unzipped, change from zip to the correct rom extension
-                current_save_fname = new_rom_fname
+        if new_rom_sfname is not None: #The file was unzipped, change from zip to the correct rom extension
+            current_save_sfname = new_rom_sfname
 
-            if new_rom_sfname is not None: #The file was unzipped, change from zip to the correct rom extension
-                current_save_sfname = new_rom_sfname
-            
-            launch_game_listitem = xbmcgui.ListItem(current_save_fname, "0", "", "")
-            parameters = { "Addon.ID": selectedcore }
-            print selectedcore
-            launch_game_listitem.setInfo( type="game", infoLabels=parameters)
+        launch_game_listitem = xbmcgui.ListItem(current_save_fname, "0", "", "")
+        parameters = { }
+        launch_game_listitem.setInfo( type="game", infoLabels=parameters)
 
-            if xbmc.Player().isPlaying():
-                    xbmc.Player().stop()
-                    xbmc.sleep(100)
+        if xbmc.Player().isPlaying():
+                xbmc.Player().stop()
+                xbmc.sleep(100)
 
-            romwindow.closeDialog() #Need to close the dialog window for the game window to be in the front
-            xbmc.sleep(500) #This pause seems to help... I'm not really sure why
-            xbmc.Player().play(current_save_fname,launch_game_listitem)
+        romwindow.closeDialog() #Need to close the dialog window for the game window to be in the front
+        xbmc.sleep(500) #This pause seems to help... I'm not really sure why
+        xbmc.Player().play(current_save_fname,launch_game_listitem)
 
 class ROMWindow(xbmcgui.WindowXMLDialog):
     def __init__(self,strXMLname, strFallbackPath, strDefaultName, forceFallback, *args, **kwargs):
