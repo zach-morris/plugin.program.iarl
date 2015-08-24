@@ -319,6 +319,7 @@ def download_and_launch_rom(romwindow,rom_fname,rom_sfname, rom_save_fname, rom_
                     xbmc.sleep(100)
 
             romwindow.closeDialog() #Need to close the dialog window for the game window to be in the front
+            xbmc.sleep(500) #This pause seems to help... I'm not really sure why
             xbmc.Player().play(current_save_fname,launch_game_listitem)
 
 class ROMWindow(xbmcgui.WindowXMLDialog):

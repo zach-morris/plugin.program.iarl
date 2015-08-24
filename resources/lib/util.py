@@ -833,7 +833,7 @@ def unzip_file(current_fname):
 
 	if uz_file_extension is not None: #The file was unzipped, change from zip to rom extension
 		new_fname = os.path.splitext(current_fname)[0]+uz_file_extension
-		xbmc.sleep(500) #Some sort of issue with launching after it's been unzipped and calling the launch to quickly, so sleep here
+		# xbmc.sleep(500) #Some sort of issue with launching after it's been unzipped and calling the launch to quickly, so sleep here
 	else:
 		new_fname = current_fname #Didn't unzip or didn't find a file extension
 
