@@ -806,6 +806,7 @@ def unzip_dosbox_file(current_fname,current_rom_emu_command):
 			# uz_file_extension = os.path.splitext(z_file.namelist()[0])[1] #Get rom extension
 			z_file.extractall(current_zip_path)
 			zip_success = True
+			z_file.close()
 			print 'Unzip Successful'
 		except:
 			zip_success = False

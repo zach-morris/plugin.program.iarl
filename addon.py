@@ -87,7 +87,8 @@ def index():
         'context_menu' : context_menus
         })
     
-    return items
+    return plugin.finish(items, sort_methods=[xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_GENRE])
+    # return items
 
 @plugin.route('/Emulator/<category_id>/<page_id>')
 def get_rom_list(category_id,page_id):
@@ -120,12 +121,12 @@ def get_rom_list(category_id,page_id):
     prev_page.append({ 
         'label' : '<< Prev', 'path' :  plugin.url_for('get_rom_list', category_id=category_id,page_id=str(page.previous_page),parser_id=parserpath,xml_id=xmlpath), 'icon': icon_filepath + 'Previous.png',
         'thumbnail' : icon_filepath + 'Previous.png',
-        'info' : { 'plot' : 'Page ' + str(page.page) + ' of ' + str(page.page_count) + '.  Prev page is ' + str(page.previous_page) + '.  Total of ' + str(page.item_count) + ' games in this archive.'}
+        'info' : {'genre': 'ZZZ', 'date': '01/01/2999', 'plot' : 'Page ' + str(page.page) + ' of ' + str(page.page_count) + '.  Prev page is ' + str(page.previous_page) + '.  Total of ' + str(page.item_count) + ' games in this archive.'}
         })
     next_page.append({ 
         'label' : 'Next >>', 'path' :  plugin.url_for('get_rom_list', category_id=category_id,page_id=str(page.next_page),parser_id=parserpath,xml_id=xmlpath), 'icon': icon_filepath + 'Next.png',
         'thumbnail' : icon_filepath + 'Next.png',
-        'info' : { 'plot' : 'Page ' + str(page.page) + ' of ' + str(page.page_count) + '.  Next page is ' + str(page.next_page) + '.  Total of ' + str(page.item_count) + ' games in this archive.'}
+        'info' : {'genre': 'ZZZ', 'date': '01/01/2999', 'plot' : 'Page ' + str(page.page) + ' of ' + str(page.page_count) + '.  Next page is ' + str(page.next_page) + '.  Total of ' + str(page.item_count) + ' games in this archive.'}
         })
 
     current_page = page.items #Grab the current page requested
@@ -138,7 +139,8 @@ def get_rom_list(category_id,page_id):
     if page.next_page:
         current_page.extend(next_page)
 
-    return current_page
+    return plugin.finish(current_page, sort_methods=[xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_DATE, xbmcplugin.SORT_METHOD_GENRE, xbmcplugin.SORT_METHOD_STUDIO_IGNORE_THE])
+    # return current_page
 
 @plugin.cached(TTL=24*60*30)
 def get_rom_list(xmlpath,parserpath):
