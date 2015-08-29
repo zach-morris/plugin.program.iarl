@@ -185,6 +185,36 @@ def check_temp_folder_and_clean(iarl_options_dl_cache):
 
 	current_path = getTempDir()  #Remake the directory
 
+def check_if_rom_exits(current_save_fname,current_path):
+	
+	file_already_exists = False
+	do_not_download_flag = False
+	fname_found = None
+
+	file_basename = os.path.basename(current_save_fname)
+	file_basename_no_ext = os.path.splitext(file_basename)
+
+	files_in_current_path = []
+	for (dp, dn, ff) in os.walk(current_path):
+		files_in_current_path.extend(ff)
+
+	if len(files_in_current_path)>0:
+		for check_f in files_in_current_path:
+			if file_basename_no_ext[0] in check_f:
+				file_already_exists = True
+				fname_found = check_f
+				print fname_found + ' already exists in the directory'
+
+	if file_already_exists:
+		current_dialog = xbmcgui.Dialog()
+		ret1 = current_dialog.select('The ROM already appears to exist.[CR]Re-Download and overwrite?', ['No','Yes'])
+
+		if ret1 == 0:
+			do_not_download_flag = True
+		else:
+			pass
+
+	return fname_found, do_not_download_flag
 
 def getFolderSize(folder):
     total_size = os.path.getsize(folder)

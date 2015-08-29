@@ -226,13 +226,8 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom
     new_rom_fname = None
     new_rom_sfname = None
 
-    print 'Downloading Selected ROM'
-    # print 'test'
-    # print rom_emu_command
-
     if rom_dl_path == 'default':
         current_path = getTempDir()
-        check_temp_folder_and_clean(iarl_setting_dl_cache)
     else:
         current_path = rom_dl_path
 
@@ -243,41 +238,50 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom
     cleaned_save_sfname = rom_save_sfname.split('/')[-1:][0]
     cleaned_save_sfname = cleaned_save_sfname.split('%2F')[-1:][0]
     cleaned_save_sfname = unquote_name(cleaned_save_sfname) #Added 082415, issue with launching if the filename is quoted
-
-    # print cleaned_save_fname
-    # print cleaned_save_sfname
-    
     current_save_fname = current_path+'/'+cleaned_save_fname
-    current_save_sfname = current_path+'/'+rom_save_sfname
+    current_save_sfname = current_path+'/'+cleaned_save_sfname
 
-    if rom_save_fname:
-        download_tools().Downloader(quote_url(rom_fname),current_save_fname,rom_save_fname,'Downloading, please wait...')
-        bad_file_found1 = check_downloaded_file(current_save_fname)
+    fname_found, do_not_download_flag = check_if_rom_exits(current_save_fname,current_path)
 
-        if not bad_file_found1:
-            download_success = True
+    if not do_not_download_flag: #File already is downloaded, no need to do anything else
+        if rom_dl_path == 'default':
+            check_temp_folder_and_clean(iarl_setting_dl_cache) #Check temp folder cache size and clean if needed
 
-            if rom_postdlaction == 'unzip_rom':
-                print 'Unzipping ' + current_save_fname
-                zip_success1, new_rom_fname = unzip_file(current_save_fname)
-            elif rom_postdlaction == 'unzip_update_rom_path_dosbox':
-                zip_success1, new_rom_fname = unzip_dosbox_file(current_save_fname,rom_emu_command)
-        else:
-            download_success = False
+        print 'Downloading Selected ROM'
+        # print 'test'
+        # print rom_emu_command
+        
+        if rom_save_fname:
+            download_tools().Downloader(quote_url(rom_fname),current_save_fname,rom_save_fname,'Downloading, please wait...')
+            bad_file_found1 = check_downloaded_file(current_save_fname)
 
-    if rom_save_sfname:
-        if rom_save_sfname != 'None':
-            download_tools().Downloader(rom_sfname,current_save_sfname,rom_save_sfname,'Downloading additional, please wait...')
-            bad_file_found2 = check_downloaded_file(current_save_sfname)
+            if not bad_file_found1:
+                download_success = True
 
-        if not bad_file_found2:
-            download_success = True
+                if rom_postdlaction == 'unzip_rom':
+                    print 'Unzipping ' + current_save_fname
+                    zip_success1, new_rom_fname = unzip_file(current_save_fname)
+                elif rom_postdlaction == 'unzip_update_rom_path_dosbox':
+                    zip_success1, new_rom_fname = unzip_dosbox_file(current_save_fname,rom_emu_command)
+            else:
+                download_success = False
 
-            if rom_postdlaction == 'unzip_rom':
-                print 'Unzipping ' + current_save_sfname
-                zip_success2, new_rom_sfname = unzip_file(current_save_sfname)
-        else:
-            download_success = False
+        if rom_save_sfname:
+            if rom_save_sfname != 'None':
+                download_tools().Downloader(rom_sfname,current_save_sfname,rom_save_sfname,'Downloading additional, please wait...')
+                bad_file_found2 = check_downloaded_file(current_save_sfname)
+
+            if not bad_file_found2:
+                download_success = True
+
+                if rom_postdlaction == 'unzip_rom':
+                    print 'Unzipping ' + current_save_sfname
+                    zip_success2, new_rom_sfname = unzip_file(current_save_sfname)
+            else:
+                download_success = False
+    else:
+        if fname_found is not None:
+            new_rom_fname = current_path+'/'+fname_found #Ensure the filename has the correct extension (could potentially have been unzipped)
 
     return download_success, new_rom_fname, new_rom_sfname
 
