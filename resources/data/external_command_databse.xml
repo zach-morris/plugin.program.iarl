@@ -1,4 +1,4 @@
-<system name="OSX">
+<system>
 	<launcher name="RetroArch Nestopia (NES)" os="OSX">
 		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/nestopia_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -43,5 +43,107 @@
 	</launcher>
 	<launcher name="RetroArch VirtualJaguar (Atari Jaguar)" os="OSX">
 		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/virtualjaguar_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch 4DO (3DO)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\4do_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BNES (NES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\bnes_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Accuracy (SNES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\bsnes_accuracy_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Balanced (SNES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\bsnes_balanced_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Performance (SNES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\bsnes_performance_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch DeSmuME (NDS)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\desmume_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch DOSBox (PC)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\dosbox_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Emux GB (GB/GBC)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\emux_gb_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Emux NES (NES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\emux_nes_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Emux SMS (Master System)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\emux_sms_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FCEUmm (NES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\fceumm_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Gambatte (GB/GBC)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\gambatte_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Genesis Plus GX (Sega GG/MS/MD/Gen/PICO/SG-1000)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\genesis_plus_gx_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch GpSP (GBA)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\gpsp_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Handy (Lynx)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\handy_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\hatari_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2014 (Arcade)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mame2014_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME (Arcade)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mame_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PCE FAST (TG16)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mednafen_pce_fast_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen SNES (SNES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mednafen_snes_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen SuperGrafx (PCE)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mednafen_supergrafx_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Meteor (GBA)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\meteor_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch mGBA (GBA)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mgba_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mupen64Plus (N64)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mupen64plus_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Nestopia (NES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\nestopia_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Pico Drive (Sega 32X/CD)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\picodrive_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch PPSSPP (PSP)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\ppsspp_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x (SNES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\snes9x_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x Next (SNES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\snes9x_next_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Stella (Atari)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\stella_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VBA-M (GBA)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\vbam_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VBA Next (GBA)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\vba_next_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VirtualJaguar (Atari Jaguar)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\virtualjaguar_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Yabuse (Saturn)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\yabause_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 </system>

@@ -85,6 +85,8 @@ def get_Operating_System():
 
 	if 'win32' in sys.platform:
 		current_OS = 'Windows'
+	elif 'win64' in sys.platform:
+		current_OS = 'Windows'
 	elif 'linux' in sys.platform:
 		current_OS = 'Nix'
 	elif 'darwin' in sys.platform:
@@ -249,9 +251,16 @@ def update_external_launch_commands(current_os,retroarch_path,xml_id):
 	user_options = list()
 	launch_command = list()
 	new_launch_command = None
+	current_path = None
 
 	if current_os == 'OSX':
-		retroarch_path = retroarch_path.split('.app')[0]+'.app' #Make App Path for OSX only up to the container
+		current_path = retroarch_path.split('.app')[0]+'.app' #Make App Path for OSX only up to the container
+	elif current_os == 'Windows':
+		current_path = os.path.split(retroarch_path)
+		current_path = current_path[0]
+
+	if current_path is not None: #Update %APP_PATH%
+		retroarch_path = current_path
 
 	for entries in results: #Create list of available commands for the current OS
 		if entries['operating_system'][0] == current_os:

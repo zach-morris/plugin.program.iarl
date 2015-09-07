@@ -305,7 +305,7 @@ def download_and_launch_rom(romwindow,rom_fname,rom_sfname, rom_save_fname, rom_
             current_external_command = emu_ext_launch_cmd.replace('%ROM_PATH%',current_save_fname) 
             print 'External Command: '+ current_external_command
             romwindow.closeDialog()
-            external_command = subprocess.call([current_external_command],shell=True)
+            external_command = subprocess.call(current_external_command,shell=True)
 
         else:
             print 'IARL Error:  No external launch command is defined'
