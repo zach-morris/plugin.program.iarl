@@ -88,7 +88,10 @@ def get_Operating_System():
 	elif 'win64' in sys.platform:
 		current_OS = 'Windows'
 	elif 'linux' in sys.platform:
-		current_OS = 'Nix'
+		if 'XBMC_ANDROID_APK' in os.environ.keys():
+			current_OS = 'Android' #Similar method to find android as done below for IOS
+		else:
+			current_OS = 'Nix'
 	elif 'darwin' in sys.platform:
 		if 'USER' in os.environ and os.environ['USER'] in ('mobile','frontrow',):
 			current_OS = 'IOS'
