@@ -10,15 +10,6 @@ from descriptionparserfactory import *
 #
 
 iarl_plugin_name = 'plugin.program.iarl'
-# iarl_parser_file = 'parserConfig.xml'
-# iarl_addon_data_path = xbmc.translatePath(os.path.join("special://profile/addon_data",iarl_plugin_name))
-# iarl_addon_profile_path = xbmc.translatePath(os.path.join("special://","profile"))
-# iarl_cache_path = os.path.join(xbmc.translatePath("special://profile").decode('utf-8'),"Thumbnails")
-# iarl_addon_home_path = xbmc.translatePath(os.path.join("special://","home"))
-# iarl_addon_favorites_path = xbmc.translatePath( 'special://profile/favourites.xml' )
-# iarl_addon_addons_path = xbmc.translatePath(os.path.join(iarl_addon_home_path,"addons"))
-# iarl_addon_current_path = xbmc.translatePath(os.path.join(iarl_addon_addons_path,iarl_plugin_name))
-# iarl_addon_parse_file_path = os.path.join(iarl_addon_current_path, 'resources', 'data' , iarl_parser_file)
 debugging_enabled = True
 
 
@@ -453,52 +444,88 @@ def get_xml_header_paths(xmlfilename):
 
 def set_iarl_window_properties(emu_name):
 
-	if emu_name == 'Sega 32X':
+	if '32X' in emu_name:
 		xbmcgui.Window(10000).setProperty('iarl.current_theme','32x')
 		xbmcgui.Window(10000).setProperty('iarl.default_thumb','32x_default_box.jpg')
 		xbmcgui.Window(10000).setProperty('iarl.header_color','32x_head.png')
 		xbmcgui.Window(10000).setProperty('iarl.bg_color','32x_bg.png')
-		xbmcgui.Window(10000).setProperty('iarl.default_thumb','32x_default_box.jpg')
 		xbmcgui.Window(10000).setProperty('iarl.buttonfocustheme','button-highlight1.png')
 		xbmcgui.Window(10000).setProperty('iarl.buttonnofocustheme','button-nofocus2.png')
-	elif emu_name == 'Nintendo Entertainment System - NES':
+	elif 'Nintendo Entertainment System - NES' in emu_name:
 		xbmcgui.Window(10000).setProperty('iarl.current_theme','NES')
 		xbmcgui.Window(10000).setProperty('iarl.default_thumb','NES_default_box.jpg')
 		xbmcgui.Window(10000).setProperty('iarl.header_color','white.png')
-		xbmcgui.Window(10000).setProperty('iarl.bg_color','nes_bg.png')
-		xbmcgui.Window(10000).setProperty('iarl.default_thumb','NES_default_box.jpg')
+		xbmcgui.Window(10000).setProperty('iarl.bg_color','nes_dark_bg.png')
 		xbmcgui.Window(10000).setProperty('iarl.buttonfocustheme','button-highlight1.png')
 		xbmcgui.Window(10000).setProperty('iarl.buttonnofocustheme','button-nofocus2.png')
-	elif emu_name == 'Super Nintendo Entertainment System - SNES':
+	elif 'Super Nintendo Entertainment System - SNES' in emu_name:
 		xbmcgui.Window(10000).setProperty('iarl.current_theme','SNES')
 		xbmcgui.Window(10000).setProperty('iarl.default_thumb','SNES_default_box.jpg')
 		xbmcgui.Window(10000).setProperty('iarl.header_color','white.png')
-		xbmcgui.Window(10000).setProperty('iarl.bg_color','nes_bg.png')
-		xbmcgui.Window(10000).setProperty('iarl.default_thumb','SNES_default_box.jpg')
+		xbmcgui.Window(10000).setProperty('iarl.bg_color','nes_dark_bg.png')
 		xbmcgui.Window(10000).setProperty('iarl.buttonfocustheme','button-highlight1.png')
 		xbmcgui.Window(10000).setProperty('iarl.buttonnofocustheme','button-nofocus2.png')
-	elif emu_name == 'Sega Genesis':
+	elif 'Genesis' in emu_name:
 		xbmcgui.Window(10000).setProperty('iarl.current_theme','Genesis')
 		xbmcgui.Window(10000).setProperty('iarl.default_thumb','genesis_default_box.jpg')
 		xbmcgui.Window(10000).setProperty('iarl.header_color','sega_head.png')
 		xbmcgui.Window(10000).setProperty('iarl.bg_color','sega_bg.png')
-		xbmcgui.Window(10000).setProperty('iarl.default_thumb','genesis_default_box.jpg')
 		xbmcgui.Window(10000).setProperty('iarl.buttonfocustheme','button-highlight1.png')
 		xbmcgui.Window(10000).setProperty('iarl.buttonnofocustheme','button-nofocus2.png')
-	elif emu_name == 'Nintendo 64 - N64':
+	elif 'Game Gear' in emu_name:
+		xbmcgui.Window(10000).setProperty('iarl.current_theme','Game Gear')
+		xbmcgui.Window(10000).setProperty('iarl.default_thumb','genesis_default_box.jpg')
+		xbmcgui.Window(10000).setProperty('iarl.header_color','sega_head.png')
+		xbmcgui.Window(10000).setProperty('iarl.bg_color','sega_bg.png')
+		xbmcgui.Window(10000).setProperty('iarl.buttonfocustheme','button-highlight1.png')
+		xbmcgui.Window(10000).setProperty('iarl.buttonnofocustheme','button-nofocus2.png')
+	elif 'Master System' in emu_name:
+		xbmcgui.Window(10000).setProperty('iarl.current_theme','Master System')
+		xbmcgui.Window(10000).setProperty('iarl.default_thumb','genesis_default_box.jpg')
+		xbmcgui.Window(10000).setProperty('iarl.header_color','white.png')
+		xbmcgui.Window(10000).setProperty('iarl.bg_color','sega_bg.png')
+		xbmcgui.Window(10000).setProperty('iarl.buttonfocustheme','button-highlight1.png')
+		xbmcgui.Window(10000).setProperty('iarl.buttonnofocustheme','button-nofocus2.png')
+	elif 'N64' in emu_name:
 		xbmcgui.Window(10000).setProperty('iarl.current_theme','N64')
 		xbmcgui.Window(10000).setProperty('iarl.default_thumb','N64_default_box.jpg')
 		xbmcgui.Window(10000).setProperty('iarl.header_color','n64_head.png')
 		xbmcgui.Window(10000).setProperty('iarl.bg_color','n64_bg.png')
-		xbmcgui.Window(10000).setProperty('iarl.default_thumb','N64_default_box.jpg')
 		xbmcgui.Window(10000).setProperty('iarl.buttonfocustheme','button-highlight1.png')
 		xbmcgui.Window(10000).setProperty('iarl.buttonnofocustheme','button-nofocus2.png')
-	elif emu_name == 'MAME - Multiple Arcade Machine Emulator':
+	elif 'MAME' in emu_name:
 		xbmcgui.Window(10000).setProperty('iarl.current_theme','MAME')
 		xbmcgui.Window(10000).setProperty('iarl.default_thumb','arcade_default_box.jpg')
 		xbmcgui.Window(10000).setProperty('iarl.header_color','arcade_head.png')
 		xbmcgui.Window(10000).setProperty('iarl.bg_color','arcade_bg.png')
+		xbmcgui.Window(10000).setProperty('iarl.buttonfocustheme','button-highlight1.png')
+		xbmcgui.Window(10000).setProperty('iarl.buttonnofocustheme','button-nofocus2.png')
+	elif '2600' in emu_name:
+		xbmcgui.Window(10000).setProperty('iarl.current_theme','2600')
 		xbmcgui.Window(10000).setProperty('iarl.default_thumb','arcade_default_box.jpg')
+		xbmcgui.Window(10000).setProperty('iarl.header_color','atari_head.png')
+		xbmcgui.Window(10000).setProperty('iarl.bg_color','atari_bg.png')
+		xbmcgui.Window(10000).setProperty('iarl.buttonfocustheme','button-highlight1.png')
+		xbmcgui.Window(10000).setProperty('iarl.buttonnofocustheme','button-nofocus2.png')
+	elif 'Jaguar' in emu_name:
+		xbmcgui.Window(10000).setProperty('iarl.current_theme','Jaguar')
+		xbmcgui.Window(10000).setProperty('iarl.default_thumb','arcade_default_box.jpg')
+		xbmcgui.Window(10000).setProperty('iarl.header_color','jaguar_head.png')
+		xbmcgui.Window(10000).setProperty('iarl.bg_color','black.png')
+		xbmcgui.Window(10000).setProperty('iarl.buttonfocustheme','button-highlight1.png')
+		xbmcgui.Window(10000).setProperty('iarl.buttonnofocustheme','button-nofocus2.png')
+	elif 'Lynx' in emu_name:
+		xbmcgui.Window(10000).setProperty('iarl.current_theme','Lynx')
+		xbmcgui.Window(10000).setProperty('iarl.default_thumb','arcade_default_box.jpg')
+		xbmcgui.Window(10000).setProperty('iarl.header_color','lynx_head.png')
+		xbmcgui.Window(10000).setProperty('iarl.bg_color','black.png')
+		xbmcgui.Window(10000).setProperty('iarl.buttonfocustheme','button-highlight1.png')
+		xbmcgui.Window(10000).setProperty('iarl.buttonnofocustheme','button-nofocus2.png')
+	elif 'TurboGrafx' in emu_name:
+		xbmcgui.Window(10000).setProperty('iarl.current_theme','TurboGrafx')
+		xbmcgui.Window(10000).setProperty('iarl.default_thumb','arcade_default_box.jpg')
+		xbmcgui.Window(10000).setProperty('iarl.header_color','tg16_head.png')
+		xbmcgui.Window(10000).setProperty('iarl.bg_color','tg16_bg.png')
 		xbmcgui.Window(10000).setProperty('iarl.buttonfocustheme','button-highlight1.png')
 		xbmcgui.Window(10000).setProperty('iarl.buttonnofocustheme','button-nofocus2.png')
 	else:
