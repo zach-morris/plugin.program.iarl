@@ -1,15 +1,9 @@
 from xbmcswift2 import Plugin
 from xbmcswift2 import actions
 import os, sys, subprocess, xbmc, xbmcgui, xbmcvfs, textwrap
-# import pyxbmct.addonwindow as pyxbmct
 from resources.lib.util import *
 from resources.lib.webutils import *
 import resources.lib.paginate as paginate
-
-# from resources.lib.descriptionparserfactory import *
-# from PIL import Image
-# import requests
-# from io import BytesIO
 
 plugin = Plugin()
 
@@ -80,7 +74,7 @@ def index():
                         update_context(emu_info['emu_location'][ii],'emu_ext_launch_cmd','Update Ext Launcher Command'),]
 
         items.append({ 
-        'label' : emu_info['emu_name'][ii], 'path': plugin.url_for('get_rom_list', category_id=emu_info['emu_name'][ii],page_id='1',parser_id=emu_info['emu_parser'][ii],xml_id=emu_info['emu_location'][ii]), 'icon': emu_info['emu_logo'][ii],
+        'label' : emu_info['emu_name'][ii], 'path': plugin.url_for('get_rom_page', category_id=emu_info['emu_name'][ii],page_id='1',parser_id=emu_info['emu_parser'][ii],xml_id=emu_info['emu_location'][ii]), 'icon': emu_info['emu_logo'][ii],
         'thumbnail' : emu_info['emu_thumb'][ii],
         'info' : {'genre': emu_info['emu_category'][ii], 'credits': emu_info['emu_author'][ii], 'date': emu_info['emu_date'][ii], 'plot': emu_info['emu_comment'][ii], 'trailer': getYouTubePluginurl(emu_info['emu_trailer'][ii]), 'FolderPath': emu_info['emu_baseurl'][ii]},
         'properties' : {'fanart_image' : emu_info['emu_fanart'][ii], 'banner' : emu_info['emu_banner'][ii], 'clearlogo': emu_info['emu_logo'][ii]},
@@ -91,7 +85,7 @@ def index():
     # return items
 
 @plugin.route('/Emulator/<category_id>/<page_id>')
-def get_rom_list(category_id,page_id):
+def get_rom_page(category_id,page_id):
     
     include_pp_link = 0
 
@@ -119,12 +113,12 @@ def get_rom_list(category_id,page_id):
     icon_filepath = getMediaFilePath()
     # next_page.append({'label': 'Next >>', 'path': plugin.url_for('get_rom_list', category_id=category_id,page_id=str(int(float(page_id))+1),parser_id=parserpath,xml_id=rom_list)})
     prev_page.append({ 
-        'label' : '<< Prev', 'path' :  plugin.url_for('get_rom_list', category_id=category_id,page_id=str(page.previous_page),parser_id=parserpath,xml_id=xmlpath), 'icon': icon_filepath + 'Previous.png',
+        'label' : '\xc2\xa0Prev <<', 'path' :  plugin.url_for('get_rom_page', category_id=category_id,page_id=str(page.previous_page),parser_id=parserpath,xml_id=xmlpath), 'icon': icon_filepath + 'Previous.png',
         'thumbnail' : icon_filepath + 'Previous.png',
         'info' : {'genre': 'ZZZ', 'date': '01/01/2999', 'plot' : 'Page ' + str(page.page) + ' of ' + str(page.page_count) + '.  Prev page is ' + str(page.previous_page) + '.  Total of ' + str(page.item_count) + ' games in this archive.'}
         })
     next_page.append({ 
-        'label' : 'Next >>', 'path' :  plugin.url_for('get_rom_list', category_id=category_id,page_id=str(page.next_page),parser_id=parserpath,xml_id=xmlpath), 'icon': icon_filepath + 'Next.png',
+        'label' : '\xc2\xa0Next >>', 'path' :  plugin.url_for('get_rom_page', category_id=category_id,page_id=str(page.next_page),parser_id=parserpath,xml_id=xmlpath), 'icon': icon_filepath + 'Next.png',
         'thumbnail' : icon_filepath + 'Next.png',
         'info' : {'genre': 'ZZZ', 'date': '01/01/2999', 'plot' : 'Page ' + str(page.page) + ' of ' + str(page.page_count) + '.  Next page is ' + str(page.next_page) + '.  Total of ' + str(page.item_count) + ' games in this archive.'}
         })
@@ -139,7 +133,7 @@ def get_rom_list(category_id,page_id):
     if page.next_page:
         current_page.extend(next_page)
 
-    return plugin.finish(current_page, sort_methods=[xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_DATE, xbmcplugin.SORT_METHOD_GENRE, xbmcplugin.SORT_METHOD_STUDIO_IGNORE_THE])
+    return plugin.finish(current_page, sort_methods=[xbmcplugin.SORT_METHOD_NONE, xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_DATE, xbmcplugin.SORT_METHOD_GENRE, xbmcplugin.SORT_METHOD_STUDIO_IGNORE_THE])
     # return current_page
 
 @plugin.cached(TTL=24*60*30)
