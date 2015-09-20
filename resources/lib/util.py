@@ -553,16 +553,24 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
 	current_item = []
 	idx = 0
 	total_arts = 10
+	replacement_h = re.compile(r'\([^)]*\)')
+
 	for entries in results:
 		idx += 1
 
 		current_name = []
 		if entries['rom_name']:
 			current_name = entries['rom_name'][0]
+			try:
+				current_rom_tag = replacement_h.search(current_name).group(0).replace('(','').replace(')','').strip()
+			except:
+				current_rom_tag = None
+
 			if cleanlist:
-				current_name = re.sub(r'\([^)]*\)', '', current_name)
+				current_name = replacement_h.sub('', current_name).strip()
 		else:
 			current_name = None
+			current_rom_tag = None
 
 		current_fname = []
 		if entries['rom_filename']:
@@ -742,7 +750,7 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
         'thumbnail' : current_thumbnail2,
         'path' : plugin.url_for('get_selected_rom', romname=entries['rom_name'][0]),
         'info' : {'genre': current_genre, 'studio': current_credits, 'date': current_date, 'plot': current_plot, 'trailer': current_trailer},
-        'properties' : {'fanart_image' : current_fanart[0], 'banner' : current_banner[0], 'clearlogo': current_clearlogo[0], 'poster': current_thumbnail[1],
+        'properties' : {'fanart_image' : current_fanart[0], 'banner' : current_banner[0], 'clearlogo': current_clearlogo[0], 'poster': current_thumbnail[1], 'rom_tag': current_rom_tag,
         'fanart1': current_fanart[0], 'fanart2': current_fanart[1], 'fanart3': current_fanart[2], 'fanart4': current_fanart[3], 'fanart5': current_fanart[4], 'fanart6': current_fanart[5], 'fanart7': current_fanart[6], 'fanart8': current_fanart[7], 'fanart9': current_fanart[8], 'fanart10': current_fanart[9],
         'banner1': current_banner[0], 'banner2': current_banner[1], 'banner3': current_banner[2], 'banner4': current_banner[3], 'banner5': current_banner[4], 'banner6': current_banner[5], 'banner7': current_banner[6], 'banner8': current_banner[7], 'banner9': current_banner[8], 'banner10': current_banner[9],
         'snapshot1': current_snapshot[0], 'snapshot2': current_snapshot[1], 'snapshot3': current_snapshot[2], 'snapshot4': current_snapshot[3], 'snapshot5': current_snapshot[4], 'snapshot6': current_snapshot[5], 'snapshot7': current_snapshot[6], 'snapshot8': current_snapshot[7], 'snapshot9': current_snapshot[8], 'snapshot10': current_snapshot[9],

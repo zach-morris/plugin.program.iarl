@@ -1,4 +1,9 @@
 Internet Archive ROM Launcher Change Log
+09-20-15
+- Added searching functions.. it’s a work in progress
+- Added random play option, but it’s currently not implemented
+- Various code fixes and hopefully efficiency improvements
+
 09-10-15
 - Added untested Android External Launching capability
 - Code cleanup

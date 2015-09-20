@@ -64,6 +64,7 @@ def update_context(xml_id_in,tag_value_in,context_label):
 def index():
     items = []
     emu_info = scape_xml_headers() #Find all xml dat files and get the header info
+    icon_filepath = getMediaFilePath()
 
     for ii in range(0,len(emu_info['emu_name'])):
         
@@ -81,13 +82,27 @@ def index():
         'context_menu' : context_menus
         })
     
+    items.append({ 
+        'label' : '\xc2\xa0Search', 'path' :  plugin.url_for('search_roms_window'), 'icon': icon_filepath + 'search.jpg',
+        'thumbnail' : icon_filepath + 'search.jpg',
+        'info' : {'genre': '\xc2\xa0', 'date': '01/01/2999', 'plot' : 'Search for a particular game.'},
+        'properties' : {'fanart_image' : icon_filepath + 'fanart.jpg'}
+        })
+
+    items.append({ 
+        'label' : '\xc2\xa0\xc2\xa0Random Play', 'path' :  plugin.url_for('random_play'), 'icon': icon_filepath + 'lucky.jpg',
+        'thumbnail' : icon_filepath + 'lucky.jpg',
+        'info' : {'genre': '\xc2\xa0\xc2\xa0', 'date': '01/01/2999', 'plot' : 'Play a random game from the archive.'},
+        'properties' : {'fanart_image' : icon_filepath + 'fanart.jpg'}
+        })
+
     return plugin.finish(items, sort_methods=[xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_GENRE])
     # return items
 
 @plugin.route('/Emulator/<category_id>/<page_id>')
 def get_rom_page(category_id,page_id):
     
-    include_pp_link = 0
+    include_pp_link = 0 #Just use the standard list back buton
 
     #Define Parser
     args_in = plugin.request.args
@@ -115,12 +130,12 @@ def get_rom_page(category_id,page_id):
     prev_page.append({ 
         'label' : '\xc2\xa0Prev <<', 'path' :  plugin.url_for('get_rom_page', category_id=category_id,page_id=str(page.previous_page),parser_id=parserpath,xml_id=xmlpath), 'icon': icon_filepath + 'Previous.png',
         'thumbnail' : icon_filepath + 'Previous.png',
-        'info' : {'genre': 'ZZZ', 'date': '01/01/2999', 'plot' : 'Page ' + str(page.page) + ' of ' + str(page.page_count) + '.  Prev page is ' + str(page.previous_page) + '.  Total of ' + str(page.item_count) + ' games in this archive.'}
+        'info' : {'genre': '\xc2\xa0', 'date': '01/01/2999', 'plot' : 'Page ' + str(page.page) + ' of ' + str(page.page_count) + '.  Prev page is ' + str(page.previous_page) + '.  Total of ' + str(page.item_count) + ' games in this archive.'}
         })
     next_page.append({ 
         'label' : '\xc2\xa0Next >>', 'path' :  plugin.url_for('get_rom_page', category_id=category_id,page_id=str(page.next_page),parser_id=parserpath,xml_id=xmlpath), 'icon': icon_filepath + 'Next.png',
         'thumbnail' : icon_filepath + 'Next.png',
-        'info' : {'genre': 'ZZZ', 'date': '01/01/2999', 'plot' : 'Page ' + str(page.page) + ' of ' + str(page.page_count) + '.  Next page is ' + str(page.next_page) + '.  Total of ' + str(page.item_count) + ' games in this archive.'}
+        'info' : {'genre': '\xc2\xa0', 'date': '01/01/2999', 'plot' : 'Page ' + str(page.page) + ' of ' + str(page.page_count) + '.  Next page is ' + str(page.next_page) + '.  Total of ' + str(page.item_count) + ' games in this archive.'}
         })
 
     current_page = page.items #Grab the current page requested
@@ -141,6 +156,153 @@ def get_rom_list(xmlpath,parserpath):
     parserpath = getParserFilePath(parserpath)
     rom_list = parse_xml_romfile(xmlpath,parserpath,iarl_setting_clean_list,plugin) #List doesn't exist, so get the romlist
     return rom_list
+
+@plugin.route('/Search_Results/<search_term>') #Not sure why normal routing with extra kwargs isn't working for this route...
+def search_roms_results(search_term,**kwargs):
+    search_results = []
+
+    current_search_term = search_term.lower().strip()
+    # args_in = plugin.request.args #This doesn't work in this intance when using urlfor?
+
+    try:
+        current_includes = kwargs['include_archives'].split(',')
+    except:
+        current_includes = 'all'
+    try:
+        current_adv_search = kwargs['adv_search']
+    except:
+        current_adv_search = 'False'
+    try:
+        current_region = kwargs['region'].lower().strip()
+    except:
+        current_region = 'any'
+    try:
+        current_genre = kwargs['genre'].lower().strip()
+    except:
+        current_genre = 'any'
+    try:
+        current_studio = kwargs['studio'].lower().strip()
+    except:
+        current_studio = 'any'
+    try:
+        current_nplayers = kwargs['nplayers'].lower().strip()
+    except:
+        current_nplayers = 'any'
+    try:
+        current_datefrom = kwargs['datefrom'].lower().strip()
+    except:
+        current_datefrom = 'any'
+    try:
+        current_dateto = kwargs['dateto'].lower().strip()
+    except:
+        current_dateto = 'any'
+
+    if current_datefrom == 'any':
+        datefrom_num = 1950 #Random year well before any game was invented
+    else:
+        try:
+            datefrom_num = int(current_datefrom.lower().strip()) #No checking... yet
+        except:
+            print 'IARL Error:  Date from is badly formatted, default year used'
+            datefrom_num = 1950 #Bad formatted date
+
+    if current_dateto == 'any':
+        dateto_num = 2999 #Random year that this code will obviously be dead and gone when reached
+    else:
+        try:
+            dateto_num = int(current_dateto.lower().strip())
+        except:
+            print 'IARL Error:  Date to is badly formatted, default year used'
+            dateto_num = 2999 #Bad formatted date
+
+    date_list = range(datefrom_num,dateto_num) #List of years to look for
+
+    emu_info = scape_xml_headers() #Find all xml dat files and get the header info
+    progress_dialog = xbmcgui.DialogProgress()
+    progress_dialog.create('IARL', 'Searching...')
+
+    #This probably isnt a very efficient method for filtering.  Need to look into lambda dict filtering
+    if current_adv_search == 'False':
+        for ii in range(0,len(current_includes)):
+            progress_dialog.update(max(1,int(100*ii/len(current_includes))-10), 'Looking in '+emu_info['emu_name'][ii])
+            if current_includes[ii] == '1':
+                if current_search_term == 'any':
+                    for roms_in_list in get_rom_list(emu_info['emu_location'][ii],emu_info['emu_parser'][ii]):
+                        if (progress_dialog.iscanceled()):
+                            print 'IARL:  Search Cancelled'
+                            return
+                        search_results.append(roms_in_list)
+                else:
+                    for roms_in_list in get_rom_list(emu_info['emu_location'][ii],emu_info['emu_parser'][ii]):
+                        if (progress_dialog.iscanceled()):
+                            print 'IARL:  Search Cancelled'
+                            return
+                        if current_search_term in roms_in_list['label'].lower().strip(): #search term is in label
+                            search_results.append(roms_in_list)
+    else:
+        for ii in range(0,len(current_includes)):
+            progress_dialog.update(max(1,int(100*ii/len(current_includes))-10), 'Looking in '+emu_info['emu_name'][ii])
+            if current_includes[ii] == '1':
+                for roms_in_list in get_rom_list(emu_info['emu_location'][ii],emu_info['emu_parser'][ii]):
+                    if (progress_dialog.iscanceled()):
+                        print 'IARL:  Search Cancelled'
+                        return
+                    include_this_rom = True #Default to include rom
+                    try:
+                        if (current_search_term not in roms_in_list['label'].lower().strip()) & (current_search_term != 'any'):
+                            include_this_rom = False #Filter out rom if the search term is not in the label and the search term isn't "any"
+                    except:
+                        pass
+                        # include_this_rom = False
+                    try:
+                        if (current_genre not in roms_in_list['info']['genre'].lower().strip()) & (current_genre != 'any'):
+                            include_this_rom = False
+                    except:
+                        pass
+                        # include_this_rom = False
+                    try:
+                        if (current_studio not in roms_in_list['info']['studio'].lower().strip()) & (current_studio != 'any'):
+                            include_this_rom = False
+                    except:
+                        pass
+                        # include_this_rom = False
+                    try:
+                        if (current_nplayers not in roms_in_list['properties']['nplayers'].lower().strip()) & (current_nplayers != 'any'):
+                            include_this_rom = False
+                    except:
+                        pass
+                        # include_this_rom = False
+                    try:
+                        if (current_region not in roms_in_list['properties']['rom_tag'].lower().strip()) & (current_region != 'any'):
+                            include_this_rom = False
+                    except:
+                        pass
+                        # include_this_rom = False
+                    try:
+                        if (int(roms_in_list['info']['date'][-4:]) not in date_list):
+                            include_this_rom = False
+                    except:
+                        pass
+                        # include_this_rom = False
+
+                    if include_this_rom: #Append to the list if include tag is still true
+                        search_results.append(roms_in_list)
+
+    progress_dialog.update(95, 'Compiling Results...')
+    print 'IARL:  Found ' + str(len(search_results)) + ' matches'
+    return plugin.finish(search_results,cache_to_disc=False,sort_methods=[xbmcplugin.SORT_METHOD_NONE, xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_DATE, xbmcplugin.SORT_METHOD_GENRE, xbmcplugin.SORT_METHOD_STUDIO_IGNORE_THE])
+    progress_dialog.close()
+
+@plugin.route('/Search')
+def search_roms_window():
+    MySearchWindow = SearchWindow('search.xml',getAddonInstallPath(),'Default','720p')
+    MySearchWindow.doModal()
+    pass
+
+@plugin.route('/Random')
+def random_play():
+    print 'IARL:  Random play not yet implemented :-('
+    pass
 
 
 @plugin.route('/Emulator/<romname>')
@@ -194,6 +356,7 @@ def get_selected_rom(romname):
     current_boxart.append(xbmc.getInfoLabel('ListItem.Property(boxart10)'))
     current_title= xbmc.getInfoLabel('Listitem.Label')
     current_studio= xbmc.getInfoLabel('Listitem.Studio')
+    current_rom_tag = xbmc.getInfoLabel('ListItem.Property(rom_tag)')
     current_nplayers = xbmc.getInfoLabel('ListItem.Property(nplayers)')
     current_emu_logo = xbmc.getInfoLabel('ListItem.Property(emu_logo)')
     current_emu_fanart = xbmc.getInfoLabel('ListItem.Property(emu_fanart)')
@@ -214,6 +377,7 @@ def get_selected_rom(romname):
 
     MyROMWindow = ROMWindow('default.xml',getAddonInstallPath(),'Default','720p',rom_fname=current_rom_fname, rom_sfname=current_rom_sfname, rom_save_fname=current_rom_save_fname, rom_save_sfname=current_rom_save_sfname, emu_name=current_emu_name, logo=current_emu_logo, emu_fanart=current_emu_fanart, title=current_title, plot=current_plot, fanart=filter(bool, current_fanart), boxart=filter(bool, current_boxart), snapshot=filter(bool, current_snapshot), banner=filter(bool, current_banner), trailer=current_trailer, nplayers=current_nplayers, studio=current_studio, genre=current_genre, release_date=current_release_date, emu_downloadpath=current_emu_downloadpath, emu_postdlaction=current_emu_postdlaction, emu_launcher=current_emu_launcher, emu_ext_launch_cmd=current_emu_ext_launch_cmd, rom_emu_command=current_rom_emu_command)
     MyROMWindow.doModal()
+    pass
 
 def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom_dl_path, rom_postdlaction, rom_emu_command):
     download_success = False
@@ -495,6 +659,150 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
         # print 'test'
         # print controlId
         pass
+
+    def closeDialog(self):
+        self.close()
+
+
+class SearchWindow(xbmcgui.WindowXMLDialog):
+    def __init__(self,strXMLname, strFallbackPath, strDefaultName, forceFallback, *args, **kwargs):
+        # Changing the three varibles passed won't change, anything
+        # Doing strXMLname = "bah.xml" will not change anything.
+        # don't put GUI sensitive stuff here (as the xml hasn't been read yet
+        # Idea to initialize your variables here
+        self.available_as_options = ['Genre','Release Date','Region','Num Players','Studio'] #Not currently used
+
+    def onInit(self):
+        # Put your List Populating code/ and GUI startup stuff here
+        emu_info = scape_xml_headers() #Find all xml dat files and get the header info
+        # get control ids
+        self.action_exitkeys_id = [10, 13]
+        self.archive_list = self.getControl(101) #Archive List
+        self.search_box = self.getControl(102) #Search Box
+        self.genre_id = self.getControl(104) #Genre
+        self.nplayers_id = self.getControl(106) #Players
+        self.date_from_id = self.getControl(108) #Date From
+        self.date_to_id = self.getControl(109) #Date To
+        self.studio_id = self.getControl(111) #Studio
+        self.region_id = self.getControl(113) #Studio
+
+        self.control_id_button_1 = self.getControl(3001)  #Add all archives button
+        self.control_id_button_2 = self.getControl(3002)  #Remove all archives button
+        self.control_id_button_3 = self.getControl(3003)  #Advanced search on button
+        self.control_id_button_4 = self.getControl(3004)  #Advanced search off button
+        self.as_group_control = self.getControl(3005)  #Advanced search on button
+        self.control_id_button_5 = self.getControl(3006)  #Search Button
+        
+        #Set initial vis
+        self.as_group_control.setVisible(False)
+        self.control_id_button_3.setVisible(False)
+        self.control_id_button_4.setVisible(True)
+        xbmcgui.Window(10000).setProperty('iarl.advanced_search','False') #Turn off AS by default
+
+        # translate buttons
+        self.control_id_button_1.setLabel('Select All')
+        self.control_id_button_2.setLabel('Select None')
+        self.control_id_button_5.setLabel('Search')
+
+        #Populate Lists
+        for ii in range(0,len(emu_info['emu_name'])):    
+            current_listitem = xbmcgui.ListItem(label=emu_info['emu_name'][ii])
+            current_listitem.setIconImage(emu_info['emu_thumb'][ii])
+            current_listitem.setProperty('include_in_search','0') #Default to not include in search
+            self.archive_list.addItem(current_listitem) #Add item to the filter list
+
+    def onAction(self, action):
+        # Same as normal python Windows.
+        if action in self.action_exitkeys_id:
+            self.closeDialog()
+
+    # def onFocus(self, controlId):
+    #     pass
+
+    def onClick(self, controlId):
+        if controlId == 101:
+            current_item = self.archive_list.getSelectedItem()
+            if current_item.getProperty('include_in_search') == '0':
+                current_item.setProperty('include_in_search','1') #It wasnt included, and now should be included
+            else:
+                current_item.setProperty('include_in_search','0') #It was included, and now shouldnt be included
+
+        if controlId == 3001:
+            for ii in range(0,self.archive_list.size()):
+                current_listitem = self.archive_list.getListItem(ii)
+                current_listitem.setProperty('include_in_search','1') #Select All
+
+        if controlId == 3002:
+            for ii in range(0,self.archive_list.size()):
+                current_listitem = self.archive_list.getListItem(ii)
+                current_listitem.setProperty('include_in_search','0') #Select None
+
+        if controlId == 3003:
+            self.as_group_control.setVisible(False)
+            self.control_id_button_3.setVisible(False)
+            self.control_id_button_4.setVisible(True)
+            xbmcgui.Window(10000).setProperty('iarl.advanced_search','False') #Turn off AS
+
+        if controlId == 3004:
+            self.as_group_control.setVisible(True)
+            self.control_id_button_3.setVisible(True)
+            self.control_id_button_4.setVisible(False)
+            xbmcgui.Window(10000).setProperty('iarl.advanced_search','True') #Turn off AS
+
+        if controlId == 3006:
+            #Define search criteria
+            include_text_arg = ''
+            at_least_one = False
+            for ii in range(0,self.archive_list.size()):
+                if self.archive_list.getListItem(ii).getProperty('include_in_search') == '1':
+                    include_text_arg = include_text_arg+',1'
+                    at_least_one = True
+                else:
+                    include_text_arg = include_text_arg+',0'
+            include_text_arg = include_text_arg[1:] #Remove that first comma
+
+            current_search_term = 'any'
+            current_genre = 'any'
+            current_nplayers = 'any'
+            current_date_from = 'any'
+            current_date_to = 'any'
+            current_studio = 'any'
+            current_region = 'any'
+
+            if len(self.search_box.getText())>0:
+                current_search_term = self.search_box.getText()
+
+            if xbmcgui.Window(10000).getProperty('iarl.advanced_search') == 'True':
+                if len(self.genre_id.getText())>0:
+                    current_genre = self.genre_id.getText()
+                if len(self.nplayers_id.getText())>0:
+                    current_nplayers = self.nplayers_id.getText()
+                if len(self.date_from_id.getText())>0:
+                    current_date_from = self.date_from_id.getText()
+                if len(self.date_to_id.getText())>0:
+                    current_date_to = self.date_to_id.getText()
+                if len(self.studio_id.getText())>0:
+                    current_studio = self.studio_id.getText()
+                if len(self.region_id.getText())>0:
+                    current_region = self.region_id.getText()
+
+            current_dialog = xbmcgui.Dialog()
+
+            if not at_least_one:
+                current_dialog.ok('Wah Waaah','You must select at least one archive!')
+                ret1=1
+            else:
+                ret1 = current_dialog.select('Start Search?', ['Yes','No'])
+
+            if ret1 == 0:
+                print 'IARL:  Starting Search'
+                #Not sure why plugin.redirect doesnt work here.  It for some reason will not pass kwargs?
+                # search_url = plugin.url_for('search_roms_results', search_term=current_search_term,include_archives=include_text_arg, adv_search=xbmcgui.Window(10000).getProperty('iarl.advanced_search'),genre=current_genre,nplayers=current_nplayers,datefrom=current_date_from,dateto=current_date_to,studio=current_studio,region=current_region)
+                self.closeDialog()
+                search_roms_results(current_search_term,include_archives=include_text_arg, adv_search=xbmcgui.Window(10000).getProperty('iarl.advanced_search'),genre=current_genre,nplayers=current_nplayers,datefrom=current_date_from,dateto=current_date_to,studio=current_studio,region=current_region)
+                # plugin.redirect(search_url)
+            else:
+                pass
 
     def closeDialog(self):
         self.close()
