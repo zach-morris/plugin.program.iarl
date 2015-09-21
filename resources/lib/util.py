@@ -17,7 +17,6 @@ __addon__ = xbmcaddon.Addon(id='%s' %iarl_plugin_name)
 __language__ = __addon__.getLocalizedString
 
 
-
 html_unescape_table = {
 		"&amp;" : "&",
 		"&quot;" : '"' ,
@@ -154,6 +153,18 @@ def getYouTubePluginurl(videoid):
 	url = 'plugin://plugin.video.youtube/play/?video_id='+videoid
 
 	return url
+
+def update_addonxml(option):
+
+	current_dialog = xbmcgui.Dialog()
+	ret1 = current_dialog.select('Are you sure you want to update this setting?', ['No','Yes'])
+
+	if ret1 == 0:
+		pass
+	else:
+		ok_ret = current_dialog.ok('Complete','The addon was updated.[CR]You may have to restart Kodi for the settings to take effect.')
+		update_xml_header(getAddonInstallPath(),'/addon.xml','provides',option)
+		print 'IARL:  Addon provides was updated to ' + option
 
 def getAutoexecPath():	
 	return xbmc.translatePath('special://profile/autoexec.py')

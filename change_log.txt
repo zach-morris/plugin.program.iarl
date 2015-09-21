@@ -1,4 +1,7 @@
 Internet Archive ROM Launcher Change Log
+09-21-15
+- Added setting to update what the addon provides (video or games), which will be useful until retroplayer is in the main Kodi branch.  Users of the standard Kodi version will be able to use the addon by changing the setting to ‘video’
+
 09-20-15
 - Added searching functions.. it’s a work in progress
 - Added random play option, but it’s currently not implemented
