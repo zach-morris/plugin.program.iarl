@@ -25,9 +25,11 @@ except ValueError:
 if not iarl_setting_cache_list:
     plugin.clear_function_cache() #Clear the cache every run
 
+iarl_setting_default_action = plugin.get_setting('iarl_setting_default_action')
 iarl_setting_retroarch_path = plugin.get_setting('iarl_path_to_retroarch')
 iarl_setting_operating_system = get_Operating_System()
 
+print iarl_setting_default_action
 
 @plugin.route('/update_xml/<xml_id>')
 def update_xml_value(xml_id):
@@ -375,8 +377,20 @@ def get_selected_rom(romname):
     current_emu_ext_launch_cmd = xbmc.getInfoLabel('ListItem.Property(emu_ext_launch_cmd)')
     current_rom_emu_command = xbmc.getInfoLabel('ListItem.Property(rom_emu_command)')
 
-    MyROMWindow = ROMWindow('default.xml',getAddonInstallPath(),'Default','720p',rom_fname=current_rom_fname, rom_sfname=current_rom_sfname, rom_save_fname=current_rom_save_fname, rom_save_sfname=current_rom_save_sfname, emu_name=current_emu_name, logo=current_emu_logo, emu_fanart=current_emu_fanart, title=current_title, plot=current_plot, fanart=filter(bool, current_fanart), boxart=filter(bool, current_boxart), snapshot=filter(bool, current_snapshot), banner=filter(bool, current_banner), trailer=current_trailer, nplayers=current_nplayers, studio=current_studio, genre=current_genre, release_date=current_release_date, emu_downloadpath=current_emu_downloadpath, emu_postdlaction=current_emu_postdlaction, emu_launcher=current_emu_launcher, emu_ext_launch_cmd=current_emu_ext_launch_cmd, rom_emu_command=current_rom_emu_command)
-    MyROMWindow.doModal()
+    if 'ROM Info Page' in iarl_setting_default_action:
+        MyROMWindow = ROMWindow('default.xml',getAddonInstallPath(),'Default','720p',rom_fname=current_rom_fname, rom_sfname=current_rom_sfname, rom_save_fname=current_rom_save_fname, rom_save_sfname=current_rom_save_sfname, emu_name=current_emu_name, logo=current_emu_logo, emu_fanart=current_emu_fanart, title=current_title, plot=current_plot, fanart=filter(bool, current_fanart), boxart=filter(bool, current_boxart), snapshot=filter(bool, current_snapshot), banner=filter(bool, current_banner), trailer=current_trailer, nplayers=current_nplayers, studio=current_studio, genre=current_genre, release_date=current_release_date, emu_downloadpath=current_emu_downloadpath, emu_postdlaction=current_emu_postdlaction, emu_launcher=current_emu_launcher, emu_ext_launch_cmd=current_emu_ext_launch_cmd, rom_emu_command=current_rom_emu_command)
+        MyROMWindow.doModal()
+    elif 'Download and Launch' in iarl_setting_default_action:
+        download_and_launch_rom(None,current_rom_fname,current_rom_sfname, current_rom_save_fname, current_rom_save_sfname, current_emu_downloadpath, current_emu_postdlaction, current_emu_launcher, current_emu_ext_launch_cmd, current_rom_emu_command)
+    elif 'Download Only' in iarl_setting_default_action:
+        current_dialog = xbmcgui.Dialog()
+        download_success, new_rom_fname, new_rom_sfname = download_rom_only(current_rom_fname,current_rom_sfname, current_rom_save_fname, current_rom_save_sfname, current_emu_downloadpath, current_emu_postdlaction, current_rom_emu_command)
+        if download_success:
+            ok_ret = current_dialog.ok('Complete',current_rom_save_fname + ' was successfully downloaded')            
+    else:
+        print 'IARL Error:  Unknown Option'
+        pass #Shouldn't ever see this
+
     pass
 
 def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom_dl_path, rom_postdlaction, rom_emu_command):
@@ -462,7 +476,8 @@ def download_and_launch_rom(romwindow,rom_fname,rom_sfname, rom_save_fname, rom_
 
             current_external_command = emu_ext_launch_cmd.replace('%ROM_PATH%',current_save_fname) 
             print 'External Command: '+ current_external_command
-            romwindow.closeDialog()
+            if romwindow is not None:
+                romwindow.closeDialog()
             external_command = subprocess.call(current_external_command,shell=True)
 
         else:
@@ -488,7 +503,9 @@ def download_and_launch_rom(romwindow,rom_fname,rom_sfname, rom_save_fname, rom_
                 xbmc.Player().stop()
                 xbmc.sleep(100)
 
-        romwindow.closeDialog() #Need to close the dialog window for the game window to be in the front
+        if romwindow is not None:
+            romwindow.closeDialog() #Need to close the dialog window for the game window to be in the front
+        
         xbmc.sleep(500) #This pause seems to help... I'm not really sure why
         xbmc.Player().play(current_save_fname,launch_game_listitem)
 
@@ -620,7 +637,11 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
                 xbmc.Player().stop()
                 xbmc.sleep(100)
 
+            current_dialog = xbmcgui.Dialog()
             download_success, uz_file_extension1, uz_file_extension2 = download_rom_only(self.rom_fname, self.rom_sfname, self.rom_save_fname, self.rom_save_sfname, self.emu_downloadpath, self.emu_postdlaction, self.rom_emu_command)
+
+            if download_success:
+                ok_ret = current_dialog.ok('Complete',self.rom_save_fname + ' was successfully downloaded')
 
         if controlId == self.control_id_button_action2:
             if xbmc.Player().isPlaying():
