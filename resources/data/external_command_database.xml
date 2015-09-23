@@ -197,4 +197,79 @@
 	<launcher name="RetroArch VBA Next (GBA)" os="Android">
 		<launcher_command>start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/vba_next_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Stella (Atari 2600)" os="RetroPie">
+		<launcher_command>%APP_PATH% -L /opt/retropie/libretrocores/lr-stella/stella_libretro.so --config /opt/retropie/configs/atari2600/retroarch.cfg %ROM_PATH%</launcher_command>
+	</launcher>
+	<launcher name="RetroArch ProSystem (Atari 7800)" os="RetroPie">
+		<launcher_command>%APP_PATH% -L /opt/retropie/libretrocores/lr-prosystem/prosystem_libretro.so --config /opt/retropie/configs/atari7800/retroarch.cfg %ROM_PATH%</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Nestopia (NES)" os="RetroPie">
+		<launcher_command>%APP_PATH% "/opt/retropie/emulators/retroarch/bin/retroarch -L /opt/retropie/libretrocores/lr-nestopia/nestopia_libretro.so --config /opt/retropie/configs/fds/retroarch.cfg %ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Stella (Atari 2600)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/stella_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch ProSystem (Atari 7800)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/prosystem_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Handy (Lynx)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/handy_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA (Arcade)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/fb_alpha_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA (Arcade)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/fb_alpha_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Nestopia (NES)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/nestopia_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FCEUmm (NES)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/fceumm_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Genesis Plus GX (Sega GG/MS/MD/Gen/PICO/SG-1000)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/genesis_plus_gx_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Gambatte (GB/GBC)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/gambatte_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch TGB Dual (GB/GBC)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/tgbdual_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch GpSP (GBA)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/gpsp_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch mGBA (GBA)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/mgba_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VBA Next (GBA)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/vba_next_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Pico Drive (Sega 32X/CD)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/picodrive_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch blueMSX (MSX)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/bluemsx_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch fMSX (MSX)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/fmsx_libretro.so  "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mupen64Plus (N64)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/mupen64plus_libretro.so   "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen NGP (Neo Geo Pocket Color)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/mednafen_ngp_libretro.so  "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PCE FAST (TG16)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/mednafen_pce_fast_libretro.so  "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch PCSX ReArmed (PS1)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/pcsx-rearmed/libretro.so  "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x Next (SNES)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/snes9x_next_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME4All (Arcade)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/imame4all/libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 </system>

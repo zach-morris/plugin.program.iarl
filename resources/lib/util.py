@@ -250,7 +250,7 @@ def update_external_launch_commands(current_os,retroarch_path,xml_id):
 	current_xml_path = current_xml_fileparts[0] + '/'
 
 	parserfile = getParserFilePath('external_launcher_parser.xml')
-	launchersfile = getParserFilePath('external_command_databse.xml')
+	launchersfile = getParserFilePath('external_command_database.xml')
 	descParser = DescriptionParserFactory.getParser(parserfile)
 	results = descParser.parseDescription(launchersfile,'xml')
 	user_options = list()
