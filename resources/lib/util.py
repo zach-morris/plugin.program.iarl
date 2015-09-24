@@ -243,7 +243,7 @@ def getConfigXmlPath():
 	Logutil.log('Path to configuration file: ' +str(configFile), LOG_LEVEL_INFO)
 	return configFile
 
-def update_external_launch_commands(current_os,retroarch_path,xml_id):
+def update_external_launch_commands(current_os,retroarch_path,xml_id,plugin):
 
 	current_xml_fileparts = os.path.split(xml_id)
 	current_xml_filename = current_xml_fileparts[1]
@@ -284,7 +284,8 @@ def update_external_launch_commands(current_os,retroarch_path,xml_id):
 			new_launch_command = launch_command[ret1]
 			new_launch_command = new_launch_command.replace('%APP_PATH%',retroarch_path)
 			update_xml_header(current_xml_path,current_xml_filename,'emu_ext_launch_cmd',new_launch_command)
-			ok_ret = current_dialog.ok('Complete','External Launch Command was updated')
+			ok_ret = current_dialog.ok('Complete','External Launch Command was updated[CR]Cache was cleared for new settings')
+			plugin.clear_function_cache()
 
 def copyFile(oldPath, newPath):
 	Logutil.log('new path = %s' %newPath, LOG_LEVEL_INFO)
@@ -916,7 +917,7 @@ def unzip_dosbox_file(current_fname,current_rom_emu_command):
 
 	return zip_success, new_fname
 
-def set_new_dl_path(xml_id):
+def set_new_dl_path(xml_id,plugin):
 	current_xml_fileparts = os.path.split(xml_id)
 	current_xml_filename = current_xml_fileparts[1]
 	current_xml_path = current_xml_fileparts[0] + '/'
@@ -929,18 +930,20 @@ def set_new_dl_path(xml_id):
 		ret2 = current_dialog.select('Are you sure you want to update the current Download Path for '+current_xml_filename, ['Yes','Cancel'])
 		if ret2<1:
 			update_xml_header(current_xml_path,current_xml_filename,'emu_downloadpath','default')
-			ok_ret = current_dialog.ok('Complete','Download Path was updated to default')
+			ok_ret = current_dialog.ok('Complete','Download Path was updated to default[CR]Cache was cleared for new settings')
+			plugin.clear_function_cache()
 	elif ret1 == 1:
 		new_path = current_dialog.browse(0,'Update Download Path','files')
 		ret2 = current_dialog.select('Are you sure you want to update the current Download Path for '+current_xml_filename, ['Yes','Cancel'])
 		if ret2<1:
 			update_xml_header(current_xml_path,current_xml_filename,'emu_downloadpath',new_path)
-			ok_ret = current_dialog.ok('Complete','Download Path was updated to your custom folder')
+			ok_ret = current_dialog.ok('Complete','Download Path was updated to your custom folder[CR]Cache was cleared for new settings')
+			plugin.clear_function_cache()
 	else:
 		pass
 
 
-def set_new_post_dl_action(xml_id):
+def set_new_post_dl_action(xml_id,plugin):
 	current_xml_fileparts = os.path.split(xml_id)
 	current_xml_filename = current_xml_fileparts[1]
 	current_xml_path = current_xml_fileparts[0] + '/'
@@ -953,22 +956,25 @@ def set_new_post_dl_action(xml_id):
 		ret2 = current_dialog.select('Are you sure you want to set the post DL action to none for '+current_xml_filename, ['Yes','Cancel'])
 		if ret2<1:
 			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','none')
-			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to None')
+			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to None[CR]Cache was cleared for new settings')
+			plugin.clear_function_cache()
 	elif ret1 == 1:
 		ret2 = current_dialog.select('Are you sure you want to set the post DL action to Unzip for '+current_xml_filename, ['Yes','Cancel'])
 		if ret2<1:
 			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','unzip_rom')
-			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to Unzip')
+			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to Unzip[CR]Cache was cleared for new settings')
+			plugin.clear_function_cache()
 	elif ret1 == 2:
 		ret2 = current_dialog.select('Are you sure you want to set the post DL action to Unzip and Update DOSBox CMDs for '+current_xml_filename, ['Yes','Cancel'])
 		if ret2<1:
 			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','unzip_update_rom_path_dosbox')
-			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to Unzip and Update DOSBox CMDs')
+			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to Unzip and Update DOSBox CMDs[CR]Cache was cleared for new settings')
+			plugin.clear_function_cache()
 	else:
 		pass
 
 
-def set_new_emu_launcher(xml_id):
+def set_new_emu_launcher(xml_id,plugin):
 	current_xml_fileparts = os.path.split(xml_id)
 	current_xml_filename = current_xml_fileparts[1]
 	current_xml_path = current_xml_fileparts[0] + '/'
@@ -981,12 +987,14 @@ def set_new_emu_launcher(xml_id):
 		ret2 = current_dialog.select('Are you sure you want to set the Emulator to Kodi Retroplayer for '+current_xml_filename, ['Yes','Cancel'])
 		if ret2<1:
 			update_xml_header(current_xml_path,current_xml_filename,'emu_launcher','retroplayer')
-			ok_ret = current_dialog.ok('Complete','Emulator updated to Kodi Retroplayer')
+			ok_ret = current_dialog.ok('Complete','Emulator updated to Kodi Retroplayer[CR]Cache was cleared for new settings')
+			plugin.clear_function_cache()
 	elif ret1 == 1:
 		ret2 = current_dialog.select('Are you sure you want to set the Emulator to External Program for '+current_xml_filename, ['Yes','Cancel'])
 		if ret2<1:
 			update_xml_header(current_xml_path,current_xml_filename,'emu_launcher','external')
-			ok_ret = current_dialog.ok('Complete','Emulator updated to External Program')
+			ok_ret = current_dialog.ok('Complete','Emulator updated to External Program[CR]Cache was cleared for new settings')
+			plugin.clear_function_cache()
 	else:
 		pass
 

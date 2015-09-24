@@ -29,8 +29,6 @@ iarl_setting_default_action = plugin.get_setting('iarl_setting_default_action')
 iarl_setting_retroarch_path = plugin.get_setting('iarl_path_to_retroarch')
 iarl_setting_operating_system = get_Operating_System()
 
-print iarl_setting_default_action
-
 @plugin.route('/update_xml/<xml_id>')
 def update_xml_value(xml_id):
     args_in = plugin.request.args
@@ -41,19 +39,19 @@ def update_xml_value(xml_id):
 
     if tag_value == 'emu_downloadpath':
         print 'Updating Download Path for '+xml_id
-        set_new_dl_path(xml_id)
+        set_new_dl_path(xml_id,plugin)
 
     elif tag_value == 'emu_postdlaction':
         print 'Updating Post DL Action for '+xml_id
-        set_new_post_dl_action(xml_id)
+        set_new_post_dl_action(xml_id,plugin)
 
     elif tag_value == 'emu_launcher':
         print 'Updating Emu Laucher for '+xml_id
-        set_new_emu_launcher(xml_id)
+        set_new_emu_launcher(xml_id,plugin)
 
     elif tag_value == 'emu_ext_launch_cmd':
         print 'Updating External Launch Command'
-        update_external_launch_commands(iarl_setting_operating_system,iarl_setting_retroarch_path,xml_id)
+        update_external_launch_commands(iarl_setting_operating_system,iarl_setting_retroarch_path,xml_id,plugin)
 
     else:
         pass #Do Nothing
@@ -377,12 +375,12 @@ def get_selected_rom(romname):
     current_emu_ext_launch_cmd = xbmc.getInfoLabel('ListItem.Property(emu_ext_launch_cmd)')
     current_rom_emu_command = xbmc.getInfoLabel('ListItem.Property(rom_emu_command)')
 
-    if 'ROM Info Page' in iarl_setting_default_action:
+    if 'ROM Info Page'.lower() in iarl_setting_default_action.lower():
         MyROMWindow = ROMWindow('default.xml',getAddonInstallPath(),'Default','720p',rom_fname=current_rom_fname, rom_sfname=current_rom_sfname, rom_save_fname=current_rom_save_fname, rom_save_sfname=current_rom_save_sfname, emu_name=current_emu_name, logo=current_emu_logo, emu_fanart=current_emu_fanart, title=current_title, plot=current_plot, fanart=filter(bool, current_fanart), boxart=filter(bool, current_boxart), snapshot=filter(bool, current_snapshot), banner=filter(bool, current_banner), trailer=current_trailer, nplayers=current_nplayers, studio=current_studio, genre=current_genre, release_date=current_release_date, emu_downloadpath=current_emu_downloadpath, emu_postdlaction=current_emu_postdlaction, emu_launcher=current_emu_launcher, emu_ext_launch_cmd=current_emu_ext_launch_cmd, rom_emu_command=current_rom_emu_command)
         MyROMWindow.doModal()
-    elif 'Download and Launch' in iarl_setting_default_action:
+    elif 'Download and Launch'.lower() in iarl_setting_default_action.lower():
         download_and_launch_rom(None,current_rom_fname,current_rom_sfname, current_rom_save_fname, current_rom_save_sfname, current_emu_downloadpath, current_emu_postdlaction, current_emu_launcher, current_emu_ext_launch_cmd, current_rom_emu_command)
-    elif 'Download Only' in iarl_setting_default_action:
+    elif 'Download Only'.lower() in iarl_setting_default_action.lower():
         current_dialog = xbmcgui.Dialog()
         download_success, new_rom_fname, new_rom_sfname = download_rom_only(current_rom_fname,current_rom_sfname, current_rom_save_fname, current_rom_save_sfname, current_emu_downloadpath, current_emu_postdlaction, current_rom_emu_command)
         if download_success:

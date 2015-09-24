@@ -1,4 +1,9 @@
 Internet Archive ROM Launcher Change Log
+09-23-15
+- Added some external launching commands for testing purposes (Linux/Kodibuntu mainly)
+- Added some cache cleaning to get rid of some issues people have reported
+- Added addon.xml to hopefully support standard Kodi and Retroplayer Kodi
+
 09-21-15
 - Added setting to update what the addon provides (video or games), which will be useful until retroplayer is in the main Kodi branch.  Users of the standard Kodi version will be able to use the addon by changing the setting to ‘video’
 
