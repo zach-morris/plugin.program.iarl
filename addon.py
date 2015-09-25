@@ -1,6 +1,6 @@
 from xbmcswift2 import Plugin
 from xbmcswift2 import actions
-import os, sys, subprocess, xbmc, xbmcgui, xbmcvfs, textwrap
+import os, sys, subprocess, xbmc, xbmcgui
 from resources.lib.util import *
 from resources.lib.webutils import *
 import resources.lib.paginate as paginate
@@ -9,6 +9,7 @@ plugin = Plugin()
 
 iarl_setting_cache_list = plugin.get_setting('iarl_setting_cache_list',bool)
 iarl_setting_clean_list = plugin.get_setting('iarl_setting_clean_list',bool)
+iarl_setting_clear_cache_value  = plugin.get_setting('iarl_setting_clear_cache_value',bool)
 
 items_pp_options = {'10':10,'25':25,'50':50,'100':100,'150':150,'200':200,'250':250,'300':300,'350':350,'400':400,'450':450,'500':500,'List All':99999}
 try:
@@ -24,6 +25,9 @@ except ValueError:
 
 if not iarl_setting_cache_list:
     plugin.clear_function_cache() #Clear the cache every run
+
+if iarl_setting_clear_cache_value:
+    advanced_setting_action_clear_cache(plugin)
 
 iarl_setting_default_action = plugin.get_setting('iarl_setting_default_action')
 iarl_setting_retroarch_path = plugin.get_setting('iarl_path_to_retroarch')

@@ -243,6 +243,11 @@ def getConfigXmlPath():
 	Logutil.log('Path to configuration file: ' +str(configFile), LOG_LEVEL_INFO)
 	return configFile
 
+def advanced_setting_action_clear_cache(plugin):
+	plugin.clear_function_cache()
+	__addon__.setSetting(id='iarl_setting_clear_cache_value',value='false') #Set back to false, no need to clear it next run
+	print 'IARL:  Advanced Setting Cache Clear Completed'
+
 def update_external_launch_commands(current_os,retroarch_path,xml_id,plugin):
 
 	current_xml_fileparts = os.path.split(xml_id)
@@ -829,15 +834,18 @@ def update_xml_header(current_path,current_filename,reg_exp,new_value):
 	with open(current_path+current_filename, 'rU') as fin:
 		while True:
 			line = fin.readline()
-			if full_reg_exp in line:
-				try:
-					beg_of_line = line.split('<')
-					end_of_line = line.split('>')
-					my_new_line = beg_of_line[0]+full_new_val+end_of_line[-1:][0] #Match the characters that were previously on the line
-					fout.write(my_new_line)
-				except:
-					fout.write(full_new_val)
-				value_updated = True				
+			if not value_updated:  #Only update the first instance of the requested tag
+				if full_reg_exp in line:
+					try:
+						beg_of_line = line.split('<')
+						end_of_line = line.split('>')
+						my_new_line = beg_of_line[0]+full_new_val+end_of_line[-1:][0] #Match the characters that were previously on the line
+						fout.write(my_new_line)
+					except:
+						fout.write(full_new_val)
+					value_updated = True				
+				else:
+					fout.write(line)
 			else:
 				fout.write(line)
 			if not line:

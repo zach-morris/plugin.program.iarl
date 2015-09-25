@@ -6,10 +6,18 @@
 		<setting id="iarl_setting_items_pp" type="select" label="Number of Items Per Page" values="10|25|50|100|150|200|250|300|350|400|450|500|List All" default="50"/>
 		<setting id="iarl_setting_default_action" type="select" label="Default Action on Selecting ROM" values="Download and Launch|Download Only|ROM Info Page" default="Rom Info Page"/>
 		<setting id="iarl_setting_dl_cache" type="select" label="Temporary Download Folder Size (MB)" values="Zero (One ROM and Supporting Files Only)|10 MB|25MB|50MB|100MB|150MB|200MB|250MB|300MB|350MB|400MB|450MB|500MB" default="Zero (One ROM and Supporting Files Only)"/>
-		<setting label="Set addon to provide games (default)" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/update_addonxml_provides_games.py)"/>
-		<setting label="Set addon to provide video" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/update_addonxml_provides_video.py)"/>
 	</category>
 	<category label="External Launchers">
+		<setting label="Enter the path to your retroarch installation below for external launching:" type="lsep"/>
 		<setting id="iarl_path_to_retroarch" type="executable" label="RetroArch Executable"/>
+	</category>
+	<category label="Advanced Settings">
+		<setting label="Note:  You should not use these settings unless you're sure of what you are doing!" type="lsep"/>
+		<setting visible="true" label="Set addon to provide games (RetroPlayer Only)" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/update_addonxml_provides_games.py)"/>
+		<setting visible="true" label="Set addon to provide Video" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/update_addonxml_provides_video.py)"/>
+		<setting visible="true" label="Set addon to provide Programs" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/update_addonxml_provides_program.py)"/>
+		<setting type="sep"/>
+		<setting visible="true" label="Clear Plugin Cache" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/clear_IARL_cache.py)"/>
+		<setting visible="false" id="iarl_setting_clear_cache_value" type="bool" label="Clear Plugin Cache Value" default="false"/>
 	</category>
 </settings>
