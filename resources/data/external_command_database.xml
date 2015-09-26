@@ -5,16 +5,19 @@
 	<launcher name="RetroArch mGBA (GBA)" os="OSX">
 		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/mgba_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch TGB Dual (GB/GBC)" os="OSX">
+		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/tgbdual_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch SNES9x (SNES)" os="OSX">
 		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/snes9x_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mupen64Plus (N64)" os="OSX">
 		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/mupen64plus_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch Genesis Plus (Sega Genesis)" os="OSX">
+	<launcher name="RetroArch Genesis Plus GX (Sega GG/MS/MD/Gen/PICO/SG-1000)" os="OSX">
 		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/genesis_plus_gx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch Pico Drive (Sega 32X/CD)" os="OSX">
+	<launcher name="RetroArch Pico Drive (Sega 32X/CD/GG/MS)" os="OSX">
 		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/picodrive_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen Supergrafx (TG16)" os="OSX">
@@ -40,6 +43,12 @@
 	</launcher>
 	<launcher name="RetroArch PPSSPP (PSP)" os="OSX">
 		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/ppsspp_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen Lynx (Lynx)" os="OSX">
+		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/mednafen_lynx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Handy (Lynx)" os="OSX">
+		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/handy_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VirtualJaguar (Atari Jaguar)" os="OSX">
 		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/virtualjaguar_libretro.dylib" "%ROM_PATH%"</launcher_command>
