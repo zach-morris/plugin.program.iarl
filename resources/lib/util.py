@@ -258,11 +258,6 @@ def update_external_launch_commands(current_os,retroarch_path,xml_id,plugin):
 	launchersfile = getParserFilePath('external_command_database.xml')
 	descParser = DescriptionParserFactory.getParser(parserfile)
 	results = descParser.parseDescription(launchersfile,'xml')
-
-	rom_helper_script_1 = os.path.join(getAddonInstallPath(),'resources/bin/ROM_launcher_Nix_Darwin.sh')
-	rom_helper_script_2 = os.path.join(getAddonInstallPath(),'resources/bin/ROM_launcher_OE_with_resume.sh')
-	rom_helper_script_3 = os.path.join(getAddonInstallPath(),'resources/bin/ROM_launcher_OE_without_resume.sh')
-
 	user_options = list()
 	launch_command = list()
 	new_launch_command = None
@@ -293,9 +288,6 @@ def update_external_launch_commands(current_os,retroarch_path,xml_id,plugin):
 		if ret2<1:
 			new_launch_command = launch_command[ret1]
 			new_launch_command = new_launch_command.replace('%APP_PATH%',retroarch_path)
-			new_launch_command = new_launch_command.replace('%ROM_HELPER_SCRIPT_1%',rom_helper_script_1)
-			new_launch_command = new_launch_command.replace('%ROM_HELPER_SCRIPT_2%',rom_helper_script_2)
-			new_launch_command = new_launch_command.replace('%ROM_HELPER_SCRIPT_3%',rom_helper_script_3)
 			update_xml_header(current_xml_path,current_xml_filename,'emu_ext_launch_cmd',new_launch_command)
 			ok_ret = current_dialog.ok('Complete','External Launch Command was updated[CR]Cache was cleared for new settings')
 			plugin.clear_function_cache()
@@ -579,7 +571,6 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
 	idx = 0
 	total_arts = 10
 	replacement_h = re.compile(r'\([^)]*\)')
-	keepcharacters = (' ','_') #Used in cleaning filename
 
 	for entries in results:
 		idx += 1
@@ -607,9 +598,8 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
 
 		current_save_fname = []
 		if entries['rom_filename']:
-			current_save_fname = os.path.split(str(entries['rom_filename'][0]))[-1] #If a directory is listed, get the filename
-			current_save_fname = html_unescape(current_save_fname) #Unescape the filename
-			current_save_fname = ''.join(c for c in os.path.splitext(current_save_fname)[0]  if c.isalnum() or c in keepcharacters).rstrip()+os.path.splitext(current_save_fname)[1] #Get rid of any nasty characters
+			current_save_fname = str(entries['rom_filename'][0])
+			current_save_fname = html_unescape(current_save_fname)
 		else:
 			current_save_fname = None
 
@@ -665,9 +655,8 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
 
 			current_save_sfname = []
 			if entries['rom_supporting_file'][0]:
-				current_save_sfname = os.path.split(str(entries['rom_supporting_file'][0]))[-1] #If a directory is listed, get the filename
-				current_save_sfname = html_unescape(current_save_sfname) #Unescape the filename
-				current_save_sfname = ''.join(c for c in os.path.splitext(current_save_sfname)[0]  if c.isalnum() or c in keepcharacters).rstrip()+os.path.splitext(current_save_sfname)[1] #Get rid of any nasty characters
+				current_save_sfname = str(entries['rom_supporting_file'][0])
+				current_save_sfname = html_unescape(current_save_sfname)
 			else:
 				current_save_sfname = None
 		except:
