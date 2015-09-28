@@ -407,15 +407,8 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom
     else:
         current_path = rom_dl_path
 
-    #Clean the savefilenames so it's only the last thing listed in the ROM argument (no folders)
-    # cleaned_save_fname = rom_save_fname.split('/')[-1:][0]
-    # cleaned_save_fname = cleaned_save_fname.split('%2F')[-1:][0]
-    # cleaned_save_fname = unquote_name(cleaned_save_fname) #Added 082415, issue with launching if the filename is quoted
-    # cleaned_save_sfname = rom_save_sfname.split('/')[-1:][0]
-    # cleaned_save_sfname = cleaned_save_sfname.split('%2F')[-1:][0]
-    # cleaned_save_sfname = unquote_name(cleaned_save_sfname) #Added 082415, issue with launching if the filename is quoted
-    current_save_fname = current_path+'/'+rom_save_fname
-    current_save_sfname = current_path+'/'+rom_save_sfname
+    current_save_fname = os.path.join(current_path,rom_save_fname)
+    current_save_sfname = os.path.join(current_path,rom_save_sfname)
 
     fname_found, do_not_download_flag = check_if_rom_exits(current_save_fname,current_path)
 
@@ -457,7 +450,7 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom
                 download_success = False
     else:
         if fname_found is not None:
-            new_rom_fname = current_path+'/'+fname_found #Ensure the filename has the correct extension (could potentially have been unzipped)
+            new_rom_fname = os.path.join(current_path,fname_found)
 
     return download_success, new_rom_fname, new_rom_sfname
 
@@ -469,8 +462,8 @@ def download_and_launch_rom(romwindow,rom_fname,rom_sfname, rom_save_fname, rom_
             external_command = None
             download_success, new_rom_fname, new_rom_sfname = download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom_dl_path, rom_postdlaction, rom_emu_command)
             current_path = getTempDir()
-            current_save_fname = current_path+'/'+rom_save_fname
-            current_save_sfname = current_path+'/'+rom_save_sfname
+            current_save_fname = os.path.join(current_path,rom_save_fname)
+            current_save_sfname = os.path.join(current_path,rom_save_sfname)
 
             if new_rom_fname is not None: #The file was unzipped, change from zip to the correct rom extension
                 current_save_fname = new_rom_fname
@@ -490,8 +483,8 @@ def download_and_launch_rom(romwindow,rom_fname,rom_sfname, rom_save_fname, rom_
     else: #Otherwise use retroplayer
         download_success, new_rom_fname, new_rom_sfname = download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom_dl_path, rom_postdlaction, rom_emu_command)
         current_path = getTempDir()
-        current_save_fname = current_path+'/'+rom_save_fname
-        current_save_sfname = current_path+'/'+rom_save_sfname
+        current_save_fname = os.path.join(current_path,rom_save_fname)
+        current_save_sfname = os.path.join(current_path,rom_save_sfname)
 
         if new_rom_fname is not None: #The file was unzipped, change from zip to the correct rom extension
             current_save_fname = new_rom_fname
