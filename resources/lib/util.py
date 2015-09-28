@@ -770,6 +770,7 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
         'label' : current_name, 'icon': current_icon2,
         'thumbnail' : current_thumbnail2,
         'path' : plugin.url_for('get_selected_rom', romname=entries['rom_name'][0]),
+        'is_playable': True, # Hack to make Kodi treat this as a file instead of a folder
         'info' : {'genre': current_genre, 'studio': current_credits, 'date': current_date, 'plot': current_plot, 'trailer': current_trailer},
         'properties' : {'fanart_image' : current_fanart[0], 'banner' : current_banner[0], 'clearlogo': current_clearlogo[0], 'poster': current_thumbnail[1], 'rom_tag': current_rom_tag,
         'fanart1': current_fanart[0], 'fanart2': current_fanart[1], 'fanart3': current_fanart[2], 'fanart4': current_fanart[3], 'fanart5': current_fanart[4], 'fanart6': current_fanart[5], 'fanart7': current_fanart[6], 'fanart8': current_fanart[7], 'fanart9': current_fanart[8], 'fanart10': current_fanart[9],
