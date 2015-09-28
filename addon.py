@@ -368,9 +368,9 @@ def get_selected_rom(romname):
     current_rom_fname = xbmc.getInfoLabel('ListItem.Property(rom_fname)') #Full URL of ROM
     current_rom_sfname = xbmc.getInfoLabel('ListItem.Property(rom_sfname)') #Full URL of supporting ROMs
     # current_rom_save_fname = xbmc.getInfoLabel('ListItem.Property(rom_save_fname)') #Filename to save for ROM
-    current_rom_save_fname = unquote_name(os.path.split(xbmc.getInfoLabel('ListItem.Property(rom_save_fname)'))[-1]) #Filename to save for ROM
+    current_rom_save_fname = os.path.split(unquote_name(xbmc.getInfoLabel('ListItem.Property(rom_save_fname)')))[-1].strip() #Filename to save for ROM
     # current_rom_save_sfname = xbmc.getInfoLabel('ListItem.Property(rom_save_sfname)') #Filename to save for supporting ROMs
-    current_rom_save_sfname = unquote_name(os.path.split(xbmc.getInfoLabel('ListItem.Property(rom_save_sfname)'))[-1]) #Filename to save for ROM
+    current_rom_save_sfname = os.path.split(unquote_name(xbmc.getInfoLabel('ListItem.Property(rom_save_sfname)')))[-1].strip() #Filename to save for ROM
     current_genre = xbmc.getInfoLabel('ListItem.Genre')
     current_release_date = xbmc.getInfoLabel('ListItem.Date')
     current_plot = xbmc.getInfoLabel('ListItem.Plot')
@@ -408,14 +408,14 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom
         current_path = rom_dl_path
 
     #Clean the savefilenames so it's only the last thing listed in the ROM argument (no folders)
-    cleaned_save_fname = rom_save_fname.split('/')[-1:][0]
-    cleaned_save_fname = cleaned_save_fname.split('%2F')[-1:][0]
-    cleaned_save_fname = unquote_name(cleaned_save_fname) #Added 082415, issue with launching if the filename is quoted
-    cleaned_save_sfname = rom_save_sfname.split('/')[-1:][0]
-    cleaned_save_sfname = cleaned_save_sfname.split('%2F')[-1:][0]
-    cleaned_save_sfname = unquote_name(cleaned_save_sfname) #Added 082415, issue with launching if the filename is quoted
-    current_save_fname = current_path+'/'+cleaned_save_fname
-    current_save_sfname = current_path+'/'+cleaned_save_sfname
+    # cleaned_save_fname = rom_save_fname.split('/')[-1:][0]
+    # cleaned_save_fname = cleaned_save_fname.split('%2F')[-1:][0]
+    # cleaned_save_fname = unquote_name(cleaned_save_fname) #Added 082415, issue with launching if the filename is quoted
+    # cleaned_save_sfname = rom_save_sfname.split('/')[-1:][0]
+    # cleaned_save_sfname = cleaned_save_sfname.split('%2F')[-1:][0]
+    # cleaned_save_sfname = unquote_name(cleaned_save_sfname) #Added 082415, issue with launching if the filename is quoted
+    current_save_fname = current_path+'/'+rom_save_fname
+    current_save_sfname = current_path+'/'+rom_save_sfname
 
     fname_found, do_not_download_flag = check_if_rom_exits(current_save_fname,current_path)
 
