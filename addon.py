@@ -367,8 +367,10 @@ def get_selected_rom(romname):
     current_emu_name = xbmc.getInfoLabel('ListItem.Property(emu_name)')
     current_rom_fname = xbmc.getInfoLabel('ListItem.Property(rom_fname)') #Full URL of ROM
     current_rom_sfname = xbmc.getInfoLabel('ListItem.Property(rom_sfname)') #Full URL of supporting ROMs
-    current_rom_save_fname = xbmc.getInfoLabel('ListItem.Property(rom_save_fname)') #Filename to save for ROM
-    current_rom_save_sfname = xbmc.getInfoLabel('ListItem.Property(rom_save_sfname)') #Filename to save for supporting ROMs
+    # current_rom_save_fname = xbmc.getInfoLabel('ListItem.Property(rom_save_fname)') #Filename to save for ROM
+    current_rom_save_fname = unquote_name(os.path.split(xbmc.getInfoLabel('ListItem.Property(rom_save_fname)'))[-1]) #Filename to save for ROM
+    # current_rom_save_sfname = xbmc.getInfoLabel('ListItem.Property(rom_save_sfname)') #Filename to save for supporting ROMs
+    current_rom_save_sfname = unquote_name(os.path.split(xbmc.getInfoLabel('ListItem.Property(rom_save_sfname)'))[-1]) #Filename to save for ROM
     current_genre = xbmc.getInfoLabel('ListItem.Genre')
     current_release_date = xbmc.getInfoLabel('ListItem.Date')
     current_plot = xbmc.getInfoLabel('ListItem.Plot')
