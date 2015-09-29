@@ -646,21 +646,17 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
 			current_emu_ext_launch_cmd = None
 
 		current_sfname = []
-		try:
-			if entries['rom_supporting_file'][0]:
-				current_sfname = xml_header_info['emu_baseurl'][0]+str(entries['rom_supporting_file'][0])
-				current_sfname = html_unescape(current_sfname)
-			else:
-				current_sfname = None
-
-			current_save_sfname = []
-			if entries['rom_supporting_file'][0]:
-				current_save_sfname = str(entries['rom_supporting_file'][0])
-				current_save_sfname = html_unescape(current_save_sfname)
-			else:
-				current_save_sfname = None
-		except:
+		if entries['rom_supporting_file']:
+			current_sfname = xml_header_info['emu_baseurl'][0]+str(entries['rom_supporting_file'][0])
+			current_sfname = html_unescape(current_sfname)
+		else:
 			current_sfname = None
+
+		current_save_sfname = []
+		if entries['rom_supporting_file']:
+			current_save_sfname = str(entries['rom_supporting_file'][0])
+			current_save_sfname = html_unescape(current_save_sfname)
+		else:
 			current_save_sfname = None
 
 		current_icon = list()
@@ -698,6 +694,14 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
 			current_thumbnail2 = getMediaFilePath() + xbmcgui.Window(10000).getProperty('iarl.default_thumb') #Use the default thumb if nothing else is avialable
 		else:
 			current_thumbnail2 = current_thumbnail2[0]
+
+		try:
+			if entries['rom_size']:
+				current_filesize = sum(map(int,entries['rom_size'])) #Sum all the rom_sizes for the current entry.  This may not be accurate for zips, but better than ???
+			else:
+				current_filesize = None
+		except:
+			current_filesize = None
 
 		if entries['rom_category']:
 			current_genre = entries['rom_category'][0]
@@ -770,7 +774,7 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
         'label' : current_name, 'icon': current_icon2,
         'thumbnail' : current_thumbnail2,
         'path' : plugin.url_for('get_selected_rom', romname=entries['rom_name'][0]),
-        'info' : {'genre': current_genre, 'studio': current_credits, 'date': current_date, 'plot': current_plot, 'trailer': current_trailer},
+        'info' : {'genre': current_genre, 'studio': current_credits, 'date': current_date, 'plot': current_plot, 'trailer': current_trailer, 'size': current_filesize},
         'properties' : {'fanart_image' : current_fanart[0], 'banner' : current_banner[0], 'clearlogo': current_clearlogo[0], 'poster': current_thumbnail[1], 'rom_tag': current_rom_tag,
         'fanart1': current_fanart[0], 'fanart2': current_fanart[1], 'fanart3': current_fanart[2], 'fanart4': current_fanart[3], 'fanart5': current_fanart[4], 'fanart6': current_fanart[5], 'fanart7': current_fanart[6], 'fanart8': current_fanart[7], 'fanart9': current_fanart[8], 'fanart10': current_fanart[9],
         'banner1': current_banner[0], 'banner2': current_banner[1], 'banner3': current_banner[2], 'banner4': current_banner[3], 'banner5': current_banner[4], 'banner6': current_banner[5], 'banner7': current_banner[6], 'banner8': current_banner[7], 'banner9': current_banner[8], 'banner10': current_banner[9],
@@ -791,6 +795,30 @@ def getLabel(control):
 		label = ''
 		
 	return label
+
+def size_to_bytes(size_str):
+	conversion = {'K' : 1024,
+                  'M' : 1048576,
+                  'G' : 1073741824,}
+
+	try:
+	    RE_GMK = ('(\w[GMK]?)B')
+	    RE_DIGIT = ('(\d*\.?\d*)')
+	    re_obj_gmk = re.compile(RE_GMK)
+	    re_obj_digit = re.compile(RE_DIGIT)
+	    gmk = re_obj_gmk.search(size_str)
+	    unit = 1
+	    if gmk:
+	        unit = conversion[gmk.groups()[0]]
+	    digit = re_obj_digit.search(size_str)
+	    if digit:
+	        size = int((float(digit.groups()[0]) * unit)) #Removed math function, no need to import for a byte difference
+	    else:
+	        size = 0
+	except:
+		size = None
+
+	return size
 
 def get_size_of_folder(start_path):
     total_size = 0

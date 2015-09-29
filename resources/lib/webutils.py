@@ -24,15 +24,22 @@ from StringIO import StringIO
 user_agent = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1468.0 Safari/537.36'
 
 class download_tools():
-	def Downloader(self,url,dest,description,heading):
+	def Downloader(self,url,dest,est_filesize,description,heading):
 		dp = xbmcgui.DialogProgress()
 		dp.create(heading,description,'')
 		dp.update(0)
-		urllib.urlretrieve(url,dest,lambda nb, bs, fs, url=url: self._pbhook(nb,bs,fs,dp))
+		urllib.urlretrieve(url,dest,lambda nb, bs, fs, url=url: self._pbhook(nb,bs,fs,est_filesize,dp))
 
-	def _pbhook(self,numblocks, blocksize, filesize,dp=None):
+	def _pbhook(self,numblocks, blocksize, filesize, est_filesize, dp=None):
+
+		#Filesize from archive.org is not available in most archives, use xml value
 		try:
-			percent = int((int(numblocks)*int(blocksize)*100)/int(filesize))
+			perc_filesize = max(filesize,est_filesize)
+		except:
+			perc_filesize = filesize
+
+		try:
+			percent = int((int(numblocks)*int(blocksize)*100)/int(perc_filesize))
 			dp.update(percent)
 			# print 'test'
 			# print str(numblocks)
