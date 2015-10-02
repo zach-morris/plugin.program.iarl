@@ -1000,52 +1000,64 @@ def convert_chd(current_fname,iarl_setting_chdman_path):
 	chd_success = False
 	new_file_extension = None
 	new_fname = None
+	current_dialog = xbmcgui.Dialog()
+
+	if iarl_setting_chdman_path is None: #Check if there's a CHDMAN available
+		ok_ret = current_dialog.ok('Error','No CHDMAN path appears to be set in your addon settings.')
+		return chd_success, new_fname
+
+	current_dialog.notification('Please Wait', 'Just a moment, converting CHD to BIN/CUE', xbmcgui.NOTIFICATION_INFO, 500000)
+
 	current_chd_fileparts = os.path.split(current_fname)
 	file_path = current_chd_fileparts[0]
 	file_extension = current_chd_fileparts[-1]
 	file_base_name = os.path.splitext(os.path.split(current_fname)[-1])[0]
 
 	if 'chd' in file_extension.lower():
-		try:
-			output_cue = os.path.join(file_path,file_base_name+'.cue')
-			output_bin = os.path.join(file_path,file_base_name+'.bin')
-			command = '%CHD_APP_PATH% extractcd -i "%INPUT_CHD%" -o "%OUTPUT_CUE%" -ob "%OUTPUT_BIN%"'
-			command = command.replace('%CHD_APP_PATH%',iarl_setting_chdman_path)
-			command = command.replace("%INPUT_CHD%",filename)
-			command = command.replace("%OUTPUT_CUE%",output_cue)
-			command = command.replace("%OUTPUT_BIN%",output_bin)
-			print 'IARL:  Attempting CHD Conversion: '+command
-			failed_text = 'Unhandled exception'
-			already_exists_text = 'file already exists'
-			success_text = 'Extraction complete'
-			conversion_process = subprocess.Popen(command, shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT) #Convert CHD to BIN/CUE
-			results1 = conversion_process.stdout.read().replace('\n', '')
-			conversion_process.kill() #End the process after its completed
+		# try:
+		output_cue = os.path.join(file_path,file_base_name+'.cue')
+		output_bin = os.path.join(file_path,file_base_name+'.bin')
+		command = '%CHD_APP_PATH% extractcd -i "%INPUT_CHD%" -o "%OUTPUT_CUE%" -ob "%OUTPUT_BIN%"' #May need to provide other OS options here
+		command = command.replace('%CHD_APP_PATH%',iarl_setting_chdman_path)
+		command = command.replace("%INPUT_CHD%",current_fname)
+		command = command.replace("%OUTPUT_CUE%",output_cue)
+		command = command.replace("%OUTPUT_BIN%",output_bin)
+		print 'IARL:  Attempting CHD Conversion: '+command
+		failed_text = 'Unhandled exception'
+		already_exists_text = 'file already exists'
+		success_text = 'Extraction complete'
+		conversion_process = subprocess.Popen(command, shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT) #Convert CHD to BIN/CUE
+		results1 = conversion_process.stdout.read().replace('\n', '')
+		conversion_process.kill() #End the process after its completed
 
-			if success_text.lower() in results1.lower():
-				print 'IARL:  CHD Conversion Successful'
-				new_fname = output_bin
-				chd_success = True
-			elif already_exists_text.lower() in results1.lower():
-				print 'IARL:  BIN File already exists, conversion not required'
-				new_fname = output_bin
-				chd_success = True
-			elif failed_text.lower() in results1.lower():
-				chd_success = False
-				print 'IARL:  CHD Conversion Failed'
-				print results1
-			else:
-				chd_success = False
-				print 'IARL:  CHD Conversion Failed'
-		except:
+		if success_text.lower() in results1.lower():
+			print 'IARL:  CHD Conversion Successful'
+			new_fname = output_bin
+			chd_success = True
+		elif already_exists_text.lower() in results1.lower():
+			print 'IARL:  BIN File already exists, conversion not required'
+			new_fname = output_bin
+			chd_success = True
+		elif failed_text.lower() in results1.lower():
 			chd_success = False
 			print 'IARL:  CHD Conversion Failed'
+			print results1
+		else:
+			chd_success = False
+			print 'IARL:  CHD Conversion Failed'
+		# except:
+		# 	chd_success = False
+		# 	print 'IARL:  CHD Conversion Failed'
 
 		if chd_success:
 			os.remove(current_fname) #Delete the CHD and leave the new BIN/CUE if the conversion was a success
+			current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
+		else:
+			current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
 	else:
 		print current_fname + ' was not regognized as a chd and not converted'
 
+	# current_dialog.close()
 	return chd_success, new_fname
 
 def set_new_dl_path(xml_id,plugin):
