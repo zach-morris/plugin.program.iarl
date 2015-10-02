@@ -5,19 +5,16 @@
 	<launcher name="RetroArch mGBA (GBA)" os="OSX">
 		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/mgba_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch TGB Dual (GB/GBC)" os="OSX">
-		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/tgbdual_libretro.dylib" "%ROM_PATH%"</launcher_command>
-	</launcher>
 	<launcher name="RetroArch SNES9x (SNES)" os="OSX">
 		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/snes9x_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mupen64Plus (N64)" os="OSX">
 		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/mupen64plus_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch Genesis Plus GX (Sega GG/MS/MD/Gen/PICO/SG-1000)" os="OSX">
+	<launcher name="RetroArch Genesis Plus (Sega Genesis)" os="OSX">
 		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/genesis_plus_gx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch Pico Drive (Sega 32X/CD/GG/MS)" os="OSX">
+	<launcher name="RetroArch Pico Drive (Sega 32X/CD)" os="OSX">
 		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/picodrive_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen Supergrafx (TG16)" os="OSX">
@@ -43,12 +40,6 @@
 	</launcher>
 	<launcher name="RetroArch PPSSPP (PSP)" os="OSX">
 		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/ppsspp_libretro.dylib" "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch Mednafen Lynx (Lynx)" os="OSX">
-		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/mednafen_lynx_libretro.dylib" "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch Handy (Lynx)" os="OSX">
-		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/handy_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VirtualJaguar (Atari Jaguar)" os="OSX">
 		<launcher_command>%APP_PATH%/Contents/MacOS/RetroArch -- -L "%APP_PATH%/Contents/Resources/cores/virtualjaguar_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -197,7 +188,7 @@
 	<launcher name="RetroArch SNES9x Next (SNES)" os="Android">
 		<launcher_command>start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/snes9x_next_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
-	<launcher name="RetroArch Stella (Atari)" os="Android">
+	<launcher name="RetroArch Stella (Atari 2600)" os="Android">
 		<launcher_command>start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/stella_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBA-M (GBA)" os="Android">
@@ -280,5 +271,173 @@
 	</launcher>
 	<launcher name="RetroArch MAME4All (Arcade)" os="Nix">
 		<launcher_command>%APP_PATH% -L /usr/lib/libretro/imame4all/libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch 4D0 (3DO)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% 4do "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BlueMSX (MSX)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% bluemsx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Accuracy (SNES)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% bsnes_accuracy "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Balanced (SNES)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% bsnes_balanced "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Cpp98 (SNES)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% bsnes_cplusplus98 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Mercury Accuracy (SNES)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% bsnes_mercury_accuracy "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Mercury Balanced (SNES)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% bsnes_mercury_balanced "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Mercury Performance (SNES)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% bsnes_mercury_performance "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Performance (SNES)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% bsnes_performance "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch DeSmuME (NDS)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% desmume "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch DOSBox (PC)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% dosbox "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Emux Chip8 (Chip-8)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% emux_chip8 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Emux GB (GB/GBC)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% emux_gb "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Emux NES (NES)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% emux_nes "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Emux SMS (Sega Master System)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% emux_sms "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA (Arcade)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% fb_alpha "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FCEUmm (NES)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% fceumm "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch fMSX (MSX)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% fmsx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Fuse (Spectrum)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% fuse "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Gambatte (GB/GBC)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% gambatte "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Genesis Plus GX (Sega GG/MS/MD/Gen/PICO/SG-1000)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% genesis_plus_gx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch GpSP (GBA)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% gpsp "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Handy (Lynx)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% handy "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Hatari (Atari)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% hatari "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 078 (Arcade)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% mame078 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME (Arcade)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% mame "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen GBA (GBA)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% mednafen_gba "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen Lynx (Lynx)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% mednafen_lynx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen NGP (Neo Geo Pocket Color)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% mednafen_ngp "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PCE FAST (TG16)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% mednafen_pce_fast "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PCFX (PC-FX)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% mednafen_pcfx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PSX (PS1)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% mednafen_psx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen SNES (SNES)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% mednafen_snes "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen SuperGrafx (PCE)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% mednafen_supergrafx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen VB (Virtual Boy)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% mednafen_vb "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen WS (Wonder Swan)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% mednafen_wswan "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Meteor (GBA)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% meteor "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch mGBA (GBA)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% mgba "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mupen64Plus (N64)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% mupen64plus "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Nestopia (NES)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% nestopia "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch O2EM (Odyssey 2 / VideoPac)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% o2em "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch PCSX ReArmed (PS1)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% pcsx_rearmed "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Pico Drive (Sega 32X/CD)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% picodrive "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch PPSSPP (PSP)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% ppsspp "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch ProSystem (Atari 7800)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% prosystem "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch QuickNES (NES)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% quicknes "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch ScummVM (PC)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% scummvm "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x (SNES)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% -nes9x "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x Next (SNES)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% snes9x_next "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Stella (Atari 2600)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% stella "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch TGB Dual (GB/GBC)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% tgbdual "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VBA Next (GBA)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% vba_next "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VBA-M (GBA)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% vbam "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Vecx (Vectrex)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% vecx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VirtualJaguar (Atari Jaguar)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% virtualjaguar "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Yabuse (Saturn)" os="OpenElec">
+		<launcher_command>%HELPER_SCRIPT_2% yabause "%ROM_PATH%"</launcher_command>
 	</launcher>
 </system>

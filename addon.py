@@ -10,6 +10,7 @@ plugin = Plugin()
 iarl_setting_cache_list = plugin.get_setting('iarl_setting_cache_list',bool)
 iarl_setting_clean_list = plugin.get_setting('iarl_setting_clean_list',bool)
 iarl_setting_clear_cache_value  = plugin.get_setting('iarl_setting_clear_cache_value',bool)
+iarl_setting_naming = plugin.get_setting('iarl_setting_naming',unicode)
 
 items_pp_options = {'10':10,'25':25,'50':50,'100':100,'150':150,'200':200,'250':250,'300':300,'350':350,'400':400,'450':450,'500':500,'List All':99999}
 try:
@@ -31,6 +32,7 @@ if iarl_setting_clear_cache_value:
 
 iarl_setting_default_action = plugin.get_setting('iarl_setting_default_action')
 iarl_setting_retroarch_path = plugin.get_setting('iarl_path_to_retroarch')
+iarl_setting_chdman_path = plugin.get_setting('iarl_path_to_chdman')
 iarl_setting_operating_system = get_Operating_System()
 
 @plugin.route('/update_xml/<xml_id>')

@@ -2,7 +2,7 @@
     <GameGrammar type="xml" root="game">
         <rom_filename>rom/@name</rom_filename>
         <rom_supporting_file>not_used</rom_supporting_file>
-        <rom_size>./@size</rom_size>
+        <rom_size>rom/@size</rom_size>
         <rom_name>description</rom_name>
         <rom_plot>plot</rom_plot>
         <rom_year>releasedate</rom_year>

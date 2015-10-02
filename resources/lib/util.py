@@ -1,8 +1,8 @@
-import os, sys, re, shutil, json, zipfile
-import os.path
+import os, sys, re, shutil, json, zipfile, subprocess
+# import os.path
 import xbmc, xbmcaddon, xbmcvfs
 from xbmcswift2 import xbmcgui
-import time
+# import time
 from descriptionparserfactory import *
 
 #
@@ -80,6 +80,14 @@ def get_Operating_System():
 	elif 'linux' in sys.platform:
 		if 'XBMC_ANDROID_APK' in os.environ.keys():
 			current_OS = 'Android' #Similar method to find android as done below for IOS
+		elif os.path.exists('/etc/os-release'):
+				try:
+					with open('/etc/os-release', 'r') as content_file:
+						os_content_file = content_file.read().replace('\n', '')
+					if 'OpenELEC'.lower() in os_content_file.lower():
+						current_OS = 'OpenElec' #Best method I could find to determine if its OE
+				except:
+					current_OS = 'Nix'
 		else:
 			current_OS = 'Nix'
 	elif 'darwin' in sys.platform:
@@ -256,6 +264,10 @@ def update_external_launch_commands(current_os,retroarch_path,xml_id,plugin):
 
 	parserfile = getParserFilePath('external_launcher_parser.xml')
 	launchersfile = getParserFilePath('external_command_database.xml')
+	helper_script_1 = os.path.join(getAddonInstallPath(),'resources/bin/applaunch.sh')
+	helper_script_2 = os.path.join(getAddonInstallPath(),'resources/bin/romlaunch_OE.sh')
+	helper_script_3 = os.path.join(getAddonInstallPath(),'resources/bin/applaunch-vbs.bat')
+
 	descParser = DescriptionParserFactory.getParser(parserfile)
 	results = descParser.parseDescription(launchersfile,'xml')
 	user_options = list()
@@ -288,6 +300,9 @@ def update_external_launch_commands(current_os,retroarch_path,xml_id,plugin):
 		if ret2<1:
 			new_launch_command = launch_command[ret1]
 			new_launch_command = new_launch_command.replace('%APP_PATH%',retroarch_path)
+			new_launch_command = new_launch_command.replace('%HELPER_SCRIPT_1%',helper_script_1) #Quick and dirty for now, may make this more efficient later
+			new_launch_command = new_launch_command.replace('%HELPER_SCRIPT_2%',helper_script_2)
+			new_launch_command = new_launch_command.replace('%HELPER_SCRIPT_3%',helper_script_3)
 			update_xml_header(current_xml_path,current_xml_filename,'emu_ext_launch_cmd',new_launch_command)
 			ok_ret = current_dialog.ok('Complete','External Launch Command was updated[CR]Cache was cleared for new settings')
 			plugin.clear_function_cache()
@@ -555,7 +570,6 @@ def set_iarl_window_properties(emu_name):
 
 
 def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
-
 	#Get basic xml path info
 	xml_header_info = get_xml_header_paths(xmlfilename)
 
@@ -565,6 +579,7 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
 	results = descParser.parseDescription(xmlfilename,'xml')
 
 	set_iarl_window_properties(xml_header_info['emu_name'][0])
+	iarl_setting_naming = plugin.get_setting('iarl_setting_naming',unicode)
 
 	items = []
 	current_item = []
@@ -769,9 +784,33 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
 			if current_save_sfname:
 				current_save_sfname = current_save_sfname+'.zip'
 
+		label_sep = '  |  '
+		xstr = lambda s: s or ''
+
+		if iarl_setting_naming == 'Title':
+			current_label = xstr(current_name)
+		elif iarl_setting_naming == 'Title, Genre':
+			current_label = xstr(current_name) + label_sep + xstr(current_genre)
+		elif iarl_setting_naming == 'Title, Date':
+			current_label = xstr(current_name) + label_sep + current_date
+		elif iarl_setting_naming == 'Title, Genre, Date':
+			current_label = xstr(current_name) + label_sep + xstr(current_genre) + label_sep + xstr(current_date)
+		elif iarl_setting_naming == 'Genre, Title':
+			current_label = xstr(current_genre) + label_sep + xstr(current_name)
+		elif iarl_setting_naming == 'Date, Title':
+			current_label = xstr(current_date) + label_sep + xstr(current_name)
+		elif iarl_setting_naming == 'Genre, Title, Date':
+			current_label = xstr(current_genre) + label_sep + xstr(current_name) + label_sep + xstr(current_date)
+		elif iarl_setting_naming == 'Date, Title, Genre':
+			current_label = xstr(current_date) + label_sep + xstr(current_name) + label_sep + xstr(current_genre)
+		elif iarl_setting_naming == 'Title, Genre, Date, ROM Tag':
+			current_label = xstr(current_name) + label_sep + xstr(current_genre) + label_sep + xstr(current_date) + label_sep + xstr(current_rom_tag)
+		else:
+			current_label = xstr(current_name)
+
 		current_item = []
 		current_item = { 
-        'label' : current_name, 'icon': current_icon2,
+        'label' : current_label, 'icon': current_icon2,
         'thumbnail' : current_thumbnail2,
         'path' : plugin.url_for('get_selected_rom', romname=entries['rom_name'][0]),
         'info' : {'genre': current_genre, 'studio': current_credits, 'date': current_date, 'plot': current_plot, 'trailer': current_trailer, 'size': current_filesize},
@@ -956,6 +995,58 @@ def unzip_dosbox_file(current_fname,current_rom_emu_command):
 
 
 	return zip_success, new_fname
+
+def convert_chd(current_fname,iarl_setting_chdman_path):
+	chd_success = False
+	new_file_extension = None
+	new_fname = None
+	current_chd_fileparts = os.path.split(current_fname)
+	file_path = current_chd_fileparts[0]
+	file_extension = current_chd_fileparts[-1]
+	file_base_name = os.path.splitext(os.path.split(current_fname)[-1])[0]
+
+	if 'chd' in file_extension.lower():
+		try:
+			output_cue = os.path.join(file_path,file_base_name+'.cue')
+			output_bin = os.path.join(file_path,file_base_name+'.bin')
+			command = '%CHD_APP_PATH% extractcd -i "%INPUT_CHD%" -o "%OUTPUT_CUE%" -ob "%OUTPUT_BIN%"'
+			command = command.replace('%CHD_APP_PATH%',iarl_setting_chdman_path)
+			command = command.replace("%INPUT_CHD%",filename)
+			command = command.replace("%OUTPUT_CUE%",output_cue)
+			command = command.replace("%OUTPUT_BIN%",output_bin)
+			print 'IARL:  Attempting CHD Conversion: '+command
+			failed_text = 'Unhandled exception'
+			already_exists_text = 'file already exists'
+			success_text = 'Extraction complete'
+			conversion_process = subprocess.Popen(command, shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT) #Convert CHD to BIN/CUE
+			results1 = conversion_process.stdout.read().replace('\n', '')
+			conversion_process.kill() #End the process after its completed
+
+			if success_text.lower() in results1.lower():
+				print 'IARL:  CHD Conversion Successful'
+				new_fname = output_bin
+				chd_success = True
+			elif already_exists_text.lower() in results1.lower():
+				print 'IARL:  BIN File already exists, conversion not required'
+				new_fname = output_bin
+				chd_success = True
+			elif failed_text.lower() in results1.lower():
+				chd_success = False
+				print 'IARL:  CHD Conversion Failed'
+				print results1
+			else:
+				chd_success = False
+				print 'IARL:  CHD Conversion Failed'
+		except:
+			chd_success = False
+			print 'IARL:  CHD Conversion Failed'
+
+		if chd_success:
+			os.remove(current_fname) #Delete the CHD and leave the new BIN/CUE if the conversion was a success
+	else:
+		print current_fname + ' was not regognized as a chd and not converted'
+
+	return chd_success, new_fname
 
 def set_new_dl_path(xml_id,plugin):
 	current_xml_fileparts = os.path.split(xml_id)
