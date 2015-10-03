@@ -27,5 +27,7 @@
 		<setting type="sep"/>
 		<setting visible="true" label="Clear Plugin Cache" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/clear_IARL_cache.py)"/>
 		<setting visible="false" id="iarl_setting_clear_cache_value" type="bool" label="Clear Plugin Cache Value" default="false"/>
+		<setting visible="false" id="iarl_setting_warn_chd" type="bool" label="Display CHD Warning" default="true"/>
+		<setting visible="false" id="iarl_setting_warn_iso" type="bool" label="Display ISO Warning" default="true"/>
 	</category>
 </settings>

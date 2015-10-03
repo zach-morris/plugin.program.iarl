@@ -96,6 +96,22 @@ def get_Operating_System():
 		else: 
 			current_OS = 'OSX'
 
+	if 'OpenELEC' in current_OS:
+		try:
+			os.system( 'chmod a+rx ' + os.path.join(getAddonInstallPath(),'resources/bin/romlaunch_OE.sh'))
+		except:
+			print 'IARL:  chmod for helper script failed OpenElec'
+	elif 'OSX' in current_OS:
+		try:
+			os.system( 'chmod a+rx ' + os.path.join(getAddonInstallPath(),'resources/bin/applaunch.sh'))
+		except:
+			print 'IARL:  chmod for helper script failed OSX'
+	elif 'Nix' in current_OS:
+		try:
+			os.system( 'chmod a+rx ' + os.path.join(getAddonInstallPath(),'resources/bin/applaunch.sh'))
+		except:
+			print 'IARL:  chmod for helper script failed Nix'
+
 	return current_OS
 
 def getEnvironment():
@@ -230,6 +246,36 @@ def check_if_rom_exits(current_save_fname,current_path):
 			pass
 
 	return fname_found, do_not_download_flag
+
+def check_for_warn(current_filename):
+	file_extension = current_filename.split('.')[-1]
+	chd_warn = False
+	iso_warn = False
+
+	if 'chd' in file_extension.lower():
+		chd_warn = True
+	if 'img' in file_extension.lower():
+		iso_warn = True
+	if 'img' in file_extension.lower():
+		iso_warn = True
+
+	if 'true' in __addon__.getSetting(id='iarl_setting_warn_chd').lower():
+		print __addon__.getSetting(id='iarl_setting_warn_chd')
+		if chd_warn:
+			current_dialog = xbmcgui.Dialog()
+			ret1 = current_dialog.yesno('Warning','Warning:  This ROM is in CHD Format[CR]It will have to be converted prior to use[CR]These files are also typically large[CR]Check addon settings and wiki for more info',nolabel='OK',yeslabel='OK! Stop showing this!')
+			print ret1
+			if ret1>0:
+				__addon__.setSetting(id='iarl_setting_warn_chd',value='false') #No longer show the warning
+
+	if 'true' in __addon__.getSetting(id='iarl_setting_warn_iso').lower():
+		if iso_warn:
+			current_dialog = xbmcgui.Dialog()
+			ret1 = current_dialog.yesno('Warning','Warning:  This ROM is in ISO/IMG Format[CR]These files are also typically large!',nolabel='OK',yeslabel='OK! Stop showing this!')
+			print ret1
+			if ret1>0:
+				__addon__.setSetting(id='iarl_setting_warn_iso',value='false') #No longer show the warning
+
 
 def getFolderSize(folder):
     total_size = os.path.getsize(folder)
@@ -813,7 +859,7 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
         'label' : current_label, 'icon': current_icon2,
         'thumbnail' : current_thumbnail2,
         'path' : plugin.url_for('get_selected_rom', romname=entries['rom_name'][0]),
-        'info' : {'genre': current_genre, 'studio': current_credits, 'date': current_date, 'plot': current_plot, 'trailer': current_trailer, 'size': current_filesize},
+        'info' : {'title' : current_name, 'genre': current_genre, 'studio': current_credits, 'date': current_date, 'plot': current_plot, 'trailer': current_trailer, 'size': current_filesize},
         'properties' : {'fanart_image' : current_fanart[0], 'banner' : current_banner[0], 'clearlogo': current_clearlogo[0], 'poster': current_thumbnail[1], 'rom_tag': current_rom_tag,
         'fanart1': current_fanart[0], 'fanart2': current_fanart[1], 'fanart3': current_fanart[2], 'fanart4': current_fanart[3], 'fanart5': current_fanart[4], 'fanart6': current_fanart[5], 'fanart7': current_fanart[6], 'fanart8': current_fanart[7], 'fanart9': current_fanart[8], 'fanart10': current_fanart[9],
         'banner1': current_banner[0], 'banner2': current_banner[1], 'banner3': current_banner[2], 'banner4': current_banner[3], 'banner5': current_banner[4], 'banner6': current_banner[5], 'banner7': current_banner[6], 'banner8': current_banner[7], 'banner9': current_banner[8], 'banner10': current_banner[9],

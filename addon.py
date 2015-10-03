@@ -361,7 +361,7 @@ def get_selected_rom(romname):
     current_boxart.append(xbmc.getInfoLabel('ListItem.Property(boxart9)'))
     current_boxart.append(xbmc.getInfoLabel('ListItem.Property(boxart10)'))
     current_filesize = size_to_bytes(xbmc.getInfoLabel('Listitem.Size'))
-    current_title= xbmc.getInfoLabel('Listitem.Label')
+    current_title= xbmc.getInfoLabel('Listitem.Title')
     current_studio= xbmc.getInfoLabel('Listitem.Studio')
     current_rom_tag = xbmc.getInfoLabel('ListItem.Property(rom_tag)')
     current_nplayers = xbmc.getInfoLabel('ListItem.Property(nplayers)')
@@ -383,6 +383,8 @@ def get_selected_rom(romname):
     current_emu_launcher = xbmc.getInfoLabel('ListItem.Property(emu_launcher)')
     current_emu_ext_launch_cmd = xbmc.getInfoLabel('ListItem.Property(emu_ext_launch_cmd)')
     current_rom_emu_command = xbmc.getInfoLabel('ListItem.Property(rom_emu_command)')
+
+    check_for_warn(current_rom_save_fname) #Added warning for chd and img/iso type files, which can be turned off
 
     if 'ROM Info Page'.lower() in iarl_setting_default_action.lower():
         MyROMWindow = ROMWindow('default.xml',getAddonInstallPath(),'Default','720p',rom_fname=current_rom_fname, rom_sfname=current_rom_sfname, rom_save_fname=current_rom_save_fname, rom_save_sfname=current_rom_save_sfname, emu_name=current_emu_name, logo=current_emu_logo, emu_fanart=current_emu_fanart, title=current_title, plot=current_plot, fanart=filter(bool, current_fanart), boxart=filter(bool, current_boxart), snapshot=filter(bool, current_snapshot), banner=filter(bool, current_banner), trailer=current_trailer, nplayers=current_nplayers, studio=current_studio, genre=current_genre, release_date=current_release_date, emu_downloadpath=current_emu_downloadpath, emu_postdlaction=current_emu_postdlaction, emu_launcher=current_emu_launcher, emu_ext_launch_cmd=current_emu_ext_launch_cmd, rom_emu_command=current_rom_emu_command, rom_filesize=current_filesize)
@@ -422,7 +424,8 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom
         print 'Downloading Selected ROM'
         # print 'test'
         # print rom_emu_command
-        
+        print quote_url(rom_fname)
+        print current_save_fname
         if rom_save_fname:
             download_tools().Downloader(quote_url(rom_fname),current_save_fname,rom_filesize,rom_save_fname,'Downloading, please wait...')
             bad_file_found1 = check_downloaded_file(current_save_fname)
@@ -435,6 +438,8 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom
                     zip_success1, new_rom_fname = unzip_file(current_save_fname)
                 elif rom_postdlaction == 'unzip_update_rom_path_dosbox':
                     zip_success1, new_rom_fname = unzip_dosbox_file(current_save_fname,rom_emu_command)
+                elif rom_postdlaction == 'convert_chd':
+                    chd_success, new_rom_fname = convert_chd(current_save_fname,iarl_setting_chdman_path)
             else:
                 download_success = False
 
@@ -814,7 +819,8 @@ class SearchWindow(xbmcgui.WindowXMLDialog):
                 current_dialog.ok('Wah Waaah','You must select at least one archive!')
                 ret1=1
             else:
-                ret1 = current_dialog.select('Start Search?', ['Yes','No'])
+                # ret1 = current_dialog.select('Start Search?', ['Yes','No']) #Removing redundant search dialog
+                ret1 = 0
 
             if ret1 == 0:
                 print 'IARL:  Starting Search'
