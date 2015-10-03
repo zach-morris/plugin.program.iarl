@@ -707,17 +707,23 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
 			current_emu_ext_launch_cmd = None
 
 		current_sfname = []
-		if entries['rom_supporting_file']:
-			current_sfname = xml_header_info['emu_baseurl'][0]+str(entries['rom_supporting_file'][0])
-			current_sfname = html_unescape(current_sfname)
-		else:
+		try:
+			if entries['rom_supporting_file'][0]:
+				current_sfname = xml_header_info['emu_baseurl'][0]+str(entries['rom_supporting_file'][0])
+				current_sfname = html_unescape(current_sfname)
+			else:
+				current_sfname = None
+		except:
 			current_sfname = None
 
 		current_save_sfname = []
-		if entries['rom_supporting_file']:
-			current_save_sfname = str(entries['rom_supporting_file'][0])
-			current_save_sfname = html_unescape(current_save_sfname)
-		else:
+		try:
+			if entries['rom_supporting_file'][0]:
+				current_save_sfname = str(entries['rom_supporting_file'][0])
+				current_save_sfname = html_unescape(current_save_sfname)
+			else:
+				current_save_sfname = None
+		except:
 			current_save_sfname = None
 
 		current_icon = list()
