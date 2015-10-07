@@ -1,3 +1,3 @@
 from util import *
 
-update_addonxml('executable')
+update_addonxml('executable game')

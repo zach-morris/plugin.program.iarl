@@ -1,4 +1,12 @@
 Internet Archive ROM Launcher Change Log
+10-06-15
+- Added Sega Saturn
+- Updated external launch commands to allow more generic launching from xml file
+- Added Lefty's OpenElec launcher commands
+- Removed chmod commands since they dont work.  Wiki updated with instructions
+- Updated addon.xml per Garbear
+- Added art for OSD (although it doesnt look like confluence uses it)
+
 10-03-15
 - Added bin folder missed due to gitnore
 - A few bug fixes, hopefully to improve OpenElec External Launching

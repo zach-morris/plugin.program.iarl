@@ -96,22 +96,6 @@ def get_Operating_System():
 		else: 
 			current_OS = 'OSX'
 
-	if 'OpenELEC' in current_OS:
-		try:
-			os.system( 'chmod a+rx ' + os.path.join(getAddonInstallPath(),'resources/bin/romlaunch_OE.sh'))
-		except:
-			print 'IARL:  chmod for helper script failed OpenElec'
-	elif 'OSX' in current_OS:
-		try:
-			os.system( 'chmod a+rx ' + os.path.join(getAddonInstallPath(),'resources/bin/applaunch.sh'))
-		except:
-			print 'IARL:  chmod for helper script failed OSX'
-	elif 'Nix' in current_OS:
-		try:
-			os.system( 'chmod a+rx ' + os.path.join(getAddonInstallPath(),'resources/bin/applaunch.sh'))
-		except:
-			print 'IARL:  chmod for helper script failed Nix'
-
 	return current_OS
 
 def getEnvironment():
@@ -310,9 +294,9 @@ def update_external_launch_commands(current_os,retroarch_path,xml_id,plugin):
 
 	parserfile = getParserFilePath('external_launcher_parser.xml')
 	launchersfile = getParserFilePath('external_command_database.xml')
-	helper_script_1 = os.path.join(getAddonInstallPath(),'resources/bin/applaunch.sh')
-	helper_script_2 = os.path.join(getAddonInstallPath(),'resources/bin/romlaunch_OE.sh')
-	helper_script_3 = os.path.join(getAddonInstallPath(),'resources/bin/applaunch-vbs.bat')
+	# helper_script_1 = os.path.join(getAddonInstallPath(),'resources/bin/applaunch.sh')
+	# helper_script_2 = os.path.join(getAddonInstallPath(),'resources/bin/romlaunch_OE.sh')
+	# helper_script_3 = os.path.join(getAddonInstallPath(),'resources/bin/applaunch-vbs.bat')
 
 	descParser = DescriptionParserFactory.getParser(parserfile)
 	results = descParser.parseDescription(launchersfile,'xml')
@@ -346,9 +330,10 @@ def update_external_launch_commands(current_os,retroarch_path,xml_id,plugin):
 		if ret2<1:
 			new_launch_command = launch_command[ret1]
 			new_launch_command = new_launch_command.replace('%APP_PATH%',retroarch_path)
-			new_launch_command = new_launch_command.replace('%HELPER_SCRIPT_1%',helper_script_1) #Quick and dirty for now, may make this more efficient later
-			new_launch_command = new_launch_command.replace('%HELPER_SCRIPT_2%',helper_script_2)
-			new_launch_command = new_launch_command.replace('%HELPER_SCRIPT_3%',helper_script_3)
+			# new_launch_command = new_launch_command.replace('%HELPER_SCRIPT_1%',helper_script_1) #Quick and dirty for now, may make this more efficient later
+			# new_launch_command = new_launch_command.replace('%HELPER_SCRIPT_2%',helper_script_2)
+			# new_launch_command = new_launch_command.replace('%HELPER_SCRIPT_3%',helper_script_3)
+			new_launch_command = new_launch_command.replace('%ADDON_DIR%',getAddonInstallPath()) #Replace helper script with the more generic ADDON_DIR
 			update_xml_header(current_xml_path,current_xml_filename,'emu_ext_launch_cmd',new_launch_command)
 			ok_ret = current_dialog.ok('Complete','External Launch Command was updated[CR]Cache was cleared for new settings')
 			plugin.clear_function_cache()

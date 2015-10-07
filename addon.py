@@ -360,6 +360,7 @@ def get_selected_rom(romname):
     current_boxart.append(xbmc.getInfoLabel('ListItem.Property(boxart8)'))
     current_boxart.append(xbmc.getInfoLabel('ListItem.Property(boxart9)'))
     current_boxart.append(xbmc.getInfoLabel('ListItem.Property(boxart10)'))
+    current_clearlogo = xbmc.getInfoLabel('ListItem.Property(clearlogo)')
     current_filesize = size_to_bytes(xbmc.getInfoLabel('Listitem.Size'))
     current_title= xbmc.getInfoLabel('Listitem.Title')
     current_studio= xbmc.getInfoLabel('Listitem.Studio')
@@ -387,10 +388,10 @@ def get_selected_rom(romname):
     check_for_warn(current_rom_save_fname) #Added warning for chd and img/iso type files, which can be turned off
 
     if 'ROM Info Page'.lower() in iarl_setting_default_action.lower():
-        MyROMWindow = ROMWindow('default.xml',getAddonInstallPath(),'Default','720p',rom_fname=current_rom_fname, rom_sfname=current_rom_sfname, rom_save_fname=current_rom_save_fname, rom_save_sfname=current_rom_save_sfname, emu_name=current_emu_name, logo=current_emu_logo, emu_fanart=current_emu_fanart, title=current_title, plot=current_plot, fanart=filter(bool, current_fanart), boxart=filter(bool, current_boxart), snapshot=filter(bool, current_snapshot), banner=filter(bool, current_banner), trailer=current_trailer, nplayers=current_nplayers, studio=current_studio, genre=current_genre, release_date=current_release_date, emu_downloadpath=current_emu_downloadpath, emu_postdlaction=current_emu_postdlaction, emu_launcher=current_emu_launcher, emu_ext_launch_cmd=current_emu_ext_launch_cmd, rom_emu_command=current_rom_emu_command, rom_filesize=current_filesize)
+        MyROMWindow = ROMWindow('default.xml',getAddonInstallPath(),'Default','720p',rom_fname=current_rom_fname, rom_sfname=current_rom_sfname, rom_save_fname=current_rom_save_fname, rom_save_sfname=current_rom_save_sfname, emu_name=current_emu_name, logo=current_emu_logo, emu_fanart=current_emu_fanart, title=current_title, plot=current_plot, fanart=filter(bool, current_fanart), boxart=filter(bool, current_boxart), snapshot=filter(bool, current_snapshot), banner=filter(bool, current_banner), clearlogo=filter(bool, current_clearlogo), trailer=current_trailer, nplayers=current_nplayers, studio=current_studio, genre=current_genre, release_date=current_release_date, emu_downloadpath=current_emu_downloadpath, emu_postdlaction=current_emu_postdlaction, emu_launcher=current_emu_launcher, emu_ext_launch_cmd=current_emu_ext_launch_cmd, rom_emu_command=current_rom_emu_command, rom_filesize=current_filesize)
         MyROMWindow.doModal()
     elif 'Download and Launch'.lower() in iarl_setting_default_action.lower():
-        download_and_launch_rom(None,current_rom_fname,current_rom_sfname, current_rom_save_fname, current_rom_save_sfname, current_emu_downloadpath, current_emu_postdlaction, current_emu_launcher, current_emu_ext_launch_cmd, current_rom_emu_command, current_filesize)
+        download_and_launch_rom(None,current_rom_fname,current_rom_sfname, current_rom_save_fname, current_rom_save_sfname, current_emu_downloadpath, current_emu_postdlaction, current_emu_launcher, current_emu_ext_launch_cmd, current_rom_emu_command, current_filesize,filter(bool, current_boxart),filter(bool, current_clearlogo))
     elif 'Download Only'.lower() in iarl_setting_default_action.lower():
         current_dialog = xbmcgui.Dialog()
         download_success, new_rom_fname, new_rom_sfname = download_rom_only(current_rom_fname,current_rom_sfname, current_rom_save_fname, current_rom_save_sfname, current_emu_downloadpath, current_emu_postdlaction, current_rom_emu_command, current_filesize)
@@ -462,7 +463,7 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom
 
     return download_success, new_rom_fname, new_rom_sfname
 
-def download_and_launch_rom(romwindow,rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom_dl_path, rom_postdlaction, emu_launcher, emu_ext_launch_cmd, rom_emu_command, rom_filesize):
+def download_and_launch_rom(romwindow,rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom_dl_path, rom_postdlaction, emu_launcher, emu_ext_launch_cmd, rom_emu_command, rom_filesize, rom_boxart, rom_clearlogo):
     print 'Download and Launch Selected'
 
     if emu_launcher == 'external': #Use external launcher
@@ -503,6 +504,18 @@ def download_and_launch_rom(romwindow,rom_fname,rom_sfname, rom_save_fname, rom_
         launch_game_listitem = xbmcgui.ListItem(current_save_fname, "0", "", "")
         parameters = { }
         launch_game_listitem.setInfo( type="game", infoLabels=parameters)
+        try: #Add art to the OSD, although i dont think confluence uses it
+            if rom_boxart[0] is not None:
+                launch_game_listitem.setArt({ 'poster': rom_boxart[0]})
+                launch_game_listitem.setArt({ 'thumb': rom_boxart[0]})
+                launch_game_listitem.setIconImage(rom_boxart[0])
+        except:
+            pass
+        try:
+            if rom_clearlogo is not None:
+                launch_game_listitem.setArt({ 'clearart': rom_clearlogo})
+        except:
+            pass
 
         if xbmc.Player().isPlaying():
                 xbmc.Player().stop()
@@ -530,6 +543,7 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
         self.boxart = kwargs['boxart']
         self.snapshot = kwargs['snapshot']
         self.banner = kwargs['banner']
+        self.clearlogo = kwargs['clearlogo']
         self.title = kwargs['title']
         self.plot = kwargs['plot']
         self.trailer = kwargs['trailer']
@@ -654,7 +668,7 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
                 xbmc.Player().stop()
                 xbmc.sleep(100)
 
-            download_and_launch_rom(self,self.rom_fname, self.rom_sfname, self.rom_save_fname, self.rom_save_sfname, self.emu_downloadpath, self.emu_postdlaction, self.emu_launcher, self.emu_ext_launch_cmd, self.rom_emu_command, self.rom_filesize)
+            download_and_launch_rom(self,self.rom_fname, self.rom_sfname, self.rom_save_fname, self.rom_save_sfname, self.emu_downloadpath, self.emu_postdlaction, self.emu_launcher, self.emu_ext_launch_cmd, self.rom_emu_command, self.rom_filesize, self.boxart, self.clearlogo)
 
         if controlId == self.control_id_button_action3: #Play the trailer if it exists
             if self.trailer:
