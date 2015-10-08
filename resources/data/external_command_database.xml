@@ -47,6 +47,9 @@
 	<launcher name="RetroArch 4DO (3DO)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\4do_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch BlueMSX (MSX)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\bluemsx_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch BNES (NES)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\bnes_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -58,6 +61,18 @@
 	</launcher>
 	<launcher name="RetroArch BSNES Performance (SNES)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\bsnes_performance_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Mercury Accuracy (SNES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\bsnes_mercury_accuracy_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Mercury Balanced (SNES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\bsnes_mercury_balanced_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Mercury Performance (SNES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\bsnes_mercury_performance_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch CATSFC (SNES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\catsfc_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch DeSmuME (NDS)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\desmume_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -74,8 +89,26 @@
 	<launcher name="RetroArch Emux SMS (Master System)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\emux_sms_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA CPS1 (CPS1)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\fba_cores_cps1_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA CPS2 (CPS2)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\fba_cores_cps2_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA NEO (Neo Geo)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\fba_cores_neo_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA (Arcade)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\fb_alpha_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FCEUmm (NES)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\fceumm_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch fMSX (MSX)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\fmsx_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Fuse (Spectrum)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\fuse_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Gambatte (GB/GBC)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\gambatte_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -92,20 +125,47 @@
 	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\hatari_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch MAME 2010 (Arcade)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mame2010_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch MAME 2014 (Arcade)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mame2014_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mame_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Mednafen GBA (GBA)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mednafen_gba_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen Lynx (Lynx)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mednafen_lynx_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen NGP (Neo Geo Pocket)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mednafen_ngp_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Mednafen PCE FAST (TG16)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mednafen_pce_fast_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PC-FX (PC-FX)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mednafen_pcfx_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PSX (PS1)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mednafen_psx_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mednafen_snes_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SuperGrafx (PCE)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mednafen_supergrafx_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen VB (Virtual Boy)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mednafen_vb_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch WSWAN (WonderSwan)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mednafen_wswan_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MESS (PC)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\mess2014_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Meteor (GBA)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\meteor_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -125,6 +185,18 @@
 	<launcher name="RetroArch PPSSPP (PSP)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\ppsspp_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch ProSystem (Atari 7800)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\prosystem_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch P-UAE (Amiga)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\puae_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch QuickNES (NES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\quicknes_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch ScummVM (PC)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\scummvm_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch SNES9x (SNES)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\snes9x_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -133,6 +205,9 @@
 	</launcher>
 	<launcher name="RetroArch Stella (Atari)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\stella_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch TGB Dual (GB/GBC)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\tgbdual_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBA-M (GBA)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\vbam_libretro.dll" "%ROM_PATH%"</launcher_command>

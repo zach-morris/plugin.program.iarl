@@ -1033,7 +1033,7 @@ def unzip_dosbox_file(current_fname,current_rom_emu_command):
 
 	return zip_success, new_fname
 
-def convert_chd(current_fname,iarl_setting_chdman_path):
+def convert_chd_bin(current_fname,iarl_setting_chdman_path):
 	chd_success = False
 	new_file_extension = None
 	new_fname = None
@@ -1054,7 +1054,7 @@ def convert_chd(current_fname,iarl_setting_chdman_path):
 		# try:
 		output_cue = os.path.join(file_path,file_base_name+'.cue')
 		output_bin = os.path.join(file_path,file_base_name+'.bin')
-		command = '%CHD_APP_PATH% extractcd -i "%INPUT_CHD%" -o "%OUTPUT_CUE%" -ob "%OUTPUT_BIN%"' #May need to provide other OS options here
+		command = '"%CHD_APP_PATH%" extractcd -i "%INPUT_CHD%" -o "%OUTPUT_CUE%" -ob "%OUTPUT_BIN%"' #May need to provide other OS options here
 		command = command.replace('%CHD_APP_PATH%',iarl_setting_chdman_path)
 		command = command.replace("%INPUT_CHD%",current_fname)
 		command = command.replace("%OUTPUT_CUE%",output_cue)
@@ -1097,6 +1097,85 @@ def convert_chd(current_fname,iarl_setting_chdman_path):
 	# current_dialog.close()
 	return chd_success, new_fname
 
+def convert_chd_cue(current_fname,iarl_setting_chdman_path):
+	#Quick and dirty to point to cue if needed, may fix later
+	chd_success = False
+	new_file_extension = None
+	new_fname = None
+	current_dialog = xbmcgui.Dialog()
+
+	if iarl_setting_chdman_path is None: #Check if there's a CHDMAN available
+		ok_ret = current_dialog.ok('Error','No CHDMAN path appears to be set in your addon settings.')
+		return chd_success, new_fname
+
+	current_dialog.notification('Please Wait', 'Just a moment, converting CHD to BIN/CUE', xbmcgui.NOTIFICATION_INFO, 500000)
+
+	current_chd_fileparts = os.path.split(current_fname)
+	file_path = current_chd_fileparts[0]
+	file_extension = current_chd_fileparts[-1]
+	file_base_name = os.path.splitext(os.path.split(current_fname)[-1])[0]
+
+	if 'chd' in file_extension.lower():
+		# try:
+		output_cue = os.path.join(file_path,file_base_name+'.cue')
+		output_bin = os.path.join(file_path,file_base_name+'.bin')
+		command = '"%CHD_APP_PATH%" extractcd -i "%INPUT_CHD%" -o "%OUTPUT_CUE%" -ob "%OUTPUT_BIN%"' #May need to provide other OS options here
+		command = command.replace('%CHD_APP_PATH%',iarl_setting_chdman_path)
+		command = command.replace("%INPUT_CHD%",current_fname)
+		command = command.replace("%OUTPUT_CUE%",output_cue)
+		command = command.replace("%OUTPUT_BIN%",output_bin)
+		print 'IARL:  Attempting CHD Conversion: '+command
+		failed_text = 'Unhandled exception'
+		already_exists_text = 'file already exists'
+		success_text = 'Extraction complete'
+		conversion_process = subprocess.Popen(command, shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT) #Convert CHD to BIN/CUE
+		results1 = conversion_process.stdout.read().replace('\n', '')
+		conversion_process.kill() #End the process after its completed
+
+		if success_text.lower() in results1.lower():
+			print 'IARL:  CHD Conversion Successful'
+			new_fname = output_cue
+			chd_success = True
+		elif already_exists_text.lower() in results1.lower():
+			print 'IARL:  CUE File already exists, conversion not required'
+			new_fname = output_cue
+			chd_success = True
+		elif failed_text.lower() in results1.lower():
+			chd_success = False
+			print 'IARL:  CHD Conversion Failed'
+			print results1
+		else:
+			chd_success = False
+			print 'IARL:  CHD Conversion Failed'
+		# except:
+		# 	chd_success = False
+		# 	print 'IARL:  CHD Conversion Failed'
+
+		if chd_success:
+			os.remove(current_fname) #Delete the CHD and leave the new BIN/CUE if the conversion was a success
+			current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
+		else:
+			current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
+	else:
+		print current_fname + ' was not regognized as a chd and not converted'
+
+	# current_dialog.close()
+	return chd_success, new_fname
+
+def rename_rom_postdl(current_fname,new_extension):
+	rename_success = False
+	new_fname = None
+
+	if os.path.exists(current_fname):
+		file_basename_no_ext = os.path.splitext(current_fname)
+		new_fname = file_basename_no_ext[0]+'.'+new_extension.replace('.','').replace("'",'') #Clean extension
+		os.rename(current_fname,new_fname) #Rename file with new extension
+		print 'IARL: Renamed filename to: '+new_fname
+		rename_success = True
+
+	return rename_success, new_fname
+
+
 def set_new_dl_path(xml_id,plugin):
 	current_xml_fileparts = os.path.split(xml_id)
 	current_xml_filename = current_xml_fileparts[1]
@@ -1130,7 +1209,7 @@ def set_new_post_dl_action(xml_id,plugin):
 
 	current_dialog = xbmcgui.Dialog()
 
-	ret1 = current_dialog.select('Select New Post Download Action', ['None','Unzip','Unzip and Update DOSBox CMD','Cancel'])
+	ret1 = current_dialog.select('Select New Post Download Action', ['None','Unzip','Unzip and Update DOSBox CMD','Convert CHD to BIN/CUE','Convert CHD to CUE/BIN','Rename with .gg ext','Cancel'])
 
 	if ret1 == 0:
 		ret2 = current_dialog.select('Are you sure you want to set the post DL action to none for '+current_xml_filename, ['Yes','Cancel'])
@@ -1149,6 +1228,24 @@ def set_new_post_dl_action(xml_id,plugin):
 		if ret2<1:
 			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','unzip_update_rom_path_dosbox')
 			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to Unzip and Update DOSBox CMDs[CR]Cache was cleared for new settings')
+			plugin.clear_function_cache()
+	elif ret1 == 3:
+		ret2 = current_dialog.select('Are you sure you want to set the post DL action to convert CHD to BIN/CUE (launch BIN) for '+current_xml_filename, ['Yes','Cancel'])
+		if ret2<1:
+			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','convert_chd_bin')
+			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to convert CHD to BIN/CUE[CR]Cache was cleared for new settings')
+			plugin.clear_function_cache()
+	elif ret1 == 4:
+		ret2 = current_dialog.select('Are you sure you want to set the post DL action to convert CHD to CUE/BIN (launch CUE) for'+current_xml_filename, ['Yes','Cancel'])
+		if ret2<1:
+			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','convert_chd_cue')
+			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to convert CHD to CUE/BIN[CR]Cache was cleared for new settings')
+			plugin.clear_function_cache()
+	elif ret1 == 5:
+		ret2 = current_dialog.select('Are you sure you want to set the post DL action to rename file with .gg extension for '+current_xml_filename, ['Yes','Cancel'])
+		if ret2<1:
+			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','rename_rom_postdl('"'gg'"')')
+			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to rename file with .gg extension[CR]Cache was cleared for new settings')
 			plugin.clear_function_cache()
 	else:
 		pass

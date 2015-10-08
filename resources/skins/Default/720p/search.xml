@@ -169,7 +169,7 @@
             <posx>25</posx>
             <posy>125</posy>
             <width>475</width>
-            <height>475</height>
+            <height>460</height>
             <visible>true</visible>
             <viewtype label="list">list</viewtype>
             <orientation>vertical</orientation>
