@@ -1,4 +1,4 @@
-<meta name="robots" content="noindex">
+<meta name=”robots” content=”noindex, nofollow”>
 Internet Archive ROM Launcher
 ==========================
 ![enter image description here](https://github.com/zach-morris/plugin.program.iarl/blob/master/fanart.jpg)
