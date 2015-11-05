@@ -1175,6 +1175,55 @@ def rename_rom_postdl(current_fname,new_extension):
 
 	return rename_success, new_fname
 
+def lynx_header_fix(current_fname):
+	success = False
+	new_fname = None
+	header_text = '???'
+	# This is a hack to make these headerless roms work
+	# $0000- Empty - Not used?
+	# $0100- 64KB
+	# $0200- 128KB
+	# $0400- 256KB
+	# $0800- 512KB
+	temp_filename = os.path.join(os.path.split(current_fname)[0],'temp.lnx')
+	lynx_header = dict()
+	lynx_header['64'] = 'LYNX\x00\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00Atari\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+	lynx_header['128'] = 'LYNX\x00\x02\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00Atari\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+	lynx_header['256'] = 'LYNX\x00\x04\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00Atari\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+	lynx_header['512'] = 'LYNX\x00\x08\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00Atari\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+
+	if os.path.exists(current_fname):
+		zip_success1, new_rom_fname = unzip_file(current_fname)
+		if zip_success1:
+			st = os.stat(new_rom_fname)
+			if st.st_size<65000: #Add a little extra in terms of size depending on system
+				use_header = lynx_header['64']
+				header_text = '64'
+			elif 65000<=st.st_size<130000:
+				use_header = lynx_header['128']
+				header_text = '128'
+			elif 130000<=st.st_size<270000:
+				use_header = lynx_header['256']
+				header_text = '256'
+			elif st.st_size>=270000:
+				use_header = lynx_header['512']
+				header_text = '512'
+			else:
+				use_header = lynx_header['256']
+				header_text = '???'
+
+			with open(new_rom_fname, 'rb') as old:
+				with open(temp_filename, 'wb') as new:
+				    new.write(use_header)
+				    new.write(old.read())
+
+			os.remove(new_rom_fname) #Remove Old File
+			os.rename(temp_filename,new_rom_fname) #Rename Temp File
+			new_fname = new_rom_fname
+			success = True
+			print 'IARL:  Lynx ROM Updated with '+header_text+' bytes'
+
+	return success, new_fname
 
 def set_new_dl_path(xml_id,plugin):
 	current_xml_fileparts = os.path.split(xml_id)

@@ -470,6 +470,8 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom
                     chd_success, new_rom_fname = convert_chd_bin(current_save_fname,iarl_setting_chdman_path)
                 elif rom_postdlaction == 'convert_chd_cue':
                     chd_success, new_rom_fname = convert_chd_cue(current_save_fname,iarl_setting_chdman_path)
+                elif rom_postdlaction == 'lynx_header_fix':
+                    fix_success, new_rom_fname = lynx_header_fix(current_save_fname)
                 elif 'rename_rom_postdl' in rom_postdlaction:
                     new_extension = re.search(r'\([^)]*\)',rom_postdlaction).group(0).replace('(','').replace(')','').strip()
                     rename_success, new_rom_fname = rename_rom_postdl(current_save_fname,new_extension)
