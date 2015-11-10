@@ -11,7 +11,7 @@ from descriptionparserfactory import *
 
 iarl_plugin_name = 'plugin.program.iarl'
 debugging_enabled = True
-
+LOG_LEVEL_INFO = 'LOG_LEVEL_INFO'
 
 __addon__ = xbmcaddon.Addon(id='%s' %iarl_plugin_name)
 __language__ = __addon__.getLocalizedString
@@ -857,11 +857,11 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
         'snapshot1': current_snapshot[0], 'snapshot2': current_snapshot[1], 'snapshot3': current_snapshot[2], 'snapshot4': current_snapshot[3], 'snapshot5': current_snapshot[4], 'snapshot6': current_snapshot[5], 'snapshot7': current_snapshot[6], 'snapshot8': current_snapshot[7], 'snapshot9': current_snapshot[8], 'snapshot10': current_snapshot[9],
         'boxart1': current_thumbnail[0], 'boxart2': current_thumbnail[1], 'boxart3': current_thumbnail[2], 'boxart4': current_thumbnail[3], 'boxart5': current_thumbnail[4], 'boxart6': current_thumbnail[5], 'boxart7': current_thumbnail[6], 'boxart8': current_thumbnail[7], 'boxart9': current_thumbnail[8], 'boxart10': current_thumbnail[9],
         'nplayers': current_nplayers, 'emu_logo': current_emu_logo, 'emu_fanart': current_emu_fanart, 'emu_name': current_emu_name, 'rom_fname': current_fname, 'rom_sfname': current_sfname, 'rom_save_fname': current_save_fname, 'rom_save_sfname': current_save_sfname,
-        'emu_downloadpath': current_emu_downloadpath, 'emu_postdlaction': current_emu_postdlaction, 'emu_launcher': current_emu_launcher, 'emu_ext_launch_cmd': current_emu_ext_launch_cmd, 'rom_emu_command': current_rom_emu_command}
-        }
+        'emu_downloadpath': current_emu_downloadpath, 'emu_postdlaction': current_emu_postdlaction, 'emu_launcher': current_emu_launcher, 'emu_ext_launch_cmd': current_emu_ext_launch_cmd, 'rom_emu_command': current_rom_emu_command},
+        'context_menu': None}
+		
 		items.append(current_item)
 
-	
 	return items
 
 #HACK: XBMC does not update labels with empty strings
@@ -895,6 +895,231 @@ def size_to_bytes(size_str):
 		size = None
 
 	return size
+
+
+def query_favorites_xml():
+	favorites_xml_filename = None
+	emu_info = scape_xml_headers() #Find all xml dat files and get the header info
+	favorite_xmls = dict()
+	favorite_xmls['emu_name'] = list()
+	favorite_xmls['emu_location'] = list()
+
+	for ii in range(0,len(emu_info['emu_name'])):
+		if 'IARL_Favorites'.lower() in emu_info['emu_description'][ii].lower():
+			favorite_xmls['emu_name'].append(emu_info['emu_name'][ii])
+			favorite_xmls['emu_location'].append(emu_info['emu_location'][ii])
+
+	favorite_xmls['emu_name'].append('+ Create New Favorites List')
+	favorite_xmls['emu_name'].append('Cancel')
+	current_dialog = xbmcgui.Dialog()
+	ret1 = current_dialog.select('Choose Favorites List',favorite_xmls['emu_name'])
+
+	if favorite_xmls['emu_name'][ret1] == favorite_xmls['emu_name'][-2]: #Create new list
+		ret2 = current_dialog.input('Enter Favorites Label')
+		if len(ret2)>0:
+			saved_filename = create_new_favorites_list(''.join([x if x.isalnum() else "_" for x in ret2])) #Pass filename safe string to create favorites xml
+			if saved_filename is not None:
+				current_xml_fileparts = os.path.split(saved_filename)
+				current_xml_filename = current_xml_fileparts[1]
+				current_xml_path = current_xml_fileparts[0] + '/'
+				update_xml_header(current_xml_path,current_xml_filename,'emu_name',ret2)
+				favorites_xml_filename = saved_filename
+	elif favorite_xmls['emu_name'][ret1] == favorite_xmls['emu_name'][-1]: #Cancel adding favorite
+		print 'IARL:  Adding Favorite Cancelled'
+		favorites_xml_filename = None
+	else:
+		favorites_xml_filename = favorite_xmls['emu_location'][ret1]
+
+	return favorites_xml_filename
+
+def create_new_favorites_list(new_filename):
+	saved_filename = None
+	template_path = getParserFilePath('Favorites_Template.xml')
+	dat_path = getDATFilePath()
+	new_xml_filename = os.path.join(dat_path,new_filename+'.xml')
+	copyFile(template_path, new_xml_filename)
+	if os.path.exists(new_xml_filename):
+		saved_filename = new_xml_filename
+	return saved_filename
+
+def add_favorite_to_xml(fav_item,favorites_xml_filename):
+	add_success = False
+	xml_string = ''
+	current_rom_command = ''
+	strip_base_url_string_1 = 'http://archive.org/download/'
+	strip_base_url_string_2 = 'https://archive.org/download/'
+	xstr = lambda s: s or ''
+	try: current_rom_command = current_rom_command+xstr(fav_item['properties']['emu_postdlaction'])
+	except: pass
+	try: current_rom_command = current_rom_command+'|'+xstr(fav_item['properties']['rom_emu_command'])
+	except: pass
+	if current_rom_command[0] == '|':
+		current_rom_command = current_rom_command[1:]
+	if current_rom_command[-1] == '|':
+		current_rom_command = current_rom_command[:-1]
+
+	try: xml_string = xml_string+'<game name="%GAME_TITLE%">\r\n'.replace('%GAME_TITLE%',fav_item['info']['title'])
+	except: pass
+	try: xml_string = xml_string+'<description>%GAME_TITLE%</description>\r\n'.replace('%GAME_TITLE%',fav_item['info']['title'])
+	except: pass
+	try: xml_string = xml_string+'<rom name="%ROM_URL%" size="%ROM_SIZE%"/>\r\n'.replace('%ROM_URL%',fav_item['properties']['rom_fname'].replace(strip_base_url_string_1,'').replace(strip_base_url_string_2,'')).replace('%ROM_SIZE%',str(fav_item['info']['size']))
+	except: pass
+	try: xml_string = xml_string+'<plot>%GAME_PLOT%</plot>\r\n'.replace('%GAME_PLOT%',xstr(fav_item['info']['plot']))
+	except: pass
+	try: xml_string = xml_string+'<releasedate>%GAME_DATE%</releasedate>\r\n'.replace('%GAME_DATE%',xstr(fav_item['info']['date']))
+	except: pass
+	try: xml_string = xml_string+'<genre>%GAME_GENRE%</genre>\r\n'.replace('%GAME_GENRE%',xstr(fav_item['info']['genre']))
+	except: pass
+	try: xml_string = xml_string+'<studio>%GAME_STUDIO%</studio>\r\n'.replace('%GAME_STUDIO%',xstr(fav_item['info']['studio']))
+	except: pass
+	try: xml_string = xml_string+'<nplayers>%GAME_NPLAYERS%</nplayers>\r\n'.replace('%GAME_NPLAYERS%',xstr(fav_item['properties']['nplayers']))
+	except: pass
+	try: xml_string = xml_string+'<videoid>%GAME_VIDEOID%</videoid>\r\n'.replace('%GAME_VIDEOID%',xstr(fav_item['info']['trailer']).split('=')[-1]) #Only add the video ID
+	except: pass
+	try: xml_string = xml_string+'<boxart1>%GAME_boxart1%</boxart1>\r\n'.replace('%GAME_boxart1%',xstr(fav_item['properties']['boxart1']))
+	except: pass
+	try: xml_string = xml_string+'<boxart2>%GAME_boxart2%</boxart2>\r\n'.replace('%GAME_boxart2%',xstr(fav_item['properties']['boxart2']))
+	except: pass
+	try: xml_string = xml_string+'<boxart3>%GAME_boxart3%</boxart3>\r\n'.replace('%GAME_boxart3%',xstr(fav_item['properties']['boxart3']))
+	except: pass
+	try: xml_string = xml_string+'<boxart4>%GAME_boxart4%</boxart4>\r\n'.replace('%GAME_boxart4%',xstr(fav_item['properties']['boxart4']))
+	except: pass
+	try: xml_string = xml_string+'<boxart5>%GAME_boxart5%</boxart5>\r\n'.replace('%GAME_boxart5%',xstr(fav_item['properties']['boxart5']))
+	except: pass
+	try: xml_string = xml_string+'<boxart6>%GAME_boxart6%</boxart6>\r\n'.replace('%GAME_boxart6%',xstr(fav_item['properties']['boxart6']))
+	except: pass
+	try: xml_string = xml_string+'<boxart7>%GAME_boxart7%</boxart7>\r\n'.replace('%GAME_boxart7%',xstr(fav_item['properties']['boxart7']))
+	except: pass
+	try: xml_string = xml_string+'<boxart8>%GAME_boxart8%</boxart8>\r\n'.replace('%GAME_boxart8%',xstr(fav_item['properties']['boxart8']))
+	except: pass
+	try: xml_string = xml_string+'<boxart9>%GAME_boxart9%</boxart9>\r\n'.replace('%GAME_boxart9%',xstr(fav_item['properties']['boxart9']))
+	except: pass
+	try: xml_string = xml_string+'<boxart10>%GAME_boxart10%</boxart10>\r\n'.replace('%GAME_boxart10%',xstr(fav_item['properties']['boxart10']))
+	except: pass
+	try: xml_string = xml_string+'<snapshot1>%GAME_snapshot1%</snapshot1>\r\n'.replace('%GAME_snapshot1%',xstr(fav_item['properties']['snapshot1']))
+	except: pass
+	try: xml_string = xml_string+'<snapshot2>%GAME_snapshot2%</snapshot2>\r\n'.replace('%GAME_snapshot2%',xstr(fav_item['properties']['snapshot2']))
+	except: pass
+	try: xml_string = xml_string+'<snapshot3>%GAME_snapshot3%</snapshot3>\r\n'.replace('%GAME_snapshot3%',xstr(fav_item['properties']['snapshot3']))
+	except: pass
+	try: xml_string = xml_string+'<snapshot4>%GAME_snapshot4%</snapshot4>\r\n'.replace('%GAME_snapshot4%',xstr(fav_item['properties']['snapshot4']))
+	except: pass
+	try: xml_string = xml_string+'<snapshot5>%GAME_snapshot5%</snapshot5>\r\n'.replace('%GAME_snapshot5%',xstr(fav_item['properties']['snapshot5']))
+	except: pass
+	try: xml_string = xml_string+'<snapshot6>%GAME_snapshot6%</snapshot6>\r\n'.replace('%GAME_snapshot6%',xstr(fav_item['properties']['snapshot6']))
+	except: pass
+	try: xml_string = xml_string+'<snapshot7>%GAME_snapshot7%</snapshot7>\r\n'.replace('%GAME_snapshot7%',xstr(fav_item['properties']['snapshot7']))
+	except: pass
+	try: xml_string = xml_string+'<snapshot8>%GAME_snapshot8%</snapshot8>\r\n'.replace('%GAME_snapshot8%',xstr(fav_item['properties']['snapshot8']))
+	except: pass
+	try: xml_string = xml_string+'<snapshot9>%GAME_snapshot9%</snapshot9>\r\n'.replace('%GAME_snapshot9%',xstr(fav_item['properties']['snapshot9']))
+	except: pass
+	try: xml_string = xml_string+'<snapshot10>%GAME_snapshot10%</snapshot10>\r\n'.replace('%GAME_snapshot10%',xstr(fav_item['properties']['snapshot10']))
+	except: pass
+	try: xml_string = xml_string+'<fanart1>%GAME_fanart1%</fanart1>\r\n'.replace('%GAME_fanart1%',xstr(fav_item['properties']['fanart1']))
+	except: pass
+	try: xml_string = xml_string+'<fanart2>%GAME_fanart2%</fanart2>\r\n'.replace('%GAME_fanart2%',xstr(fav_item['properties']['fanart2']))
+	except: pass
+	try: xml_string = xml_string+'<fanart3>%GAME_fanart3%</fanart3>\r\n'.replace('%GAME_fanart3%',xstr(fav_item['properties']['fanart3']))
+	except: pass
+	try: xml_string = xml_string+'<fanart4>%GAME_fanart4%</fanart4>\r\n'.replace('%GAME_fanart4%',xstr(fav_item['properties']['fanart4']))
+	except: pass
+	try: xml_string = xml_string+'<fanart5>%GAME_fanart5%</fanart5>\r\n'.replace('%GAME_fanart5%',xstr(fav_item['properties']['fanart5']))
+	except: pass
+	try: xml_string = xml_string+'<fanart6>%GAME_fanart6%</fanart6>\r\n'.replace('%GAME_fanart6%',xstr(fav_item['properties']['fanart6']))
+	except: pass
+	try: xml_string = xml_string+'<fanart7>%GAME_fanart7%</fanart7>\r\n'.replace('%GAME_fanart7%',xstr(fav_item['properties']['fanart7']))
+	except: pass
+	try: xml_string = xml_string+'<fanart8>%GAME_fanart8%</fanart8>\r\n'.replace('%GAME_fanart8%',xstr(fav_item['properties']['fanart8']))
+	except: pass
+	try: xml_string = xml_string+'<fanart9>%GAME_fanart9%</fanart9>\r\n'.replace('%GAME_fanart9%',xstr(fav_item['properties']['fanart9']))
+	except: pass
+	try: xml_string = xml_string+'<fanart10>%GAME_fanart10%</fanart10>\r\n'.replace('%GAME_fanart10%',xstr(fav_item['properties']['fanart10']))
+	except: pass
+	try: xml_string = xml_string+'<banner1>%GAME_banner1%</banner1>\r\n'.replace('%GAME_banner1%',xstr(fav_item['properties']['banner1']))
+	except: pass
+	try: xml_string = xml_string+'<banner2>%GAME_banner2%</banner2>\r\n'.replace('%GAME_banner2%',xstr(fav_item['properties']['banner2']))
+	except: pass
+	try: xml_string = xml_string+'<banner3>%GAME_banner3%</banner3>\r\n'.replace('%GAME_banner3%',xstr(fav_item['properties']['banner3']))
+	except: pass
+	try: xml_string = xml_string+'<banner4>%GAME_banner4%</banner4>\r\n'.replace('%GAME_banner4%',xstr(fav_item['properties']['banner4']))
+	except: pass
+	try: xml_string = xml_string+'<banner5>%GAME_banner5%</banner5>\r\n'.replace('%GAME_banner5%',xstr(fav_item['properties']['banner5']))
+	except: pass
+	try: xml_string = xml_string+'<banner6>%GAME_banner6%</banner6>\r\n'.replace('%GAME_banner6%',xstr(fav_item['properties']['banner6']))
+	except: pass
+	try: xml_string = xml_string+'<banner7>%GAME_banner7%</banner7>\r\n'.replace('%GAME_banner7%',xstr(fav_item['properties']['banner7']))
+	except: pass
+	try: xml_string = xml_string+'<banner8>%GAME_banner8%</banner8>\r\n'.replace('%GAME_banner8%',xstr(fav_item['properties']['banner8']))
+	except: pass
+	try: xml_string = xml_string+'<banner9>%GAME_banner9%</banner9>\r\n'.replace('%GAME_banner9%',xstr(fav_item['properties']['banner9']))
+	except: pass
+	try: xml_string = xml_string+'<banner10>%GAME_banner10%</banner10>\r\n'.replace('%GAME_banner10%',xstr(fav_item['properties']['banner10']))
+	except: pass
+	try: xml_string = xml_string+'<clearlogo1>%GAME_clearlogo1%</clearlogo1>\r\n'.replace('%GAME_clearlogo1%',xstr(fav_item['properties']['clearlogo1']))
+	except: pass
+	try: xml_string = xml_string+'<clearlogo2>%GAME_clearlogo2%</clearlogo2>\r\n'.replace('%GAME_clearlogo2%',xstr(fav_item['properties']['clearlogo2']))
+	except: pass
+	try: xml_string = xml_string+'<clearlogo3>%GAME_clearlogo3%</clearlogo3>\r\n'.replace('%GAME_clearlogo3%',xstr(fav_item['properties']['clearlogo3']))
+	except: pass
+	try: xml_string = xml_string+'<clearlogo4>%GAME_clearlogo4%</clearlogo4>\r\n'.replace('%GAME_clearlogo4%',xstr(fav_item['properties']['clearlogo4']))
+	except: pass
+	try: xml_string = xml_string+'<clearlogo5>%GAME_clearlogo5%</clearlogo5>\r\n'.replace('%GAME_clearlogo5%',xstr(fav_item['properties']['clearlogo5']))
+	except: pass
+	try: xml_string = xml_string+'<clearlogo6>%GAME_clearlogo6%</clearlogo6>\r\n'.replace('%GAME_clearlogo6%',xstr(fav_item['properties']['clearlogo6']))
+	except: pass
+	try: xml_string = xml_string+'<clearlogo7>%GAME_clearlogo7%</clearlogo7>\r\n'.replace('%GAME_clearlogo7%',xstr(fav_item['properties']['clearlogo7']))
+	except: pass
+	try: xml_string = xml_string+'<clearlogo8>%GAME_clearlogo8%</clearlogo8>\r\n'.replace('%GAME_clearlogo8%',xstr(fav_item['properties']['clearlogo8']))
+	except: pass
+	try: xml_string = xml_string+'<clearlogo9>%GAME_clearlogo9%</clearlogo9>\r\n'.replace('%GAME_clearlogo9%',xstr(fav_item['properties']['clearlogo9']))
+	except: pass
+	try: xml_string = xml_string+'<clearlogo10>%GAME_clearlogo10%</clearlogo10>\r\n'.replace('%GAME_clearlogo10%',xstr(fav_item['properties']['clearlogo10']))
+	except: pass
+	try: xml_string = xml_string+'<emu_command>%GAME_COMMAND%</emu_command>\r\n'.replace('%GAME_COMMAND%',current_rom_command)
+	except: pass
+	try: xml_string = xml_string+'</game>\r\n'
+	except: pass
+
+	xml_string = xml_string.replace('<plot></plot>','').replace('<releasedate></releasedate>','').replace('<studio></studio>','').replace('<nplayers></nplayers>','').replace('<videoid></videoid>','').replace('<genre></genre>','')
+	xml_string = xml_string.replace('<boxart1></boxart1>','').replace('<boxart2></boxart2>','').replace('<boxart3></boxart3>','').replace('<boxart4></boxart4>','').replace('<boxart5></boxart5>','').replace('<boxart6></boxart6>','').replace('<boxart7></boxart7>','').replace('<boxart8></boxart8>','').replace('<boxart9></boxart9>','').replace('<boxart10></boxart10>','')
+	xml_string = xml_string.replace('<snapshot1></snapshot1>','').replace('<snapshot2></snapshot2>','').replace('<snapshot3></snapshot3>','').replace('<snapshot4></snapshot4>','').replace('<snapshot5></snapshot5>','').replace('<snapshot6></snapshot6>','').replace('<snapshot7></snapshot7>','').replace('<snapshot8></snapshot8>','').replace('<snapshot9></snapshot9>','').replace('<snapshot10></snapshot10>','')
+	xml_string = xml_string.replace('<fanart1></fanart1>','').replace('<fanart2></fanart2>','').replace('<fanart3></fanart3>','').replace('<fanart4></fanart4>','').replace('<fanart5></fanart5>','').replace('<fanart6></fanart6>','').replace('<fanart7></fanart7>','').replace('<fanart8></fanart8>','').replace('<fanart9></fanart9>','').replace('<fanart10></fanart10>','')
+	xml_string = xml_string.replace('<banner1></banner1>','').replace('<banner2></banner2>','').replace('<banner3></banner3>','').replace('<banner4></banner4>','').replace('<banner5></banner5>','').replace('<banner6></banner6>','').replace('<banner7></banner7>','').replace('<banner8></banner8>','').replace('<banner9></banner9>','').replace('<banner10></banner10>','')
+	xml_string = xml_string.replace('<clearlogo1></clearlogo1>','').replace('<clearlogo2></clearlogo2>','').replace('<clearlogo3></clearlogo3>','').replace('<clearlogo4></clearlogo4>','').replace('<clearlogo5></clearlogo5>','').replace('<clearlogo6></clearlogo6>','').replace('<clearlogo7></clearlogo7>','').replace('<clearlogo8></clearlogo8>','').replace('<clearlogo9></clearlogo9>','').replace('<clearlogo10></clearlogo10>','')
+	xml_string = xml_string.replace('\r\n\r\n','')
+
+	full_reg_exp = '</datafile>' #Look for this
+	fout = open(os.path.join(getDATFilePath(),'temp.xml'), 'w') # out file
+	value_updated = False
+
+	with open(favorites_xml_filename, 'rU') as fin:
+		while True:
+			line = fin.readline()
+			if not value_updated:  #Only update the first instance of the requested tag
+				if full_reg_exp in line:
+					try:
+						my_new_line = xml_string+full_reg_exp
+						fout.write(my_new_line)
+					except:
+						fout.write(full_reg_exp)
+					value_updated = True				
+				else:
+					fout.write(line)
+			else:
+				fout.write(line)
+			if not line:
+				break
+				pass
+
+	fout.close()
+
+	if value_updated:
+		os.remove(favorites_xml_filename) #Remove Old File
+		os.rename(os.path.join(getDATFilePath(),'temp.xml'),favorites_xml_filename) #Rename Temp File
+		add_success = True
+
+	return add_success
 
 def get_size_of_folder(start_path):
     total_size = 0

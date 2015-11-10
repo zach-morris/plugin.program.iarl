@@ -66,6 +66,32 @@ def update_context(xml_id_in,tag_value_in,context_label):
     new_url = plugin.url_for('update_xml_value', xml_id=xml_id_in, tag_value = tag_value_in)
     return (context_label, actions.background(new_url))
 
+@plugin.route('/update_favorites/<item_string>')
+def update_favorite_items(item_string):
+    import ast
+    try:
+        fav_item = ast.literal_eval(item_string)
+    except:
+        fav_item = None
+        print 'IARL:  Error, unable to add favorite.  Please check the log.'
+
+    if fav_item is not None:
+        favorites_xml_filename = query_favorites_xml() #Find all the current favorite xml files, prompt for which to use, or make a new one
+        print favorites_xml_filename
+        if favorites_xml_filename is not None:
+            try:
+                add_success = add_favorite_to_xml(fav_item,favorites_xml_filename)
+                if add_success:
+                    current_dialog = xbmcgui.Dialog()
+                    ok_ret = current_dialog.ok('Complete','Favorite Added:[CR]'+fav_item['label'])   
+                    print 'IARL:  Favorite Added: '+fav_item['label']
+            except:
+                print 'IARL:  Error, unable to add favorite.  Please check the log.'
+
+def update_context_favorite(item_in,context_label):
+    new_url = plugin.url_for('update_favorite_items', item_string=item_in)
+    return (context_label, actions.background(new_url))
+
 @plugin.route('/') #Start Page
 def index():
     items = []
@@ -161,6 +187,8 @@ def get_rom_page(category_id,page_id):
 def get_rom_list(xmlpath,parserpath):
     parserpath = getParserFilePath(parserpath)
     rom_list = parse_xml_romfile(xmlpath,parserpath,iarl_setting_clean_list,plugin) #List doesn't exist, so get the romlist
+    for ii in range(0,len(rom_list)):
+        rom_list[ii]['context_menu'] = [update_context_favorite('%s'%rom_list[ii],'Add to IARL Favorites')]
     return rom_list
 
 @plugin.route('/Search_Results/<search_term>') #Not sure why normal routing with extra kwargs isn't working for this route...
@@ -450,7 +478,6 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom
             check_temp_folder_and_clean(iarl_setting_dl_cache) #Check temp folder cache size and clean if needed
 
         print 'Downloading Selected ROM'
-        # print 'test'
         # print rom_emu_command
         print quote_url(rom_fname)
         print current_save_fname
@@ -475,6 +502,28 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom
                 elif 'rename_rom_postdl' in rom_postdlaction:
                     new_extension = re.search(r'\([^)]*\)',rom_postdlaction).group(0).replace('(','').replace(')','').strip()
                     rename_success, new_rom_fname = rename_rom_postdl(current_save_fname,new_extension)
+                elif 'favorites_post_action' in rom_postdlaction:
+                    if '|' in rom_emu_command:
+                        rom_postdlaction_1 = rom_emu_command.split('|')[0]
+                        rom_postdlaction_2 = rom_emu_command.split('|')[-1]
+                    else:
+                        rom_postdlaction_1 = rom_emu_command
+                        rom_postdlaction_2 = None
+                        #Just straight copy from the postdl actions above.  Not the best way to do this.  Quick and dirty for now
+                    if 'unzip_rom' in rom_postdlaction_1:
+                        print 'Unzipping ' + current_save_fname
+                        zip_success1, new_rom_fname = unzip_file(current_save_fname)
+                    elif 'unzip_update_rom_path_dosbox' in rom_postdlaction_1:
+                        zip_success1, new_rom_fname = unzip_dosbox_file(current_save_fname,rom_postdlaction_2)
+                    elif 'convert_chd_bin' in rom_postdlaction_1:
+                        chd_success, new_rom_fname = convert_chd_bin(current_save_fname,iarl_setting_chdman_path)
+                    elif 'convert_chd_cue' in rom_postdlaction_1:
+                        chd_success, new_rom_fname = convert_chd_cue(current_save_fname,iarl_setting_chdman_path)
+                    elif 'lynx_header_fix' in rom_postdlaction_1:
+                        fix_success, new_rom_fname = lynx_header_fix(current_save_fname)
+                    elif 'rename_rom_postdl' in rom_postdlaction_1:
+                        new_extension = re.search(r'\([^)]*\)',rom_postdlaction).group(0).replace('(','').replace(')','').strip()
+                        rename_success, new_rom_fname = rename_rom_postdl(current_save_fname,new_extension)
             else:
                 download_success = False
 
