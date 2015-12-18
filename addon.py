@@ -1,5 +1,8 @@
-from xbmcswift2 import Plugin
-from xbmcswift2 import actions
+# from xbmcswift2 import Plugin
+# from xbmcswift2 import actions
+from resources.lib.xbmcswift2b import Plugin
+from resources.lib.xbmcswift2b import actions
+from resources.lib.xbmcswift2b import ListItem as LI
 import os, sys, subprocess, xbmc, xbmcgui
 from resources.lib.util import *
 from resources.lib.webutils import *
@@ -110,7 +113,7 @@ def index():
         'label' : emu_info['emu_name'][ii], 'path': plugin.url_for('get_rom_page', category_id=emu_info['emu_name'][ii],page_id='1',parser_id=emu_info['emu_parser'][ii],xml_id=emu_info['emu_location'][ii]), 'icon': emu_info['emu_logo'][ii],
         'thumbnail' : emu_info['emu_thumb'][ii],
         'info' : {'genre': emu_info['emu_category'][ii], 'credits': emu_info['emu_author'][ii], 'date': emu_info['emu_date'][ii], 'plot': emu_info['emu_comment'][ii], 'trailer': getYouTubePluginurl(emu_info['emu_trailer'][ii]), 'FolderPath': emu_info['emu_baseurl'][ii]},
-        'properties' : {'fanart_image' : emu_info['emu_fanart'][ii], 'banner' : emu_info['emu_banner'][ii], 'clearlogo': emu_info['emu_logo'][ii]},
+        'properties' : {'fanart_image' : emu_info['emu_fanart'][ii], 'banner' : emu_info['emu_banner'][ii], 'clearlogo': emu_info['emu_logo'][ii], 'poster': emu_info['emu_thumb'][ii]},
         'context_menu' : context_menus
         })
     
@@ -118,17 +121,26 @@ def index():
         'label' : '\xc2\xa0Search', 'path' :  plugin.url_for('search_roms_window'), 'icon': icon_filepath + 'search.jpg',
         'thumbnail' : icon_filepath + 'search.jpg',
         'info' : {'genre': '\xc2\xa0', 'date': '01/01/2999', 'plot' : 'Search for a particular game.'},
-        'properties' : {'fanart_image' : icon_filepath + 'fanart.jpg'}
+        'properties' : {'fanart_image' : icon_filepath + 'fanart.jpg', 'banner' : icon_filepath + 'search_banner.jpg'}
         })
 
     items.append({ 
         'label' : '\xc2\xa0\xc2\xa0Random Play', 'path' :  plugin.url_for('random_play'), 'icon': icon_filepath + 'lucky.jpg',
         'thumbnail' : icon_filepath + 'lucky.jpg',
         'info' : {'genre': '\xc2\xa0\xc2\xa0', 'date': '01/01/2999', 'plot' : 'Play a random game from the archive.'},
-        'properties' : {'fanart_image' : icon_filepath + 'fanart.jpg'}
+        'properties' : {'fanart_image' : icon_filepath + 'fanart.jpg', 'banner' : icon_filepath + 'lucky_banner.jpg'}
         })
 
-    return plugin.finish(items, sort_methods=[xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_GENRE])
+    items_with_art = list()
+    for item in items:
+        current_item = plugin._listitemify(item)
+        current_item.set_banner(current_item.get_property('banner'))
+        current_item.set_landscape(current_item.get_property('banner'))
+        current_item.set_poster(current_item.get_property('poster'))
+        current_item.set_clearlogo(current_item.get_property('clearlogo'))
+        current_item.set_clearart(current_item.get_property('clearlogo'))
+        items_with_art.append(current_item)
+    return plugin.finish(items_with_art, sort_methods=[xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_GENRE])
     # return items
 
 @plugin.route('/Emulator/<category_id>/<page_id>')
@@ -180,17 +192,30 @@ def get_rom_page(category_id,page_id):
     if page.next_page:
         current_page.extend(next_page)
 
-    return plugin.finish(current_page, sort_methods=[xbmcplugin.SORT_METHOD_NONE, xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_DATE, xbmcplugin.SORT_METHOD_GENRE, xbmcplugin.SORT_METHOD_STUDIO_IGNORE_THE])
-    # return current_page
+    current_page_with_art = list()
+    for items in current_page:
+        current_item = plugin._listitemify(items)
+        current_item.set_banner(current_item.get_property('banner1'))
+        current_item.set_landscape(current_item.get_property('banner1'))
+        current_item.set_poster(current_item.get_property('boxart1'))
+        current_item.set_clearlogo(current_item.get_property('clearlogo1'))
+        current_item.set_clearart(current_item.get_property('clearlogo1'))
+        current_page_with_art.append(current_item)
+
+    # plugin.finish(succeeded=True, update_listing=True,sort_methods=[xbmcplugin.SORT_METHOD_NONE, xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_DATE, xbmcplugin.SORT_METHOD_GENRE, xbmcplugin.SORT_METHOD_STUDIO_IGNORE_THE])
+    return plugin.finish(current_page_with_art, sort_methods=[xbmcplugin.SORT_METHOD_NONE, xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_DATE, xbmcplugin.SORT_METHOD_GENRE, xbmcplugin.SORT_METHOD_STUDIO_IGNORE_THE])
 
 @plugin.cached(TTL=24*60*30)
 def get_rom_list(xmlpath,parserpath):
     parserpath = getParserFilePath(parserpath)
+    file_basename = os.path.splitext(os.path.basename(xmlpath))
     rom_list = parse_xml_romfile(xmlpath,parserpath,iarl_setting_clean_list,plugin) #List doesn't exist, so get the romlist
+
     for ii in range(0,len(rom_list)):
         rom_list[ii]['context_menu'] = [update_context_favorite('%s'%rom_list[ii],'Add to IARL Favorites')]
-    return rom_list
 
+    return rom_list
+    
 @plugin.route('/Search_Results/<search_term>') #Not sure why normal routing with extra kwargs isn't working for this route...
 def search_roms_results(search_term,**kwargs):
     search_results = []
@@ -482,8 +507,12 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom
         print quote_url(rom_fname)
         print current_save_fname
         if rom_save_fname:
-            download_tools().Downloader(quote_url(rom_fname),current_save_fname,rom_filesize,rom_save_fname,'Downloading, please wait...')
-            bad_file_found1 = check_downloaded_file(current_save_fname)
+            download_success = download_tools().Downloader(quote_url(rom_fname),current_save_fname,rom_filesize,rom_save_fname,'Downloading, please wait...')
+            
+            if download_success:
+                bad_file_found1 = check_downloaded_file(current_save_fname)
+            else:
+                bad_file_found1 = True
 
             if not bad_file_found1:
                 download_success = True
@@ -529,8 +558,13 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom
 
         if rom_save_sfname:
             if rom_save_sfname != 'None':
-                download_tools().Downloader(rom_sfname,current_save_sfname,rom_filesize,rom_save_sfname,'Downloading additional, please wait...')
-                bad_file_found2 = check_downloaded_file(current_save_sfname)
+                download_success = download_tools().Downloader(rom_sfname,current_save_sfname,rom_filesize,rom_save_sfname,'Downloading additional, please wait...')
+                
+                if download_success:
+                    bad_file_found2 = check_downloaded_file(current_save_sfname)
+                else:
+                    bad_file_found2 = True
+                
 
             if not bad_file_found2:
                 download_success = True

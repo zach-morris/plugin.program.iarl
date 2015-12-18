@@ -1,8 +1,8 @@
 import os, sys, re, shutil, json, zipfile, subprocess
 # import os.path
 import xbmc, xbmcaddon, xbmcvfs
-from xbmcswift2 import xbmcgui
-# import time
+# from xbmcswift2 import xbmcgui
+from resources.lib.xbmcswift2b import xbmcgui
 from descriptionparserfactory import *
 
 #
@@ -82,10 +82,13 @@ def get_Operating_System():
 			current_OS = 'Android' #Similar method to find android as done below for IOS
 		elif os.path.exists('/etc/os-release'):
 				try:
-					with open('/etc/os-release', 'r') as content_file:
+					with open('/etc/os-release', 'r') as content_file: #Best method I could find to determine if its OE
 						os_content_file = content_file.read().replace('\n', '')
 					if 'OpenELEC'.lower() in os_content_file.lower():
-						current_OS = 'OpenElec' #Best method I could find to determine if its OE
+						if 'RPi2.arm'.lower() in os_content_file.lower():
+							current_OS = 'OpenElec RPi'
+						else:
+							current_OS = 'OpenElec x86'
 				except:
 					current_OS = 'Nix'
 		else:
@@ -319,20 +322,23 @@ def update_external_launch_commands(current_os,retroarch_path,xml_id,plugin):
 			user_options.append(entries['launcher'][0])
 			launch_command.append(entries['launcher_command'][0])
 
+	user_options.append('Manually entered command line')
 	user_options.append('None')
+	launch_command.append('manual_command')
 	launch_command.append('none')
 
 	current_dialog = xbmcgui.Dialog()
 	ret1 = current_dialog.select('Select from the available launch commands', user_options)
+	new_launch_command = launch_command[ret1]
+
+	if new_launch_command == 'manual_command':
+		new_launch_command = current_dialog.input('Enter your new launch command:')
 
 	if ret1>=0:
 		ret2 = current_dialog.select('Are you sure you want to update[CR]the current External Launch Command?', ['Yes','Cancel'])
 		if ret2<1:
-			new_launch_command = launch_command[ret1]
+			# new_launch_command = launch_command[ret1]
 			new_launch_command = new_launch_command.replace('%APP_PATH%',retroarch_path)
-			# new_launch_command = new_launch_command.replace('%HELPER_SCRIPT_1%',helper_script_1) #Quick and dirty for now, may make this more efficient later
-			# new_launch_command = new_launch_command.replace('%HELPER_SCRIPT_2%',helper_script_2)
-			# new_launch_command = new_launch_command.replace('%HELPER_SCRIPT_3%',helper_script_3)
 			new_launch_command = new_launch_command.replace('%ADDON_DIR%',getAddonInstallPath()) #Replace helper script with the more generic ADDON_DIR
 			update_xml_header(current_xml_path,current_xml_filename,'emu_ext_launch_cmd',new_launch_command)
 			ok_ret = current_dialog.ok('Complete','External Launch Command was updated[CR]Cache was cleared for new settings')

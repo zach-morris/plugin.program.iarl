@@ -132,10 +132,10 @@
 		<emu_downloadpath>default</emu_downloadpath>
 		<emu_postdlaction>favorites_post_action</emu_postdlaction>
 		<emu_comment>Your IARL Favorites List</emu_comment>
-			<emu_thumb>https://raw.githubusercontent.com/zach-morris/plugin.program.iarl/master/resources/skins/Default/media/favorites.png</emu_thumb>
-			<emu_banner>https://raw.githubusercontent.com/zach-morris/plugin.program.iarl/master/resources/skins/Default/media/favorites_banner.png</emu_banner>
-			<emu_fanart>https://raw.githubusercontent.com/zach-morris/plugin.program.iarl/master/resources/skins/Default/media/fanart.jpg</emu_fanart>
-			<emu_logo>https://raw.githubusercontent.com/zach-morris/plugin.program.iarl/master/resources/skins/Default/media/favorites_logo.png</emu_logo>
+			<emu_thumb>special://home/addons/plugin.program.iarl/resources/skins/Default/media/favorites.png</emu_thumb>
+			<emu_banner>special://home/addons/plugin.program.iarl/resources/skins/Default/media/favorites_banner.png</emu_banner>
+			<emu_fanart>special://home/addons/plugin.program.iarl/resources/skins/Default/media/fanart.jpg</emu_fanart>
+			<emu_logo>special://home/addons/plugin.program.iarl/resources/skins/Default/media/favorites_logo.png</emu_logo>
 			<emu_trailer>NUx66ZEDjnQ</emu_trailer>
 		</header>
 </datafile>

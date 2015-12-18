@@ -28,7 +28,15 @@ class download_tools():
 		dp = xbmcgui.DialogProgress()
 		dp.create(heading,description,'')
 		dp.update(0)
-		urllib.urlretrieve(url,dest,lambda nb, bs, fs, url=url: self._pbhook(nb,bs,fs,est_filesize,dp))
+		success = False
+		try:
+			urllib.urlretrieve(url,dest,lambda nb, bs, fs, url=url: self._pbhook(nb,bs,fs,est_filesize,dp))
+			success = True
+		except:
+			print 'IARL:  Download was cancelled'
+			success = False
+
+		return success
 
 	def _pbhook(self,numblocks, blocksize, filesize, est_filesize, dp=None):
 
@@ -49,8 +57,9 @@ class download_tools():
 		except:
 			percent = 100
 			dp.update(percent)
-		if dp.iscanceled(): 
+		if dp.iscanceled():
 			dp.close()
+			raise
 	
 	def extract(self,file_tar,destination):
 		dp = xbmcgui.DialogProgress()
