@@ -21,7 +21,7 @@ try:
 except ValueError:
     iarl_setting_items_pp = 99999
 
-cache_options = {'Zero (One ROM and Supporting Files Only)':0,'10 MB':10*1e6,'25MB':25*1e6,'50MB':50*1e6,'100MB':100*1e6,'150MB':150*1e6,'200MB':200*1e6,'250MB':250*1e6,'300MB':300*1e6,'350MB':350*1e6,'400MB':400*1e6,'450MB':450*1e6,'500MB':500*1e6}
+cache_options = {'Zero (One ROM and Supporting Files Only)':0,'10 MB':10*1e6,'25MB':25*1e6,'50MB':50*1e6,'100MB':100*1e6,'150MB':150*1e6,'200MB':200*1e6,'250MB':250*1e6,'300MB':300*1e6,'350MB':350*1e6,'400MB':400*1e6,'450MB':450*1e6,'500MB':500*1e6,'1GB':1000*1e6,'2GB':2000*1e6}
 try:
     iarl_setting_dl_cache = cache_options[plugin.get_setting('iarl_setting_dl_cache',unicode)]
 except ValueError:
@@ -34,6 +34,7 @@ if iarl_setting_clear_cache_value:
     advanced_setting_action_clear_cache(plugin)
 
 iarl_setting_default_action = plugin.get_setting('iarl_setting_default_action')
+iarl_setting_localfile_action = plugin.get_setting('iarl_setting_localfile_action')
 iarl_setting_retroarch_path = plugin.get_setting('iarl_path_to_retroarch')
 iarl_setting_chdman_path = plugin.get_setting('iarl_path_to_chdman')
 iarl_setting_operating_system = get_Operating_System()
@@ -496,7 +497,7 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom
     current_save_fname = os.path.join(current_path,rom_save_fname)
     current_save_sfname = os.path.join(current_path,rom_save_sfname)
 
-    fname_found, do_not_download_flag = check_if_rom_exits(current_save_fname,current_path)
+    fname_found, do_not_download_flag = check_if_rom_exits(current_save_fname,current_path,iarl_setting_localfile_action)
 
     if not do_not_download_flag: #File already is downloaded, no need to do anything else
         if rom_dl_path == 'default':
@@ -632,6 +633,7 @@ def download_and_launch_rom(romwindow,rom_fname,rom_sfname, rom_save_fname, rom_
             pass
         try:
             if rom_clearlogo is not None:
+                launch_game_listitem.setArt({ 'clearlogo': rom_clearlogo})
                 launch_game_listitem.setArt({ 'clearart': rom_clearlogo})
         except:
             pass

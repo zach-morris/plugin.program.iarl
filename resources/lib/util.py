@@ -203,7 +203,7 @@ def check_temp_folder_and_clean(iarl_options_dl_cache):
 
 	current_path = getTempDir()  #Remake the directory
 
-def check_if_rom_exits(current_save_fname,current_path):
+def check_if_rom_exits(current_save_fname,current_path,iarl_setting_localfile_action):
 	
 	file_already_exists = False
 	do_not_download_flag = False
@@ -223,14 +223,19 @@ def check_if_rom_exits(current_save_fname,current_path):
 				fname_found = check_f
 				print fname_found + ' already exists in the directory'
 
-	if file_already_exists:
-		current_dialog = xbmcgui.Dialog()
-		ret1 = current_dialog.select('The ROM already appears to exist.[CR]Re-Download and overwrite?', ['No','Yes'])
+	if 'Prompt'.lower() in iarl_setting_localfile_action.lower(): #Prompt if the file exists locally
+		if file_already_exists:
+			current_dialog = xbmcgui.Dialog()
+			ret1 = current_dialog.select('The ROM already appears to exist.[CR]Re-Download and overwrite?', ['No','Yes'])
 
-		if ret1 == 0:
-			do_not_download_flag = True
-		else:
-			pass
+			if ret1 == 0:
+				do_not_download_flag = True
+			else:
+				pass
+	elif 'Do Not ReDownload'.lower() in iarl_setting_localfile_action.lower(): #Do Not ReDownload the file
+		do_not_download_flag = True
+	else: #Overwrite and ReDownload the file
+		do_not_download_flag = False
 
 	return fname_found, do_not_download_flag
 
