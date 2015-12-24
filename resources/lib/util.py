@@ -78,19 +78,20 @@ def get_Operating_System():
 	elif 'win64' in sys.platform:
 		current_OS = 'Windows'
 	elif 'linux' in sys.platform:
+		current_OS = 'Nix' #Default to Nix, then look for other alternatives
 		if 'XBMC_ANDROID_APK' in os.environ.keys():
 			current_OS = 'Android' #Similar method to find android as done below for IOS
 		elif os.path.exists('/etc/os-release'):
-				try:
-					with open('/etc/os-release', 'r') as content_file: #Best method I could find to determine if its OE
-						os_content_file = content_file.read().replace('\n', '')
-					if 'OpenELEC'.lower() in os_content_file.lower():
-						if 'RPi2.arm'.lower() in os_content_file.lower():
-							current_OS = 'OpenElec RPi'
-						else:
-							current_OS = 'OpenElec x86'
-				except:
-					current_OS = 'Nix'
+			try:
+				with open('/etc/os-release', 'r') as content_file: #Best method I could find to determine if its OE
+					os_content_file = content_file.read().replace('\n', '')
+				if 'OpenELEC'.lower() in os_content_file.lower():
+					if 'RPi2.arm'.lower() in os_content_file.lower():
+						current_OS = 'OpenElec RPi'
+					else:
+						current_OS = 'OpenElec x86'
+			except:
+				current_OS = 'Nix'
 		else:
 			current_OS = 'Nix'
 	elif 'darwin' in sys.platform:
@@ -1228,7 +1229,9 @@ def unzip_file(current_fname):
 		print current_fname + ' was not regognized as a zipfile and not extracted'
 
 	if uz_file_extension is not None: #The file was unzipped, change from zip to rom extension
-		new_fname = os.path.splitext(current_fname)[0]+uz_file_extension
+		# new_fname = os.path.splitext(current_fname)[0]+uz_file_extension
+		new_fname = os.path.join(current_zip_fileparts[0],z_file.namelist()[0]) #Updated unzipped filename
+		print 'Unzipped file: '+new_fname
 	else:
 		new_fname = current_fname #Didn't unzip or didn't find a file extension
 
