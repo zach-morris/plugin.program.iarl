@@ -224,8 +224,9 @@ def check_if_rom_exits(current_save_fname,current_path,iarl_setting_localfile_ac
 				fname_found = check_f
 				print fname_found + ' already exists in the directory'
 
-	if 'Prompt'.lower() in iarl_setting_localfile_action.lower(): #Prompt if the file exists locally
-		if file_already_exists:
+	
+	if file_already_exists:
+		if 'Prompt'.lower() in iarl_setting_localfile_action.lower(): #Prompt if the file exists locally
 			current_dialog = xbmcgui.Dialog()
 			ret1 = current_dialog.select('The ROM already appears to exist.[CR]Re-Download and overwrite?', ['No','Yes'])
 
@@ -233,10 +234,12 @@ def check_if_rom_exits(current_save_fname,current_path,iarl_setting_localfile_ac
 				do_not_download_flag = True
 			else:
 				pass
-	elif 'Do Not ReDownload'.lower() in iarl_setting_localfile_action.lower(): #Do Not ReDownload the file
-		do_not_download_flag = True
-	else: #Overwrite and ReDownload the file
-		do_not_download_flag = False
+		elif 'Do Not ReDownload'.lower() in iarl_setting_localfile_action.lower(): #Do Not ReDownload the file
+			do_not_download_flag = True
+			print 'IARL:  File already exists, do not redownload'
+		else: #Overwrite and ReDownload the file
+			do_not_download_flag = False
+			print 'IARL:  File already exists, but redownload and overwrite is selected'
 
 	return fname_found, do_not_download_flag
 
@@ -1269,6 +1272,63 @@ def unzip_dosbox_file(current_fname,current_rom_emu_command):
 	else:
 		new_fname = current_fname #Didn't unzip or didn't find a file extension
 
+
+	return zip_success, new_fname
+
+def unzip_dosbox_update_conf_file(current_fname):
+	zip_success = False
+	new_fname = None
+	conf_file = None
+
+	if zipfile.is_zipfile(current_fname):
+		try:
+			current_zip_fileparts = os.path.split(current_fname)
+			current_zip_path = current_zip_fileparts[0] + '/'
+			z_file = zipfile.ZipFile(current_fname)
+			# uz_file_extension = os.path.splitext(z_file.namelist()[0])[1] #Get rom extension
+			z_file.extractall(current_zip_path)
+			zip_success = True
+			z_file.close()
+			print 'Unzip Successful'
+		except:
+			zip_success = False
+			print 'Unzip Failed'
+
+		if zip_success:
+			# os.remove(current_fname)
+			try:
+				conf_file = [s for s in z_file.namelist() if s.endswith('.conf')][0]
+			except:
+				conf_file = None
+			if conf_file is not None:
+				old_conf_file = os.path.join(current_zip_path,conf_file)
+				new_conf_file = os.path.join(current_zip_path,conf_file.split('/')[0],'kodi_launch.conf')
+				fout = open(new_conf_file, 'w') # out file
+				with open(old_conf_file, 'rU') as fin:
+					while True:
+						line = fin.readline()
+						if 'mount c ' in line:
+							try:
+								my_new_line = 'mount c "'+current_zip_path+'"\r'
+								fout.write(my_new_line)
+							except:
+								fout.write(line)
+						elif 'exit' in line: #Comment out any exit calls in the configuration file
+							my_new_line = '#exit\r'
+							fout.write(my_new_line)
+						else:
+							fout.write(line)
+						if not line:
+							break
+							pass
+				fout.close()
+				new_fname = new_conf_file
+				print 'IARL:  Created DOSBox Launch configuration file: '+new_fname
+			else:
+				current_dialog = xbmcgui.Dialog()
+				ok_ret = current_dialog.ok('Notice','No configuration file found with DOS Game Archive[CR]You will have to manually launch this game.')
+				print 'IARL:  No configuration file found with DOS Game Archive'
+				new_fname = current_fname
 
 	return zip_success, new_fname
 

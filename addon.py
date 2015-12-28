@@ -523,6 +523,8 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom
                     zip_success1, new_rom_fname = unzip_file(current_save_fname)
                 elif rom_postdlaction == 'unzip_update_rom_path_dosbox':
                     zip_success1, new_rom_fname = unzip_dosbox_file(current_save_fname,rom_emu_command)
+                elif rom_postdlaction == 'unzip_dosbox_update_conf_file':
+                    zip_success1, new_rom_fname = unzip_dosbox_update_conf_file(current_save_fname)
                 elif rom_postdlaction == 'convert_chd_bin':
                     chd_success, new_rom_fname = convert_chd_bin(current_save_fname,iarl_setting_chdman_path)
                 elif rom_postdlaction == 'convert_chd_cue':
@@ -545,6 +547,8 @@ def download_rom_only(rom_fname,rom_sfname, rom_save_fname, rom_save_sfname, rom
                         zip_success1, new_rom_fname = unzip_file(current_save_fname)
                     elif 'unzip_update_rom_path_dosbox' in rom_postdlaction_1:
                         zip_success1, new_rom_fname = unzip_dosbox_file(current_save_fname,rom_postdlaction_2)
+                    elif rom_postdlaction == 'unzip_dosbox_update_conf_file':
+                        zip_success1, new_rom_fname = unzip_dosbox_update_conf_file(current_save_fname)
                     elif 'convert_chd_bin' in rom_postdlaction_1:
                         chd_success, new_rom_fname = convert_chd_bin(current_save_fname,iarl_setting_chdman_path)
                     elif 'convert_chd_cue' in rom_postdlaction_1:
