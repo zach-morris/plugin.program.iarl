@@ -222,55 +222,94 @@
 		<launcher_command>"%APP_PATH%\retroarch.exe" -L "%APP_PATH%\cores\yabause_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES (SNES)" os="Android">
-		<launcher_command>am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/bsnes_performance_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/bsnes_performance_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch DeSmuME (NDS)" os="Android">
-		<launcher_command>am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/desmume_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/desmume_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FCEUmm (NES)" os="Android">
-		<launcher_command>am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/fceumm_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/fceumm_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Gambatte (GB/GBC)" os="Android">
-		<launcher_command>am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/gambatte_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/gambatte_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (Sega GG/MS/MD/Gen/PICO/SG-1000)" os="Android">
-		<launcher_command>am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/genesis_plus_gx_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/genesis_plus_gx_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Handy (Lynx)" os="Android">
-		<launcher_command>am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/handy_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/handy_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME 2010 (Arcade)" os="Android">
-		<launcher_command>am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mame2010_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mame2010_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME 2003 (Arcade)" os="Android">
-		<launcher_command>am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mame078_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mame078_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen PCE FAST (TG16)" os="Android">
-		<launcher_command>am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mednafen_pce_fast_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mednafen_pce_fast_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mupen64Plus (N64)" os="Android">
-		<launcher_command>am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mupen64plus_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mupen64plus_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Nestopia (NES)" os="Android">
-		<launcher_command>am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/nestopia_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/nestopia_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Pico Drive (Sega 32X/CD)" os="Android">
-		<launcher_command>am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/picodrive_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/picodrive_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES9x (SNES)" os="Android">
-		<launcher_command>am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/snes9x_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/snes9x_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES9x Next (SNES)" os="Android">
-		<launcher_command>am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/snes9x_next_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/snes9x_next_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Stella (Atari 2600)" os="Android">
-		<launcher_command>am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/stella_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/stella_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBA-M (GBA)" os="Android">
-		<launcher_command>am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/vbam_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/vbam_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBA Next (GBA)" os="Android">
-		<launcher_command>am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/vba_next_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/vba_next_libretro_android.so -e CONFIGFILE /data/data/com.retroarch/retroarch.cfg -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
+	<launcher name="2600.EMU (Atari 2600)" os="Android">
+		<launcher_command>/system/bin/am start -n com.explusalpha.A2600Emu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="Ataroid (Atari 2600)" os="Android">
+		<launcher_command>/system/bin/am start -n com.androidemu.atari/.EmulatorActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="C64.EMU (Commodore 64)" os="Android">
+		<launcher_command>/system/bin/am start -n com.explusalpha.C64Emu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="DraStic (Nintendo DS)" os="Android">
+		<launcher_command>/system/bin/am start -n com.dsemu.drastic/.DraSticActivity -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e GAMEPATH "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="ePSXe (PS1)" os="Android">
+		<launcher_command>/system/bin/am start -n com.epsxe.ePSXe/.ePSXe -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e com.epsxe.ePSXe.isoName "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="GameBoid (GBA)" os="Android">
+		<launcher_command>/system/bin/am start -n com.androidemu.gba/.EmulatorActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="GBA.EMU (GBA)" os="Android">
+		<launcher_command>/system/bin/am start -n com.explusalpha.GbaEmu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="GBC.EMU (GBC)" os="Android">
+		<launcher_command>/system/bin/am start -n com.explusalpha.GbcEmu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="GBCoid (GBC)" os="Android">
+		<launcher_command>/system/bin/am start -n com.androidemu.gbc/.EmulatorActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="Gearoid (Sega GG)" os="Android">
+		<launcher_command>/system/bin/am start -n com.androidemu.gg/.EmulatorActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="Gensoid (Sega Gen)" os="Android">
+		<launcher_command>/system/bin/am start -n com.androidemu.gens/.EmulatorActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="MD.EMU (Sega MD)" os="Android">
+		<launcher_command>/system/bin/am start -n com.explusalpha.MdEmu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="MSX.EMU (MSX)" os="Android">
+		<launcher_command>/system/bin/am start -n com.explusalpha.MsxEmu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Stella (Atari 2600)" os="RetroPie">
 		<launcher_command>%APP_PATH% -L /opt/retropie/libretrocores/lr-stella/stella_libretro.so --config /opt/retropie/configs/atari2600/retroarch.cfg %ROM_PATH%</launcher_command>
