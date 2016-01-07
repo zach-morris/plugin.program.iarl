@@ -386,6 +386,36 @@
 	<launcher name="RetroArch MAME4All (Arcade)" os="Nix">
 		<launcher_command>%APP_PATH% -L /usr/lib/libretro/imame4all/libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch dosbox (DOS)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/dosbox_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME (Arcade)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/mame_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2003 (Arcade)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/mame2003_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2010 (Arcade)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/mame2010_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2014 (Arcade)" os="Nix">
+		<launcher_command>%APP_PATH% -L /usr/lib/libretro/mame2014_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="Mupen64plus Linux (N64)" os="Nix">
+		<launcher_command>/usr/games/mupen64plus "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="Scummvm Linux (PC)" os="Nix">
+		<launcher_command>/usr/games/scummvm "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="Dolphin Linux (NGC/WII)" os="Nix">
+		<launcher_command>/usr/games/dolphin-emu "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="PCSX Linux (ps1)" os="Nix">
+		<launcher_command>/usr/games/pcsx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="PCSX2 Linux (ps2)" os="Nix">
+		<launcher_command>/usr/games/PCSX2 "%ROM_PATH%"</launcher_command>
+	</launcher> 
 	<launcher name="RetroArch 4D0 (3DO)" os="OpenElec x86">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh 4do "%ROM_PATH%"</launcher_command>
 	</launcher>

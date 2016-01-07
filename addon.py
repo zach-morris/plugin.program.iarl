@@ -21,7 +21,7 @@ try:
 except ValueError:
     iarl_setting_items_pp = 99999
 
-cache_options = {'Zero (One ROM and Supporting Files Only)':0,'10 MB':10*1e6,'25MB':25*1e6,'50MB':50*1e6,'100MB':100*1e6,'150MB':150*1e6,'200MB':200*1e6,'250MB':250*1e6,'300MB':300*1e6,'350MB':350*1e6,'400MB':400*1e6,'450MB':450*1e6,'500MB':500*1e6,'1GB':1000*1e6,'2GB':2000*1e6}
+cache_options = {'Zero (One ROM and Supporting Files Only)':0,'10 MB':10*1e6,'25MB':25*1e6,'50MB':50*1e6,'100MB':100*1e6,'150MB':150*1e6,'200MB':200*1e6,'250MB':250*1e6,'300MB':300*1e6,'350MB':350*1e6,'400MB':400*1e6,'450MB':450*1e6,'500MB':500*1e6,'1GB':1000*1e6,'2GB':2000*1e6,'5GB':5000*1e6,'10GB':10000*1e6,'20GB':20000*1e6}
 try:
     iarl_setting_dl_cache = cache_options[plugin.get_setting('iarl_setting_dl_cache',unicode)]
 except ValueError:
@@ -99,6 +99,7 @@ def update_context_favorite(item_in,context_label):
 @plugin.route('/') #Start Page
 def index():
     items = []
+    initialize_userdata()
     emu_info = scape_xml_headers() #Find all xml dat files and get the header info
     icon_filepath = getMediaFilePath()
 
@@ -606,9 +607,15 @@ def download_and_launch_rom(romwindow,rom_fname,rom_sfname, rom_save_fname, rom_
             print 'External Command: '+ current_external_command
             if romwindow is not None:
                 romwindow.closeDialog()
-
+            
+            #Suspend audio for HDMI audio purposes on some systems
+            xbmc.audioSuspend()
+            xbmc.enableNavSounds(False) 
             xbmc.sleep(500) #This pause seems to help... I'm not really sure why
             external_command = subprocess.call(current_external_command,shell=True)
+            #Resume audio after external command is complete
+            xbmc.audioResume()
+            xbmc.enableNavSounds(True)
 
         else:
             print 'IARL Error:  No external launch command is defined'

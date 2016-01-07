@@ -53,6 +53,18 @@ def html_escape(text):
 			
 		return text
 
+txt_escape_table = {
+		"&" : "&amp;",
+		">" : "&gt;",
+		"<" : "&lt;",		
+		}
+
+def txt_escape(text):
+		
+		for key in txt_escape_table.keys():
+			text = text.replace(key, txt_escape_table[key])
+			
+		return text
 
 def joinPath(part1, *parts):
 	path = ''
@@ -134,8 +146,8 @@ def getAddonInstallPath():
 def getDATFilePath():
 	path = ''
 				
-	path = os.path.join(getAddonInstallPath(),'resources/data/dat_files')
-	
+	# path = os.path.join(getAddonInstallPath(),'resources/data/dat_files')
+	path = get_userdata_xmldir()
 	return path	
 
 def getMediaFilePath():
@@ -181,6 +193,13 @@ def update_addonxml(option):
 def getAutoexecPath():	
 	return xbmc.translatePath('special://profile/autoexec.py')
 
+def show_busy_dialog():
+    xbmc.executebuiltin('ActivateWindow(busydialog)')
+
+def hide_busy_dialog():
+    xbmc.executebuiltin('Dialog.Close(busydialog)')
+    while xbmc.getCondVisibility('Window.IsActive(busydialog)'):
+        xbmc.sleep(100)
 
 def getTempDir():
 	tempDir = os.path.join(getAddonDataPath(), 'temp_iarl')
@@ -193,6 +212,67 @@ def getTempDir():
 	except Exception, (exc):
 		Logutil.log('Error creating temp dir: ' +str(exc), LOG_LEVEL_ERROR)
 		return None
+
+def get_userdata_xmldir():
+	xmlDir = os.path.join(getAddonDataPath(), 'dat_files')
+	
+	try:
+		#check if folder exists
+		if(not os.path.isdir(xmlDir)):
+			os.mkdir(xmlDir) #If it doesn't exist, make it
+		return xmlDir
+	except Exception, (exc):
+		Logutil.log('Error creating userdata DAT dir: ' +str(exc), LOG_LEVEL_ERROR)
+		return None
+
+def get_addondata_xmldir():
+	path = ''
+				
+	path = os.path.join(getAddonInstallPath(),'resources/data/dat_files')
+	
+	return path	
+
+def initialize_userdata():
+	addondata_xmldir = get_addondata_xmldir()
+	userdata_xmldir = get_userdata_xmldir()
+	addondata_subfolders, addondata_files = xbmcvfs.listdir(addondata_xmldir)
+	userdata_subfolders, userdata_files = xbmcvfs.listdir(userdata_xmldir)
+
+	if len(addondata_files) > 0:
+		# show_busy_dialog()
+		print 'IARL:  Initializing XML Files'
+		for file_name in addondata_files:
+			if file_name in userdata_files: #The file already exists in userdata
+				print 'IARL: '+file_name+' already exists, check version'
+				addon_file_info = get_xml_header_version(os.path.join(addondata_xmldir,file_name))
+				userdata_file_info = get_xml_header_version(os.path.join(userdata_xmldir,file_name))
+				if addon_file_info['emu_version'][0] == userdata_file_info['emu_version'][0]: #Files are the same, delete addondata file
+					print 'IARL: '+file_name+' same version detected, deleting addondata file'
+					os.remove(os.path.join(addondata_xmldir,file_name))
+				else:
+					current_dialog = xbmcgui.Dialog()
+					current_dialog.ok('New Version Found', 'New version '+addon_file_info['emu_version'][0]+' for the file:', addon_file_info['emu_name'][0], 'was detected.')
+					ret1 = current_dialog.select('Overwrite old file: '+addon_file_info['emu_name'][0]+' ?', ["Yes, Replace!", "Remind me later", "No, Never!"])
+					if ret1 == 0: #Yes, replace!
+						print 'IARL:  Copying new file '+file_name+' to userdata'
+						copyFile(os.path.join(addondata_xmldir,file_name), os.path.join(userdata_xmldir,file_name))
+						if os.path.isfile(os.path.join(userdata_xmldir,file_name)): #Copy was successful, delete addondata file
+							os.remove(os.path.join(addondata_xmldir,file_name)) #Remove the file from the addondata folder
+						else:
+							print 'IARL Error, copying xml file failed.'
+					elif ret1 == 1: #Remind me later
+						print 'IARL:  XML File will not be copied at this time'
+					else: #No, delete the file
+						print 'IARL:  XML File will be deleted'
+						os.remove(os.path.join(addondata_xmldir,file_name)) #Remove the file from the addondata folder
+			else: #The files does not yet exist in userdata
+				print 'IARL:  Copying new file '+file_name+' to userdata'
+				copyFile(os.path.join(addondata_xmldir,file_name), os.path.join(userdata_xmldir,file_name))
+				if os.path.isfile(os.path.join(userdata_xmldir,file_name)): #Copy was successful, delete addondata file
+					os.remove(os.path.join(addondata_xmldir,file_name)) #Remove the file from the addondata folder
+				else:
+					print 'IARL Error, copying xml file failed.'
+		# hide_busy_dialog()
 
 def check_temp_folder_and_clean(iarl_options_dl_cache):
 	current_path = getTempDir()
@@ -520,6 +600,38 @@ def get_xml_header_paths(xmlfilename):
 
 	return dat_file_table
 
+def get_xml_header_version(xmlfilename):
+	total_lines = 500  #Read up to this many lines looking for the header
+	f=open(xmlfilename,'rU')
+	f.seek(0)
+	header_end=0
+	line_num=0
+	header_text = ''
+	emu_version = list()
+	emu_name = list()
+
+	while header_end < 1:
+		line=f.readline()    
+		header_text+=str(line)
+		line_num = line_num+1
+		if '</header>' in header_text: #Found the header
+			header_end = 1
+			header_text = header_text.split('<header>')[1].split('</header>')[0]
+			emu_name.append(header_text.split('<emu_name>')[1].split('</emu_name>')[0])
+			emu_version.append(header_text.split('<emu_version>')[1].split('</emu_version>')[0])
+			f.close()
+		if line_num == total_lines:  #Couldn't find the header
+			header_end = 1
+			f.close()
+			print 'IARL Error:  Unable to get version in xml header file'
+
+	dat_file_table = {
+	'emu_name' : emu_name,
+	'emu_version' : emu_version,
+	}
+
+	return dat_file_table
+
 def set_iarl_window_properties(emu_name):
 
 	if '32X' in emu_name:
@@ -826,7 +938,8 @@ def parse_xml_romfile(xmlfilename,parserfile,cleanlist,plugin):
 			else:
 				current_clearlogo.append(None)
 
-		if current_emu_name == 'MAME - Multiple Arcade Machine Emulator':  #MAME xml filenames dont include the extension
+		if 'MAME_parser' in parserfile: #MAME xml filenames dont include the extension
+		# if current_emu_name == 'MAME - Multiple Arcade Machine Emulator':  #MAME xml filenames dont include the extension
 			if current_fname:
 				current_fname = current_fname+'.zip'
 			if current_sfname:
@@ -963,7 +1076,7 @@ def add_favorite_to_xml(fav_item,favorites_xml_filename):
 	current_rom_command = ''
 	strip_base_url_string_1 = 'http://archive.org/download/'
 	strip_base_url_string_2 = 'https://archive.org/download/'
-	xstr = lambda s: s or ''
+	xstr = lambda s: txt_escape(s) or ''
 	try: current_rom_command = current_rom_command+xstr(fav_item['properties']['emu_postdlaction'])
 	except: pass
 	try: current_rom_command = current_rom_command+'|'+xstr(fav_item['properties']['rom_emu_command'])
@@ -973,9 +1086,9 @@ def add_favorite_to_xml(fav_item,favorites_xml_filename):
 	if current_rom_command[-1] == '|':
 		current_rom_command = current_rom_command[:-1]
 
-	try: xml_string = xml_string+'<game name="%GAME_TITLE%">\r\n'.replace('%GAME_TITLE%',fav_item['info']['title'])
+	try: xml_string = xml_string+'<game name="%GAME_TITLE%">\r\n'.replace('%GAME_TITLE%',xstr(fav_item['info']['title']))
 	except: pass
-	try: xml_string = xml_string+'<description>%GAME_TITLE%</description>\r\n'.replace('%GAME_TITLE%',fav_item['info']['title'])
+	try: xml_string = xml_string+'<description>%GAME_TITLE%</description>\r\n'.replace('%GAME_TITLE%',xstr(fav_item['info']['title']))
 	except: pass
 	try: xml_string = xml_string+'<rom name="%ROM_URL%" size="%ROM_SIZE%"/>\r\n'.replace('%ROM_URL%',fav_item['properties']['rom_fname'].replace(strip_base_url_string_1,'').replace(strip_base_url_string_2,'')).replace('%ROM_SIZE%',str(fav_item['info']['size']))
 	except: pass
