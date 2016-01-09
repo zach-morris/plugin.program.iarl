@@ -1,5 +1,5 @@
 <window id="4069">
-    <defaultcontrol always="false">3003</defaultcontrol>
+    <defaultcontrol always="false">3011</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
   <type>dialog</type>
   <visible>true</visible>
@@ -157,6 +157,19 @@
             <onright>3001</onright>
             <onup>3005</onup>
             <ondown>3006</ondown>
+        </control>
+        <control type="button" id="3011">
+            <description>Control Grabber</description>
+            <posx>1</posx>
+            <posy>1</posy>
+            <width>1</width>
+            <height>1</height>
+            <texturefocus>transparent.png</texturefocus>
+            <texturenofocus>transparent.png</texturenofocus>
+            <onleft>3003</onleft>
+            <onright>3003</onright>
+            <onup>3003</onup>
+            <ondown>3003</ondown>
         </control>
         <control type="button" id="3005">
             <description>Trailer Play Button</description>
