@@ -608,14 +608,25 @@ def download_and_launch_rom(romwindow,rom_fname,rom_sfname, rom_save_fname, rom_
             if romwindow is not None:
                 romwindow.closeDialog()
             
-            #Suspend audio for HDMI audio purposes on some systems
-            xbmc.audioSuspend()
-            xbmc.enableNavSounds(False) 
-            xbmc.sleep(500) #This pause seems to help... I'm not really sure why
-            external_command = subprocess.call(current_external_command,shell=True)
-            #Resume audio after external command is complete
-            xbmc.audioResume()
-            xbmc.enableNavSounds(True)
+            if 'Android' in iarl_setting_operating_system:
+                #Suspend audio for HDMI audio purposes on some systems
+                print 'IARL:  Android External Command Called'
+                xbmc.audioSuspend()
+                xbmc.enableNavSounds(False) 
+                xbmc.sleep(500) #This pause seems to help... I'm not really sure why
+                os.system(current_external_command.encode('utf-8')) #Android is frustrating...
+                #Resume audio after external command is complete
+                xbmc.audioResume()
+                xbmc.enableNavSounds(True)
+            else:
+                #Suspend audio for HDMI audio purposes on some systems
+                xbmc.audioSuspend()
+                xbmc.enableNavSounds(False) 
+                xbmc.sleep(500) #This pause seems to help... I'm not really sure why
+                external_command = subprocess.call(current_external_command,shell=True)
+                #Resume audio after external command is complete
+                xbmc.audioResume()
+                xbmc.enableNavSounds(True)
 
         else:
             print 'IARL Error:  No external launch command is defined'
