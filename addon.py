@@ -10,10 +10,13 @@ import resources.lib.paginate as paginate
 
 plugin = Plugin()
 
+#Define Addon Settings
 iarl_setting_cache_list = plugin.get_setting('iarl_setting_cache_list',bool)
 iarl_setting_clean_list = plugin.get_setting('iarl_setting_clean_list',bool)
 iarl_setting_clear_cache_value  = plugin.get_setting('iarl_setting_clear_cache_value',bool)
+iarl_setting_clear_hidden_archives  = plugin.get_setting('iarl_setting_clear_hidden_archives',bool)
 iarl_setting_naming = plugin.get_setting('iarl_setting_naming',unicode)
+iarl_setting_listing = plugin.get_setting('iarl_setting_listing',unicode)
 
 items_pp_options = {'10':10,'25':25,'50':50,'100':100,'150':150,'200':200,'250':250,'300':300,'350':350,'400':400,'450':450,'500':500,'List All':99999}
 try:
@@ -28,17 +31,25 @@ except ValueError:
     iarl_setting_dl_cache = 0
 
 if not iarl_setting_cache_list:
-    plugin.clear_function_cache() #Clear the cache every run
+    plugin.clear_function_cache() #Clear the list cache every run, if caching lists is not selected
 
 if iarl_setting_clear_cache_value:
     advanced_setting_action_clear_cache(plugin)
 
-iarl_setting_default_action = plugin.get_setting('iarl_setting_default_action')
-iarl_setting_localfile_action = plugin.get_setting('iarl_setting_localfile_action')
-iarl_setting_retroarch_path = plugin.get_setting('iarl_path_to_retroarch')
+if iarl_setting_clear_hidden_archives: #Unhide any archives that were hidden
+    unhide_all_archives(plugin)
+    import xbmcaddon
+    xbmcaddon.Addon(id='plugin.program.iarl').setSetting(id='iarl_setting_clear_hidden_archives',value='false')
+    print 'IARL:  Unhide All Archives set back to false' #Run only once
+
+iarl_setting_default_action = plugin.get_setting('iarl_setting_default_action') #Define action on game selection
+iarl_setting_localfile_action = plugin.get_setting('iarl_setting_localfile_action') #Define action if file exists locally
+iarl_setting_retroarch_path = plugin.get_setting('iarl_path_to_retroarch') #OSX, Win, Nix only
+iarl_setting_retroarch_cfg_path = plugin.get_setting('iarl_path_to_retroarch_cfg') #Android only
 iarl_setting_chdman_path = plugin.get_setting('iarl_path_to_chdman')
 iarl_setting_operating_system = get_Operating_System()
 
+#Define Addon routing
 @plugin.route('/update_xml/<xml_id>')
 def update_xml_value(xml_id):
     args_in = plugin.request.args
@@ -61,7 +72,11 @@ def update_xml_value(xml_id):
 
     elif tag_value == 'emu_ext_launch_cmd':
         print 'Updating External Launch Command'
-        update_external_launch_commands(iarl_setting_operating_system,iarl_setting_retroarch_path,xml_id,plugin)
+        update_external_launch_commands(iarl_setting_operating_system,iarl_setting_retroarch_path,iarl_setting_retroarch_cfg_path,xml_id,plugin)
+
+    elif tag_value == 'hide_archive':
+        print 'Hide Archive Selected'
+        hide_selected_archive(xml_id,plugin)
 
     else:
         pass #Do Nothing
@@ -109,15 +124,26 @@ def index():
         context_menus = [update_context(emu_info['emu_location'][ii],'emu_downloadpath','Update Download Path'),
                         update_context(emu_info['emu_location'][ii],'emu_postdlaction','Update Post DL Action'),
                         update_context(emu_info['emu_location'][ii],'emu_launcher','Update Launcher'),
-                        update_context(emu_info['emu_location'][ii],'emu_ext_launch_cmd','Update Ext Launcher Command'),]
+                        update_context(emu_info['emu_location'][ii],'emu_ext_launch_cmd','Update Ext Launcher Command'),
+                        update_context(emu_info['emu_location'][ii],'hide_archive','Hide This Archive'),]
 
-        items.append({ 
-        'label' : emu_info['emu_name'][ii], 'path': plugin.url_for('get_rom_page', category_id=emu_info['emu_name'][ii],page_id='1',parser_id=emu_info['emu_parser'][ii],xml_id=emu_info['emu_location'][ii]), 'icon': emu_info['emu_logo'][ii],
-        'thumbnail' : emu_info['emu_thumb'][ii],
-        'info' : {'genre': emu_info['emu_category'][ii], 'credits': emu_info['emu_author'][ii], 'date': emu_info['emu_date'][ii], 'plot': emu_info['emu_comment'][ii], 'trailer': getYouTubePluginurl(emu_info['emu_trailer'][ii]), 'FolderPath': emu_info['emu_baseurl'][ii]},
-        'properties' : {'fanart_image' : emu_info['emu_fanart'][ii], 'banner' : emu_info['emu_banner'][ii], 'clearlogo': emu_info['emu_logo'][ii], 'poster': emu_info['emu_thumb'][ii]},
-        'context_menu' : context_menus
-        })
+        if 'hidden' not in emu_info['emu_category'][ii]: #Don't include the archive if it's tagged hidden
+            if 'alphabetical' in iarl_setting_listing.lower(): #List alphabetically
+                items.append({ 
+                'label' : emu_info['emu_name'][ii], 'path': plugin.url_for('get_rom_starting_letter_page', category_id=emu_info['emu_name'][ii],parser_id=emu_info['emu_parser'][ii],xml_id=emu_info['emu_location'][ii]), 'icon': emu_info['emu_logo'][ii],
+                'thumbnail' : emu_info['emu_thumb'][ii],
+                'info' : {'genre': emu_info['emu_category'][ii], 'credits': emu_info['emu_author'][ii], 'date': emu_info['emu_date'][ii], 'plot': emu_info['emu_comment'][ii], 'trailer': getYouTubePluginurl(emu_info['emu_trailer'][ii]), 'FolderPath': emu_info['emu_baseurl'][ii]},
+                'properties' : {'fanart_image' : emu_info['emu_fanart'][ii], 'banner' : emu_info['emu_banner'][ii], 'clearlogo': emu_info['emu_logo'][ii], 'poster': emu_info['emu_thumb'][ii]},
+                'context_menu' : context_menus
+                })
+            else: #One big list
+                items.append({ 
+                'label' : emu_info['emu_name'][ii], 'path': plugin.url_for('get_rom_page', category_id=emu_info['emu_name'][ii],page_id='1',parser_id=emu_info['emu_parser'][ii],xml_id=emu_info['emu_location'][ii]), 'icon': emu_info['emu_logo'][ii],
+                'thumbnail' : emu_info['emu_thumb'][ii],
+                'info' : {'genre': emu_info['emu_category'][ii], 'credits': emu_info['emu_author'][ii], 'date': emu_info['emu_date'][ii], 'plot': emu_info['emu_comment'][ii], 'trailer': getYouTubePluginurl(emu_info['emu_trailer'][ii]), 'FolderPath': emu_info['emu_baseurl'][ii]},
+                'properties' : {'fanart_image' : emu_info['emu_fanart'][ii], 'banner' : emu_info['emu_banner'][ii], 'clearlogo': emu_info['emu_logo'][ii], 'poster': emu_info['emu_thumb'][ii]},
+                'context_menu' : context_menus
+                })
     
     items.append({ 
         'label' : '\xc2\xa0Search', 'path' :  plugin.url_for('search_roms_window'), 'icon': icon_filepath + 'search.jpg',
@@ -149,6 +175,12 @@ def index():
 def get_rom_page(category_id,page_id):
     
     include_pp_link = 0 #Just use the standard list back buton
+ 
+    if ',' in page_id: #If the list was requested alphabetically, define the page and alpha ID
+        alpha_id = page_id.split(',')[0]
+        page_id = page_id.split(',')[-1]
+    else:
+        alpha_id = None
 
     #Define Parser
     args_in = plugin.request.args
@@ -161,7 +193,13 @@ def get_rom_page(category_id,page_id):
     except:
         xmlpath = None
     try:
-        rom_list = get_rom_list(xmlpath,parserpath)
+        if alpha_id is None: #One Big List
+            rom_list = get_rom_list(xmlpath,parserpath)
+        else: #Only games that start with the selected letter
+            if '#' in alpha_id: #List everything that doesnt start with a letter
+                rom_list = [list_item for list_item in get_rom_list(xmlpath,parserpath) if not list_item['label'][0].isalpha()]
+            else:
+                rom_list = [list_item for list_item in get_rom_list(xmlpath,parserpath) if (alpha_id.lower() in list_item['label'][0].lower())]
     except:
         rom_list = None
     
@@ -172,14 +210,21 @@ def get_rom_page(category_id,page_id):
     next_page = []
     prev_page = []
     icon_filepath = getMediaFilePath()
+
+    if alpha_id is None: #One Big List
+        prev_page_str = str(page.previous_page)
+        next_page_str = str(page.next_page)
+    else:
+        prev_page_str = alpha_id+','+str(page.previous_page)
+        next_page_str = alpha_id+','+str(page.next_page)
     # next_page.append({'label': 'Next >>', 'path': plugin.url_for('get_rom_list', category_id=category_id,page_id=str(int(float(page_id))+1),parser_id=parserpath,xml_id=rom_list)})
     prev_page.append({ 
-        'label' : '\xc2\xa0Prev <<', 'path' :  plugin.url_for('get_rom_page', category_id=category_id,page_id=str(page.previous_page),parser_id=parserpath,xml_id=xmlpath), 'icon': icon_filepath + 'Previous.png',
+        'label' : '\xc2\xa0Prev <<', 'path' :  plugin.url_for('get_rom_page', category_id=category_id,page_id=prev_page_str,parser_id=parserpath,xml_id=xmlpath), 'icon': icon_filepath + 'Previous.png',
         'thumbnail' : icon_filepath + 'Previous.png',
         'info' : {'genre': '\xc2\xa0', 'date': '01/01/2999', 'plot' : 'Page ' + str(page.page) + ' of ' + str(page.page_count) + '.  Prev page is ' + str(page.previous_page) + '.  Total of ' + str(page.item_count) + ' games in this archive.'}
         })
     next_page.append({ 
-        'label' : '\xc2\xa0Next >>', 'path' :  plugin.url_for('get_rom_page', category_id=category_id,page_id=str(page.next_page),parser_id=parserpath,xml_id=xmlpath), 'icon': icon_filepath + 'Next.png',
+        'label' : '\xc2\xa0Next >>', 'path' :  plugin.url_for('get_rom_page', category_id=category_id,page_id=next_page_str,parser_id=parserpath,xml_id=xmlpath), 'icon': icon_filepath + 'Next.png',
         'thumbnail' : icon_filepath + 'Next.png',
         'info' : {'genre': '\xc2\xa0', 'date': '01/01/2999', 'plot' : 'Page ' + str(page.page) + ' of ' + str(page.page_count) + '.  Next page is ' + str(page.next_page) + '.  Total of ' + str(page.item_count) + ' games in this archive.'}
         })
@@ -206,6 +251,44 @@ def get_rom_page(category_id,page_id):
 
     # plugin.finish(succeeded=True, update_listing=True,sort_methods=[xbmcplugin.SORT_METHOD_NONE, xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_DATE, xbmcplugin.SORT_METHOD_GENRE, xbmcplugin.SORT_METHOD_STUDIO_IGNORE_THE])
     return plugin.finish(current_page_with_art, sort_methods=[xbmcplugin.SORT_METHOD_NONE, xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_DATE, xbmcplugin.SORT_METHOD_GENRE, xbmcplugin.SORT_METHOD_STUDIO_IGNORE_THE])
+
+@plugin.route('/Emulator_Alpha/<category_id>/')
+def get_rom_starting_letter_page(category_id):
+    items = []
+    alpha_pages = ['#','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    media_path = getMediaFilePath()
+
+    args_in = plugin.request.args
+    try:
+        parserpath = args_in['parser_id'][0]
+    except:
+        parserpath = None
+    try:
+        xmlpath = args_in['xml_id'][0]
+    except:
+        xmlpath = None
+    
+    for alpha_page in alpha_pages:
+        if '#' in alpha_page:
+            alpha_image_id = 'Numeric'
+        else:
+            alpha_image_id = alpha_page
+        items.append({ 
+        'label' : alpha_page, 'path': plugin.url_for('get_rom_page', category_id=category_id,page_id=alpha_page+',1',parser_id=parserpath,xml_id=xmlpath), 'icon': os.path.join(media_path,alpha_image_id+'.png'),
+        'thumbnail' : os.path.join(media_path,alpha_image_id+'.png'),
+        'properties' : {'fanart_image' : os.path.join(media_path,'fanart.jpg'), 'banner' : os.path.join(media_path,alpha_image_id+'_banner.png')}
+        })
+
+    items_with_art = list()
+    for item in items:
+        current_item = plugin._listitemify(item)
+        current_item.set_banner(current_item.get_property('banner'))
+        current_item.set_landscape(current_item.get_property('banner'))
+        current_item.set_poster(current_item.get_property('poster'))
+        items_with_art.append(current_item)
+    return plugin.finish(items_with_art, sort_methods=[xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE])
+    # return items
+
 
 @plugin.cached(TTL=24*60*30)
 def get_rom_list(xmlpath,parserpath):
@@ -351,7 +434,7 @@ def search_roms_results(search_term,**kwargs):
 
     progress_dialog.update(95, 'Compiling Results...')
     print 'IARL:  Found ' + str(len(search_results)) + ' matches'
-    return plugin.finish(search_results,cache_to_disc=False,sort_methods=[xbmcplugin.SORT_METHOD_NONE, xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_DATE, xbmcplugin.SORT_METHOD_GENRE, xbmcplugin.SORT_METHOD_STUDIO_IGNORE_THE])
+    return plugin.finish(search_results,cache_to_disc=True,sort_methods=[xbmcplugin.SORT_METHOD_NONE, xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_DATE, xbmcplugin.SORT_METHOD_GENRE, xbmcplugin.SORT_METHOD_STUDIO_IGNORE_THE])
     progress_dialog.close()
 
 @plugin.route('/Search')

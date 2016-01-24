@@ -284,6 +284,20 @@ def check_temp_folder_and_clean(iarl_options_dl_cache):
 
 	current_path = getTempDir()  #Remake the directory
 
+def unhide_all_archives(plugin):
+
+	emu_info = scape_xml_headers() #Find all xml dat files and get the header info
+	for ii in range(0,len(emu_info['emu_name'])):
+		if ', hidden' in emu_info['emu_category'][ii]: #Don't include the archive if it's tagged hidden
+			new_xml_category = emu_info['emu_category'][ii].replace(', hidden','')
+			current_xml_fileparts = os.path.split(emu_info['emu_location'][ii])
+			current_xml_filename = current_xml_fileparts[1]
+			current_xml_path = current_xml_fileparts[0] + '/'
+			update_xml_header(current_xml_path,current_xml_filename,'emu_category',new_xml_category)
+
+	print 'IARL:  Unhide all archives completed'
+	plugin.clear_function_cache()
+
 def check_if_rom_exits(current_save_fname,current_path,iarl_setting_localfile_action):
 	
 	file_already_exists = False
@@ -378,7 +392,7 @@ def advanced_setting_action_clear_cache(plugin):
 	__addon__.setSetting(id='iarl_setting_clear_cache_value',value='false') #Set back to false, no need to clear it next run
 	print 'IARL:  Advanced Setting Cache Clear Completed'
 
-def update_external_launch_commands(current_os,retroarch_path,xml_id,plugin):
+def update_external_launch_commands(current_os,retroarch_path,retroarch_cfg_path,xml_id,plugin):
 
 	current_xml_fileparts = os.path.split(xml_id)
 	current_xml_filename = current_xml_fileparts[1]
@@ -397,6 +411,7 @@ def update_external_launch_commands(current_os,retroarch_path,xml_id,plugin):
 	new_launch_command = None
 	current_path = None
 
+	#Define %APP_PATH% Variable
 	if current_os == 'OSX':
 		current_path = retroarch_path.split('.app')[0]+'.app' #Make App Path for OSX only up to the container
 	elif current_os == 'Windows':
@@ -405,6 +420,25 @@ def update_external_launch_commands(current_os,retroarch_path,xml_id,plugin):
 
 	if current_path is not None: #Update %APP_PATH%
 		retroarch_path = current_path
+
+	#Define %CFG_PATH% Variable for android
+	if current_os == 'Android':
+		default_config_locations = ['/mnt/internal_sd/Android/data/com.retroarch/files/retroarch.cfg','/sdcard/Android/data/com.retroarch/files/retroarch.cfg','/data/data/com.retroarch/retroarch.cfg']
+		current_cfg_path = None
+		if len(retroarch_cfg_path)<1: #Config is not defined in settings, try to find it in one of the default locales
+			for cfg_files in default_config_locations:
+				try:
+					if os.path.exists(cfg_files):
+						if current_cfg_path is None: #If the current config path is not yet defined and the file was found, then define it
+							current_cfg_path = cfg_files
+				except:
+					print 'IARL: '+cfg_files+' does not exist'
+		else:
+			current_cfg_path = retroarch_cfg_path #If the config path is defined in settings, use that
+
+		if current_cfg_path is None:
+			current_cfg_path = ''
+			print 'IARL:  Error, no config file is defined'
 
 	for entries in results: #Create list of available commands for the current OS
 		if entries['operating_system'][0] == current_os:
@@ -427,8 +461,9 @@ def update_external_launch_commands(current_os,retroarch_path,xml_id,plugin):
 		ret2 = current_dialog.select('Are you sure you want to update[CR]the current External Launch Command?', ['Yes','Cancel'])
 		if ret2<1:
 			# new_launch_command = launch_command[ret1]
-			new_launch_command = new_launch_command.replace('%APP_PATH%',retroarch_path)
+			new_launch_command = new_launch_command.replace('%APP_PATH%',retroarch_path) #Replace app path with user setting
 			new_launch_command = new_launch_command.replace('%ADDON_DIR%',getAddonInstallPath()) #Replace helper script with the more generic ADDON_DIR
+			new_launch_command = new_launch_command.replace('%CFG_PATH%',current_cfg_path) #Replace config path user setting
 			update_xml_header(current_xml_path,current_xml_filename,'emu_ext_launch_cmd',new_launch_command)
 			ok_ret = current_dialog.ok('Complete','External Launch Command was updated[CR]Cache was cleared for new settings')
 			plugin.clear_function_cache()
@@ -631,6 +666,40 @@ def get_xml_header_version(xmlfilename):
 	}
 
 	return dat_file_table
+
+def get_xml_header_category(xmlfilename):
+	total_lines = 500  #Read up to this many lines looking for the header
+	f=open(xmlfilename,'rU')
+	f.seek(0)
+	header_end=0
+	line_num=0
+	header_text = ''
+	emu_category = list()
+	emu_name = list()
+
+	while header_end < 1:
+		line=f.readline()    
+		header_text+=str(line)
+		line_num = line_num+1
+		if '</header>' in header_text: #Found the header
+			header_end = 1
+			header_text = header_text.split('<header>')[1].split('</header>')[0]
+			emu_name.append(header_text.split('<emu_name>')[1].split('</emu_name>')[0])
+			emu_category.append(header_text.split('<emu_category>')[1].split('</emu_category>')[0])
+			f.close()
+		if line_num == total_lines:  #Couldn't find the header
+			header_end = 1
+			f.close()
+			print 'IARL Error:  Unable to get category in xml header file'
+
+	dat_file_table = {
+	'emu_name' : emu_name,
+	'emu_category' : emu_category,
+	}
+
+	return dat_file_table
+
+
 
 def set_iarl_window_properties(emu_name):
 
@@ -1659,6 +1728,26 @@ def set_new_dl_path(xml_id,plugin):
 			update_xml_header(current_xml_path,current_xml_filename,'emu_downloadpath',new_path)
 			ok_ret = current_dialog.ok('Complete','Download Path was updated to your custom folder[CR]Cache was cleared for new settings')
 			plugin.clear_function_cache()
+	else:
+		pass
+
+def hide_selected_archive(xml_id,plugin):
+	xml_current_category = get_xml_header_category(xml_id)
+	print xml_current_category['emu_category'][0]
+
+	current_xml_fileparts = os.path.split(xml_id)
+	current_xml_filename = current_xml_fileparts[1]
+	current_xml_path = current_xml_fileparts[0] + '/'
+
+	current_dialog = xbmcgui.Dialog()
+
+	ret1 = current_dialog.select('Are you sure you want to Hide '+current_xml_filename, ['Yes','Cancel'])
+
+	if ret1 == 0:
+		new_xml_category = xml_current_category['emu_category'][0] + ', hidden'
+		update_xml_header(current_xml_path,current_xml_filename,'emu_category',new_xml_category)
+		ok_ret = current_dialog.ok('Complete','Archive will be hidden after IARL restart[CR]Cache was cleared for new settings')
+		plugin.clear_function_cache()
 	else:
 		pass
 

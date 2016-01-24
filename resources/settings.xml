@@ -3,15 +3,21 @@
 	<category label="General">
 		<setting id="iarl_setting_cache_list" type="bool" label="Cache ROM Lists After Parsing" default="true"/>
 		<setting id="iarl_setting_clean_list" type="bool" label="Clean ROM Title" default="true"/>
+		<setting id="iarl_setting_listing" type="select" label="Game Listing Convention" values="One Big List|Alphabetical" default="One Big List"/>
 		<setting id="iarl_setting_naming" type="select" label="Display Naming Convention" values="Title|Title, Genre|Title, Date|Title, Genre, Date|Genre, Title|Date, Title|Genre, Title, Date|Date, Title, Genre|Title, Genre, Date, ROM Tag" default="Title"/>
 		<setting id="iarl_setting_items_pp" type="select" label="Number of Items Per Page" values="10|25|50|100|150|200|250|300|350|400|450|500|List All" default="50"/>
 		<setting id="iarl_setting_localfile_action" type="select" label="If Game Already Exists Locally" values="Prompt|Do Not ReDownload|ReDownload and Overwrite" default="Prompt"/>
 		<setting id="iarl_setting_default_action" type="select" label="Default Action on Selecting ROM" values="Download and Launch|Download Only|ROM Info Page" default="Rom Info Page"/>
-		<setting id="iarl_setting_dl_cache" type="select" label="Temporary Download Folder Size (MB)" values="Zero (One ROM and Supporting Files Only)|10 MB|25MB|50MB|100MB|150MB|200MB|250MB|300MB|350MB|400MB|450MB|500MB|1GB|2GB|5GB|10GB|20GB" default="Zero (One ROM and Supporting Files Only)"/>
+		<setting id="iarl_setting_dl_cache" type="select" label="Cache Size (MB)" values="Zero (One ROM and Supporting Files Only)|10 MB|25MB|50MB|100MB|150MB|200MB|250MB|300MB|350MB|400MB|450MB|500MB|1GB|2GB|5GB|10GB|20GB" default="Zero (One ROM and Supporting Files Only)"/>
 	</category>
 	<category label="External Launchers">
 		<setting label="Enter the path to your retroarch installation below for external launching:" type="lsep"/>
+		<setting label="(Used for Win, OSX, Linux only)" type="lsep"/>
 		<setting id="iarl_path_to_retroarch" type="executable" label="RetroArch Executable"/>
+		<setting type="sep"/>
+		<setting label="Enter the path to your retroarch config file:" type="lsep"/>
+		<setting label="(Used for Android only)" type="lsep"/>
+		<setting id="iarl_path_to_retroarch_cfg" type="file" label="RetroArch CFG"/>
 	</category>
 	<category label="CHD Conversion">
 		<setting label="Some ROM Archives are in CHD format and must be converted before use." type="lsep"/>
@@ -26,7 +32,10 @@
 		<setting visible="true" label="Set addon to provide Video" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/update_addonxml_provides_video.py)"/>
 		<setting visible="true" label="Set addon to provide Programs" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/update_addonxml_provides_program.py)"/>
 		<setting type="sep"/>
+		<setting visible="true" label="Unhide All Archives" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/unhide_all_archives.py)"/>
+		<setting type="sep"/>
 		<setting visible="true" label="Clear Plugin Cache" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/clear_IARL_cache.py)"/>
+		<setting visible="false" id="iarl_setting_clear_hidden_archives" type="bool" label="Clear Hidden Archives Value" default="false"/>
 		<setting visible="false" id="iarl_setting_clear_cache_value" type="bool" label="Clear Plugin Cache Value" default="false"/>
 		<setting visible="false" id="iarl_setting_warn_chd" type="bool" label="Display CHD Warning" default="true"/>
 		<setting visible="false" id="iarl_setting_warn_iso" type="bool" label="Display ISO Warning" default="true"/>
