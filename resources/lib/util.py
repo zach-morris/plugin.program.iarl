@@ -421,6 +421,7 @@ def update_external_launch_commands(current_os,retroarch_path,retroarch_cfg_path
 	if current_path is not None: #Update %APP_PATH%
 		retroarch_path = current_path
 
+	current_cfg_path = ''
 	#Define %CFG_PATH% Variable for android
 	if current_os == 'Android':
 		default_config_locations = ['/mnt/internal_sd/Android/data/com.retroarch/files/retroarch.cfg','/sdcard/Android/data/com.retroarch/files/retroarch.cfg','/data/data/com.retroarch/retroarch.cfg']
