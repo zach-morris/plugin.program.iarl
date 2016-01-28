@@ -242,9 +242,6 @@
 	<launcher name="RetroArch MAME (Arcade)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mame_libretro_android.so.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
-	<launcher name="MAME4Droid (Arcade)" os="Android">
-		<launcher_command>/system/bin/am start -a android.intent.action.VIEW -n com.seleuco.mame4droid/com.seleuco.mame4droid.MAME4droid -d "file://%ROM_PATH%"</launcher_command>
-	</launcher>
 	<launcher name="RetroArch MAME 2003 (Arcade)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mame2003_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
