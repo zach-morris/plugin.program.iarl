@@ -447,15 +447,28 @@ def search_roms_window():
 def random_play():
     import random
     emu_info = scape_xml_headers() #Find all xml dat files and get the header info
-    rand_int_1 = random.randint(0,len(emu_info['emu_name']))
+    emu_info2 = { #Create second dict to populate non-hidden archives into
+        'emu_name' : list(),
+        'emu_parser' : list(),
+        'emu_location' : list(),
+        }
+
+    for ii in range(0,len(emu_info['emu_name'])):
+        if 'hidden' not in emu_info['emu_category'][ii]: #Don't include the archive if it's tagged hidden
+            emu_info2['emu_name'].append(emu_info['emu_name'][ii])
+            emu_info2['emu_parser'].append(emu_info['emu_parser'][ii])
+            emu_info2['emu_location'].append(emu_info['emu_location'][ii])
+
+    print emu_info2
+    rand_int_1 = random.randint(0,len(emu_info2['emu_name']))
     # rand_int_1 = 0 #For testing
 
     try:
-        parserpath = emu_info['emu_parser'][rand_int_1]
+        parserpath = emu_info2['emu_parser'][rand_int_1]
     except:
         parserpath = None
     try:
-        xmlpath = emu_info['emu_location'][rand_int_1]
+        xmlpath = emu_info2['emu_location'][rand_int_1]
     except:
         xmlpath = None
     try:
@@ -469,7 +482,7 @@ def random_play():
     except:
         page = None
     try:
-        print 'IARL:  Random play emulator '+emu_info['emu_name'][rand_int_1]+' and game '+page.items[0]['info']['title']
+        print 'IARL:  Random play emulator '+emu_info2['emu_name'][rand_int_1]+' and game '+page.items[0]['info']['title']
     except:
         pass
         
@@ -959,6 +972,7 @@ class SearchWindow(xbmcgui.WindowXMLDialog):
         self.control_id_button_4 = self.getControl(3004)  #Advanced search off button
         self.as_group_control = self.getControl(3005)  #Advanced search on button
         self.control_id_button_5 = self.getControl(3006)  #Search Button
+        self.control_id_button_6 = self.getControl(3008)  #Search Button
         
         #Set initial vis
         self.as_group_control.setVisible(False)
@@ -970,13 +984,15 @@ class SearchWindow(xbmcgui.WindowXMLDialog):
         self.control_id_button_1.setLabel('Select All')
         self.control_id_button_2.setLabel('Select None')
         self.control_id_button_5.setLabel('Search')
+        self.control_id_button_6.setLabel('Close')
 
         #Populate Lists
-        for ii in range(0,len(emu_info['emu_name'])):    
-            current_listitem = xbmcgui.ListItem(label=emu_info['emu_name'][ii])
-            current_listitem.setIconImage(emu_info['emu_thumb'][ii])
-            current_listitem.setProperty('include_in_search','0') #Default to not include in search
-            self.archive_list.addItem(current_listitem) #Add item to the filter list
+        for ii in range(0,len(emu_info['emu_name'])):
+            if 'hidden' not in emu_info['emu_category'][ii]: #Don't include the archive if it's tagged hidden
+                current_listitem = xbmcgui.ListItem(label=emu_info['emu_name'][ii])
+                current_listitem.setIconImage(emu_info['emu_thumb'][ii])
+                current_listitem.setProperty('include_in_search','0') #Default to not include in search
+                self.archive_list.addItem(current_listitem) #Add item to the filter list
 
     def onAction(self, action):
         # Same as normal python Windows.
@@ -1015,6 +1031,9 @@ class SearchWindow(xbmcgui.WindowXMLDialog):
             self.control_id_button_3.setVisible(True)
             self.control_id_button_4.setVisible(False)
             xbmcgui.Window(10000).setProperty('iarl.advanced_search','True') #Turn off AS
+
+        if controlId == 3008:
+            self.closeDialog()
 
         if controlId == 3006:
             #Define search criteria

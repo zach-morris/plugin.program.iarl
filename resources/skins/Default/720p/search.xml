@@ -137,7 +137,7 @@
         </control>
         <control type="button" id="3002">
             <description>Remove All</description>
-            <posx>290</posx>
+            <posx>300</posx>
             <posy>620</posy>
             <width>200</width>
             <height>40</height>
@@ -152,7 +152,7 @@
         </control>
         <control type="button" id="3006">
             <description>Search</description>
-            <posx>915</posx>
+            <posx>615</posx>
             <posy>620</posy>
             <width>200</width>
             <height>40</height>
@@ -162,6 +162,21 @@
             <texturenofocus>button-nofocus2.png</texturenofocus>
             <texturefocus>button-highlight1.png</texturefocus>
             <onleft>3002</onleft>
+            <onright>3008</onright>
+            <onup>102</onup>
+        </control>
+        <control type="button" id="3008">
+            <description>Close</description>
+            <posx>915</posx>
+            <posy>620</posy>
+            <width>200</width>
+            <height>40</height>
+            <textoffsetx>12</textoffsetx>
+            <align>center</align>
+            <aligny>center</aligny>
+            <texturenofocus>button-nofocus2.png</texturenofocus>
+            <texturefocus>button-highlight1.png</texturefocus>
+            <onleft>3006</onleft>
             <onup>102</onup>
         </control>
         <control type="list" id="101">
