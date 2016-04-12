@@ -5,10 +5,10 @@
         <rom_size>rom/@size</rom_size>
         <rom_name>description</rom_name>
         <rom_plot>plot</rom_plot>
-        <rom_year>year</rom_year>
-        <rom_author>manufacturer</rom_author>
-        <rom_category>category</rom_category>
-        <rom_players>nplayers</rom_players>
+        <rom_date>year</rom_date>
+        <rom_studio>manufacturer</rom_studio>
+        <rom_genre>category</rom_genre>
+        <rom_nplayers>nplayers</rom_nplayers>
         <rom_emu_command>emu_command</rom_emu_command>
         <rom_snapshot1>snapshot1</rom_snapshot1>
         <rom_snapshot2>snapshot2</rom_snapshot2>

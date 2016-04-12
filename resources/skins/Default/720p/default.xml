@@ -142,6 +142,31 @@
             <onleft>3001</onleft>
             <onright>3003</onright>
         </control>
+        <control type="group" id="3012">
+          <control type="image">
+            <description>Busy animation</description>
+            <posx>800</posx>
+            <posy>655</posy>
+            <width>50</width>
+            <height>50</height>
+            <texture>busy-pac.png</texture>
+            <aspectratio>keep</aspectratio>
+            <animation effect="rotate" start="360" end="0" center="825,680" time="900" loop="true" condition="true">true</animation>
+          </control>
+          <control type="textbox">
+             <description>Please Wait...</description>
+             <posx>870</posx>
+             <posy>665</posy>
+             <width>200</width>
+             <height>65</height>
+             <align>left</align>
+             <visible>true</visible>
+             <colordiffuse>FFFFFFFF</colordiffuse>
+             <font>font14</font>
+             <textcolor>white</textcolor>
+             <label>Please Wait...</label>
+           </control>
+        </control>
         <control type="button" id="3003">
             <description>Exit Button</description>
             <posx>1100</posx>

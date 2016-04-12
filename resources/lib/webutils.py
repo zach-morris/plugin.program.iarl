@@ -33,7 +33,7 @@ class download_tools():
 			urllib.urlretrieve(url,dest,lambda nb, bs, fs, url=url: self._pbhook(nb,bs,fs,est_filesize,dp))
 			success = True
 		except:
-			print 'IARL:  Download was cancelled'
+			xbmc.log(msg='IARL:  Download was cancelled by the user.', level=xbmc.LOGNOTICE)
 			success = False
 
 		return success

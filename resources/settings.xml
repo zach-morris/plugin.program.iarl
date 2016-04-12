@@ -4,27 +4,43 @@
 		<setting id="iarl_setting_cache_list" type="bool" label="Cache ROM Lists After Parsing" default="true"/>
 		<setting id="iarl_setting_clean_list" type="bool" label="Clean ROM Title" default="true"/>
 		<setting id="iarl_setting_listing" type="select" label="Game Listing Convention" values="One Big List|Alphabetical" default="One Big List"/>
-		<setting id="iarl_setting_naming" type="select" label="Display Naming Convention" values="Title|Title, Genre|Title, Date|Title, Genre, Date|Genre, Title|Date, Title|Genre, Title, Date|Date, Title, Genre|Title, Genre, Date, ROM Tag" default="Title"/>
-		<setting id="iarl_setting_items_pp" type="select" label="Number of Items Per Page" values="10|25|50|100|150|200|250|300|350|400|450|500|List All" default="50"/>
+		<setting id="iarl_setting_naming" type="select" label="Display Naming Convention" values="Title|Title, Genre|Title, Date|Title, Genre, Date|Title, Genre, Size|Title, Date, Size|Genre, Title|Date, Title|Genre, Title, Date|Date, Title, Genre|Title, Genre, Date, ROM Tag|Title, Genre, Date, Size" default="Title"/>
+		<setting id="iarl_setting_items_pp" type="select" label="Number of Items Per Page" values="10|25|50|100|150|200|250|300|350|400|450|500|List All" default="List All"/>
 		<setting id="iarl_setting_localfile_action" type="select" label="If Game Already Exists Locally" values="Prompt|Do Not ReDownload|ReDownload and Overwrite" default="Prompt"/>
-		<setting id="iarl_setting_default_action" type="select" label="Default Action on Selecting ROM" values="Download and Launch|Download Only|ROM Info Page" default="Rom Info Page"/>
+		<setting id="iarl_setting_default_action" type="select" label="Default Action on Selecting ROM" values="Download and Launch|Download Only|ROM Info Page" default="ROM Info Page"/>
+		<setting id="iarl_setting_rom_window_theme" type="select" label="ROM Window Theme" values="IARL Classic Window|Try to Match Skin" default="IARL Classic Window" visible="false"/>
 		<setting id="iarl_setting_dl_cache" type="select" label="Cache Size (MB)" values="Zero (One ROM and Supporting Files Only)|10 MB|25MB|50MB|100MB|150MB|200MB|250MB|300MB|350MB|400MB|450MB|500MB|1GB|2GB|5GB|10GB|20GB" default="Zero (One ROM and Supporting Files Only)"/>
 	</category>
 	<category label="External Launchers">
-		<setting label="Enter the path to your retroarch installation below for external launching:" type="lsep"/>
-		<setting label="(Used for Win, OSX, Linux only)" type="lsep"/>
-		<setting id="iarl_path_to_retroarch" type="executable" label="RetroArch Executable"/>
-		<setting type="sep"/>
-		<setting label="Enter the path to your retroarch config file:" type="lsep"/>
-		<setting label="(Used for Android only)" type="lsep"/>
-		<setting id="iarl_path_to_retroarch_cfg" type="file" label="RetroArch CFG"/>
+		<setting id="iarl_external_user_external_env" type="select" label="My System Type" values="Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|OpenElec RPi (Gamestarter Addon)|Android" default="Select" visible="true"/>
+		<setting id="iarl_external_launch_close_kodi" type="select" label="Close Kodi on Launch" values="Disabled|Enabled" default="Disabled" visible="eq(-1,OSX)|eq(-1,Windows)|eq(-1,Linux/Kodibuntu)"/>
+		<setting id="iarl_path_to_retroarch" type="executable" label="RetroArch App Location" visible="eq(-2,OSX)|eq(-2,Windows)|eq(-2,Linux/Kodibuntu)"/>
+		<setting id="iarl_path_to_retroarch_cfg" type="file" label="RetroArch CFG Location" visible="eq(-3,Android)"/>
+		<setting label="Additional Emulators:" type="lsep" visible="eq(-4,OSX)|eq(-4,Windows)|eq(-4,Linux/Kodibuntu)"/>
+		<setting id="iarl_additional_emulator_1_type" type="select" label="Additional Emulator 1" values="Disabled|FS-UAE|WIN-UAE (Win)|Project 64 (Win)" default="Disabled" visible="eq(-5,OSX)|eq(-5,Windows)|eq(-5,Linux/Kodibuntu)"/>
+		<setting id="iarl_additional_emulator_1_path" type="executable" label="Emulator 1 App Location" visible="!eq(-1,Disabled)"/>
+		<setting id="iarl_additional_emulator_2_type" type="select" label="Additional Emulator 2" values="Disabled|FS-UAE|WIN-UAE (Win)|Project 64 (Win)" default="Disabled" visible="eq(-7,OSX)|eq(-7,Windows)|eq(-7,Linux/Kodibuntu)"/>
+		<setting id="iarl_additional_emulator_2_path" type="executable" label="Emulator 2 App Location" visible="!eq(-1,Disabled)"/>
 	</category>
-	<category label="CHD Conversion">
-		<setting label="Some ROM Archives are in CHD format and must be converted before use." type="lsep"/>
-		<setting label="See wiki for more info." type="lsep"/>
-		<setting label="Enter the path to your CHDMAN installation below for converting:" type="lsep"/>
-		<setting id="iarl_path_to_chdman" type="executable" label="CHDMAN Executable"/>
-		<setting visible="false" id="iarl_setting_chd_warning" type="bool" label="CHD Conversion Warning" default="true"/>
+	<category label="Netplay">
+		<setting id="iarl_enable_netplay" type="select" label="Enable Netplay" values="Enabled|Disabled" default="Disabled"/>
+		<setting id="iarl_netplay_hostclient" type="select" label="Player Connection Type" values="Player 1 Host|Player 2 Client|Spectator" default="Player 1 Host" visible="eq(-1,Enabled)"/>
+		<setting id="iarl_netplay_nickname1" type="text" label="Player Name" default="Kodi Player 1" visible="eq(-2,Enabled)+eq(-1,Player 1 Host)"/>
+		<setting id="iarl_netplay_nickname2" type="text" label="Player Name" default="Kodi Player 2" visible="eq(-3,Enabled)+eq(-2,Player 2 Client)"/>
+		<setting id="iarl_netplay_nickname3" type="text" label="Player Name" default="Kodi Spectator" visible="eq(-4,Enabled)+eq(-3,Spectator)"/>
+		<setting id="iarl_netplay_IP" type="ipaddress" label="Host IP Address" visible="eq(-5,Enabled)+!eq(-4,Player 1 Host)"/>
+		<setting id="iarl_netplay_port" type="text" label="Host IP Port" default="55435" visible="eq(-6,Enabled)+!eq(-5,Player 1 Host)"/>
+		<setting id="iarl_netplay_frames" type="select" label="Sync Frames" values="Enabled|Disabled" default="Disabled" visible="eq(-7,Enabled)+!eq(-6,Player 1 Host)"/>
+	</category>
+	<category label="Setup Wizard">
+		<setting label="Wizard setup for external launchers" type="lsep" visible="true"/>
+		<setting label="Before running, please setup the external launcher tab" type="lsep" visible="true"/>
+		<setting id="iarl_external_user_external_env" type="select" label="My System Type" values="Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|OpenElec RPi (Gamestarter Addon)|Android" default="Select" visible="true" enable="false"/>
+		<setting id="iarl_external_launch_close_kodi" type="select" label="Close Kodi on Launch" values="Disabled|Enabled" default="Disabled" visible="true" enable="false"/>
+		<setting id="iarl_wizard_launcher" type="select" label="Emulator Launcher" values="Select|External|Kodi Retroplayer" default="External" visible="false"/>
+		<setting id="iarl_wizard_launcher_group" type="select" label="Set me up for" values="Select|Most Playable (Least CPU Intensive)|Balanced|Most Accurate" default="Select" visible="true"/>
+		<setting type="sep"/>
+		<setting visible="true" label="Run the Wizard" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/run_iarl_wizard.py)"/>
 	</category>
 	<category label="Advanced Settings">
 		<setting label="Note:  You should not use these settings unless you're sure of what you are doing!" type="lsep"/>
@@ -37,7 +53,6 @@
 		<setting visible="true" label="Clear Plugin Cache" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/clear_IARL_cache.py)"/>
 		<setting visible="false" id="iarl_setting_clear_hidden_archives" type="bool" label="Clear Hidden Archives Value" default="false"/>
 		<setting visible="false" id="iarl_setting_clear_cache_value" type="bool" label="Clear Plugin Cache Value" default="false"/>
-		<setting visible="false" id="iarl_setting_warn_chd" type="bool" label="Display CHD Warning" default="true"/>
-		<setting visible="false" id="iarl_setting_warn_iso" type="bool" label="Display ISO Warning" default="true"/>
+		<setting visible="false" id="iarl_setting_warn_size" type="bool" label="Display Size Warning" default="true"/>
 	</category>
 </settings>

@@ -1,14 +1,18 @@
 <parserConfig>
     <GameGrammar type="xml" root="game">
         <rom_filename>rom/@name</rom_filename>
-        <rom_supporting_file>not_used</rom_supporting_file>
+        <rom_supporting_file>rom/@romof</rom_supporting_file>
         <rom_size>rom/@size</rom_size>
         <rom_name>description</rom_name>
         <rom_plot>plot</rom_plot>
-        <rom_year>releasedate</rom_year>
-        <rom_author>studio</rom_author>
-        <rom_category>genre</rom_category>
-        <rom_players>nplayers</rom_players>
+        <rom_date>releasedate</rom_date>
+        <rom_year>year</rom_year>
+        <rom_studio>studio</rom_studio>
+        <rom_genre>genre</rom_genre>
+        <rom_nplayers>nplayers</rom_nplayers>
+        <rom_rating>rating</rom_rating>
+        <rom_esrb>ESRB</rom_esrb>
+        <rom_perspective>perspective</rom_perspective>
         <rom_emu_command>emu_command</rom_emu_command>
         <rom_snapshot1>snapshot1</rom_snapshot1>
         <rom_snapshot2>snapshot2</rom_snapshot2>
