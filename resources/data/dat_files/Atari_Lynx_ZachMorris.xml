@@ -113,8 +113,8 @@
 			<emu_parser>NoIntro_parser.xml</emu_parser>
 			<emu_description>Atari Lynx</emu_description>
 			<emu_category>Atari</emu_category>
-			<emu_version>08242015</emu_version>
-			<emu_date>08/24/2015</emu_date>
+			<emu_version>04172016</emu_version>
+			<emu_date>04/17/2016</emu_date>
 			<emu_author>Zach Morris</emu_author>
 			<emu_homepage>http://www.no-intro.org</emu_homepage>
 			<emu_baseurl>http://archive.org/download/No-Intro-Collection_2013-06-14/No-Intro-Collection_2013-06-14.zip/Atari%20-%20Lynx%2F</emu_baseurl>
@@ -122,9 +122,7 @@
 			<emu_ext_launch_cmd>none</emu_ext_launch_cmd>
 			<emu_downloadpath>default</emu_downloadpath>
 			<emu_postdlaction>lynx_header_fix</emu_postdlaction>
-			<emu_comment>No Intro Atari Lynx List by Zach Morris.
-
-The Atari Lynx is a 16-bit handheld game console that was released by Atari Corporation in October 1989. The Lynx holds the distinction of being the world's first handheld electronic game with a color LCD. The system is also notable for its forward-looking features, advanced graphics, and ambidextrous layout. As part of the fourth generation of gaming, the Lynx competed with Nintendo's Game Boy, the Sega Game Gear and NEC's TurboExpress.
+			<emu_comment>No Intro Atari Lynx List by Zach Morris.[CR]The Atari Lynx is a 16-bit handheld game console that was released by Atari Corporation in October 1989. The Lynx holds the distinction of being the world's first handheld electronic game with a color LCD. The system is also notable for its forward-looking features, advanced graphics, and ambidextrous layout. As part of the fourth generation of gaming, the Lynx competed with Nintendo's Game Boy, the Sega Game Gear and NEC's TurboExpress.
 
 Developer:  Epyx / Atari
 
@@ -145,7 +143,7 @@ Max Controllers:  1</emu_comment>
 		</header>
 			<game name="A.P.B. - All Points Bulletin (USA, Europe)">
 					<description>A.P.B. - All Points Bulletin (USA, Europe)</description>
-					<rom crc="F6FB48FB" name="A.P.B. - All Points Bulletin (USA, Europe).zip" size="262144"/>
+					<rom crc="F6FB48FB" name="A.P.B. - All Points Bulletin%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>In this real arcade game you and Officer Bob must search out and collar the perps who've engaged in such heinous criminal activities as littering, speeding, and assorted other forms of misconduct too despicable to mention! But while you're out there, patrolling the streets in Officer Bob's police car, don't forget to refuel! Stop in at your friendly neighborhood donut shop and gain extra time.
 There are innocent bystanders and vehicles in A.P.B. If you hit one you get demerits.</plot>
 					<releasedate>08/01/1991</releasedate>
@@ -162,7 +160,7 @@ There are innocent bystanders and vehicles in A.P.B. If you hit one you get deme
 			</game>
 			<game name="Alien vs Predator (USA) (Proto)">
 					<description>Alien vs Predator (USA) (Proto)</description>
-					<rom crc="540E9BB7" name="Alien vs Predator (USA) (Proto).zip" size="262144"/>
+					<rom crc="540E9BB7" name="Alien vs Predator%20%28USA%29%20%28Proto%29.zip" size="262144"/>
 							<boxart1>http://thegamesdb.net/banners/boxart/original/front/22400-1.jpg</boxart1>
 					<snapshot1>http://thegamesdb.net/banners/screenshots/22400-1.jpg</snapshot1>
 					<snapshot2>http://thegamesdb.net/banners/screenshots/22400-2.jpg</snapshot2>
@@ -175,7 +173,7 @@ There are innocent bystanders and vehicles in A.P.B. If you hit one you get deme
 			</game>
 			<game name="Awesome Golf (USA, Europe)">
 					<description>Awesome Golf (USA, Europe)</description>
-					<rom crc="0483CD2A" name="Awesome Golf (USA, Europe).zip" size="262144"/>
+					<rom crc="0483CD2A" name="Awesome Golf%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>You are on the 18th tee, one stroke behind the defending champion. Do you take your caddy's advice and play it safe, or do you risk the water? Awesome Golf provides great realism and a challenge for one to four players.</plot>
 					<genre>Sports</genre>
 					<releasedate>01/01/1991</releasedate>
@@ -192,7 +190,7 @@ There are innocent bystanders and vehicles in A.P.B. If you hit one you get deme
 			</game>
 			<game name="Baseball Heroes (USA, Europe)">
 					<description>Baseball Heroes (USA, Europe)</description>
-					<rom crc="3943C116" name="Baseball Heroes (USA, Europe).zip" size="262144"/>
+					<rom crc="3943C116" name="Baseball Heroes%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Hit, run, dive, jump, catch and throw. Pitch for the strikeout record and swing for the fences! Play baseball against the Lynx or take on a friend. Four different games with super graphics!</plot>
 					<genre>Sports</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -211,7 +209,7 @@ There are innocent bystanders and vehicles in A.P.B. If you hit one you get deme
 			</game>
 			<game name="Basketbrawl (USA, Europe)">
 					<description>Basketbrawl (USA, Europe)</description>
-					<rom crc="4161BB4A" name="Basketbrawl (USA, Europe).zip" size="131072"/>
+					<rom crc="4161BB4A" name="Basketbrawl%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>Vinnie and Slash are bleeding from knife wounds and the ref is out cold! No wonder the gang members nicknamed this game &quot;Basketbrawl.&quot; To them it's not a game--it's a street fight!</plot>
 					<genre>Sports</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -233,7 +231,7 @@ There are innocent bystanders and vehicles in A.P.B. If you hit one you get deme
 			</game>
 			<game name="Batman Returns (USA, Europe)">
 					<description>Batman Returns (USA, Europe)</description>
-					<rom crc="277F82C2" name="Batman Returns (USA, Europe).zip" size="262144"/>
+					<rom crc="277F82C2" name="Batman Returns%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Gotham City is in desperate trouble again. Catwoman and The Penguin have joined forces to terrorize the entire metropolis! Only you can help Batman foil their deadly scheme and save the city from their fiendish clutches.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -254,7 +252,7 @@ There are innocent bystanders and vehicles in A.P.B. If you hit one you get deme
 			</game>
 			<game name="Battle Wheels (USA, Europe)">
 					<description>Battle Wheels (USA, Europe)</description>
-					<rom crc="779FAECE" name="Battle Wheels (USA, Europe).zip" size="131072"/>
+					<rom crc="779FAECE" name="Battle Wheels%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>Battlewheels is an Action game, developed by Beyond Games and published by Atari, which was released in 1992.</plot>
 					<genre>Action, Racing / Driving</genre>
 					<releasedate>01/01/1993</releasedate>
@@ -276,7 +274,7 @@ There are innocent bystanders and vehicles in A.P.B. If you hit one you get deme
 			</game>
 			<game name="Battlezone 2000 (USA, Europe)">
 					<description>Battlezone 2000 (USA, Europe)</description>
-					<rom crc="30FEE726" name="Battlezone 2000 (USA, Europe).zip" size="262144"/>
+					<rom crc="30FEE726" name="Battlezone 2000%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>2005 A.D. A deadly virus has infected the Supertank's ultrasophisticated computer systems, turning these mighty weapons of destruction against their creators. Humankind is on the brink of extinction. Free the battle zones from this robotic plague!</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1995</releasedate>
@@ -296,7 +294,7 @@ There are innocent bystanders and vehicles in A.P.B. If you hit one you get deme
 			</game>
 			<game name="Bill &amp; Ted's Excellent Adventure (USA, Europe)">
 					<description>Bill &amp; Ted's Excellent Adventure (USA, Europe)</description>
-					<rom crc="143A313E" name="Bill &amp; Ted's Excellent Adventure (USA, Europe).zip" size="262144"/>
+					<rom crc="143A313E" name="Bill &amp; Ted's Excellent Adventure%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Bill and Ted are about to embark on their most excellent adventure through time and space. Those two beautiful babes from Medieval England, Joanna and Elizabeth, have been kidnapped by the most heinous Grim Reaper. Bill and Ted must use the circuits of time to find the princesses. Will they be most triumphant? Only you can help!</plot>
 					<genre>Adventure</genre>
 					<releasedate>01/01/1991</releasedate>
@@ -321,7 +319,7 @@ There are innocent bystanders and vehicles in A.P.B. If you hit one you get deme
 			</game>
 			<game name="Block Out (USA, Europe)">
 					<description>Block Out (USA, Europe)</description>
-					<rom crc="3CD75DF3" name="Block Out (USA, Europe).zip" size="131072"/>
+					<rom crc="3CD75DF3" name="Block Out%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>Block Out is a Tetris variant with an added twist: it's in 3D. The player can rotate the blocks in 3D in order to fit them into the pit they are being guided into. Advanced users can play this game with odd three-dimensional pieces, or change the size of the pit, for depth of between 6 and 18 piles, and width and length of between 3 and 7.</plot>
 					<genre>Strategy</genre>
 					<releasedate>01/01/1990</releasedate>
@@ -359,7 +357,7 @@ If you can somehow complete nine crucial missions which combine the explosive ac
 			</game>
 			<game name="Blue Lightning (USA, Europe)">
 					<description>Blue Lightning (USA, Europe)</description>
-					<rom crc="DAF587B1" name="Blue Lightning (USA, Europe).zip" size="131072"/>
+					<rom crc="DAF587B1" name="Blue Lightning%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>Flight Command chose you to fly the top secret Blue Lightning combat jet on its first flight. You finished last at flight school so they have nothing to lose.
 Trails of smoke warn of oncoming enemy missiles. A few quick barrel rolls and you avoid the missiles. Now here come the jets! With guns blazing you fly into the thick of the enemy formation.
 If you can somehow complete nine crucial missions which combine the explosive action of combat with the quiet stealth of night flight, you'll be a hero. If you fail, no one will even remember your name.</plot>
@@ -377,7 +375,7 @@ If you can somehow complete nine crucial missions which combine the explosive ac
 			</game>
 			<game name="Bubble Trouble (USA, Europe)">
 					<description>Bubble Trouble (USA, Europe)</description>
-					<rom crc="333DAECE" name="Bubble Trouble (USA, Europe).zip" size="262144"/>
+					<rom crc="333DAECE" name="Bubble Trouble%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>You are Travis, a scientist doing experiments with dense matter for the creation of artificial black holes for interstellar travel. While testing a piece of equipment, you are transported into a bubble world. Fortunately, a friendly denizen decides to help you. You must locate the correct type of radioactive particles to move from world to world and finally home, before the hostile denizens of these worlds burst your bubble.
 
 You move your bubble by pushing in the desired direction. Be advised that you do not stop easily and can bounce out of control if you are not careful. Pushing the A button fires a bubble shot that will ricochet around. You can use this action to bounce shots at enemies that are around a corner. Pressing B drops a bubble bomb straight down. Pressing Option 1 switches options on the screen, including the suicidal &quot;Burst!!!&quot;, that are then activated by pressing Option 2. The one you will use most is &quot;Use scanner&quot;. This will bring up the scanner that looks like a radar screen and will show you the approximate location of your needed particles. Once you locate and gather all the particles needed in the level, you move on to the next level. After you finish five levels, you win the game.</plot>
@@ -399,7 +397,7 @@ You move your bubble by pushing in the desired direction. Be advised that you do
 			</game>
 			<game name="California Games (USA, Europe)">
 					<description>California Games (USA, Europe)</description>
-					<rom crc="A08F0B59" name="California Games (USA, Europe).zip" size="131072"/>
+					<rom crc="A08F0B59" name="California Games%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>Hey Dude, get ready for the ultimate in rad video! Sega's California Games takes you to the sunny beaches and deserts of the California coast for some gnarly sports competition. Kick it down on a skateboard. Ride the waves to surfing heaven. Cruise the concrete on skates or the rough track on a BMX. Test your toes with a footbag or your long concentration with a flying disk. In a word: awesome. But there's more. You can play with up to 8 of your friends. Practice events. Compete in one, some or all to become the total California Champion! And you can play for some of the hottest teams around around representing the heaviest names on the circuit. So what are you waiting for? Grab your board and get ready to achieve a new state of Atari cool.</plot>
 					<genre>Sports</genre>
 					<releasedate>01/01/1989</releasedate>
@@ -418,7 +416,7 @@ You move your bubble by pushing in the desired direction. Be advised that you do
 			</game>
 			<game name="Centipede (USA) (Proto)">
 					<description>Centipede (USA) (Proto)</description>
-					<rom crc="97501709" name="Centipede (USA) (Proto).zip" size="131072"/>
+					<rom crc="97501709" name="Centipede%20%28USA%29%20%28Proto%29.zip" size="131072"/>
 							<plot>Hundreds and thousands of them. Creepy ones. Crawly ones. Buzzing ones. Swarming ones. And they're all trying to get you. Before you get them.</plot>
 					<genre>Sports</genre>
 					<releasedate>01/01/1989</releasedate>
@@ -439,7 +437,7 @@ You move your bubble by pushing in the desired direction. Be advised that you do
 			</game>
 			<game name="Checkered Flag (USA, Europe)">
 					<description>Checkered Flag (USA, Europe)</description>
-					<rom crc="19C5A7A5" name="Checkered Flag (USA, Europe).zip" size="262144"/>
+					<rom crc="19C5A7A5" name="Checkered Flag%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Checkered Flag is a Driving game, developed and published by Atari, which was released in 1991.</plot>
 					<genre>Racing / Driving</genre>
 					<releasedate>01/01/1991</releasedate>
@@ -457,7 +455,7 @@ You move your bubble by pushing in the desired direction. Be advised that you do
 			</game>
 			<game name="Chip's Challenge (USA, Europe)">
 					<description>Chip's Challenge (USA, Europe)</description>
-					<rom crc="6A5F53ED" name="Chip's Challenge (USA, Europe).zip" size="131072"/>
+					<rom crc="6A5F53ED" name="Chip's Challenge%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>Before Chip can join the Bit Busters computer club and hang out with the girl of his dreams, Melinda the Mental Marvel, he must solve all 144 challenging puzzles.
 Your bird's-eye view can help Chip rush through the puzzles and mazes before he's deleted by monsters, traps, and the passage of time. Show Chip how to use blocks of soil to overcome water traps and cherry bombs, find keys, and pick up the computer chips which Chip needs to solve some puzzles.
 Can you help Chip win the cold heart of his one true love and become an official Bit Buster? If you can't, no one can!</plot>
@@ -475,7 +473,7 @@ Can you help Chip win the cold heart of his one true love and become an official
 			</game>
 			<game name="Crystal Mines II (USA, Europe)">
 					<description>Crystal Mines II (USA, Europe)</description>
-					<rom crc="AEC474C8" name="Crystal Mines II (USA, Europe).zip" size="131072"/>
+					<rom crc="AEC474C8" name="Crystal Mines II%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>Great treasure still lies deep in the abandoned Crystal Mines. But over the years, underground demons have made them deadly. Guide your robot through the mines, destroying demons and gathering great wealth. Or fail, and become history.</plot>
 					<genre>Action, Strategy</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -489,7 +487,7 @@ Can you help Chip win the cold heart of his one true love and become an official
 			</game>
 			<game name="Daemonsgate (USA) (Proto)">
 					<description>Daemonsgate (USA) (Proto)</description>
-					<rom crc="99729395" name="Daemonsgate (USA) (Proto).zip" size="262144"/>
+					<rom crc="99729395" name="Daemonsgate%20%28USA%29%20%28Proto%29.zip" size="262144"/>
 							<plot>Daemonsgate is a Role-Playing game, published by Electronic Innovative Design, which was cancelled before it was released.</plot>
 					<genre>Action, Strategy</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -505,7 +503,7 @@ Can you help Chip win the cold heart of his one true love and become an official
 			</game>
 			<game name="Desert Strike - Return to the Gulf (USA, Europe)">
 					<description>Desert Strike - Return to the Gulf (USA, Europe)</description>
-					<rom crc="B9AC1FE5" name="Desert Strike - Return to the Gulf (USA, Europe).zip" size="262144"/>
+					<rom crc="B9AC1FE5" name="Desert Strike - Return to the Gulf%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>You must annihilate a ruthless tyrant's military arsenal. Tear into his air force and smoke his private yacht as you battle over land, air and sea in over 20 fiery missions using all the force you can to establish superiority. The President has chosen you to fly a series of dangerous preemptive campaigns in the desert to vanguish this tyrant.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1993</releasedate>
@@ -525,7 +523,7 @@ Can you help Chip win the cold heart of his one true love and become an official
 			</game>
 			<game name="Dinolympics (USA, Europe)">
 					<description>Dinolympics (USA, Europe)</description>
-					<rom crc="50386CFA" name="Dinolympics (USA, Europe).zip" size="262144"/>
+					<rom crc="50386CFA" name="Dinolympics%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Come back to the dawn of history in this combination of puzzling problems, awesome adventures, and mind-bending mazes. The survival of your race is at stake!</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1993</releasedate>
@@ -545,7 +543,7 @@ Can you help Chip win the cold heart of his one true love and become an official
 			</game>
 			<game name="Dirty Larry - Renegade Cop (USA, Europe)">
 					<description>Dirty Larry - Renegade Cop (USA, Europe)</description>
-					<rom crc="D565FBB7" name="Dirty Larry - Renegade Cop (USA, Europe).zip" size="262144"/>
+					<rom crc="D565FBB7" name="Dirty Larry - Renegade Cop%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>He's the baddest of the good guys. He's Dirty Larry - Renegade Cop. Mr. Big's Gang is determined to end his career for good--if his own Captain doesn't do it first! So take to the streets in a hurry. It's time for a little house cleaning!</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -561,7 +559,7 @@ Can you help Chip win the cold heart of his one true love and become an official
 			</game>
 			<game name="Double Dragon (USA, Europe)">
 					<description>Double Dragon (USA, Europe)</description>
-					<rom crc="FBFC0F05" name="Double Dragon (USA, Europe).zip" size="262144"/>
+					<rom crc="FBFC0F05" name="Double Dragon%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Twin brothers use expert knowledge of martial arts, various weapons and street smarts to rescue their friend Marian from the Black Warriors, the savage street gang of the mysterious Shadow Boss! Non stop action in one of the world's classic games now in your hands.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1993</releasedate>
@@ -581,7 +579,7 @@ Can you help Chip win the cold heart of his one true love and become an official
 			</game>
 			<game name="Dracula the Undead (USA, Europe)">
 					<description>Dracula the Undead (USA, Europe)</description>
-					<rom crc="33BB74C7" name="Dracula the Undead (USA, Europe).zip" size="262144"/>
+					<rom crc="33BB74C7" name="Dracula the Undead%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>You must escape Dracula's sinister castle, find the dark one and drive a stake through his heart. To escape, you must explore the castle and learn its secrets. If you fail, you will join Dracula's brides for dinner, and guess who's the main course!</plot>
 					<genre>Adventure</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -595,7 +593,7 @@ Can you help Chip win the cold heart of his one true love and become an official
 			</game>
 			<game name="Electrocop (USA, Europe)">
 					<description>Electrocop (USA, Europe)</description>
-					<rom crc="BD97116B" name="Electrocop (USA, Europe).zip" size="131072"/>
+					<rom crc="BD97116B" name="Electrocop%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>The Criminal Brain has kidnapped the President's daughter and threatens to kill her if he does not get control of the world. Only you, Electrocop, can invade the Steel Complex where evil robots and dangerous traps protect the Criminal Brain.
 The odds are against you. Your only hope is to find the weapons and computer terminals hidden in the mazes of the Criminal Brain's fortress.
 Can you save the President's daughter and serve justice to the world's most wicked criminal? It's your sworn duty as an officer of the law.</plot>
@@ -616,7 +614,7 @@ Can you save the President's daughter and serve justice to the world's most wick
 			</game>
 			<game name="European Soccer Challenge (USA, Europe)">
 					<description>European Soccer Challenge (USA, Europe)</description>
-					<rom crc="F83397F9" name="European Soccer Challenge (USA, Europe).zip" size="131072"/>
+					<rom crc="F83397F9" name="European Soccer Challenge%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>European Soccer Challenge gives you all the excitement and tension of the European Challenge Cup in this action packed version of the world's most popular game featuring over 170 teams from 32 countries. Has your team got what it takes?</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1989</releasedate>
@@ -639,7 +637,7 @@ Can you save the President's daughter and serve justice to the world's most wick
 			</game>
 			<game name="Eye of the Beholder (USA) (Proto)">
 					<description>Eye of the Beholder (USA) (Proto)</description>
-					<rom crc="6BCEAA9C" name="Eye of the Beholder (USA) (Proto).zip" size="131072"/>
+					<rom crc="6BCEAA9C" name="Eye of the Beholder%20%28USA%29%20%28Proto%29.zip" size="131072"/>
 							<plot>Put your best fighters up front. Battle Axe wielding Skeletons are among the first horrors you'll encounter in 13 levels of mayhem. Will they be the last? These flinds aren't your friends. And they like to hunt in packs! Ever met a Kuo-Toa? It's an electrifying experience. Even more shocking is The Beholder himself, if you survive long enough to meet him. Don't forget to look behind you! Giant spiders like to watch you pass, then strike.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1989</releasedate>
@@ -661,7 +659,7 @@ Can you save the President's daughter and serve justice to the world's most wick
 			</game>
 			<game name="Fat Bobby (USA, Europe)">
 					<description>Fat Bobby (USA, Europe)</description>
-					<rom crc="9034EE27" name="Fat Bobby (USA, Europe).zip" size="262144"/>
+					<rom crc="9034EE27" name="Fat Bobby%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Fat Bobby is an Action game, developed and published by Telegames, Inc., which was released in 1997.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1989</releasedate>
@@ -684,7 +682,7 @@ Can you save the President's daughter and serve justice to the world's most wick
 			</game>
 			<game name="Fidelity Ultimate Chess Challenge, The (USA, Europe)">
 					<description>Fidelity Ultimate Chess Challenge, The (USA, Europe)</description>
-					<rom crc="7E4B5945" name="Fidelity Ultimate Chess Challenge, The (USA, Europe).zip" size="131072"/>
+					<rom crc="7E4B5945" name="Fidelity Ultimate Chess Challenge, The%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>On your own against the Fidelity Ultimate Chess Challenge - the world's most powerful hand-held chess game - or against a friend, the stunning 3D graphics and advanced technology of this latest game from Telegames has to be played to be believed.
 The Fidelity Ultimate Chess Challenge uses the most powerful chess playing technology from the laboratories of Fidelity - the premier manufacturers of dedicated chess computers are developers of the world's only USCF certified Master rated (2325) chess program.
 Switch from 3D to overhead view for the final attack - or use one of the many options available to review the game to date.
@@ -710,7 +708,7 @@ Full on-screen statistics giving score, times, moves etc. and many other feature
 			</game>
 			<game name="Gates of Zendocon, The (USA, Europe)">
 					<description>Gates of Zendocon, The (USA, Europe)</description>
-					<rom crc="494CC568" name="Gates of Zendocon, The (USA, Europe).zip" size="131072"/>
+					<rom crc="494CC568" name="Gates of Zendocon, The%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>The hideous spider Zendocon captured you and sent you deep into its web of 51 deadly universes. You must survive each universe and its hostile alien inhabitants if you hope to return home.
 You will find allies along the way. If you can free Zendocon's alien slaves, they will help you search for the Gates that will transport you from one universe to the next.
 Can you survive Zendocon's challenge? You must survive! Your rewards for success is the chance for sweet revenge--a duel to the death with the evil spider itself!</plot>
@@ -731,7 +729,7 @@ Can you survive Zendocon's challenge? You must survive! Your rewards for success
 			</game>
 			<game name="Gauntlet - The Third Encounter (USA, Europe)">
 					<description>Gauntlet - The Third Encounter (USA, Europe)</description>
-					<rom crc="7F0EC7AD" name="Gauntlet - The Third Encounter (USA, Europe).zip" size="131072"/>
+					<rom crc="7F0EC7AD" name="Gauntlet - The Third Encounter%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>Generations ago an enchanted Star Gem crashed to Earth at the base of an ancient castle. Loathsome creatures crept from the castle and carried the Gem into the depths of the fortress.
 All attempts to retrieve the Star Gem failed. The adventurers were destroyed.
 The creatures in the castle gain magical strength from the Star Gem. Unless the Gem is taken from them, the evil ones will soon have the strength to venture forth and destroy mankind! You and your friends must take up the quest to rescure the Star Gem...and your world!</plot>
@@ -756,7 +754,7 @@ The creatures in the castle gain magical strength from the Star Gem. Unless the 
 			</game>
 			<game name="Gordo 106 - The Mutated Lab Monkey (USA, Europe)">
 					<description>Gordo 106 - The Mutated Lab Monkey (USA, Europe)</description>
-					<rom crc="D20A85FC" name="Gordo 106 - The Mutated Lab Monkey (USA, Europe).zip" size="262144"/>
+					<rom crc="D20A85FC" name="Gordo 106 - The Mutated Lab Monkey%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Gordo, the laboratory monkey, is free of cage 106, but his adventure of escape and revenge is just beginning. Even with super-monkey intelligence, he needs your help to explore the lab's six levels, freeing his captive friends and destroying evil scientists in his fight for freedom.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1990</releasedate>
@@ -779,7 +777,7 @@ The creatures in the castle gain magical strength from the Star Gem. Unless the 
 			</game>
 			<game name="Hard Drivin' (USA, Europe)">
 					<description>Hard Drivin' (USA, Europe)</description>
-					<rom crc="6DF63834" name="Hard Drivin' (USA, Europe).zip" size="131072"/>
+					<rom crc="6DF63834" name="Hard Drivin'%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>Make sure you're strapped in tight--because Hard Drivin' means just that! Can you beat the clock on the hottest track going? Can you handle jumps, loops, and other stunts and still survive? Can you keep your speed at max without crashing? Yeah? Ok--but--can you take the title away from the Phantom Photon, the Hard Drivin' world's champion?</plot>
 					<genre>Racing / Driving, Simulation</genre>
 					<releasedate>01/01/1991</releasedate>
@@ -800,7 +798,7 @@ The creatures in the castle gain magical strength from the Star Gem. Unless the 
 			</game>
 			<game name="Hockey (USA, Europe)">
 					<description>Hockey (USA, Europe)</description>
-					<rom crc="E8B45707" name="Hockey (USA, Europe).zip" size="262144"/>
+					<rom crc="E8B45707" name="Hockey%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Hockey is a Sports game, published by Atari, which was released in 1992.</plot>
 					<genre>Sports</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -821,7 +819,7 @@ The creatures in the castle gain magical strength from the Star Gem. Unless the 
 			</game>
 			<game name="Hydra (USA, Europe)">
 					<description>Hydra (USA, Europe)</description>
-					<rom crc="E3041C6C" name="Hydra (USA, Europe).zip" size="262144"/>
+					<rom crc="E3041C6C" name="Hydra%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Someone has to be a hero, and it might as well be you. In your super-advanced speedboat, you must deliver top-secret military equipment to various parts of the world. Fame and riches await you -- but so do pitfalls and danger!</plot>
 					<genre>Action, Racing / Driving</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -845,7 +843,7 @@ The creatures in the castle gain magical strength from the Star Gem. Unless the 
 			</game>
 			<game name="Ishido - The Way of Stones (USA, Europe)">
 					<description>Ishido - The Way of Stones (USA, Europe)</description>
-					<rom crc="5CF8BBF0" name="Ishido - The Way of Stones (USA, Europe).zip" size="131072"/>
+					<rom crc="5CF8BBF0" name="Ishido - The Way of Stones%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>Introducing Ishido, the ancient and intricate Game of the Stones. You must place stones on the game board, matching colors and patterns according to centuries-old rules. It requires great skill and concentration--but if you can unlock the secret of the Oracle, its wisdom will help you!</plot>
 					<genre>Strategy</genre>
 					<releasedate>01/01/1991</releasedate>
@@ -865,7 +863,7 @@ The creatures in the castle gain magical strength from the Star Gem. Unless the 
 			</game>
 			<game name="Jimmy Connors' Tennis (USA, Europe)">
 					<description>Jimmy Connors' Tennis (USA, Europe)</description>
-					<rom crc="2455B6CF" name="Jimmy Connors' Tennis (USA, Europe).zip" size="524288"/>
+					<rom crc="2455B6CF" name="Jimmy Connors' Tennis%20%28USA%2C%20Europe%29.zip" size="524288"/>
 							<plot>Jimmy Connors' Tennis is a Sports game, published by Atari, which was released in 1993.</plot>
 					<genre>Action, Simulation, Sports</genre>
 					<releasedate>01/01/1993</releasedate>
@@ -885,7 +883,7 @@ The creatures in the castle gain magical strength from the Star Gem. Unless the 
 			</game>
 			<game name="Joust (USA, Europe)">
 					<description>Joust (USA, Europe)</description>
-					<rom crc="5DBA792A" name="Joust (USA, Europe).zip" size="131072"/>
+					<rom crc="5DBA792A" name="Joust%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>You don a suit of armor, choose your weapon-a worn but sturdy lance. You climb onto a cyborg ostrich, grab the reins of your faithful mount and fly off to wage battle against the enemy.
 
 In the distance you see an enemy vulture appear on a creator pad. You ready your lance and prepare to do battle. As you draw close to the enemy Bounder, you rise above him and prepare to defeat him with a quick swooping attack. You sweep down from the sky and dismount the enemy rider with a powerful blow. You have defeated the enemy...this time.</plot>
@@ -909,7 +907,7 @@ In the distance you see an enemy vulture appear on a creator pad. You ready your
 			</game>
 			<game name="Klax (USA, Europe)">
 					<description>Klax (USA, Europe)</description>
-					<rom crc="A53649F1" name="Klax (USA, Europe).zip" size="262144"/>
+					<rom crc="A53649F1" name="Klax%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Get set for Arcade Action in living color. In Klax, capture the colored tiles and flip them into stack. Create a Klax by matching 3 or more colored tiles. The pace quickens ... you've got to move fast but beware, once you start, you'll never want to stop.</plot>
 					<genre>Action, Strategy</genre>
 					<releasedate>01/01/1990</releasedate>
@@ -934,7 +932,7 @@ In the distance you see an enemy vulture appear on a creator pad. You ready your
 			</game>
 			<game name="Krazy Ace - Miniature Golf (USA, Europe)">
 					<description>Krazy Ace - Miniature Golf (USA, Europe)</description>
-					<rom crc="BED5BA2B" name="Krazy Ace - Miniature Golf (USA, Europe).zip" size="262144"/>
+					<rom crc="BED5BA2B" name="Krazy Ace - Miniature Golf%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Krazy Ace Miniature Golf is a Sports game, developed and published by Telegames, Inc., which was released in 1993.</plot>
 					<genre>Simulation, Sports</genre>
 					<releasedate>01/01/1993</releasedate>
@@ -953,7 +951,7 @@ In the distance you see an enemy vulture appear on a creator pad. You ready your
 			</game>
 			<game name="Kung Food (USA, Europe)">
 					<description>Kung Food (USA, Europe)</description>
-					<rom crc="CD1BD405" name="Kung Food (USA, Europe).zip" size="262144"/>
+					<rom crc="CD1BD405" name="Kung Food%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>The ultimate food fight! Mutant munchies from your freezer invade your kitchen, your life, and your world. Speed and your martial arts skills are required to overcome the vicious veggies!</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -976,7 +974,7 @@ In the distance you see an enemy vulture appear on a creator pad. You ready your
 			</game>
 			<game name="Lemmings (USA, Europe)">
 					<description>Lemmings (USA, Europe)</description>
-					<rom crc="39B9B8CC" name="Lemmings (USA, Europe).zip" size="262144"/>
+					<rom crc="39B9B8CC" name="Lemmings%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>They climb, they dig, they explore...but they can't fly! As the only member of the Save The Lemmings Foundation, it's your job to guide these munchkins to safety before they realize they have no landing gear.</plot>
 					<genre>Strategy</genre>
 					<releasedate>01/01/1993</releasedate>
@@ -998,7 +996,7 @@ In the distance you see an enemy vulture appear on a creator pad. You ready your
 			</game>
 			<game name="Lexis (USA, Europe)">
 					<description>Lexis (USA, Europe)</description>
-					<rom crc="0271B6E9" name="Lexis (USA, Europe).zip" size="262144"/>
+					<rom crc="0271B6E9" name="Lexis%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Lexis is a Miscellaneous game, published by Songbird Productions, which was released in 1999.</plot>
 					<genre>Strategy</genre>
 					<releasedate>01/01/1999</releasedate>
@@ -1017,7 +1015,7 @@ In the distance you see an enemy vulture appear on a creator pad. You ready your
 			</game>
 			<game name="Loopz (USA) (Proto)">
 					<description>Loopz (USA) (Proto)</description>
-					<rom crc="B1C25EF1" name="Loopz (USA) (Proto).zip" size="262144"/>
+					<rom crc="B1C25EF1" name="Loopz%20%28USA%29%20%28Proto%29.zip" size="262144"/>
 							<plot>Loopz is a puzzel game developed by Rob Nicholson and Published by Songbird Productions.  It was released in 2004.</plot>
 					<genre>Strategy</genre>
 					<releasedate>01/01/2004</releasedate>
@@ -1033,7 +1031,7 @@ In the distance you see an enemy vulture appear on a creator pad. You ready your
 			</game>
 			<game name="Lynx Casino (USA, Europe)">
 					<description>Lynx Casino (USA, Europe)</description>
-					<rom crc="1091A268" name="Lynx Casino (USA, Europe).zip" size="262144"/>
+					<rom crc="1091A268" name="Lynx Casino%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Ever wish you could take a thousand dollars and head for Vegas, Monaco, or a Caribbean cruise? Here's the next best thing! Five exciting games in one give you the real feel of a high-roller's favorite casino!</plot>
 					<genre>Simulation</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -1056,7 +1054,7 @@ In the distance you see an enemy vulture appear on a creator pad. You ready your
 			</game>
 			<game name="Lynx II Production Test Program V0.02 (USA) (Proto)">
 					<description>Lynx II Production Test Program V0.02 (USA) (Proto)</description>
-					<rom crc="28ADA019" name="Lynx II Production Test Program V0.02 (USA) (Proto).zip" size="262144"/>
+					<rom crc="28ADA019" name="Lynx II Production Test Program V0.02%20%28USA%29%20%28Proto%29.zip" size="262144"/>
 							<plot>This game is a collection of casino games which are accessed by moving the player around the casino and selecting the preferred game table or machine to play that game. You start off with $1,000 to gamble with though you can get two loans of $500 if needed from the dealers. Once all your money has been gambled away it is game over.The 5 games available are:BlackjackCrapsRouletteSlot Machines (Fruit Machines)Video Poker</plot>
 					<genre>Simulation</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -1073,7 +1071,7 @@ In the distance you see an enemy vulture appear on a creator pad. You ready your
 			</game>
 			<game name="Malibu Bikini Volleyball (USA, Europe)">
 					<description>Malibu Bikini Volleyball (USA, Europe)</description>
-					<rom crc="ABA6DA3D" name="Malibu Bikini Volleyball (USA, Europe).zip" size="262144"/>
+					<rom crc="ABA6DA3D" name="Malibu Bikini Volleyball%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Welcome to Malibu: Volleyball capital of the world. This is where the best come to play--and show off their tans. If you want in, sign up. But keep your eyes on the ball...there'll be plenty of time for bikini-watching after the match!</plot>
 					<genre>Simulation</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -1096,7 +1094,7 @@ In the distance you see an enemy vulture appear on a creator pad. You ready your
 			</game>
 			<game name="Marlboro Go! (Europe) (Proto)">
 					<description>Marlboro Go! (Europe) (Proto)</description>
-					<rom crc="C3FA0D4D" name="Marlboro Go! (Europe) (Proto).zip" size="262144"/>
+					<rom crc="C3FA0D4D" name="Marlboro Go!%20%28Europe%29%20%28Proto%29.zip" size="262144"/>
 							<plot>Prototype.  Never released.</plot>
 					<genre>Simulation</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -1118,7 +1116,7 @@ In the distance you see an enemy vulture appear on a creator pad. You ready your
 			</game>
 			<game name="Ms. Pac-Man (USA, Europe)">
 					<description>Ms. Pac-Man (USA, Europe)</description>
-					<rom crc="7DE3783A" name="Ms. Pac-Man (USA, Europe).zip" size="131072"/>
+					<rom crc="7DE3783A" name="Ms. Pac-Man%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>In 1981, a sequel to Pac-Man was introduced in the form of his girlfriend, Ms. Pac-Man.  This sequel continued on the &amp;quot;eat the dots/avoid the ghosts&amp;quot; gameplay of the original game, but added new features to keep the title fresh.Like her boyfriend, Ms. Pac-Man attempts to clear four various and challenging mazes filled with dots and ever-moving bouncing fruit  while avoiding Inky, Blinky, Pinky and Sue, each with their own personalities and tactics.  One touch from any of these ghosts means a loss of life for Ms. Pac-Man.Ms. Pac-Man can turn the tables on her pursuers by eating one of the four Energizers located within the maze. During this time, the ghosts turn blue, and Ms. Pac-Man can eat them for bonus points (ranging from 200, 400, 800 and 1600, progressively). The Energizer power only lasts for a limited amount of time, as the ghost's eyes float back to their center box, and regenerate to chase after Ms. Pac-Man again.Survive a few rounds of gameplay, and the player will be treated to humorous intermissions showing the growing romantic relationship between Pac-Man and Ms. Pac-Man, leading all the way up to the arrival of &amp;quot;Junior&amp;quot;.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1990</releasedate>
@@ -1132,7 +1130,7 @@ In the distance you see an enemy vulture appear on a creator pad. You ready your
 			</game>
 			<game name="NFL Football (USA, Europe)">
 					<description>NFL Football (USA, Europe)</description>
-					<rom crc="006FD398" name="NFL Football (USA, Europe).zip" size="262144"/>
+					<rom crc="006FD398" name="NFL Football%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>NFL Football is a Sports game, developed by Blue Sky Software and published by Atari, which was released in 1992.</plot>
 					<genre>Sports</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -1152,7 +1150,7 @@ In the distance you see an enemy vulture appear on a creator pad. You ready your
 			</game>
 			<game name="Ninja Gaiden (USA, Europe)">
 					<description>Ninja Gaiden (USA, Europe)</description>
-					<rom crc="22D47D51" name="Ninja Gaiden (USA, Europe).zip" size="262144"/>
+					<rom crc="22D47D51" name="Ninja Gaiden%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Now the adventure and thrill of this fast-paced, action-packed coin-op hit is placed in your hands! Kick, punch, and master the special Ninjutsu techniques as you battle your way through four of the nastiest neighborhoods known to man.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1991</releasedate>
@@ -1172,7 +1170,7 @@ In the distance you see an enemy vulture appear on a creator pad. You ready your
 			</game>
 			<game name="Ninja Gaiden III - The Ancient Ship of Doom (USA, Europe)">
 					<description>Ninja Gaiden III - The Ancient Ship of Doom (USA, Europe)</description>
-					<rom crc="F3E3F811" name="Ninja Gaiden III - The Ancient Ship of Doom (USA, Europe).zip" size="524288"/>
+					<rom crc="F3E3F811" name="Ninja Gaiden III - The Ancient Ship of Doom%20%28USA%2C%20Europe%29.zip" size="524288"/>
 							<plot>Immerse yourself in action-acked Ninja adventure as you help Ryu through his greatest challenge. Battle the hideous ancient forces of darkness to save mankind, with the epic adventure unfolding as you complete each level.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1991</releasedate>
@@ -1194,7 +1192,7 @@ In the distance you see an enemy vulture appear on a creator pad. You ready your
 			</game>
 			<game name="Pac-Land (USA, Europe)">
 					<description>Pac-Land (USA, Europe)</description>
-					<rom crc="AA50DD22" name="Pac-Land (USA, Europe).zip" size="131072"/>
+					<rom crc="AA50DD22" name="Pac-Land%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>Pac-Man, the world's most famous game character is back! Help Pac-Man guide the Fairy back to her home in Fairy Land, but watch out - those mischievous ghosts are out to stop you once again! Use the Magic Shoes to help get Pac-Man back to his own home in 16 different rounds with multiple trips in each round, eating Power Pellets and bonus Fruit along the way. Fast, frantic, addictive Pac-Man action from beginning to end!</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1991</releasedate>
@@ -1216,7 +1214,7 @@ In the distance you see an enemy vulture appear on a creator pad. You ready your
 			</game>
 			<game name="Paperboy (USA, Europe)">
 					<description>Paperboy (USA, Europe)</description>
-					<rom crc="4CDFBD57" name="Paperboy (USA, Europe).zip" size="131072"/>
+					<rom crc="4CDFBD57" name="Paperboy%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>The object of Paperboy is to deliver papers to your customers while inflicting as much damage as possible to the houses of your non-customers. To make things more difficult, numerous obstacles get in your way including construction workers, rogue tires, skateboarders, dogs and cats, cars, and even the occasional tornado.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1990</releasedate>
@@ -1237,7 +1235,7 @@ In the distance you see an enemy vulture appear on a creator pad. You ready your
 			</game>
 			<game name="Pinball Jam (USA, Europe)">
 					<description>Pinball Jam (USA, Europe)</description>
-					<rom crc="14D38CA7" name="Pinball Jam (USA, Europe).zip" size="262144"/>
+					<rom crc="14D38CA7" name="Pinball Jam%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Pinball Jam is a Lynx conversion of two pinball tables: &quot;Elvira and the Party Monsters&quot; (Midway, 1989), and &quot;Police Force&quot; (Williams, 1989). Both feature authentic table layouts, targets, and bonuses; the conversion of Elvira and the Party Monsters also features digitized sound effects, including the voice of Cassandra Peterson (Elvira).
 
 Each table scrolls up and down during gameplay (as opposed to just &quot;snapping&quot; to a new area as the ball reaches it).</plot>
@@ -1259,7 +1257,7 @@ Each table scrolls up and down during gameplay (as opposed to just &quot;snappin
 			</game>
 			<game name="Pit Fighter - The Ultimate Competition (USA, Europe)">
 					<description>Pit Fighter - The Ultimate Competition (USA, Europe)</description>
-					<rom crc="2393135F" name="Pit Fighter - The Ultimate Competition (USA, Europe).zip" size="524288"/>
+					<rom crc="2393135F" name="Pit Fighter - The Ultimate Competition%20%28USA%2C%20Europe%29.zip" size="524288"/>
 							<plot>Pit-Fighter is a 3rd-person fight game that features digitized graphics of real fighters and zooming effects. Players select one of three fighters (Buzz, Ty or Kato) to take on anyone who dares. At the conclusion of a match, players are individually awarded a Knockout Bonus, Brutality Bonus, and a Fight Purse. Every third match is a Grudge Match where players test the skills of each other. The last man standing is the winner of this three-knockdown match. Players fight their way to the Elimination Match to decide who wins the opportunity to dethrone the champion, the Masked Warrior.</plot>
 					<genre>Fighting</genre>
 					<releasedate>01/01/1991</releasedate>
@@ -1280,7 +1278,7 @@ Each table scrolls up and down during gameplay (as opposed to just &quot;snappin
 			</game>
 			<game name="Power Factor (USA, Europe)">
 					<description>Power Factor (USA, Europe)</description>
-					<rom crc="99C42034" name="Power Factor (USA, Europe).zip" size="262144"/>
+					<rom crc="99C42034" name="Power Factor%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Power Factor is an action-platformer starring the single campily-named hero, Redd Ace, fighting alien creatures known as the Ceegarians from the Ceeg dimension.  Of course, aliens being played out, the Ceegarians are actually referred to as &amp;quot;transdimensional intruders,&amp;quot; and the Ceegarian creatures the player faces off against are referred to as evil invading &amp;quot;Sinlendo Techmods.&amp;quot;  The primary goal of the game is to work through stages and bosses essentially to build a bomb to destroy the Ceegarians. Pertaining to the bomb, there are six components.  The entire game takes place within, as the box refers to it, &amp;quot;our dimension's reactor.&amp;quot;  As such, the environments of the game are aimed to look like the inside of a machine.  To further convolute the storyline, the instruction manual actually refers to the game itself as a Virtual Reality simulation the player is experiencing in the future, based on the exploits of Redd Ace, and youre meandering through this simulator on the famous Atarian Leisure Moon.  Stages are fairly small, but designed like a maze  la Metroid.  However, unlike Metroid, completed areas cannot be revisited.  Each stage ends with a boss battle showcasing enemy characters that are often two screens high.Redd Ace is armed with a multi-use weapon known as the &amp;quot;Tmat MOW.&amp;quot;  Tmat MOW is intended to be short for TRANSMAT Multi-Ordinance Weapon.  Four different weapons may be acquired and used for both the A and B buttons, with eight total weapons in the game, and one gun as a standard.  Other weapons include lasers, a flame thrower, missiles, bombs, and the like.  Weapons must be picked up through playing the stages and collecting various weapon icons.  Once the ammunition is used, the weapon is gone and must be recollected.  As such, weapon pick-ups must be used sparingly, especially since most contain very small numbers of ammunition, often as low as two shots.  Choosing weapons is awkwardly assigned to the Directional-pad, which is also where character movement is assigned.  Tapping the D-pad allows the player to select different weapons, while holding it down moves Redd.Controlling Redd Ace is somewhat different from a typical platformer of the era. There is no jump button, as both the A and B buttons have weapons assigned to them.  Instead, our hero is also armed with a levitation pack on his back, which allows flight.  Tapping &amp;quot;up&amp;quot; on the D-Pad allows Redd to jump, while holding &amp;quot;up&amp;quot; activates the levitator and allows Redd to fly.  Aside from a health bar, there is also a fuel bar showing that flight isn't a luxury to be wasted.  When crouching, Redd automatically aims upwards at a 45-degree angle, rather than straight ahead.Pressing the &amp;quot;Option 2&amp;quot; button allows the player to see a menu with information about the bomb pieces the player is collecting, as well as details on the various weapons.  If the player is standing in front of a computer monitor when Option 2 is pressed, the menu shows a map of the current area, and information on enemy characters.The player starts with three lives, and there are no continues.  There are, however, three difficulty modes--Easy, Normal, and Hardwhich may be selected prior to gameplay.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -1302,7 +1300,7 @@ Each table scrolls up and down during gameplay (as opposed to just &quot;snappin
 			</game>
 			<game name="QIX (USA, Europe)">
 					<description>QIX (USA, Europe)</description>
-					<rom crc="B9881423" name="QIX (USA, Europe).zip" size="131072"/>
+					<rom crc="B9881423" name="QIX%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>In this game, you guide a marker which must draw rectangles and other weird objects in order to claim your territory, and you can either draw these rectangles fast or slow. Drawing the rectangles using the &amp;quot;slow&amp;quot; method awards you the most points. Once a rectangle has been made, it will be colored in to show that you have claimed your territory. While drawing the rectangles, you need to watch out for Qix (pronounced &amp;quot;kicks&amp;quot;), a series of colored lines that crawl the screen. In addition to Qix, you also need to avoid the Sparks who travel around the border, as well as any lines that you have made, as well as The Fuse, who travels along the line that you are drawing. Once you have claimed enough territory, you proceed to the next level.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1991</releasedate>
@@ -1313,7 +1311,7 @@ Each table scrolls up and down during gameplay (as opposed to just &quot;snappin
 			</game>
 			<game name="Raiden (USA) (v3.0)">
 					<description>Raiden (USA) (v3.0)</description>
-					<rom crc="BCD10C3A" name="Raiden (USA) (v3.0).zip" size="262144"/>
+					<rom crc="BCD10C3A" name="Raiden%20%28USA%29%20%28v3.0%29.zip" size="262144"/>
 							<plot>In the year 2090, Earth is invaded by extra-terrestrials. The World Alliance of Nations has developed a supersonic attack fighter, Raiden, to defend the Earth. A pilot must take control of the experimental fighter to destroy the alien warships that just happen to look like odd variations of typical military tanks and planes with gadgets attached to them. Raiden (called Raiden Trad on the Genesis and SNES) is an over-head vertical-scrolling shooter, based on an arcade game of the same title. It features two forms of weapon upgrades and two types of missiles (normal or homing). You start the game with several bombs which you can use to destroy most enemies on the screen to get yourself out of a jam. Each level ends with a large boss or bosses.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1997</releasedate>
@@ -1329,7 +1327,7 @@ Each table scrolls up and down during gameplay (as opposed to just &quot;snappin
 			</game>
 			<game name="Rampage (USA, Europe)">
 					<description>Rampage (USA, Europe)</description>
-					<rom crc="B10B7C8E" name="Rampage (USA, Europe).zip" size="262144"/>
+					<rom crc="B10B7C8E" name="Rampage%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Up to three simultaneous players control the monsters George (a King Kong-like gorilla), Lizzie (a Godzilla-like dinosaur/lizard), or Ralph (a giant werewolf), created from mutated humans. When they were humans, George was a normal middle aged man, Lizzie was a young woman, and Ralph was an elderly man. They were experimented on at Scumlabs. As monsters, they need to raze all buildings in a high-rise city to advance to the next level, eating people and destroying helicopters, tanks, taxis, police cars, boats, and trolleys along the way.
 
 The Atari Lynx version adds a special fourth character named Larry, a giant rat.</plot>
@@ -1348,7 +1346,7 @@ The Atari Lynx version adds a special fourth character named Larry, a giant rat.
 			</game>
 			<game name="Rampart (USA, Europe)">
 					<description>Rampart (USA, Europe)</description>
-					<rom crc="139F301D" name="Rampart (USA, Europe).zip" size="262144"/>
+					<rom crc="139F301D" name="Rampart%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>In Rampart, the player is in control of a set of castles, which they must defend, by alternately shooting at attacking ships (or other players), and repairing any damage done to them within a time limit. Surrounding this castle is a wall, made up of small blocks, completely surrounding a region of the board. This area is considered the player's territory, and it may contain one or more castles, and any number of cannons. The maintenance of this territory is the primary focus of the game. Once the player defeats the opponent, the player can execute the commander, by walking the plank or beheading.</plot>
 					<genre>Action, Strategy</genre>
 					<releasedate>01/01/1990</releasedate>
@@ -1368,7 +1366,7 @@ The Atari Lynx version adds a special fourth character named Larry, a giant rat.
 			</game>
 			<game name="Road Riot 4WD (USA) (Proto)">
 					<description>Road Riot 4WD (USA) (Proto)</description>
-					<rom crc="69959A3B" name="Road Riot 4WD (USA) (Proto).zip" size="262144"/>
+					<rom crc="69959A3B" name="Road Riot 4WD%20%28USA%29%20%28Proto%29.zip" size="262144"/>
 							<plot>Road Riot 4WD is a Driving game, developed and published by Tengen, which was cancelled before it was released.</plot>
 					<genre>Action, Strategy</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -1389,7 +1387,7 @@ The Atari Lynx version adds a special fourth character named Larry, a giant rat.
 			</game>
 			<game name="RoadBlasters (USA, Europe)">
 					<description>RoadBlasters (USA, Europe)</description>
-					<rom crc="6867E80C" name="RoadBlasters (USA, Europe).zip" size="262144"/>
+					<rom crc="6867E80C" name="RoadBlasters%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>The object of the game is to complete all 50 rallies without running out of fuel. There is no limit to how many vehicles a player can receive to complete a rally, as long as they have fuel. However, the destruction of the vehicle will subtract a small amount from the player's fuel tank. In the arcade, Sega and Atari Lynx versions, players could start the game at a higher rally, with additional opportunities to jump several levels from time to time. Players can continue their game from where they left off; however, the player has only one chance to complete the 50th and final rally. For completing the final rally the player gets one million points as a bonus.</plot>
 					<genre>Action, Racing / Driving</genre>
 					<releasedate>01/01/1990</releasedate>
@@ -1407,7 +1405,7 @@ The Atari Lynx version adds a special fourth character named Larry, a giant rat.
 			</game>
 			<game name="Robo-Squash (USA, Europe)">
 					<description>Robo-Squash (USA, Europe)</description>
-					<rom crc="D1DFF2B2" name="Robo-Squash (USA, Europe).zip" size="131072"/>
+					<rom crc="D1DFF2B2" name="Robo-Squash%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>Robo-Squash is an Action game, published by Atari, which was released in 1990.</plot>
 					<genre>Action, Sports</genre>
 					<releasedate>01/01/1990</releasedate>
@@ -1424,7 +1422,7 @@ The Atari Lynx version adds a special fourth character named Larry, a giant rat.
 			</game>
 			<game name="Robotron 2084 (USA, Europe)">
 					<description>Robotron 2084 (USA, Europe)</description>
-					<rom crc="7A6049B5" name="Robotron 2084 (USA, Europe).zip" size="131072"/>
+					<rom crc="7A6049B5" name="Robotron 2084%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>Robotron: 2084 (also referred to as Robotron) is an arcade video game developed by Vid Kidz and released by Williams Electronics (part of WMS Industries) in 1982. It is a shoot 'em up with two-dimensional graphics. The game is set in the year 2084 in a fictional world where robots have turned against humans in a cybernetic revolt. The aim is to defeat endless waves of robots, rescue surviving humans, and earn as many points as possible.
 
 Robotron popularized the twin joystick control scheme, one that had previously been used in Taito's Space Dungeon.
@@ -1444,7 +1442,7 @@ Robotron: 2084 was critically and commercially successful. Praise among critics 
 			</game>
 			<game name="Rygar - Legendary Warrior (USA, Europe)">
 					<description>Rygar - Legendary Warrior (USA, Europe)</description>
-					<rom crc="67E5BDBA" name="Rygar - Legendary Warrior (USA, Europe).zip" size="262144"/>
+					<rom crc="67E5BDBA" name="Rygar - Legendary Warrior%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>The arcade game begins with the following introduction:
 
 4.5 billion years have passed since Earth's creation. Many dominators have ruled in all their glory, but time was their greatest enemy and it defeated their reign. And now a new dominator's reign begins...
@@ -1468,7 +1466,7 @@ The Atari Lynx version closely followed the arcade version. However, the layout 
 			</game>
 			<game name="S.T.U.N. Runner (USA, Europe)">
 					<description>S.T.U.N. Runner (USA, Europe)</description>
-					<rom crc="8595C40B" name="S.T.U.N. Runner (USA, Europe).zip" size="262144"/>
+					<rom crc="8595C40B" name="S.T.U.N. Runner%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>S.T.U.N. Runner (Spread Tunnel Underground Network Runner) is a fast-paced, racing/shooter arcade game released by Atari Games in 1989. The player pilots a futuristic &quot;speed bike&quot; at speeds of up to and even exceeding 900 mph through various tunnels and courses, with changing environments, hazards and enemies. The final goal is to reach the &quot;Ultimate Challenge&quot;, an endless race filled with surprises, where the player must simply get as far as possible in the allotted time. Markers on the Ultimate Challenge course show the names of the five players who have traveled the farthest, who are tracked independently of the game's traditional high score table.</plot>
 					<genre>Racing / Driving</genre>
 					<releasedate>01/01/1991</releasedate>
@@ -1492,7 +1490,7 @@ The Atari Lynx version closely followed the arcade version. However, the layout 
 			</game>
 			<game name="Scrapyard Dog (USA, Europe)">
 					<description>Scrapyard Dog (USA, Europe)</description>
-					<rom crc="BE166F3B" name="Scrapyard Dog (USA, Europe).zip" size="262144"/>
+					<rom crc="BE166F3B" name="Scrapyard Dog%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Our friend Louis loved his dog. But why would some thugs kidnap this poor puppy? The thugs want the deed to the scrapyard, that's why. Will Louie stand for this? It's up to you and Louie to survive over 15 levels of danger and find the ultimate bad guy, Mr. Big.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1991</releasedate>
@@ -1513,7 +1511,7 @@ The Atari Lynx version closely followed the arcade version. However, the layout 
 			</game>
 			<game name="Shadow of the Beast (USA, Europe)">
 					<description>Shadow of the Beast (USA, Europe)</description>
-					<rom crc="EB78BAA3" name="Shadow of the Beast (USA, Europe).zip" size="262144"/>
+					<rom crc="EB78BAA3" name="Shadow of the Beast%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Shadow of the Beast is a side-scrolling platform video game produced by Reflections and published by Psygnosis in 1989. The original version was released for the Commodore Amiga, and was later ported to many other systems. Shadow of the Beast is considered revolutionary at the time, because of its graphics, with many more colours on screen and up to twelve levels of parallax scrolling backdrops, were of a level rarely if ever seen before in action games. It was also notable for its atmospheric score composed by David Whittaker that used high-quality instrument samples.
 
 Shadow of the Beast was followed by two sequels, Shadow of the Beast II in 1990 and Shadow of the Beast III in 1992 . A remake is in development for the PlayStation 4.
@@ -1540,7 +1538,7 @@ A man named Aarbron is kidnapped as a child and corrupted through magic into a m
 			</game>
 			<game name="Shanghai (USA, Europe)">
 					<description>Shanghai (USA, Europe)</description>
-					<rom crc="192BCD04" name="Shanghai (USA, Europe).zip" size="131072"/>
+					<rom crc="192BCD04" name="Shanghai%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>Shanghai is a computerized version of mahjong solitaire. After winning a game, the tiles reveal the three-dimensional blinking eye of a dragon behind the game screen.[1] The Macintosh and Sega Master System version shows an animated dragon spitting fire.</plot>
 					<genre>Strategy</genre>
 					<releasedate>01/01/1990</releasedate>
@@ -1557,7 +1555,7 @@ A man named Aarbron is kidnapped as a child and corrupted through magic into a m
 			</game>
 			<game name="Steel Talons (USA, Europe)">
 					<description>Steel Talons (USA, Europe)</description>
-					<rom crc="5B2308ED" name="Steel Talons (USA, Europe).zip" size="262144"/>
+					<rom crc="5B2308ED" name="Steel Talons%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Steel Talonsis a 3D arcade game by released by Atari Games in 1991.The player takes on the role of a pilot for an &quot;AT1196 Steel Talons combat helicopter.&quot; The helicopter is equipped with a machine gun, rockets, and a limited number of air-to-surface guided missiles. The game came as a two-player cockpit cabinet and featured both cooperative and competitive game play modes.
 
 In the single-player mode, there are 19 computer simulated missions. In the two player mode, two players may work together in the simulation world, or they may choose to go at combat with each other where the mission objective is to destroy the other player.[1]
@@ -1579,7 +1577,7 @@ Steel Talons was ported to the Sega Mega Drive/Genesis, Atari Lynx handheld, Ata
 			</game>
 			<game name="Super Asteroids, Missile Command (USA, Europe)">
 					<description>Super Asteroids, Missile Command (USA, Europe)</description>
-					<rom crc="2DA7E2A8" name="Super Asteroids, Missile Command (USA, Europe).zip" size="131072"/>
+					<rom crc="2DA7E2A8" name="Super Asteroids, Missile Command%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>Super Asteroids &amp; Missile Command (also known as Super Asteroids and Super Missile Command as seen on the title screen) is an Atari Lynx video game that combines the classic video games Asteroids and Missile Command into a single game cartridge.
 
 Released in 1995 according to Moby Games, The graphics and sound are enhanced from their original incarnations. This game was only released in North America and Europe. Being the final game ever released by Atari for the Atari Lynx, this game would ultimately begin an era where Atari would produce games for other console systems as opposed to their own.
@@ -1595,7 +1593,7 @@ Super Asteroids pits the player against a never ending supply of extraterrestria
 			</game>
 			<game name="Super Off-Road (USA, Europe)">
 					<description>Super Off-Road (USA, Europe)</description>
-					<rom crc="690CAEB0" name="Super Off-Road (USA, Europe).zip" size="262144"/>
+					<rom crc="690CAEB0" name="Super Off-Road%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Two classic Atari arcade games were updated for this compilation. This Lynx version of Asteroids  and Missile Command contains some enhanced features to justify the &amp;quot;super&amp;quot; in the title.Super Asteroids has all new graphics to replace the vector outlines of the original. Your ship has a shield that can absorb several collisions before it blows up. There are also power ups to increase your firepower.Super Missile Command also has all new graphics.  Between rounds, you can trade credits earned during gameplay to purchase special weapons that will help you later in the game.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1995</releasedate>
@@ -1608,7 +1606,7 @@ Super Asteroids pits the player against a never ending supply of extraterrestria
 			</game>
 			<game name="Super Skweek (USA, Europe)">
 					<description>Super Skweek (USA, Europe)</description>
-					<rom crc="DFA61571" name="Super Skweek (USA, Europe).zip" size="262144"/>
+					<rom crc="DFA61571" name="Super Skweek%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>The player plays the Super Skweek, an orange-furred creature of unknown origin. Under the command of the King, the player has to move over blue tiles in order to repaint them pink, fighting off the monster invasion in doing so. There are five islands, each consisting of 50 levels.
 
 Some levels contain various monsters roaming around, and certain special tiles such as slippery tiles, explosive tiles, floating tiles and tiles which move the player in a certain direction. There are also coins to collect in order to buy prizes at the shop such as bombs or other improved powers.</plot>
@@ -1629,7 +1627,7 @@ Some levels contain various monsters roaming around, and certain special tiles s
 			</game>
 			<game name="Switchblade II (USA, Europe)">
 					<description>Switchblade II (USA, Europe)</description>
-					<rom crc="13657705" name="Switchblade II (USA, Europe).zip" size="262144"/>
+					<rom crc="13657705" name="Switchblade II%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Switchblade II is a run and gun game where the player controls Hiro, the protagonist of the game as he tries to get through six levels infested with mechanoid, metal-clad enemies.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1992</releasedate>
@@ -1646,7 +1644,7 @@ Some levels contain various monsters roaming around, and certain special tiles s
 			</game>
 			<game name="Todd's Adventures in Slime World (USA, Europe)">
 					<description>Todd's Adventures in Slime World (USA, Europe)</description>
-					<rom crc="AE267E29" name="Todd's Adventures in Slime World (USA, Europe).zip" size="131072"/>
+					<rom crc="AE267E29" name="Todd's Adventures in Slime World%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>You are Todd, the explorer of new worlds. It's your adventure to travel deep into Slime World, the gooiest, drippiest place around. There are scary blobs to shoot and lots of objects and weapons to find. &quot;Link up&quot; with up to seven of your fellow slimers for an awesome multiplayer adventure.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1990</releasedate>
@@ -1668,7 +1666,7 @@ Some levels contain various monsters roaming around, and certain special tiles s
 			</game>
 			<game name="Toki (USA, Europe)">
 					<description>Toki (USA, Europe)</description>
-					<rom crc="156A4A4C" name="Toki (USA, Europe).zip" size="262144"/>
+					<rom crc="156A4A4C" name="Toki%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Toki, known in Japan as JuJu Densetsu (JuJu?) is a 1989 shoot 'em up platformer arcade game, or a &quot;run and gun&quot; developed and published in Japan by TAD Corporation and published in North America by Fabtek. It was designed by Akira Sakuma and features elements of tongue-in-cheek humor combined with the action. The player takes control of an enchanted ape who must battle hordes of jungle monsters with energy balls from his mouth. The ultimate goal is to destroy the evil wizard who cast a spell on the title protagonist; thereby transforming him from an ape back into a human, and rescuing the kidnapped princess. The game was ported to several video game consoles and home computers.
 
 Due to its popularity, within the next two years the game was ported to a larger number of home video game consoles and home computers of the time. Ocean Software published versions for the Amiga and Atari ST versions, They also advertised versions for the ZX Spectrum and Amstrad CPC and the Spectrum version was previewed in issue 90 of Crash Magazine, but neither port materialized. Taito published ports for the Atari Lynx and the Nintendo Entertainment System. The latter version of the game was slightly altered and featured a health bar so that Toki didn't die after one hit.
@@ -1696,7 +1694,7 @@ A new, independent enhanced remake was announced in October 2009. It is being de
 			</game>
 			<game name="Tournament Cyberball (USA, Europe)">
 					<description>Tournament Cyberball (USA, Europe)</description>
-					<rom crc="0590A9E3" name="Tournament Cyberball (USA, Europe).zip" size="262144"/>
+					<rom crc="0590A9E3" name="Tournament Cyberball%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Robotic football action!
 
 Journey into the future of football with this cult, arcade classic. Enjoy robotic action against the computer or ComLynx up to four players and play head-to-head with your friends. Earn money for completed plays which can be used to power-up your team, replace broken players, and upgrade to bigger and more advanced players. Awesome football action!</plot>
@@ -1720,7 +1718,7 @@ Journey into the future of football with this cult, arcade classic. Enjoy roboti
 			</game>
 			<game name="Turbo Sub (USA, Europe)">
 					<description>Turbo Sub (USA, Europe)</description>
-					<rom crc="A4B924D6" name="Turbo Sub (USA, Europe).zip" size="131072"/>
+					<rom crc="A4B924D6" name="Turbo Sub%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>Turbo Sub released in 1985 as an arcade shooter game by Entertainment Sciences. Then later in 1991 for the Atari Lynx. The arcade version was a one player game set in the future where you control a submersible ship against a horde of aliens. The Atari Lynx version is the same but can be played with two players and tells us the story is set in the 28th century on Earth. The planet has been invaded and the goal of the game is that the player must destroy all the aliens.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1991</releasedate>
@@ -1739,7 +1737,7 @@ Journey into the future of football with this cult, arcade classic. Enjoy roboti
 			</game>
 			<game name="Viking Child (USA, Europe)">
 					<description>Viking Child (USA, Europe)</description>
-					<rom crc="8D56828B" name="Viking Child (USA, Europe).zip" size="262144"/>
+					<rom crc="8D56828B" name="Viking Child%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>Mainly titled Prophecy I - The Viking Child is a game created by Imagitec Design Limited on Amiga, Atari ST, Atari Lynx, Game Boy, Game Gear and the PC.
 
 This video game was based on a Viking Child called Brian who must enter the Halls of Valhalla and do battle against an evil god Loki and his minions.
@@ -1762,7 +1760,7 @@ Programming of the Lead version (Atari ST version) was done by Mark Fisher (a.k.
 			</game>
 			<game name="Warbirds (USA, Europe)">
 					<description>Warbirds (USA, Europe)</description>
-					<rom crc="B946BA49" name="Warbirds (USA, Europe).zip" size="131072"/>
+					<rom crc="B946BA49" name="Warbirds%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>It's the First World War and the conquest of the sky is your mission. Battle your way to that target with WarBirds, the totally three-dimensional, fly by the seat of your pants, dog fight game.
 Pick from any of six missions from Milk Run to The Swarm to dog fight one-on-one or fill the sky with war planes. Fight against a computer-controlled squadron or link with up to four Lynx friends to determine who is the Greatest World War I Flying Ace.</plot>
 					<genre>Action, Simulation</genre>
@@ -1780,7 +1778,7 @@ Pick from any of six missions from Milk Run to The Swarm to dog fight one-on-one
 			</game>
 			<game name="World Class Soccer (USA, Europe)">
 					<description>World Class Soccer (USA, Europe)</description>
-					<rom crc="91233794" name="World Class Soccer (USA, Europe).zip" size="262144"/>
+					<rom crc="91233794" name="World Class Soccer%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>A combat flight action/simulation with colorful graphics and pretty straight-forward gameplay.Step inside the cockpit of a World War I plane, when there were no sophisticated weaponry, and try to gun down the enemy. Simple as that.The graphics were faux-3D, as the planes were 2D sprites (natural, considering the release date), but the sky seemed very vast and you could fly around freely.</plot>
 					<genre>Action, Simulation</genre>
 					<releasedate>01/01/1991</releasedate>
@@ -1798,7 +1796,7 @@ Pick from any of six missions from Milk Run to The Swarm to dog fight one-on-one
 			</game>
 			<game name="Xenophobe (USA, Europe)">
 					<description>Xenophobe (USA, Europe)</description>
-					<rom crc="9BED736D" name="Xenophobe (USA, Europe).zip" size="131072"/>
+					<rom crc="9BED736D" name="Xenophobe%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>Can this motley crew of Xeno Exterminators wipe out the hoards of alien creatures aboard the infested space stations? Hurry up and blast away or your mission may end in a blizzard of ooze!
 You and up to three of your friends can &quot;Lynx up&quot; for a multi player frenzy. Choose your character, find the weapons and Zap the Xenos!</plot>
 					<genre>Action</genre>
@@ -1819,7 +1817,7 @@ You and up to three of your friends can &quot;Lynx up&quot; for a multi player f
 			</game>
 			<game name="Xybots (USA, Europe)">
 					<description>Xybots (USA, Europe)</description>
-					<rom crc="89E2A595" name="Xybots (USA, Europe).zip" size="262144"/>
+					<rom crc="89E2A595" name="Xybots%20%28USA%2C%20Europe%29.zip" size="262144"/>
 							<plot>The fate of humanity is in your hands! You must explore the corners and passageways of Earth's last outpost in space and defeat the invading Xybots. If you fail, human life as we know it will end. Comlynx with a friend, or take on the dreaded Xybot warriors all alone.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1991</releasedate>
@@ -1841,7 +1839,7 @@ You and up to three of your friends can &quot;Lynx up&quot; for a multi player f
 			</game>
 			<game name="Zarlor Mercenary (USA, Europe)">
 					<description>Zarlor Mercenary (USA, Europe)</description>
-					<rom crc="CB27199D" name="Zarlor Mercenary (USA, Europe).zip" size="131072"/>
+					<rom crc="CB27199D" name="Zarlor Mercenary%20%28USA%2C%20Europe%29.zip" size="131072"/>
 							<plot>WANTED: Hot gun for hire. Travel to several exotic and dangerous places. Discover several exotic and dangerous aliens and kill them. Kill lots. For cash. Buy more weapons and kill again. Bring up to 3 friends along and kill even more.</plot>
 					<genre>Action</genre>
 					<releasedate>01/01/1990</releasedate>
