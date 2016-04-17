@@ -1678,6 +1678,9 @@
 	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/emulators/scripts/gamestarter.sh hatari "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch iMAME4All (Arcade)" os="OpenElec RPi (Gamestarter Addon)">
+		<launcher_command>/storage/emulators/scripts/gamestarter.sh imame4all "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch MAME 2000 (Arcade 0.37b5)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/emulators/scripts/gamestarter.sh mame2000 "%ROM_PATH%"</launcher_command>
 	</launcher>
