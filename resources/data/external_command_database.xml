@@ -1114,8 +1114,8 @@
 	<launcher name="Project64 (N64)" os="Windows">
 		<launcher_command>"%APP_PATH_PJ64%" "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="Win-UAE (Amiga)" os="Windows">
-		<launcher_command>"%APP_PATH_WIN_UAE%" -f "%ROM_PATH%"</launcher_command>
+	<launcher name="FS-UAE Launcher" os="Windows">
+		<launcher_command>"%APP_PATH_FS_UAE%" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<!-- Windows, with script to close kodi before launch -->
 	<launcher name="RetroArch 4DO (3DO)" os="Windows Close_Kodi">
@@ -1571,6 +1571,9 @@
 	</launcher>
 	<launcher name ="Dolphin OpenElec Addon (GameCube/Wii)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>/storage/.kodi/addons/emulator.dolphin/bin/dolphin-emu-CLI.sh "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name ="FS-UAE OpenElec Addon (Amiga)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>/storage/.kodi/addons/emulator.fs-uae/bin/fs-uae.sh "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<!-- OpenElec RPi (Gamestarter Addon), by default you must close Kodi with OE, Netplay not implemented with this yet -->
 	<launcher name="Amiga UAE4ARM" os="OpenElec RPi (Gamestarter Addon)">

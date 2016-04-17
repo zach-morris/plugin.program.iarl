@@ -17,9 +17,9 @@
 		<setting id="iarl_path_to_retroarch" type="executable" label="RetroArch App Location" visible="eq(-2,OSX)|eq(-2,Windows)|eq(-2,Linux/Kodibuntu)"/>
 		<setting id="iarl_path_to_retroarch_cfg" type="file" label="RetroArch CFG Location" visible="eq(-3,Android)"/>
 		<setting label="Additional Emulators:" type="lsep" visible="eq(-4,OSX)|eq(-4,Windows)|eq(-4,Linux/Kodibuntu)"/>
-		<setting id="iarl_additional_emulator_1_type" type="select" label="Additional Emulator 1" values="Disabled|FS-UAE|WIN-UAE (Win)|Project 64 (Win)" default="Disabled" visible="eq(-5,OSX)|eq(-5,Windows)|eq(-5,Linux/Kodibuntu)"/>
+		<setting id="iarl_additional_emulator_1_type" type="select" label="Additional Emulator 1" values="Disabled|FS-UAE|Project 64 (Win)" default="Disabled" visible="eq(-5,OSX)|eq(-5,Windows)|eq(-5,Linux/Kodibuntu)"/>
 		<setting id="iarl_additional_emulator_1_path" type="executable" label="Emulator 1 App Location" visible="!eq(-1,Disabled)"/>
-		<setting id="iarl_additional_emulator_2_type" type="select" label="Additional Emulator 2" values="Disabled|FS-UAE|WIN-UAE (Win)|Project 64 (Win)" default="Disabled" visible="eq(-7,OSX)|eq(-7,Windows)|eq(-7,Linux/Kodibuntu)"/>
+		<setting id="iarl_additional_emulator_2_type" type="select" label="Additional Emulator 2" values="Disabled|FS-UAE|Project 64 (Win)" default="Disabled" visible="eq(-7,OSX)|eq(-7,Windows)|eq(-7,Linux/Kodibuntu)"/>
 		<setting id="iarl_additional_emulator_2_path" type="executable" label="Emulator 2 App Location" visible="!eq(-1,Disabled)"/>
 	</category>
 	<category label="Netplay">
