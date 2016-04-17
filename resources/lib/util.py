@@ -139,7 +139,7 @@ def make_scripts_executable():
 	#Attempt to make addon scripts executable
 	bin_path = get_addondata_bindir()
 
-	bin_file_list = ['7za/7za.armv6l', '7za/7za.armv7l', '7za/7za.exe', '7za/7za.OSX','7za/7za.Nix', '7za/7za.x86_64', 'applaunch_OE.sh', 'applaunch-vbs.bat', 'applaunch.bat', 'applaunch.sh', 'chdman/chdman.armhf','chdman/chdman.OSX','chdman/chdman.Nix','LaunchKODI.vbs', 'romlaunch_OE_RPi2.sh', 'romlaunch_OE.sh', 'Sleep.vbs']
+	bin_file_list = ['7za/7za.armv6l', '7za/7za.armv7l', '7za/7za.exe', '7za/7za.OSX','7za/7za.Nix', '7za/7za.x86_64', 'applaunch_OE.sh', 'applaunch-vbs.bat', 'applaunch.bat', 'applaunch.sh', 'chdman/chdman.armhf','chdman/chdman.OSX','chdman/chdman.Nix','chdman/chdman.exe','LaunchKODI.vbs', 'romlaunch_OE_RPi2.sh', 'romlaunch_OE.sh', 'Sleep.vbs']
 	
 	for ffiles in bin_file_list:
 		try:
@@ -1382,12 +1382,12 @@ def unzip_file(current_fname):
 			current_zip_fileparts = os.path.split(current_fname)
 			current_zip_path = current_zip_fileparts[0]
 			z_file = zipfile.ZipFile(current_fname)
-			z_file.close()
 			uz_file_extension = os.path.splitext(z_file.namelist()[0])[1] #Get rom extension
-			#This is a kajillion times faster!
-			zipfile.ZipFile(open(current_fname,'r')).extractall(path=current_zip_path)
+			#This is a kajillion times faster, but not compatible with python 2.6?
+			# zipfile.ZipFile(open(current_fname,'r')).extractall(path=current_zip_path)
+			z_file.extractall(current_zip_path)
+			z_file.close()
 			zip_success = True
-			# z_file.extractall(current_zip_path)
 			xbmc.log(msg='IARL:  Unzip Successful for ' +str(current_fname), level=xbmc.LOGDEBUG)
 		except:
 			zip_success = False
@@ -1412,7 +1412,12 @@ def unzip_dosbox_file(current_fname,current_rom_emu_command):
 		try:
 			current_zip_fileparts = os.path.split(current_fname)
 			current_zip_path = current_zip_fileparts[0]
-			zipfile.ZipFile(open(current_fname,'r')).extractall(path=current_zip_path)
+			z_file = zipfile.ZipFile(current_fname)
+			# uz_file_extension = os.path.splitext(z_file.namelist()[0])[1] #Get rom extension
+			#This is a kajillion times faster, but not compatible with python 2.6?
+			# zipfile.ZipFile(open(current_fname,'r')).extractall(path=current_zip_path)
+			z_file.extractall(current_zip_path)
+			z_file.close()
 			zip_success = True
 			xbmc.log(msg='IARL:  DOSBox Unzip sucessfull for ' +str(current_fname), level=xbmc.LOGDEBUG)
 		except:
@@ -1425,7 +1430,7 @@ def unzip_dosbox_file(current_fname,current_rom_emu_command):
 
 	if current_rom_emu_command: #The file was unzipped, change from zip to rom extension
 		try:
-			new_fname = current_zip_path+current_rom_emu_command
+			new_fname = os.path.join(current_zip_path,os.path.join(*current_rom_emu_command.split('/')))
 		except:
 			new_fname = current_fname #Didn't unzip or didn't find a file extension
 	else:
@@ -1433,44 +1438,61 @@ def unzip_dosbox_file(current_fname,current_rom_emu_command):
 
 	return zip_success, new_fname
 
-def unzip_dosbox_update_conf_file(current_fname):
-	zip_success = False
-	new_fname = None
-	conf_file = None
-	current_zip_fileparts = os.path.split(current_fname)
-	current_zip_path = current_zip_fileparts[0]
+def unzip_dosbox_update_conf_file(iarl_data):
+	zip_success = list()
+	overall_success = False
+	new_launch_exe = None
+	current_save_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][0])
+	current_save_path = current_save_fileparts[0]
+	unzip_folder_name = clean_file_folder_name(iarl_data['current_rom_data']['rom_title'])
+	unzip_folder_path = os.path.join(current_save_path,unzip_folder_name)
+	conf_filename = os.path.join(unzip_folder_path,str(unzip_folder_name)+'.conf')
+	current_dialog = xbmcgui.Dialog()
+	current_dialog.notification('Please Wait','Converting DOSBox Archive...', xbmcgui.NOTIFICATION_INFO, 500000)
 
-	if zipfile.is_zipfile(current_fname):
-		try:
-			z_file = zipfile.ZipFile(current_fname)
-			z_file.close()
-			zipfile.ZipFile(open(current_fname,'r')).extractall(path=current_zip_path)
-			zip_success = True
-			xbmc.log(msg='IARL:  DOSBox Conf Unzip sucessfull for ' +str(current_fname), level=xbmc.LOGDEBUG)
-		except:
-			zip_success = False
-			xbmc.log(msg='IARL:  DOSBox Conf Unzip failed for ' +str(current_fname), level=xbmc.LOGERROR)
-
-		if zip_success:
-			# os.remove(current_fname)
+	if not os.path.isdir(unzip_folder_path): #If the directory doesnt already exist
+		for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
+			if zipfile.is_zipfile(iarl_data['current_save_data']['rom_save_filenames'][ii]):
+				try:
+					z_file = zipfile.ZipFile(iarl_data['current_save_data']['rom_save_filenames'][ii])
+					z_file.extractall(unzip_folder_path)
+					z_file.close()
+					zip_success.append(True)
+					xbmc.log(msg='IARL:  DOSBOX archive unzip successful', level=xbmc.LOGDEBUG)
+				except:
+					zip_success.append(False)
+					xbmc.log(msg='IARL:  DOSBOX archive unzip failed', level=xbmc.LOGERROR)
+					current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
+		if False in zip_success:
+			overall_success = False
+			conf_filename = None
+		else: #Make the conf file
 			try:
-				conf_file = [s for s in z_file.namelist() if s.endswith('.conf')][0]
+				archive_conf_file = [s for s in z_file.namelist() if s.endswith('.conf')][0]
 			except:
-				conf_file = None
-			if conf_file is not None:
-				old_conf_file = os.path.join(current_zip_path,conf_file)
-				new_conf_file = os.path.join(current_zip_path,conf_file.split('/')[0],'kodi_launch.conf')
-				fout = open(new_conf_file, 'w') # out file
+				try:
+					available_exe_files = [s for s in z_file.namelist() if s.endswith('.exe') or s.endswith('.EXE') or s.endswith('.com') or s.endswith('.COM')]
+					xbmc.log(msg='IARL:  DOSBOX archive conf file could not be found, looking for a suitable executable', level=xbmc.LOGDEBUG)
+					guess_launch_file = [s for s in available_exe_files if 'install' not in s.lower()][0]
+					new_launch_exe = os.path.join(unzip_folder_path,os.path.join(*guess_launch_file.split('/')))
+					archive_conf_file = None
+				except:
+					xbmc.log(msg='IARL:  DOSBOX archive conf file could not be found', level=xbmc.LOGDEBUG)
+					archive_conf_file = None
+					new_launch_exe = None
+			if archive_conf_file is not None:
+				old_conf_file = os.path.join(unzip_folder_path,archive_conf_file)
+				fout = open(conf_filename, 'w') # out file
 				with open(old_conf_file, 'rU') as fin:
 					while True:
 						line = fin.readline()
-						if 'mount c ' in line:
+						if 'mount c ' in line.lower():
 							try:
-								my_new_line = 'mount c "'+current_zip_path+'"\r'
+								my_new_line = 'mount c "'+unzip_folder_path+'"\r'
 								fout.write(my_new_line)
 							except:
 								fout.write(line)
-						elif 'exit' in line: #Comment out any exit calls in the configuration file
+						elif 'exit' in line.lower(): #Comment out any exit calls in the configuration file
 							my_new_line = '#exit\r'
 							fout.write(my_new_line)
 						else:
@@ -1479,15 +1501,130 @@ def unzip_dosbox_update_conf_file(current_fname):
 							break
 							pass
 				fout.close()
-				new_fname = new_conf_file
-				xbmc.log(msg='IARL:  Created DOSBox Launch configuration file: ' +str(new_fname), level=xbmc.LOGDEBUG)
+				current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
+				xbmc.log(msg='IARL:  DOSBOX conf conversion successful', level=xbmc.LOGDEBUG)
+				overall_success = True
 			else:
-				current_dialog = xbmcgui.Dialog()
-				ok_ret = current_dialog.ok('Notice','No configuration file found with DOS Game Archive[CR]You will have to manually launch this game.')
-				xbmc.log(msg='IARL:  No configuration file found with DOS Game Archive', level=xbmc.LOGERROR)
-				new_fname = current_fname
+				current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
+				xbmc.log(msg='IARL:  DOSBOX conf conversion failed', level=xbmc.LOGDEBUG)
+				overall_success = False
+	else: #Folder already exists
+		if os.path.isfile(conf_filename): #The conf file already exists
+			current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
+			xbmc.log(msg='IARL:  DOSBOX conf file already exists', level=xbmc.LOGDEBUG)
+			overall_success = True
+		else: #Make the conf file
+			try:
+				z_file = zipfile.ZipFile(iarl_data['current_save_data']['rom_save_filenames'][0])
+				z_file.close()
+				archive_conf_file = [s for s in z_file.namelist() if s.endswith('.conf')][0]
+			except:
+				try:
+					z_file = zipfile.ZipFile(iarl_data['current_save_data']['rom_save_filenames'][0])
+					z_file.close()
+					available_exe_files = [s for s in z_file.namelist() if s.endswith('.exe') or s.endswith('.EXE') or s.endswith('.com') or s.endswith('.COM')]
+					xbmc.log(msg='IARL:  DOSBOX archive conf file could not be found, looking for a suitable executable', level=xbmc.LOGDEBUG)
+					guess_launch_file = [s for s in available_exe_files if 'install' not in s.lower()][0]
+					new_launch_exe = os.path.join(unzip_folder_path,os.path.join(*guess_launch_file.split('/')))
+					archive_conf_file = None
+				except:
+					xbmc.log(msg='IARL:  DOSBOX archive conf file could not be found', level=xbmc.LOGDEBUG)
+					archive_conf_file = None
+					new_launch_exe = None
+			if archive_conf_file is not None:
+				old_conf_file = os.path.join(unzip_folder_path,archive_conf_file)
+				fout = open(conf_filename, 'w') # out file
+				with open(old_conf_file, 'rU') as fin:
+					while True:
+						line = fin.readline()
+						if 'mount c ' in line.lower():
+							try:
+								my_new_line = 'mount c "'+unzip_folder_path+'"\r'
+								fout.write(my_new_line)
+							except:
+								fout.write(line)
+						elif 'exit' in line.lower(): #Comment out any exit calls in the configuration file
+							my_new_line = '#exit\r'
+							fout.write(my_new_line)
+						else:
+							fout.write(line)
+						if not line:
+							break
+							pass
+				fout.close()
+				current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
+				xbmc.log(msg='IARL:  DOSBOX conf conversion successful', level=xbmc.LOGDEBUG)
+				overall_success = True
+			else:
+				current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
+				xbmc.log(msg='IARL:  DOSBOX conf conversion failed', level=xbmc.LOGDEBUG)
+				overall_success = False
 
-	return zip_success, new_fname
+	if new_launch_exe is not None: #Found a suitable exe to try and launch
+		overall_success = True
+		conf_filename = new_launch_exe
+		xbmc.log(msg='IARL:  DOSBOX archive conf file could not be found, attempting to launch game with '+str(os.path.split(conf_filename)[-1]), level=xbmc.LOGDEBUG)
+
+	return overall_success, conf_filename
+
+# def unzip_dosbox_update_conf_file(current_fname):
+# 	zip_success = False
+# 	new_fname = None
+# 	conf_file = None
+# 	current_zip_fileparts = os.path.split(current_fname)
+# 	current_zip_path = current_zip_fileparts[0]
+
+# 	if zipfile.is_zipfile(current_fname):
+# 		try:
+# 			z_file = zipfile.ZipFile(current_fname)
+# 			# uz_file_extension = os.path.splitext(z_file.namelist()[0])[1] #Get rom extension
+# 			#This is a kajillion times faster, but not compatible with python 2.6?
+# 			# zipfile.ZipFile(open(current_fname,'r')).extractall(path=current_zip_path)
+# 			z_file.extractall(current_zip_path)
+# 			z_file.close()
+# 			zip_success = True
+# 			xbmc.log(msg='IARL:  DOSBox Conf Unzip sucessfull for ' +str(current_fname), level=xbmc.LOGDEBUG)
+# 		except:
+# 			zip_success = False
+# 			xbmc.log(msg='IARL:  DOSBox Conf Unzip failed for ' +str(current_fname), level=xbmc.LOGERROR)
+
+# 		if zip_success:
+# 			# os.remove(current_fname)
+# 			try:
+# 				conf_file = [s for s in z_file.namelist() if s.endswith('.conf')][0]
+# 			except:
+# 				conf_file = None
+# 			if conf_file is not None:
+# 				old_conf_file = os.path.join(current_zip_path,conf_file)
+# 				new_conf_file = os.path.join(current_zip_path,conf_file.split('/')[0],'kodi_launch.conf')
+# 				fout = open(new_conf_file, 'w') # out file
+# 				with open(old_conf_file, 'rU') as fin:
+# 					while True:
+# 						line = fin.readline()
+# 						if 'mount c ' in line:
+# 							try:
+# 								my_new_line = 'mount c "'+current_zip_path+'"\r'
+# 								fout.write(my_new_line)
+# 							except:
+# 								fout.write(line)
+# 						elif 'exit' in line: #Comment out any exit calls in the configuration file
+# 							my_new_line = '#exit\r'
+# 							fout.write(my_new_line)
+# 						else:
+# 							fout.write(line)
+# 						if not line:
+# 							break
+# 							pass
+# 				fout.close()
+# 				new_fname = new_conf_file
+# 				xbmc.log(msg='IARL:  Created DOSBox Launch configuration file: ' +str(new_fname), level=xbmc.LOGDEBUG)
+# 			else:
+# 				current_dialog = xbmcgui.Dialog()
+# 				ok_ret = current_dialog.ok('Notice','No configuration file found with DOS Game Archive[CR]You will have to manually launch this game.')
+# 				xbmc.log(msg='IARL:  No configuration file found with DOS Game Archive', level=xbmc.LOGERROR)
+# 				new_fname = current_fname
+
+# 	return zip_success, new_fname
 
 def generate_uae_conf_file(iarl_data):
 	conf_file = None
@@ -1532,7 +1669,7 @@ def generate_uae_cd32_conf_file(iarl_data):
 	current_save_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][0])
 	current_save_path = current_save_fileparts[0]
 	file_base_name = clean_file_folder_name(iarl_data['current_rom_data']['rom_title'])
-	new_filename = os.path.join(current_save_path,'kodi_launch_'+str(file_base_name)+'.fs-uae')
+	new_filename = os.path.join(current_save_path,str(file_base_name)+'.fs-uae')
 	current_dialog = xbmcgui.Dialog()
 	current_dialog.notification('Please Wait','Processing Archive...', xbmcgui.NOTIFICATION_INFO, 500000)
 
@@ -1544,9 +1681,16 @@ def generate_uae_cd32_conf_file(iarl_data):
 				try:
 					current_zip_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][ii])
 					current_zip_path = os.path.join(current_zip_fileparts[0],file_base_name) #Unzip the files to a folder with the game title
-					#This is a kajillion times faster!
-					zipfile.ZipFile(open(iarl_data['current_save_data']['rom_save_filenames'][ii],'r')).extractall(path=current_zip_path)
+					z_file = zipfile.ZipFile(iarl_data['current_save_data']['rom_save_filenames'][ii])
+					# uz_file_extension = os.path.splitext(z_file.namelist()[0])[1] #Get rom extension
+					#This is a kajillion times faster, but not compatible with python 2.6?
+					# zipfile.ZipFile(open(current_fname,'r')).extractall(path=current_zip_path)
+					z_file.extractall(current_zip_path)
+					z_file.close()
 					zip_success = True
+					# #This is a kajillion times faster!
+					# zipfile.ZipFile(open(iarl_data['current_save_data']['rom_save_filenames'][ii],'r')).extractall(path=current_zip_path)
+					# zip_success = True
 					xbmc.log(msg='IARL:  UAE CD32 Unzip successful for ' +str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
 				except:
 					zip_success = False
@@ -1663,9 +1807,93 @@ def convert_chd_bin(current_fname,iarl_setting_chdman_path,point_to_file_type):
 			current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
 	else:
 		xbmc.log(msg='IARL:  File '+str(current_fname)+' does not appear to be a CHD and was not converted', level=xbmc.LOGERROR)
+		current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
 
 	return chd_success, new_fname
 
+
+
+def convert_7z_bin_cue_gdi(iarl_data,point_to_file_type):
+
+	if not point_to_file_type:
+		point_to_file_type = 'bin' #Default to point to bin file
+
+	converted_success = list()
+	overall_success = False
+	current_save_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][0])
+	current_save_path = current_save_fileparts[0]
+	un7zip_folder_name = clean_file_folder_name(iarl_data['current_rom_data']['rom_title'])
+	un7zip_folder_path = os.path.join(current_save_path,un7zip_folder_name)
+	output_filename = None
+	current_dialog = xbmcgui.Dialog()
+	current_dialog.notification('Please Wait','Converting 7z File...', xbmcgui.NOTIFICATION_INFO, 500000)
+
+	if not os.path.isdir(un7zip_folder_path): #If the directory doesnt already exist
+		for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
+			if iarl_data['addon_data']['7za_path'] is not None:
+				if '7z' in iarl_data['current_save_data']['rom_save_filenames'][ii]:
+					command = '"%7ZA_APP_PATH%" -aoa -o"%OUTPUT_DIR%" e "%INPUT_7Z%"' #May need to provide other OS options here
+					command = command.replace('%7ZA_APP_PATH%',iarl_data['addon_data']['7za_path'])
+					command = command.replace('%INPUT_7Z%',iarl_data['current_save_data']['rom_save_filenames'][ii])
+					command = command.replace('%OUTPUT_DIR%',un7zip_folder_path)
+					xbmc.log(msg='IARL:  Attempting 7ZA Conversion: '+str(command), level=xbmc.LOGDEBUG)
+					success_text = 'everything is ok'
+					conversion_process = subprocess.Popen(command, shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT) #Uncompress the 7z
+					results1 = conversion_process.stdout.read().replace('\n', '')
+					conversion_process.kill() #End the process after its completed
+
+					if success_text.lower() in results1.lower():
+						xbmc.log(msg='IARL:  7Z conversion successful', level=xbmc.LOGDEBUG)
+						current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
+						converted_success.append(True)
+					else:
+						xbmc.log(msg='IARL:  7Z conversion failed: '+str(results1), level=xbmc.LOGDEBUG)
+						current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
+						converted_success.append(False)
+			else:
+				xbmc.log(msg='IARL:  7z binary is not defined for your system: '+str(os.uname()), level=xbmc.LOGERROR)
+				current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
+				converted_success.append(False)
+
+		if False in converted_success:
+			overall_success = False
+		else:
+			if 'track 1' in point_to_file_type.lower():
+				found_file = False
+				for ffiles in os.listdir(un7zip_folder_path):
+					if 'track 1' in ffiles.lower():
+						if not found_file:
+							output_filename = os.path.join(un7zip_folder_path,ffiles)
+							found_files = True
+							overall_success = True
+			else: #Just look for the selected file extension (cue/gdi/etc), point to the first one
+				found_file = False
+				for ffiles in os.listdir(un7zip_folder_path):
+					if ffiles.endswith(point_to_file_type):
+						if not found_file:
+							output_filename = os.path.join(un7zip_folder_path,ffiles)
+							found_files = True
+							overall_success = True
+		# hide_busy_dialog()
+	else: #Folder already exists
+		if 'track 1' in point_to_file_type.lower():
+			found_file = False
+			for ffiles in os.listdir(un7zip_folder_path):
+				if 'track 1' in ffiles.lower():
+					if not found_file:
+						output_filename = os.path.join(un7zip_folder_path,ffiles)
+						found_files = True
+						overall_success = True
+		else: #Just look for the selected file extension (cue/gdi/etc), point to the first one
+			found_file = False
+			for ffiles in os.listdir(un7zip_folder_path):
+				if ffiles.endswith(point_to_file_type):
+					if not found_file:
+						output_filename = os.path.join(un7zip_folder_path,ffiles)
+						found_files = True
+						overall_success = True
+				
+	return overall_success, output_filename
 
 def convert_7z_m3u(iarl_data):
 
@@ -1675,7 +1903,7 @@ def convert_7z_m3u(iarl_data):
 	current_save_path = current_save_fileparts[0]
 	un7zip_folder_name = clean_file_folder_name(iarl_data['current_rom_data']['rom_title'])
 	un7zip_folder_path = os.path.join(current_save_path,un7zip_folder_name)
-	m3u_filename = os.path.join(un7zip_folder_path,'kodi_launch_'+str(un7zip_folder_name)+'.m3u')
+	m3u_filename = os.path.join(un7zip_folder_path,str(un7zip_folder_name)+'.m3u')
 	current_dialog = xbmcgui.Dialog()
 	current_dialog.notification('Please Wait','Converting 7z File...', xbmcgui.NOTIFICATION_INFO, 500000)
 
@@ -1716,7 +1944,7 @@ def convert_7z_m3u(iarl_data):
 				fout.write(m3u_content)
 				fout.close()
 				overall_success = True
-		hide_busy_dialog()
+		# hide_busy_dialog()
 	else: #Folder already exists
 		if os.path.isfile(m3u_filename): #The m3u file already exists
 			overall_success = True

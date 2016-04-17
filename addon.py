@@ -202,6 +202,8 @@ else:
 #Define path to CHDMAN binary
 if 'OSX' in iarl_data['addon_data']['operating_system']:
     iarl_data['addon_data']['chdman_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'chdman','chdman.OSX')
+elif 'Windows' in iarl_data['addon_data']['operating_system']:
+    iarl_data['addon_data']['chdman_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'chdman','chdman.exe')
 elif 'Nix' in iarl_data['addon_data']['operating_system']:
     iarl_data['addon_data']['chdman_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'chdman','chdman.Nix')
 else:
@@ -1031,24 +1033,18 @@ def post_download_action(iarl_data,option,option2):
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
             xbmc.log(msg='IARL:  There was an error converting DOSBox files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)
-    elif option == 'unzip_dosbox_update_conf_file':
+    elif 'unzip_dosbox_update_conf_file' in option:
         if iarl_data['current_save_data']['rom_save_filenames']:
-            for filenames in iarl_data['current_save_data']['rom_save_filenames']:
-                conversion_success, converted_filename = unzip_dosbox_update_conf_file(filenames)
-                iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
-                iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
-        if iarl_data['current_save_data']['rom_save_supporting_filenames']:
-            for filenames in iarl_data['current_save_data']['rom_save_supporting_filenames']:
-                conversion_success, converted_filename = unzip_dosbox_update_conf_file(filenames)
-                iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
-                iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+            conversion_success, converted_filename = unzip_dosbox_update_conf_file(iarl_data)
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
         for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
             if not check:
                 iarl_data['current_save_data']['overall_conversion_success'] = False
         if iarl_data['current_save_data']['overall_conversion_success']:
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
-            xbmc.log(msg='IARL:  There was an error converting DOSBox conf files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)    
+            xbmc.log(msg='IARL:  There was an error converting the DOSBox archive for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)  
     elif option == 'convert_chd_bin':
         if iarl_data['current_save_data']['rom_save_filenames']:
             for filenames in iarl_data['current_save_data']['rom_save_filenames']:
@@ -1107,16 +1103,16 @@ def post_download_action(iarl_data,option,option2):
         try:
             new_extension = re.search(r'\([^)]*\)',option).group(0).replace('(','').replace(')','').strip()
         except:
-            new_exension = ''
+            new_extension = ''
             xbmc.log(msg='IARL:  Rename ROM option extension could not be defined', level=xbmc.LOGERROR)
         if iarl_data['current_save_data']['rom_save_filenames']:
             for filenames in iarl_data['current_save_data']['rom_save_filenames']:
-                conversion_success, converted_filename = rename_rom_postdl(filenames,new_exension)
+                conversion_success, converted_filename = rename_rom_postdl(filenames,new_extension)
                 iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
                 iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
         if iarl_data['current_save_data']['rom_save_supporting_filenames']:
             for filenames in iarl_data['current_save_data']['rom_save_supporting_filenames']:
-                conversion_success, converted_filename = rename_rom_postdl(filenames,new_exension)
+                conversion_success, converted_filename = rename_rom_postdl(filenames,new_extension)
                 iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
                 iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
         for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
@@ -1162,6 +1158,42 @@ def post_download_action(iarl_data,option,option2):
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
             xbmc.log(msg='IARL:  There was an error converting the 7z files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)  
+    elif 'convert_7z_track1_bin' in option:
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            conversion_success, converted_filename = convert_7z_bin_cue_gdi(iarl_data,'track 1')
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error converting the 7z track 1 files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
+    elif 'convert_7z_gdi' in option:
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            conversion_success, converted_filename = convert_7z_bin_cue_gdi(iarl_data,'gdi')
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error converting the 7z track 1 files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
+    elif 'convert_7z_cue' in option:
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            conversion_success, converted_filename = convert_7z_bin_cue_gdi(iarl_data,'cue')
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error converting the 7z track 1 files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
     elif 'favorites_post_action' in option:
         if '|' in option:
             option_1 = rom_emu_command.split('|')[0]
