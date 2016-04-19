@@ -1239,7 +1239,8 @@ def download_and_launch_rom(romwindow,iarl_data):
                             xbmc.audioSuspend()
                             xbmc.enableNavSounds(False) 
                             xbmc.sleep(500) #This pause seems to help... I'm not really sure why
-                            os.system(current_external_command.encode('utf-8')) #Android is frustrating...
+                            execute_subprocess_command(current_external_command.encode('utf-8'))
+                            # os.system(current_external_command.encode('utf-8')) #Android is frustrating...
                             #Resume audio after external command is complete
                             xbmc.audioResume()
                             xbmc.enableNavSounds(True)
@@ -1249,6 +1250,7 @@ def download_and_launch_rom(romwindow,iarl_data):
                             xbmc.audioSuspend()
                             xbmc.enableNavSounds(False) 
                             xbmc.sleep(500) #This pause seems to help... I'm not really sure why
+                            # execute_subprocess_command(current_external_command)
                             external_command = subprocess.call(current_external_command,shell=True)
                             #Resume audio after external command is complete
                             xbmc.audioResume()

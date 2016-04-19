@@ -2,7 +2,7 @@
 #Zach Morris
 #https://github.com/zach-morris/plugin.program.iarl
 
-import os, sys, re, shutil, json, zipfile, subprocess, urllib
+import os, sys, re, shutil, json, zipfile, urllib
 import xbmc, xbmcaddon, xbmcvfs, xbmcgui
 # 	from resources.lib.xbmcswift2b import xbmcgui
 from descriptionparserfactory import *
@@ -11,6 +11,31 @@ try:
     import cPickle as pickle
 except ImportError:
     import pickle
+
+import subprocess
+try:
+    check_output = subprocess.check_output
+except AttributeError:
+	xbmc.log(msg='IARL:  Subprocess check_output not supported, defining check_output', level=xbmc.LOGDEBUG)
+	def check_output(*popenargs, **kwargs):
+		r"""Run command with arguments and return its output as a byte string.
+		Backported from Python 2.7 as it's implemented as pure python on stdlib.
+		>>> check_output(['/usr/bin/python', '--version'])
+		Python 2.6.2
+		"""
+		process = subprocess.Popen(stdout=subprocess.PIPE, *popenargs, **kwargs)
+		output, unused_err = process.communicate()
+		retcode = process.poll()
+		if retcode:
+			cmd = kwargs.get("args")
+			if cmd is None:
+				cmd = popenargs[0]
+			error = subprocess.CalledProcessError(retcode, cmd)
+			error.output = output
+			raise error
+		return output
+
+	subprocess.check_output = check_output
 
 #Define util constants
 iarl_plugin_name = 'plugin.program.iarl'
@@ -134,6 +159,14 @@ def get_operating_system():
 		xbmc.log(msg='IARL:  chmod failed', level=xbmc.LOGDEBUG)
 
 	return current_OS
+
+def execute_subprocess_command(command_in):
+	try:
+		return_data = check_output([command_in],shell=True)
+		xbmc.log(msg='IARL:  Android command returned data: '+str(return_data), level=xbmc.LOGDEBUG)
+	except:
+		xbmc.log(msg='IARL:  Unable to execute subprocess command, trying OS command', level=xbmc.LOGDEBUG)
+		os.system(command_in) #Android is frustrating...
 
 def make_scripts_executable():
 	#Attempt to make addon scripts executable
