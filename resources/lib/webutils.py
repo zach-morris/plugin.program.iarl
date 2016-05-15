@@ -30,6 +30,7 @@ class download_tools():
 		dp.update(0)
 		success = False
 		try:
+			xbmc.log(msg='IARL:  Download URL: '+str(url), level=xbmc.LOGDEBUG)
 			urllib.urlretrieve(url,dest,lambda nb, bs, fs, url=url: self._pbhook(nb,bs,fs,est_filesize,dp))
 			success = True
 		except:

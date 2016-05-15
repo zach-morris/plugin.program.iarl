@@ -1,0 +1,8 @@
+<parserConfig>
+    <GameGrammar type="xml" root="system">
+        <system>./@name</system>
+        <web_url>web_url</web_url>
+        <folder_name>folder_name</folder_name>
+        <media_type>media_type</media_type>
+    </GameGrammar>
+</parserConfig>

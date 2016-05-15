@@ -28,6 +28,7 @@ iarl_data = {
                             'external_launch_env' : plugin.get_setting('iarl_external_user_external_env',unicode),
                             'external_launch_close_kodi' : plugin.get_setting('iarl_external_launch_close_kodi',unicode),
                             'path_to_retroarch' : plugin.get_setting('iarl_path_to_retroarch',unicode),
+                            'path_to_retroarch_system_dir' : plugin.get_setting('iarl_path_to_retroarch_system_dir',unicode),
                             'path_to_retroarch_cfg' : plugin.get_setting('iarl_path_to_retroarch_cfg',unicode),
                             'enable_additional_emulators' : [plugin.get_setting('iarl_additional_emulator_1_type',unicode),plugin.get_setting('iarl_additional_emulator_2_type',unicode)],
                             'path_to_additional_emulators' : [plugin.get_setting('iarl_additional_emulator_1_path',unicode),plugin.get_setting('iarl_additional_emulator_2_path',unicode)],
@@ -1194,6 +1195,23 @@ def post_download_action(iarl_data,option,option2):
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
             xbmc.log(msg='IARL:  There was an error converting the 7z track 1 files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
+    elif 'convert_mame_softlist' in option:
+        try:
+            softlist_type = re.search(r'\([^)]*\)',option).group(0).replace('(','').replace(')','').replace("'",'').strip()
+        except:
+            softlist_type = ''
+            xbmc.log(msg='IARL:  MAME softlist type could not be defined', level=xbmc.LOGERROR)
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            conversion_success, converted_filename = setup_mame_softlist_game(iarl_data,softlist_type)
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error setting up the MAME softlist game '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
     elif 'favorites_post_action' in option:
         if '|' in option:
             option_1 = rom_emu_command.split('|')[0]
@@ -1239,8 +1257,8 @@ def download_and_launch_rom(romwindow,iarl_data):
                             xbmc.audioSuspend()
                             xbmc.enableNavSounds(False) 
                             xbmc.sleep(500) #This pause seems to help... I'm not really sure why
-                            execute_subprocess_command(current_external_command.encode('utf-8'))
-                            # os.system(current_external_command.encode('utf-8')) #Android is frustrating...
+                            # execute_subprocess_command(current_external_command.encode('utf-8'))
+                            os.system(current_external_command.encode('utf-8')) #Android is frustrating...
                             #Resume audio after external command is complete
                             xbmc.audioResume()
                             xbmc.enableNavSounds(True)

@@ -583,7 +583,7 @@ def update_external_launch_commands(iarl_data,xml_id,plugin):
 			external_launch_database_os = iarl_data['settings']['external_launch_env'] + ' Close_Kodi' #Look for launch commands to close Kodi
 		else:
 			external_launch_database_os = iarl_data['settings']['external_launch_env']
-		if iarl_data['settings']['external_launch_env'] in 'OpenElec x86 (tssemek Addon)|OpenElec RPi (Gamestarter Addon)|Android'.split('|'):
+		if iarl_data['settings']['external_launch_env'] in 'OpenElec x86 (tssemek Addon)|OpenElec RPi (Gamestarter Addon)|OpenElec RPi (Mezo/lollo78 Addon)|Android'.split('|'):
 			external_launch_database_os = external_launch_database_os.replace(' Close_Kodi','') #By default, the above setups auto close Kodi, so there's only one list of launchers to choose from
 		for entries in results:
 			if entries['operating_system'][0] == external_launch_database_os:
@@ -646,8 +646,9 @@ def replace_external_launch_variables(iarl_data):
 	command_out = command_out.replace('%APP_PATH%',current_retroarch_path) #Replace app path with user setting
 	command_out = command_out.replace('%ADDON_DIR%',iarl_data['addon_data']['addon_install_path']) #Replace helper script with the more generic ADDON_DIR
 	command_out = command_out.replace('%CFG_PATH%',current_cfg_path) #Replace config path user setting
+	command_out = command_out.replace('%ROM_PATH%',iarl_data['current_save_data']['launch_filename']) #Replace ROM filepath
+	command_out = command_out.replace('%ROM_BASE_PATH%',os.path.join(os.path.split(iarl_data['current_save_data']['launch_filename'])[0],'')) #Replace ROM Base path
 
-	command_out = command_out.replace('%ROM_PATH%',iarl_data['current_save_data']['launch_filename'])
 	for jj in range(0,len(iarl_data['settings']['enable_additional_emulators'])):
 	    if 'FS-UAE' in iarl_data['settings']['enable_additional_emulators'][jj]:
 	        command_out = command_out.replace('%APP_PATH_FS_UAE%',iarl_data['settings']['path_to_additional_emulators'][jj])
@@ -858,6 +859,7 @@ def parse_xml_romfile(iarl_data,current_index,plugin):
 			iarl_data['current_rom_data']['rom_banners'][ii] = define_game_listitem('rom_banner'+str(ii+1),None,entries)
 			iarl_data['current_rom_data']['rom_snapshots'][ii] = define_game_listitem('rom_snapshot'+str(ii+1),None,entries)
 			iarl_data['current_rom_data']['rom_logos'][ii] = define_game_listitem('rom_clearlogo'+str(ii+1),None,entries)
+
 		#Append the current rom data to the list
 		# items.append(plugin._listitemify({
 		items.append({
@@ -880,7 +882,7 @@ def parse_xml_romfile(iarl_data,current_index,plugin):
 	        'properties' : {'fanart_image' : iarl_data['current_rom_data']['rom_fanarts'][0],
 							'banner' : iarl_data['current_rom_data']['rom_banners'][0],
 							'clearlogo': iarl_data['current_rom_data']['rom_logos'][0],
-							'poster': iarl_data['current_rom_data']['rom_boxarts'][0],
+							'poster': iarl_data['current_rom_data']['rom_thumbnail'],
 							'tag': iarl_data['current_rom_data']['rom_tag'],
 							'rating': iarl_data['current_rom_data']['rom_rating'],
 							'perspective': iarl_data['current_rom_data']['rom_perspective'],
@@ -1034,6 +1036,9 @@ def define_game_listitem(property_name,iarl_data,rom_info):
 				if property_sub_value is None:
 					if rom_info['rom_boxart'+str(ii+1)]:
 						property_sub_value = rom_info['rom_boxart'+str(ii+1)][0] #Search through all the boxarts, make the thumb the first one
+				if property_sub_value is None: #If there is no boxart, then make the thumnail a snapshot if avialable
+					if rom_info['rom_snapshot'+str(ii+1)]:
+						property_sub_value = rom_info['rom_snapshot'+str(ii+1)][0] #Search through all the snapshots, make the thumb the first one
 			property_value = html_unescape(xstr(property_sub_value))
 		elif property_name == 'rom_date':
 			if rom_info['rom_date']:
@@ -1600,65 +1605,6 @@ def unzip_dosbox_update_conf_file(iarl_data):
 
 	return overall_success, conf_filename
 
-# def unzip_dosbox_update_conf_file(current_fname):
-# 	zip_success = False
-# 	new_fname = None
-# 	conf_file = None
-# 	current_zip_fileparts = os.path.split(current_fname)
-# 	current_zip_path = current_zip_fileparts[0]
-
-# 	if zipfile.is_zipfile(current_fname):
-# 		try:
-# 			z_file = zipfile.ZipFile(current_fname)
-# 			# uz_file_extension = os.path.splitext(z_file.namelist()[0])[1] #Get rom extension
-# 			#This is a kajillion times faster, but not compatible with python 2.6?
-# 			# zipfile.ZipFile(open(current_fname,'r')).extractall(path=current_zip_path)
-# 			z_file.extractall(current_zip_path)
-# 			z_file.close()
-# 			zip_success = True
-# 			xbmc.log(msg='IARL:  DOSBox Conf Unzip sucessfull for ' +str(current_fname), level=xbmc.LOGDEBUG)
-# 		except:
-# 			zip_success = False
-# 			xbmc.log(msg='IARL:  DOSBox Conf Unzip failed for ' +str(current_fname), level=xbmc.LOGERROR)
-
-# 		if zip_success:
-# 			# os.remove(current_fname)
-# 			try:
-# 				conf_file = [s for s in z_file.namelist() if s.endswith('.conf')][0]
-# 			except:
-# 				conf_file = None
-# 			if conf_file is not None:
-# 				old_conf_file = os.path.join(current_zip_path,conf_file)
-# 				new_conf_file = os.path.join(current_zip_path,conf_file.split('/')[0],'kodi_launch.conf')
-# 				fout = open(new_conf_file, 'w') # out file
-# 				with open(old_conf_file, 'rU') as fin:
-# 					while True:
-# 						line = fin.readline()
-# 						if 'mount c ' in line:
-# 							try:
-# 								my_new_line = 'mount c "'+current_zip_path+'"\r'
-# 								fout.write(my_new_line)
-# 							except:
-# 								fout.write(line)
-# 						elif 'exit' in line: #Comment out any exit calls in the configuration file
-# 							my_new_line = '#exit\r'
-# 							fout.write(my_new_line)
-# 						else:
-# 							fout.write(line)
-# 						if not line:
-# 							break
-# 							pass
-# 				fout.close()
-# 				new_fname = new_conf_file
-# 				xbmc.log(msg='IARL:  Created DOSBox Launch configuration file: ' +str(new_fname), level=xbmc.LOGDEBUG)
-# 			else:
-# 				current_dialog = xbmcgui.Dialog()
-# 				ok_ret = current_dialog.ok('Notice','No configuration file found with DOS Game Archive[CR]You will have to manually launch this game.')
-# 				xbmc.log(msg='IARL:  No configuration file found with DOS Game Archive', level=xbmc.LOGERROR)
-# 				new_fname = current_fname
-
-# 	return zip_success, new_fname
-
 def generate_uae_conf_file(iarl_data):
 	conf_file = None
 	conf_success = False
@@ -1666,14 +1612,17 @@ def generate_uae_conf_file(iarl_data):
 	current_save_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][0])
 	current_save_path = current_save_fileparts[0]
 	file_base_name = clean_file_folder_name(iarl_data['current_rom_data']['rom_title'])
-	new_filename = os.path.join(current_save_path,'kodi_launch_'+str(file_base_name)+'.fs-uae')
+	new_filename = os.path.join(current_save_path,str(file_base_name)+'.fs-uae')
 
 	if not os.path.isfile(new_filename):
 		show_busy_dialog()
 		with open(uae_config_template, 'r') as content_file:
 			uae_config_template_content = content_file.read()
 
-		uae_config_template_content = uae_config_template_content.replace('%AMIGA_MODEL%',iarl_data['current_rom_data']['rom_emu_command'])
+		try:
+			uae_config_template_content = uae_config_template_content.replace('%AMIGA_MODEL%',iarl_data['current_rom_data']['rom_emu_command'])
+		except:
+			pass
 		uae_config_template_content = uae_config_template_content.replace('%AMIGA_MODEL%','A4000') #Default Amiga model if one is not available
 		for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
 			if iarl_data['current_save_data']['rom_save_filenames'][ii] is not None:
@@ -1773,6 +1722,154 @@ def generate_uae_cd32_conf_file(iarl_data):
 		current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
 
 	return conf_success, conf_file
+
+
+def generate_uae4arm_conf_file(iarl_data):
+	conf_file = None
+	conf_success = False
+	continue_launch = False
+
+	if len(iarl_data['current_save_data']['rom_save_filenames'])>4:
+		current_dialog = xbmcgui.Dialog()
+		ret1 = current_dialog.select('There are more than 4 disks for this game, launch anyway?', ['Yes','No'])
+		if ret1 == 0:
+			continue_launch = False
+		else:
+			continue_launch = True
+	else:
+		continue_launch = True
+
+	if continue_launch:	
+		uae_config_template = os.path.join(iarl_data['addon_data']['addon_install_path'],'resources','data','UAE4ARM_config_template.uae')
+		current_save_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][0])
+		current_save_path = current_save_fileparts[0]
+		file_base_name = clean_file_folder_name(iarl_data['current_rom_data']['rom_title'])
+		new_filename = os.path.join(current_save_path,str(file_base_name)+'.uae')
+
+		if not os.path.isfile(new_filename):
+			show_busy_dialog()
+			with open(uae_config_template, 'r') as content_file:
+				uae_config_template_content = content_file.read()
+
+			# try:
+			# 	uae_config_template_content = uae_config_template_content.replace('%AMIGA_MODEL%',iarl_data['current_rom_data']['rom_emu_command'])
+			# except:
+			# 	pass
+			# uae_config_template_content = uae_config_template_content.replace('%AMIGA_MODEL%','A4000') #Default Amiga model if one is not available
+			uae_config_template_content = uae_config_template_content.replace('%AMIGA_TITLE%',iarl_data['current_rom_data']['rom_title'])
+			uae_config_template_content = uae_config_template_content.replace('%AMIGA_NDISKS%',str(len(iarl_data['current_save_data']['rom_save_filenames'])))
+			
+			for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
+				if iarl_data['current_save_data']['rom_save_filenames'][ii] is not None:
+					if len(iarl_data['current_save_data']['rom_save_filenames'][ii])>0:
+						uae_config_template_content = uae_config_template_content.replace('%INCLUDE_AMIGA_DISK'+str(ii)+'%','')
+						uae_config_template_content = uae_config_template_content.replace('%AMIGA_DISK'+str(ii)+'%',iarl_data['current_save_data']['rom_save_filenames'][ii])
+
+			#Replace any remaining disk outliers with the correct value (comment out the non used disks)
+			for ii in range(0,21):
+				uae_config_template_content = uae_config_template_content.replace('%INCLUDE_AMIGA_DISK'+str(ii)+'%','; ')
+
+			with open(new_filename, 'w') as fout:
+				fout.write(uae_config_template_content)
+			hide_busy_dialog()
+			
+		if os.path.isfile(new_filename):
+			conf_success = True
+			conf_file = new_filename
+
+	return conf_success, conf_file
+
+def setup_mame_softlist_game(iarl_data,softlist_type):
+	overall_success = False
+	converted_success = list()
+	new_fname = None
+	continue_launch = False
+	check_and_download_hash = False
+
+	current_save_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][0])
+	current_save_path = current_save_fileparts[0]
+	containing_folder = os.path.split(os.path.dirname(iarl_data['current_save_data']['rom_save_filenames'][0]))[-1]
+	file_base_name = clean_file_folder_name(iarl_data['current_rom_data']['rom_title'])
+
+	current_sys_path = iarl_data['settings']['path_to_retroarch_system_dir']
+
+	if current_sys_path is not None: #If the setting for retroarch system directory is defined, then check for/download hash file
+		if len(current_sys_path)>0:
+			continue_launch = True
+			check_and_download_hash = True
+
+	if not continue_launch:
+		if 'true' in __addon__.getSetting(id='iarl_setting_warn_retroarch_sys_dir').lower():
+			current_dialog = xbmcgui.Dialog()
+			ret1 = current_dialog.select('System Directory setting undefined, try launch anyway?', ['Yes','No','Yes, stop warning me!'])
+			if ret1==0:
+				continue_launch = True
+			elif ret1==1:
+				continue_launch = False
+			else:
+				__addon__.setSetting(id='iarl_setting_warn_retroarch_sys_dir',value='false') #No longer show the warning
+				continue_launch = True
+		else:
+			continue_launch = True
+
+
+	if continue_launch:
+		if len(softlist_type)>0:
+			#1 Check for and download hash file if needed
+			parserfile = get_parser_file('mame_softlist_parser.xml')
+			softlistfile = get_parser_file('mame_softlist_database.xml')
+			descParser = DescriptionParserFactory.getParser(parserfile)
+			results = descParser.parseDescription(softlistfile,'xml')
+			softlist_info = [x for x in results if str(softlist_type) in x['system']][0]
+			# print 'ztest'
+			# print softlist_info
+			if check_and_download_hash:
+				current_hash_path = os.path.join(current_sys_path,'mame','hash')
+				save_hash_filename = os.path.join(current_hash_path,os.path.split(softlist_info['web_url'][0])[-1])
+				if not os.path.exists(current_hash_path):
+					try:
+						os.makedirs(current_hash_path)
+					except:
+						xbmc.log(msg='IARL:  Error creating MAME hash path: ' +str(current_hash_path), level=xbmc.LOGERROR)
+				if not os.path.isfile(save_hash_filename): #Download the hash file if it's not already present
+					from resources.lib.webutils import *
+					hash_dl_success = download_tools().Downloader(softlist_info['web_url'][0],save_hash_filename,99999,str(os.path.split(softlist_info['web_url'][0])),'Downloading hash file, please wait...')
+					if not hash_dl_success:
+						xbmc.log(msg='IARL:  Error downloading MAME hash file: ' +str(softlist_info['web_url'][0]), level=xbmc.LOGERROR)
+				else:
+					xbmc.log(msg='IARL:  MAME Softlist hash file was found for '+str(softlist_type), level=xbmc.LOGDEBUG)
+			#2 Check for correct folder and create if needed, then move all files to the folder
+			if containing_folder == softlist_info['folder_name'][0]: #Save location already correctly named
+				xbmc.log(msg='IARL:  MAME folder already defined for '+str(softlist_type), level=xbmc.LOGDEBUG)
+			else: #Make the correct folder
+				if not os.path.exists(os.path.join(current_save_path,softlist_info['folder_name'][0])):
+					try:
+						os.makedirs(os.path.join(current_save_path,softlist_info['folder_name'][0]))
+					except:
+						xbmc.log(msg='IARL:  Error creating mame folder path for ' +str(softlist_type), level=xbmc.LOGERROR)
+				for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
+					new_save_file_location = os.path.join(current_save_path,softlist_info['folder_name'][0],os.path.split(iarl_data['current_save_data']['rom_save_filenames'][ii])[-1])
+					if not os.path.isfile(new_save_file_location):
+						copyFile(iarl_data['current_save_data']['rom_save_filenames'][ii],new_save_file_location)
+					if os.path.isfile(new_save_file_location): #Copy was successful
+						try:
+							os.remove(iarl_data['current_save_data']['rom_save_filenames'][ii]) #Remove the old file
+						except:
+							xbmc.log(msg='IARL:  Old file was not found and could not be deleted '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+						iarl_data['current_save_data']['rom_save_filenames'][ii] = new_save_file_location
+						converted_success.append(True)
+					else:
+						converted_success.append(False)
+						xbmc.log(msg='IARL:  Copying the XML file '+str(file_name)+' failed.', level=xbmc.LOGERROR)
+
+			#3 Define new launch filename
+			if False in converted_success:
+				overall_success = False
+			else:
+				overall_success = True
+				new_fname = iarl_data['current_save_data']['rom_save_filenames'][0]
+
+	return overall_success, new_fname
 
 def convert_chd_bin(current_fname,iarl_setting_chdman_path,point_to_file_type):
 
@@ -1990,6 +2087,7 @@ def convert_7z_m3u(iarl_data):
 				overall_success = True
 				
 	return overall_success, m3u_filename
+
 
 def rename_rom_postdl(current_fname,new_extension):
 	rename_success = False
