@@ -4,6 +4,7 @@ Internet Archive ROM Launcher Change Log
 - Added ColecoVision
 - Added Commodore 64
 - Added / Rescraped NeoGeoCD (works now with MAME soft lists)
+- Rescraped Best of MAME to fix non-working games (there were a handful of games missing supporting files, full MAME list yet to go)
 - Added Magnavox O2
 - Added Sega SG1000
 - Added ZX Spectrum
