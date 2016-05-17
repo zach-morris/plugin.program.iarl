@@ -1103,28 +1103,28 @@
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mame_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME Apple 2GS Softlist (Apple 2GS)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" apple2gs -rompath "%ROM_BASE_PATH%" -flop "%ROM_PATH%" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
+		<launcher_command>"%APP_PATH%\retroarch.exe" "apple2gs -rompath \"%ROM_BASE_PATH%\" -flop \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME CDi Softlist (CDi)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" cdimono1 -rompath "%ROM_BASE_PATH%" -cdrom "%ROM_PATH%" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
+		<launcher_command>"%APP_PATH%\retroarch.exe" "cdimono1 -rompath \"%ROM_BASE_PATH%\" -cdrom \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME Coleco Softlist (ColecoVision)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" coleco -rompath "%ROM_BASE_PATH%" -cart "%ROM_PATH%" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
+		<launcher_command>"%APP_PATH%\retroarch.exe" "coleco -rompath \"%ROM_BASE_PATH%\" -cart \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME C64 Softlist (Commodore 64)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" c64 -rompath "%ROM_BASE_PATH%" -cart "%ROM_PATH%" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
+		<launcher_command>"%APP_PATH%\retroarch.exe" "c64 -rompath \"%ROM_BASE_PATH%\" -cart \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME NeoCD Softlist (Neo Geo CD)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" neocdz -rompath "%ROM_BASE_PATH%" -cdrom "%ROM_PATH%" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
+		<launcher_command>"%APP_PATH%\retroarch.exe" "neocdz -rompath \"%ROM_BASE_PATH%\" -cdrom \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME PC-98 Softlist (PC-9800)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" pc9821 -rompath "%ROM_BASE_PATH%" -flop "%ROM_PATH%" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
+		<launcher_command>"%APP_PATH%\retroarch.exe" "pc9821 -rompath \"%ROM_BASE_PATH%\" -flop \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME Sharp X1 Softlist (Sharp X1)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" x1 -rompath "%ROM_BASE_PATH%" -flop "%ROM_PATH%" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
+		<launcher_command>"%APP_PATH%\retroarch.exe" "x1 -rompath \"%ROM_BASE_PATH%\" -flop \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME X68k Softlist (x68000)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" x68000 -rompath "%ROM_BASE_PATH%" -flop "%ROM_PATH%" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
+		<launcher_command>"%APP_PATH%\retroarch.exe" "x68000 -rompath \"%ROM_BASE_PATH%\" -flop \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen GBA (GBA)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_gba_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1351,6 +1351,30 @@
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mame_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+		<launcher name="RetroArch MAME Apple 2GS Softlist (Apple 2GS)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" "apple2gs -rompath \"%ROM_BASE_PATH%\" -flop \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME CDi Softlist (CDi)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" "cdimono1 -rompath \"%ROM_BASE_PATH%\" -cdrom \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME Coleco Softlist (ColecoVision)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" "coleco -rompath \"%ROM_BASE_PATH%\" -cart \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME C64 Softlist (Commodore 64)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" "c64 -rompath \"%ROM_BASE_PATH%\" -cart \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME NeoCD Softlist (Neo Geo CD)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" "neocdz -rompath \"%ROM_BASE_PATH%\" -cdrom \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME PC-98 Softlist (PC-9800)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" "pc9821 -rompath \"%ROM_BASE_PATH%\" -flop \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME Sharp X1 Softlist (Sharp X1)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" "x1 -rompath \"%ROM_BASE_PATH%\" -flop \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME X68k Softlist (x68000)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" "x68000 -rompath \"%ROM_BASE_PATH%\" -flop \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen GBA (GBA)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_gba_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1920,6 +1944,235 @@
 	</launcher>
 	<launcher name="RetroArch Yabuse (Saturn)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/emulators/scripts/gamestarter.sh yabause "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<!-- OpenElec RPi (Mezo / Lolo78 Addon), by default you must close Kodi with OE, Netplay not implemented with this yet -->
+	<launcher name="RetroArch 4DO (3DO)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh 4do "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BlueMSX (MSX)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh bluemsx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BNES (NES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh bnes "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Accuracy (SNES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh bsnes_accuracy "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Balanced (SNES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh bsnes_balanced "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Performance v085 (SNES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh bsnes_cplusplus98 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Performance (SNES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh bsnes_performance "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Mercury Accuracy (SNES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh bsnes_mercury_accuracy "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Mercury Balanced (SNES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh bsnes_mercury_balanced "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Mercury Performance (SNES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh bsnes_mercury_performance "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch CAP32 (Amstrad CPC)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh cap32 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch CATSFC (SNES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh catsfc "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Craft (Other)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh craft "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch DeSmuME (NDS)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh desmume "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch DOSBox (DOS)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh dosbox "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch EMUX CHIP-8 (CHIP-8)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh emux_chip8 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch EMUX GB (GB/GBC)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh emux_gb "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch EMUX NES (NES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh emux_nes "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch EMUX SMS (SMS)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh emux_sms "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA CPS1 (CPS1)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh fb_alpha_cps1 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA CPS2 (CPS2)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh fb_alpha_cps2 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA (Arcade)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh fb_alpha "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA NEO (Neo Geo)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh fb_alpha_neo "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA SVN (Arcade)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh fba "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FCEUmm (NES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh fceumm "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch fMSX (MSX)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh fmsx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FUSE (Spectrum)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh fuse "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Gambatte (GB/GBC)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh gambatte "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Game and Watch (Other)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh gw "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh genesis_plus_gx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch gpSP (GBA)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh gpsp "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Handy (Lynx)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh handy "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh hatari "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch iMAME4All (Arcade)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh imame4all "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2000 (Arcade 0.37b5)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mame2000 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2003 (Arcade 0.78)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mame2003 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2010 (Arcade 0.139)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mame2010 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2014 (Arcade 0.159)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mame2014 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME (Arcade)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mame "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen GBA (GBA)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mednafen_gba "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen Lynx (Lynx)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mednafen_lynx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen NeoPop (NGP/NGPC)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mednafen_ngp "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PCE FAST (PCE/TG16)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mednafen_pce_fast "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PCFX (PC-FX)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mednafen_pcfx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PSX (PS1)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mednafen_psx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen SNES (SNES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mednafen_snes "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen SuperGrafx (PCE SuperGrafx)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mednafen_supergrafx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen VB (VirtualBoy)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mednafen_vb "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen Cygne (WonderSwan/WonderSwan Color)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mednafen_wswan "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Meteor (GBA)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh meteor "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch mGBA (GBA)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mgba "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mupen64Plus (N64)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mupen64plus "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Nestopia (NES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh nestopia "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh o2em "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch PCSX ReArmed (PS1)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh pcsx_rearmed "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch PicoDrive (SMS/Gen/Sega CD/32X)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh picodrive "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch PocketSNES (SNES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh pocketsnes "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch PPSSPP (PSP)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh ppsspp "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch PrBoom (Other)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh prboom "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch ProSystem (Atari 7800)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh prosystem "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch PUAE (Amiga)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh puae "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch QuickNES (NES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh quicknes "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Reicast (Dreamcast)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh reicast "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch ScummVM (Various)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh scummvm "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x (SNES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh snes9x "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9xNext (SNES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh snes9x_next "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Stella (Atari 2600)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh stella "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch TGBDual (GB/GBC)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh tgbdual "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch TyrQuake (Other)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh tyrquake "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VBANext (GBA)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh vba_next "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VBA-M (GBA)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh vbam "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VECX (Vectrex)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh vecx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Virtual Jaguar (Jaguar)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh virtualjaguar "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Yabuse (Saturn)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh yabause "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="Mupen64plus OpenElec Addon (N64)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>/storage/.kodi/addons/emulator.mupen64plus/bin/mupen64plus.sh --nogui --noask --noosd --fullscreen "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name ="Dolphin OpenElec Addon (GameCube/Wii)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>/storage/.kodi/addons/emulator.dolphin/bin/dolphin-emu-CLI.sh "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<!-- Android -->
 	<launcher name="RetroArch 4DO (3DO)" os="Android">
