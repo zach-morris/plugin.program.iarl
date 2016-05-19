@@ -150,7 +150,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Castelo">
 				<description>Castelo</description>
 				<rom crc="07a3d3db" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fcastelo.zip" sha1="0406ad601be68014820c77eda4491bfb4ea5c402" size="1425" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Castelo</title_clean>
@@ -159,7 +160,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Q*bert">
 				<description>Q*bert</description>
 				<rom crc="532f61ba" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fqbert.zip" sha1="6243fc5593f40d7285ea6b69c541307d3fc583ac" size="6760" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Q*bert</title_clean>
@@ -192,7 +194,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Super Cobra">
 				<description>Super Cobra</description>
 				<rom crc="6cb5cb8f" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fscobra.zip" sha1="c0ff64668723f5f353ce98d3ee6089ebe0201369" size="6325" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Super Cobra</title_clean>
@@ -224,7 +227,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Super Sketch">
 				<description>Super Sketch</description>
 				<rom crc="8627300a" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fssketch.zip" sha1="3acbae2580c38bfea9ce7ec06274edd39607016d" size="4824" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Super Sketch</title_clean>
@@ -233,7 +237,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Antarctic Adventure">
 				<description>Antarctic Adventure</description>
 				<rom crc="fbeb5fad" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fantarct.zip" sha1="7346263ac9428c7f57ed2efbadd7d3dad4059035" size="12544" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Antarctic Adventure</title_clean>
@@ -268,7 +273,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Alphabet Zoo">
 				<description>Alphabet Zoo</description>
 				<rom crc="ae42a206" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Falphazoo.zip" sha1="90b71b0c8fe5c65a8f210999805c0f5a3a94e047" size="13824" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Alphabet Zoo</title_clean>
@@ -298,7 +304,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Amazing Bumpman">
 				<description>Amazing Bumpman</description>
 				<rom crc="d3cae98d" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Famazing.zip" sha1="c5e95b1f9e716f2c87d8adeefc334332ec33852a" size="8604" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Amazing Bumpman</title_clean>
@@ -316,7 +323,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Aquattack">
 				<description>Aquattack</description>
 				<rom crc="96c60fa2" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Faquatack.zip" sha1="918032602843ca0d8cc28f228bfdf81d7ef76dc9" size="11018" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Aquattack</title_clean>
@@ -341,7 +349,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Artillery Duel">
 				<description>Artillery Duel</description>
 				<rom crc="4e18f196" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fartduel.zip" sha1="7d670c56be4f179855ee2a3c106b6398a424b3e6" size="9827" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Artillery Duel</title_clean>
@@ -373,7 +382,8 @@ Max Controllers:  1</emu_comment>
 			<game name="BC's Quest for Tires">
 				<description>BC's Quest for Tires</description>
 				<rom crc="1b866fb5" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fbcquest.zip" sha1="fde4d1474f781d8e62fa565a165f22bebca18c88" size="11874" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>BC's Quest for Tires</title_clean>
@@ -408,7 +418,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Beamrider">
 				<description>Beamrider</description>
 				<rom crc="7f08b2f4" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fbeamridr.zip" sha1="725a19642730bd66b2e49f05fdf9b4a65cb63025" size="11226" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Beamrider</title_clean>
@@ -442,7 +453,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Blockade Runner">
 				<description>Blockade Runner</description>
 				<rom crc="2f153090" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fblockrun.zip" sha1="bc303672edaa6b318ef4ec186da0c458e1b8f349" size="11716" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Blockade Runner</title_clean>
@@ -473,7 +485,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Boulder Dash">
 				<description>Boulder Dash</description>
 				<rom crc="c4ee48aa" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fbdash.zip" sha1="8fd0a5ea6c34dd7b448a947504e7cafc55b091e4" size="8035" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Boulder Dash</title_clean>
@@ -505,7 +518,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Brain Strainers">
 				<description>Brain Strainers</description>
 				<rom crc="5de3b863" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fbrainstr.zip" sha1="e76a5fb958f3dc60ca71d151c2ceacf12bd48095" size="7745" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Brain Strainers</title_clean>
@@ -531,7 +545,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Burgertime">
 				<description>Burgertime</description>
 				<rom crc="0440c21e" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fbtime.zip" sha1="d3a5908706801e366495e41554870c1a9887c396" size="9955" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Burgertime</title_clean>
@@ -565,7 +580,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Cabbage Patch Kids: Adventure in the Park (OAA)">
 				<description>Cabbage Patch Kids: Adventure in the Park (OAA)</description>
 				<rom crc="e7214974" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fcabbage.zip" sha1="f7a5c2e068ba8edba0adea6f876ff17e8ed4ea7d" size="11133" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Cabbage Patch Kids: Adventure in the Park</title_clean>
@@ -601,7 +617,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Campaign '84">
 				<description>Campaign '84</description>
 				<rom crc="d657ab6b" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fcampaign.zip" sha1="35bbf05567020753b6f9a1133cfa9ac6426b0421" size="11068" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Campaign '84</title_clean>
@@ -619,7 +636,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Carnival">
 				<description>Carnival</description>
 				<rom crc="3cab8c1f" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fcarnival.zip" sha1="5484b1694305b8a2097df8c2fa553976a465e9ef" size="11263" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Carnival</title_clean>
@@ -653,7 +671,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Cosmic Avenger">
 				<description>Cosmic Avenger</description>
 				<rom crc="c852bee7" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fcavenger.zip" sha1="943d5174fd193bfc325ba20182c5faabf91b8385" size="8951" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Cosmic Avenger</title_clean>
@@ -689,7 +708,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Cosmic Avenger (Alt)">
 				<description>Cosmic Avenger (Alt)</description>
 				<rom crc="c852bee7" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fcavengera.zip" sha1="943d5174fd193bfc325ba20182c5faabf91b8385" size="3961" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Cosmic Avenger</title_clean>
@@ -725,7 +745,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Cosmic Crisis">
 				<description>Cosmic Crisis</description>
 				<rom crc="f8084e5a" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fccrisis.zip" sha1="bba4996e4c1f35461154198191ef8a7ea6dba2dc" size="8892" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Cosmic Crisis</title_clean>
@@ -742,7 +763,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Centipede">
 				<description>Centipede</description>
 				<rom crc="4afc1fea" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fcentiped.zip" sha1="7bfb576a657fbc6974837d3cca45e863bc702eda" size="9164" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Centipede</title_clean>
@@ -775,7 +797,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Choplifter!">
 				<description>Choplifter!</description>
 				<rom crc="78564c16" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fchoplift.zip" sha1="a1a34df5dfc11be9687949b67c95564269b43049" size="12217" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Choplifter!</title_clean>
@@ -808,7 +831,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Choplifter!">
 				<description>Choplifter!</description>
 				<rom crc="78564c16" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fchoplifta.zip" sha1="a1a34df5dfc11be9687949b67c95564269b43049" size="5981" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Choplifter!</title_clean>
@@ -841,7 +865,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Chuck Norris Superkicks">
 				<description>Chuck Norris Superkicks</description>
 				<rom crc="3c04540f" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fchucknor.zip" sha1="be0b1227a49e7984048eaf9ef2237bc25928e2b4" size="9866" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Chuck Norris Superkicks</title_clean>
@@ -874,7 +899,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Decathlon">
 				<description>Decathlon</description>
 				<rom crc="aa99fda4" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fdecathln.zip" sha1="9592dda5765739aeef37d55cb11e793c1634756f" size="13110" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Decathlon</title_clean>
@@ -892,7 +918,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Donkey Kong">
 				<description>Donkey Kong</description>
 				<rom crc="1a63176e" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fdkong.zip" sha1="4805cada66d9a9909dd31d8e184c58392a2f22d1" size="9219" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Donkey Kong</title_clean>
@@ -930,7 +957,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Donkey Kong Junior">
 				<description>Donkey Kong Junior</description>
 				<rom crc="2c3d41bc" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fdkongjr.zip" sha1="3c14226b4568f5215ea3d361824c76f4c3a1ff6c" size="11923" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Donkey Kong Junior</title_clean>
@@ -966,7 +994,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Mr. Do!'s Castle">
 				<description>Mr. Do!'s Castle</description>
 				<rom crc="525a7d10" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fdocastle.zip" sha1="e6e45cc394198dc1b29274c49f4f283ff119de41" size="10661" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Mr. Do!'s Castle</title_clean>
@@ -1000,7 +1029,8 @@ Max Controllers:  1</emu_comment>
 			<game name="DragonFire">
 				<description>DragonFire</description>
 				<rom crc="4272d250" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fdrgnfire.zip" sha1="b7dc6baffd975e6b6c4dfe2501ffc0e905077c92" size="11483" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>DragonFire</title_clean>
@@ -1032,7 +1062,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Dr. Seuss's Fix-Up the Mix-Up Puzzler">
 				<description>Dr. Seuss's Fix-Up the Mix-Up Puzzler</description>
 				<rom crc="47cf6908" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fdrseuss.zip" sha1="51cc13a608b41cf6a3b5c0e23dd53bd6911cdbf0" size="8626" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Dr. Seuss's Fix-Up the Mix-Up Puzzler</title_clean>
@@ -1058,7 +1089,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Evolution">
 				<description>Evolution</description>
 				<rom crc="75a9c817" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fevolutio.zip" sha1="cfa0de8046eaf7f35fd13400d38a000b3419618f" size="11902" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Evolution</title_clean>
@@ -1087,7 +1119,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Fathom">
 				<description>Fathom</description>
 				<rom crc="bf04e505" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Ffathom.zip" sha1="753a0983e3acb932d8656deca808fc72ad3dfe61" size="12027" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Fathom</title_clean>
@@ -1116,7 +1149,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Flipper Slipper">
 				<description>Flipper Slipper</description>
 				<rom crc="e26569f3" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fflipslip.zip" sha1="c7be7b82dc66e74dcf15fce148b6ebd85d3b4afa" size="9417" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Flipper Slipper</title_clean>
@@ -1137,7 +1171,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Frantic Freddy">
 				<description>Frantic Freddy</description>
 				<rom crc="e33ccf02" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fffreddy.zip" sha1="86298a2687da06cfa93c18a3f762a0c6ee4785d8" size="9074" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Frantic Freddy</title_clean>
@@ -1165,7 +1200,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Frogger">
 				<description>Frogger</description>
 				<rom crc="a213cda1" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Ffrogger.zip" sha1="f2cee2c3e65ef2431dc3b0fa81b2a6e0601dc9ee" size="8400" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Frogger</title_clean>
@@ -1199,7 +1235,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Frogger II: Threedeep!">
 				<description>Frogger II: Threedeep!</description>
 				<rom crc="dd616176" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Ffrogger2.zip" sha1="f246bba92f85e9c3c04b1c927d0f2ba1732ced74" size="11007" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Frogger II: Threedeep!</title_clean>
@@ -1234,7 +1271,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Gateway to Apshai">
 				<description>Gateway to Apshai</description>
 				<rom crc="aa3ec181" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fapshai.zip" sha1="7f79628c298ad6e410af82eeb33871869ad23de8" size="9802" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Gateway to Apshai</title_clean>
@@ -1268,7 +1306,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Gorf">
 				<description>Gorf</description>
 				<rom crc="be7b03b6" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fgorf.zip" sha1="c8b803b3a33fb3c1d788d73f9d4517e00a883291" size="11958" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Gorf</title_clean>
@@ -1304,7 +1343,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Gust Buster">
 				<description>Gust Buster</description>
 				<rom crc="3fb1866e" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fgustbust.zip" sha1="ea8eb96184d0853d35a7f97d3219b616f852421f" size="6902" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Gust Buster</title_clean>
@@ -1321,7 +1361,8 @@ Max Controllers:  1</emu_comment>
 			<game name="H.E.R.O.">
 				<description>H.E.R.O.</description>
 				<rom crc="dcc94c49" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fhero.zip" sha1="2b259833ff2c8b8a9793d4dc94ed8dc45e330180" size="12199" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>H.E.R.O.</title_clean>
@@ -1353,7 +1394,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Illusions">
 				<description>Illusions</description>
 				<rom crc="2b694536" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fillusion.zip" sha1="bfb10fa376a322af33f7933d12df9fe2f64428c5" size="11024" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Illusions</title_clean>
@@ -1371,7 +1413,8 @@ Max Controllers:  1</emu_comment>
 			<game name="James Bond 007">
 				<description>James Bond 007</description>
 				<rom crc="3e8adbd1" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fjbond.zip" sha1="e4af33188fead158682fcf52de4d62b47d24fa21" size="9835" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>James Bond 007</title_clean>
@@ -1403,7 +1446,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Jumpman Junior">
 				<description>Jumpman Junior</description>
 				<rom crc="18936315" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fjmpmanjr.zip" sha1="8eb881a7c24635aee778f047038064e1597512d7" size="10589" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Jumpman Junior</title_clean>
@@ -1437,7 +1481,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Jumpman Junior (Alt)">
 				<description>Jumpman Junior (Alt)</description>
 				<rom crc="18936315" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fjmpmanjra.zip" sha1="8eb881a7c24635aee778f047038064e1597512d7" size="4743" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Jumpman Junior</title_clean>
@@ -1471,7 +1516,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Ken Uston Blackjack-Poker">
 				<description>Ken Uston Blackjack-Poker</description>
 				<rom crc="5b44f5da" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fkubjpok.zip" sha1="ff877c1f8b6592ee14e8b19de990e52796088f5d" size="11031" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Ken Uston Blackjack-Poker</title_clean>
@@ -1501,7 +1547,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Keystone Kapers">
 				<description>Keystone Kapers</description>
 				<rom crc="35776743" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fkeykaper.zip" sha1="7e678402cb44c6ca5a9cfc31a77d25020a6bf35b" size="8700" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Keystone Kapers</title_clean>
@@ -1534,7 +1581,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Lady Bug">
 				<description>Lady Bug</description>
 				<rom crc="6e63f2ed" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fladybug.zip" sha1="3dd931e093cbe757d93df60055cbdad9e8055e26" size="9021" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Lady Bug</title_clean>
@@ -1570,7 +1618,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Sir Lancelot">
 				<description>Sir Lancelot</description>
 				<rom crc="e28346ed" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Flancelot.zip" sha1="e6a10baa96bfe57a65f8bf89c6870c8b8dc31fcc" size="8175" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Sir Lancelot</title_clean>
@@ -1597,7 +1646,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Learning with Leeper">
 				<description>Learning with Leeper</description>
 				<rom crc="55dd8811" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fleeper.zip" sha1="f62f54ce1adace368a627df82e6aa02fefa7006a" size="9400" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Learning with Leeper</title_clean>
@@ -1622,7 +1672,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Logic Levels">
 				<description>Logic Levels</description>
 				<rom crc="d54c581b" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Flogiclvl.zip" sha1="77c46391de8073f6af9754f2b4eba150f258b182" size="11029" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Logic Levels</title_clean>
@@ -1639,7 +1690,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Linking Logic">
 				<description>Linking Logic</description>
 				<rom crc="918f12c0" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Flinklogc.zip" sha1="198767e1c8794f974f3434674cb0e542108d0011" size="6478" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Linking Logic</title_clean>
@@ -1651,7 +1703,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Looping">
 				<description>Looping</description>
 				<rom crc="205a9c61" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Flooping.zip" sha1="38edbb202d934677466d6cd80dc3d302dc834aa4" size="10299" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Looping</title_clean>
@@ -1685,7 +1738,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Meteoric Shower">
 				<description>Meteoric Shower</description>
 				<rom crc="6a162c7d" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fmeteosho.zip" sha1="4429f4bcfac5612de5e8f601706cb3af1b82e58e" size="5891" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Meteoric Shower</title_clean>
@@ -1697,7 +1751,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Montezuma's Revenge">
 				<description>Montezuma's Revenge</description>
 				<rom crc="c94a29af" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fmontezum.zip" sha1="5e03529476b7fdec25016d5c6f0e0cf1d50b5c70" size="12009" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Montezuma's Revenge</title_clean>
@@ -1731,7 +1786,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Moonsweeper">
 				<description>Moonsweeper</description>
 				<rom crc="cbb291b1" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fmoonswpr.zip" sha1="625f30c058073d309ca65fc8a429dc816e5fb88e" size="9688" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Moonsweeper</title_clean>
@@ -1764,7 +1820,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Moonsweeper (Alt)">
 				<description>Moonsweeper (Alt)</description>
 				<rom crc="cbb291b1" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fmoonswpra.zip" sha1="625f30c058073d309ca65fc8a429dc816e5fb88e" size="3887" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Moonsweeper</title_clean>
@@ -1797,7 +1854,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Mountain King">
 				<description>Mountain King</description>
 				<rom crc="c184c59f" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fmking.zip" sha1="26dac5f07cfd8e94460a975a399cc13da9673531" size="8163" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Mountain King</title_clean>
@@ -1829,7 +1887,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Mountain King (Alt)">
 				<description>Mountain King (Alt)</description>
 				<rom crc="c184c59f" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fmkinga.zip" sha1="26dac5f07cfd8e94460a975a399cc13da9673531" size="2595" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Mountain King</title_clean>
@@ -1861,7 +1920,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Motocross Racer">
 				<description>Motocross Racer</description>
 				<rom crc="66472edc" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fmtcracer.zip" sha1="66db758ea1afb2d785acd63fd4e06b2cd370253d" size="8629" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Motocross Racer</title_clean>
@@ -1891,7 +1951,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Mousetrap">
 				<description>Mousetrap</description>
 				<rom crc="c99d687f" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fmtrap.zip" sha1="4d290f92c628f08e2918845c41fd6f8ff2db650a" size="7923" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Mousetrap</title_clean>
@@ -1927,7 +1988,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Mousetrap (Alt)">
 				<description>Mousetrap (Alt)</description>
 				<rom crc="c99d687f" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fmtrapa.zip" sha1="4d290f92c628f08e2918845c41fd6f8ff2db650a" size="2294" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Mousetrap</title_clean>
@@ -1963,7 +2025,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Nova Blast">
 				<description>Nova Blast</description>
 				<rom crc="790433cf" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fnovablst.zip" sha1="129553169c06c021f7c5ef2749780fc92bc17936" size="7894" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Nova Blast</title_clean>
@@ -1996,7 +2059,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Oil's Well">
 				<description>Oil's Well</description>
 				<rom crc="b8cccf31" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Foilswell.zip" sha1="9386933ac6349bdc64313c382d4b07e0da87384e" size="7252" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Oil's Well</title_clean>
@@ -2032,7 +2096,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Oil's Well (Alt)">
 				<description>Oil's Well (Alt)</description>
 				<rom crc="b8cccf31" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Foilswella.zip" sha1="9386933ac6349bdc64313c382d4b07e0da87384e" size="2802" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Oil's Well</title_clean>
@@ -2068,7 +2133,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Omega Race">
 				<description>Omega Race</description>
 				<rom crc="0abd47e7" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fomegrace.zip" sha1="5c0e00743c3336817f878d05e57378646c19c993" size="11310" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Omega Race</title_clean>
@@ -2103,7 +2169,8 @@ Max Controllers:  1</emu_comment>
 			<game name="It's Only Rock 'n' Roll">
 				<description>It's Only Rock 'n' Roll</description>
 				<rom crc="93d46b70" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fonlyrock.zip" sha1="a28d1cecedd3ae20ec37e82167e963097ce85b4c" size="11266" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>It's Only Rock 'n' Roll</title_clean>
@@ -2120,7 +2187,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Space Panic">
 				<description>Space Panic</description>
 				<rom crc="e06fa55b" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fpanic.zip" sha1="21372d49c3fddf034cfeaf83ae0baadb4adef7bb" size="9942" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Space Panic</title_clean>
@@ -2152,7 +2220,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Pepper II">
 				<description>Pepper II</description>
 				<rom crc="2ea3deb5" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fpepper2.zip" sha1="bf1e30be5aa3e4438c4444ae551d4e8a93fea0cc" size="11943" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Pepper II</title_clean>
@@ -2188,7 +2257,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Pitfall!">
 				<description>Pitfall!</description>
 				<rom crc="27bc4115" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fpitfall.zip" sha1="f9c11f484c14c5cfc9c4eddc5203f82a5fe3b8f8" size="9838" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Pitfall!</title_clean>
@@ -2223,7 +2293,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Pitfall II: Lost Caverns">
 				<description>Pitfall II: Lost Caverns</description>
 				<rom crc="08ad596e" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fpitfall2.zip" sha1="d4961033a60b00fb9f99de49079a588b4a6518f0" size="11431" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Pitfall II: Lost Caverns</title_clean>
@@ -2257,7 +2328,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Pitstop (Euro, USA, Can)">
 				<description>Pitstop (Euro, USA, Can)</description>
 				<rom crc="9480724e" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fpitstop.zip" sha1="9eec6c799ff3da0f2f282165cda94ec01d5c53d4" size="12735" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Pitstop</title_clean>
@@ -2291,7 +2363,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Pitstop (USA, Alt)">
 				<description>Pitstop (USA, Alt)</description>
 				<rom crc="9480724e" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fpitstopa.zip" sha1="9eec6c799ff3da0f2f282165cda94ec01d5c53d4" size="6668" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Pitstop</title_clean>
@@ -2325,7 +2398,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Popeye">
 				<description>Popeye</description>
 				<rom crc="0cbf4b76" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fpopeye.zip" sha1="ed10ffa148817c5697f41d964ad2033fe08f1128" size="13002" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Popeye</title_clean>
@@ -2360,7 +2434,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Popeye (Alt)">
 				<description>Popeye (Alt)</description>
 				<rom crc="0cbf4b76" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fpopeyea.zip" sha1="ed10ffa148817c5697f41d964ad2033fe08f1128" size="6364" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Popeye</title_clean>
@@ -2395,7 +2470,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Q*bert Qubes">
 				<description>Q*bert Qubes</description>
 				<rom crc="47e28915" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fqbertqub.zip" sha1="fa9c180b4d6a1599143a9e9184b24a832f804ef7" size="11390" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Q*bert Qubes</title_clean>
@@ -2429,7 +2505,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Quest for Quintana Roo">
 				<description>Quest for Quintana Roo</description>
 				<rom crc="4e0c1380" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fquintana.zip" sha1="1c2ff852476cb6bf2ada58b5582667b3892e04e2" size="11083" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Quest for Quintana Roo</title_clean>
@@ -2462,7 +2539,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Quest for Quintana Roo (Alt)">
 				<description>Quest for Quintana Roo (Alt)</description>
 				<rom crc="4e0c1380" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fquintanaa.zip" sha1="1c2ff852476cb6bf2ada58b5582667b3892e04e2" size="5167" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Quest for Quintana Roo</title_clean>
@@ -2495,7 +2573,8 @@ Max Controllers:  1</emu_comment>
 			<game name="River Raid">
 				<description>River Raid</description>
 				<rom crc="75640b2a" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Friveraid.zip" sha1="32f6b0fe709eaaef43339786de3450051a819ba9" size="10979" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>River Raid</title_clean>
@@ -2531,7 +2610,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Robin Hood">
 				<description>Robin Hood</description>
 				<rom crc="47030356" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Frobinh.zip" sha1="e814584cdd32b3eadf40c5b58aaf83db31fc1c45" size="9613" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Robin Hood</title_clean>
@@ -2562,7 +2642,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Robin Hood (Alt)">
 				<description>Robin Hood (Alt)</description>
 				<rom crc="47030356" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Frobinha.zip" sha1="e814584cdd32b3eadf40c5b58aaf83db31fc1c45" size="5585" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Robin Hood</title_clean>
@@ -2593,7 +2674,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Rock 'n Bolt">
 				<description>Rock 'n Bolt</description>
 				<rom crc="d47a9aa5" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Frockbolt.zip" sha1="92d7537a4a05ba2e57d770bd0c359d707f33f284" size="11497" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Rock 'n Bolt</title_clean>
@@ -2624,7 +2706,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Rock 'n Bolt (Alt)">
 				<description>Rock 'n Bolt (Alt)</description>
 				<rom crc="d47a9aa5" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Frockbolta.zip" sha1="92d7537a4a05ba2e57d770bd0c359d707f33f284" size="5645" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Rock 'n Bolt</title_clean>
@@ -2655,7 +2738,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Rolloverture">
 				<description>Rolloverture</description>
 				<rom crc="668b6bcb" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Frollover.zip" sha1="33a95a81a39087393e60ea61747c40e7be192ca9" size="8833" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Rolloverture</title_clean>
@@ -2672,7 +2756,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Sammy Lightfoot">
 				<description>Sammy Lightfoot</description>
 				<rom crc="2492bac2" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fsammylf.zip" sha1="febc98d86a5b8ab8c9c1ce4621f47a778f3c78bd" size="11159" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Sammy Lightfoot</title_clean>
@@ -2702,7 +2787,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Sammy Lightfoot (Alt)">
 				<description>Sammy Lightfoot (Alt)</description>
 				<rom crc="2492bac2" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fsammylfa.zip" sha1="febc98d86a5b8ab8c9c1ce4621f47a778f3c78bd" size="5553" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Sammy Lightfoot</title_clean>
@@ -2732,7 +2818,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Slither">
 				<description>Slither</description>
 				<rom crc="adc3207c" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fslither.zip" sha1="a23873f89a384ae5b4fa8c518d85ccaa01e78748" size="10826" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Slither</title_clean>
@@ -2760,7 +2847,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Slurpy">
 				<description>Slurpy</description>
 				<rom crc="cb23c846" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fslurpy.zip" sha1="b31e5203857d6b347c4858ad26693c6efe4215a0" size="9470" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Slurpy</title_clean>
@@ -2780,7 +2868,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Smurf Rescue in Gargamel's Castle">
 				<description>Smurf Rescue in Gargamel's Castle</description>
 				<rom crc="675bf14d" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fsmurf.zip" sha1="4ba14cce2e022d039188d7faeee78a679e1f451f" size="11442" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Smurf Rescue in Gargamel's Castle</title_clean>
@@ -2818,7 +2907,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Smurf Rescue in Gargamel's Castle (Alt)">
 				<description>Smurf Rescue in Gargamel's Castle (Alt)</description>
 				<rom crc="675bf14d" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fsmurfa.zip" sha1="4ba14cce2e022d039188d7faeee78a679e1f451f" size="5594" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Smurf Rescue in Gargamel's Castle</title_clean>
@@ -2856,7 +2946,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Space Fury">
 				<description>Space Fury</description>
 				<rom crc="1850548f" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fspacfury.zip" sha1="e09e0e6100a3c1be1e8b7f8178bbff2bdc67a572" size="10937" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Space Fury</title_clean>
@@ -2888,7 +2979,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Spectron">
 				<description>Spectron</description>
 				<rom crc="23e2afa0" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fspectron.zip" sha1="86a0ef0899ec4e3c3b87285dce0991205ca6f0e6" size="9179" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Spectron</title_clean>
@@ -2907,7 +2999,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Super Cross Force">
 				<description>Super Cross Force</description>
 				<rom crc="e5a53b79" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fsprcrossa.zip" sha1="ca92f9f88a59350b3ad6c5bff1ce09883b817e9f" size="1903" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Super Cross Force</title_clean>
@@ -2927,7 +3020,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Super Cross Force">
 				<description>Super Cross Force</description>
 				<rom crc="e5a53b79" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fsprcross.zip" sha1="ca92f9f88a59350b3ad6c5bff1ce09883b817e9f" size="9651" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Super Cross Force</title_clean>
@@ -2947,7 +3041,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Star Wars: The Arcade Game">
 				<description>Star Wars: The Arcade Game</description>
 				<rom crc="a0ea5c68" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fstarwars.zip" sha1="91baa18348815a7bdbccb7281cf563084013d245" size="10955" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Star Wars: The Arcade Game</title_clean>
@@ -2976,7 +3071,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Strike It!">
 				<description>Strike It!</description>
 				<rom crc="7b26040d" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fstrikeit.zip" sha1="4333f87b91b1382da69e8c5df686489baf944d93" size="6117" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Strike It!</title_clean>
@@ -2993,7 +3089,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Tank Wars">
 				<description>Tank Wars</description>
 				<rom crc="9ab82448" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Ftankwars.zip" sha1="e262247c42de75ea21bc3bacdb5faaad2f94a3c2" size="7962" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Tank Wars</title_clean>
@@ -3010,7 +3107,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Telly Turtle">
 				<description>Telly Turtle</description>
 				<rom crc="2d18a9f3" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Ftelly.zip" sha1="ed3b5b05324f3bb8f75b142c200c4f1f8658eb91" size="6885" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Telly Turtle</title_clean>
@@ -3036,7 +3134,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Threshold">
 				<description>Threshold</description>
 				<rom crc="5575f9a7" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fthreshld.zip" sha1="58d010f0f873d6fba04826a84be8cf198074165d" size="10223" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Threshold</title_clean>
@@ -3067,7 +3166,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Time Pilot">
 				<description>Time Pilot</description>
 				<rom crc="c7dbf3f4" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Ftimeplt.zip" sha1="1dbfd4f568c2f635891c692149b14993c3ffaedd" size="11593" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Time Pilot</title_clean>
@@ -3100,7 +3200,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Tomarc the Barbarian">
 				<description>Tomarc the Barbarian</description>
 				<rom crc="938681c2" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Ftomarc.zip" sha1="4f6002b5816630b66d2d143299c56b52e9bc85cd" size="11316" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Tomarc the Barbarian</title_clean>
@@ -3125,7 +3226,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Turbo">
 				<description>Turbo</description>
 				<rom crc="379db77c" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fturbo.zip" sha1="5f2ac05f87dfeb4152b27c8782915c7c934e0710" size="10700" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Turbo</title_clean>
@@ -3160,7 +3262,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Tutankham">
 				<description>Tutankham</description>
 				<rom crc="8186ee58" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Ftutankhm.zip" sha1="034b02e507e5fd76a808a04c27e73a1bc511127c" size="8977" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Tutankham</title_clean>
@@ -3193,7 +3296,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Tutankham (Alt)">
 				<description>Tutankham (Alt)</description>
 				<rom crc="8186ee58" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Ftutankhma.zip" sha1="034b02e507e5fd76a808a04c27e73a1bc511127c" size="3212" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Tutankham</title_clean>
@@ -3226,7 +3330,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Up'n Down">
 				<description>Up'n Down</description>
 				<rom crc="20020b8c" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fupndown.zip" sha1="ac74a4e59e89933abefb85abc302c5d040eb2eac" size="12746" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Up'n Down</title_clean>
@@ -3256,7 +3361,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Venture">
 				<description>Venture</description>
 				<rom crc="d1975c29" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fventure.zip" sha1="d7cb83433dd10dfef5e6215df6794efc88b8380b" size="11749" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Venture</title_clean>
@@ -3291,7 +3397,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Wing War">
 				<description>Wing War</description>
 				<rom crc="9aaba834" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fwingwar.zip" sha1="ba36272b4469249be9dbae48d4c3792f524c9218" size="11300" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Wing War</title_clean>
@@ -3323,7 +3430,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Wizard of Id's Wizmath">
 				<description>Wizard of Id's Wizmath</description>
 				<rom crc="c0c6bda0" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fwizmath.zip" sha1="1492a6581935b85c513484e0b884106eeff72e8f" size="11458" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Wizard of Id's Wizmath</title_clean>
@@ -3354,7 +3462,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Zenji">
 				<description>Zenji</description>
 				<rom crc="c3bde56a" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fzenji.zip" sha1="4979a29af473bb131da3b9ed035fd8167a5fd987" size="10687" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Zenji</title_clean>
@@ -3387,7 +3496,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Sector Alpha">
 				<description>Sector Alpha</description>
 				<rom crc="9299539b" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fsecalpha.zip" sha1="880beb9a4df332948052b40eef09b6c877de5f9e" size="14752" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Sector Alpha</title_clean>
@@ -3406,7 +3516,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Sector Alpha">
 				<description>Sector Alpha</description>
 				<rom crc="9299539b" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fsecalphaa.zip" sha1="880beb9a4df332948052b40eef09b6c877de5f9e" size="1379" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Sector Alpha</title_clean>
@@ -3425,7 +3536,8 @@ Max Controllers:  1</emu_comment>
 			<game name="BC's Quest for Tires II: Grog's Revenge">
 				<description>BC's Quest for Tires II: Grog's Revenge</description>
 				<rom crc="6bd84eb0" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fbcquest2.zip" sha1="3925adc9e550c7a6dc5edb2972ca43d9c1a94172" size="18188" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>BC's Quest for Tires II: Grog's Revenge</title_clean>
@@ -3454,7 +3566,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Bump 'n' Jump">
 				<description>Bump 'n' Jump</description>
 				<rom crc="92b052f8" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fbnj.zip" sha1="c21bcc02ef6827a858df83e59802a226337d36a3" size="10933" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Bump 'n' Jump</title_clean>
@@ -3487,7 +3600,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Buck Rogers: Planet of Zoom">
 				<description>Buck Rogers: Planet of Zoom</description>
 				<rom crc="ceb94075" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fbuckrog.zip" sha1="26d5a657a54cf44905115732dc07d5ff86a02ab0" size="14807" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Buck Rogers: Planet of Zoom</title_clean>
@@ -3521,7 +3635,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Congo Bongo">
 				<description>Congo Bongo</description>
 				<rom crc="a92dfd24" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fcongo.zip" sha1="f0e665f145a1470e8e80203fd220b1baae1460e4" size="18037" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Congo Bongo</title_clean>
@@ -3555,7 +3670,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Defender">
 				<description>Defender</description>
 				<rom crc="bd96e222" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fdefender.zip" sha1="394f0a3269f972b6363e83959a86f087b274bfdb" size="14912" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Defender</title_clean>
@@ -3589,7 +3705,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Donkey Kong (Earlier)">
 				<description>Donkey Kong (Earlier)</description>
 				<rom crc="dcaf20d8" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fdkonga.zip" sha1="0e8c227b69453ed21850baffff882ed272966500" size="13891" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Donkey Kong</title_clean>
@@ -3627,7 +3744,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Frenzy">
 				<description>Frenzy</description>
 				<rom crc="5111bca0" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Ffrenzy.zip" sha1="df3c343b2499a6aa8e6a95c3d005aca1e8c1531f" size="13782" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Frenzy</title_clean>
@@ -3662,7 +3780,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Frenzy (Alt 1)">
 				<description>Frenzy (Alt 1)</description>
 				<rom crc="5111bca0" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Ffrenzya.zip" sha1="df3c343b2499a6aa8e6a95c3d005aca1e8c1531f" size="2893" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Frenzy</title_clean>
@@ -3697,7 +3816,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Frenzy (Alt 2)">
 				<description>Frenzy (Alt 2)</description>
 				<rom crc="5111bca0" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Ffrenzya2.zip" sha1="df3c343b2499a6aa8e6a95c3d005aca1e8c1531f" size="2871" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Frenzy</title_clean>
@@ -3732,7 +3852,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Front Line">
 				<description>Front Line</description>
 				<rom crc="7b46a5b7" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Ffrontlin.zip" sha1="39af2d5ad4b45f077ed52074bd9db9c0b9f0ea3f" size="16142" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Front Line</title_clean>
@@ -3766,7 +3887,8 @@ Max Controllers:  1</emu_comment>
 			<game name="The Heist">
 				<description>The Heist</description>
 				<rom crc="a3696552" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fheist.zip" sha1="1ca7b8c9c2e046b099c747ed05efb8e175c7e37d" size="14806" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>The Heist</title_clean>
@@ -3801,7 +3923,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Jungle Hunt">
 				<description>Jungle Hunt</description>
 				<rom crc="75179eb9" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fjungleh.zip" sha1="e3b23780cf581c28f9c32462688060fc761bb33d" size="17993" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Jungle Hunt</title_clean>
@@ -3834,7 +3957,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Miner 2049er">
 				<description>Miner 2049er</description>
 				<rom crc="e2814592" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fmine2049.zip" sha1="72d481f162983584d38a4a4d68aff51c519d9773" size="14850" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Miner 2049er</title_clean>
@@ -3869,7 +3993,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Mr. Do!">
 				<description>Mr. Do!</description>
 				<rom crc="a32a3f5f" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fmrdo.zip" sha1="7a2559e98a3226e8608d75ffe284d5b828416959" size="14232" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Mr. Do!</title_clean>
@@ -3906,7 +4031,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Mr. Do! (Alt)">
 				<description>Mr. Do! (Alt)</description>
 				<rom crc="a32a3f5f" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fmrdoa.zip" sha1="7a2559e98a3226e8608d75ffe284d5b828416959" size="2923" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Mr. Do!</title_clean>
@@ -3943,7 +4069,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Roc 'n Rope">
 				<description>Roc 'n Rope</description>
 				<rom crc="24d5a53c" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Frocnrope.zip" sha1="eb20530efd18ee2a0a72513ee1fabca33b1fe683" size="15624" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Roc 'n Rope</title_clean>
@@ -3979,7 +4106,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Rocky: Super Action Boxing">
 				<description>Rocky: Super Action Boxing</description>
 				<rom crc="a51498f5" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Frocky.zip" sha1="91f764f4b3a236cda9e99284fba7f03ddf781974" size="15364" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Rocky: Super Action Boxing</title_clean>
@@ -4007,7 +4135,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Sewer Sam">
 				<description>Sewer Sam</description>
 				<rom crc="7906db21" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fsewersam.zip" sha1="636cd4f38b16e84595624084b52ce33f9ea255f9" size="17171" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Sewer Sam</title_clean>
@@ -4038,7 +4167,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Star Trek: Strategic Operations Simulator">
 				<description>Star Trek: Strategic Operations Simulator</description>
 				<rom crc="600e431e" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fstartrek.zip" sha1="916a61bfac4e02918df137ffbd4157cf68174513" size="15343" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Star Trek: Strategic Operations Simulator</title_clean>
@@ -4072,7 +4202,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Subroc">
 				<description>Subroc</description>
 				<rom crc="ff56b769" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fsubroc.zip" sha1="612a0abd13c4c7790890cbcb265a7fd786c7ec5c" size="14930" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Subroc</title_clean>
@@ -4092,7 +4223,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Tarzan: From out of the Jungle">
 				<description>Tarzan: From out of the Jungle</description>
 				<rom crc="b7054e41" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Ftarzan.zip" sha1="2a63be1985f29a2dd932c281bf86c3cc2256a78b" size="19303" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Tarzan: From out of the Jungle</title_clean>
@@ -4108,7 +4240,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Victory (Euro)">
 				<description>Victory (Euro)</description>
 				<rom crc="811389ba" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fvictory.zip" sha1="5fab37b9ffe6d2630c09518e9fbb35d9254962ec" size="13047" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Victory</title_clean>
@@ -4136,7 +4269,8 @@ Max Controllers:  1</emu_comment>
 			<game name="War Games">
 				<description>War Games</description>
 				<rom crc="da4bb2f5" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fwargames.zip" sha1="49284b18d0f620150f150829aceb7140b1233356" size="15043" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>War Games</title_clean>
@@ -4165,7 +4299,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Zaxxon (Coleco)">
 				<description>Zaxxon (Coleco)</description>
 				<rom crc="91ff7961" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fzaxxon.zip" sha1="61e3ffc8b89c7bea961d89f445adcfbe1da874e1" size="15131" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Zaxxon</title_clean>
@@ -4202,7 +4337,8 @@ Max Controllers:  1</emu_comment>
 			<game name="2010: The Graphic Action Game">
 				<description>2010: The Graphic Action Game</description>
 				<rom crc="a8820f34" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2F2010.zip" sha1="a0a5380acb02a23549a883d76d331a04f7d67099" size="20551" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>2010: The Graphic Action Game</title_clean>
@@ -4235,7 +4371,8 @@ Max Controllers:  1</emu_comment>
 			<game name="The Dam Busters">
 				<description>The Dam Busters</description>
 				<rom crc="58dd9764" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fdambust.zip" sha1="3b84662a1dfaf2cc1a6a2d85f7aff785b9b1d052" size="23912" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>The Dam Busters</title_clean>
@@ -4267,7 +4404,8 @@ Max Controllers:  1</emu_comment>
 			<game name="The Dukes of Hazzard">
 				<description>The Dukes of Hazzard</description>
 				<rom crc="1971d9a2" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fhazzard.zip" sha1="c3c8ed25a030dc204a4af929730d59e4f31742ec" size="21236" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>The Dukes of Hazzard</title_clean>
@@ -4295,7 +4433,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Fortune Builder">
 				<description>Fortune Builder</description>
 				<rom crc="b55c5448" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Ffortune.zip" sha1="8a9ac52314cac44109cd2fcea5bf3dbffff4375c" size="18625" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Fortune Builder</title_clean>
@@ -4313,7 +4452,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Spy Hunter">
 				<description>Spy Hunter</description>
 				<rom crc="0a830682" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fspyhunt.zip" sha1="8611f56653530ee557ecd68a5c800dd50b308dc4" size="22683" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Spy Hunter</title_clean>
@@ -4348,7 +4488,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Tapper">
 				<description>Tapper</description>
 				<rom crc="7f8b5222" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Ftapper.zip" sha1="bd34b516e2822ba1806d54c1bb2040cf2a97b8bc" size="23138" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Tapper</title_clean>
@@ -4378,7 +4519,8 @@ Max Controllers:  1</emu_comment>
 			<game name="2010: The Graphic Action Game (Prototype v54)">
 				<description>2010: The Graphic Action Game (Prototype v54)</description>
 				<rom crc="d8a55441" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2F2010p.zip" sha1="373517fa54ea3594468668e2d7b853d66d3b5b96" size="20731" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>2010: The Graphic Action Game</title_clean>
@@ -4411,7 +4553,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Burgertime (Prototype)">
 				<description>Burgertime (Prototype)</description>
 				<rom crc="4e943aeb" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fbtimem.zip" sha1="3364fe1d280a7488a6a3c3b17926ccc8797099fc" size="8651" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Burgertime</title_clean>
@@ -4445,7 +4588,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Cabbage Patch Kids: Adventure in the Park (Prototype)">
 				<description>Cabbage Patch Kids: Adventure in the Park (Prototype)</description>
 				<rom crc="e7214974" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fcabbagep1.zip" sha1="f7a5c2e068ba8edba0adea6f876ff17e8ed4ea7d" size="11536" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Cabbage Patch Kids: Adventure in the Park</title_clean>
@@ -4481,7 +4625,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Dig Dug (Prototype)">
 				<description>Dig Dug (Prototype)</description>
 				<rom crc="e13a6484" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fdigdug.zip" sha1="5d47f361a4c232e4df815776f630b0e1ad7edd4e" size="13533" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Dig Dug</title_clean>
@@ -4494,7 +4639,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Escape from the Mindmaster (Prototype)">
 				<description>Escape from the Mindmaster (Prototype)</description>
 				<rom crc="b8280950" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fmindmstr.zip" sha1="b05e9370c15097b2247935586f2055a790460c99" size="10453" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Escape from the Mindmaster</title_clean>
@@ -4524,7 +4670,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Joust (Prototype)">
 				<description>Joust (Prototype)</description>
 				<rom crc="99402515" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fjoust.zip" sha1="99928ac00b4990e5028a967cc8240630400b2d26" size="15145" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Joust</title_clean>
@@ -4537,7 +4684,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Monkey Academy (Prototype)">
 				<description>Monkey Academy (Prototype)</description>
 				<rom crc="3c321d92" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fmonkeyp.zip" sha1="c5ac325949ae9f8f0c498d5f33d9ff4e2a71fc7d" size="11741" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Monkey Academy</title_clean>
@@ -4560,7 +4708,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Power Lords: Quest for Volcan (Prototype)">
 				<description>Power Lords: Quest for Volcan (Prototype)</description>
 				<rom crc="1137001f" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fpower.zip" sha1="8c71aae93a2b55f8ed9b1d2695a7948eeee452b4" size="16912" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Power Lords: Quest for Volcan</title_clean>
@@ -4576,7 +4725,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Spy Hunter (Prototype, v22)">
 				<description>Spy Hunter (Prototype, v22)</description>
 				<rom crc="f8fd0e1c" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fspyhuntp.zip" sha1="d1b0fe5a51a0459065518b47e2d72d94e1b6b122" size="22820" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Spy Hunter</title_clean>
@@ -4611,7 +4761,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Steamroller (Prototype)">
 				<description>Steamroller (Prototype)</description>
 				<rom crc="dd4f0a05" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fsteam.zip" sha1="f05a3650dcef7d958070b940add921a93c3404d4" size="12195" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Steamroller</title_clean>
@@ -4638,7 +4789,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Super DK! (Prototype)">
 				<description>Super DK! (Prototype)</description>
 				<rom crc="36253de5" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fsuperdk.zip" sha1="7482b65c1dcb8b467c517356e6e75fe8f41f1532" size="18696" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Super DK!</title_clean>
@@ -4647,7 +4799,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Video Hustler (Prototype)">
 				<description>Video Hustler (Prototype)</description>
 				<rom crc="a9177b20" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fhustler.zip" sha1="08172d85140c004241ab585fc41cdc7841f8290b" size="6176" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Video Hustler</title_clean>
@@ -4656,7 +4809,8 @@ Max Controllers:  1</emu_comment>
 			<game name="War Games (Prototype, 0417)">
 				<description>War Games (Prototype, 0417)</description>
 				<rom crc="da4bb2f5" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fwargamesp.zip" sha1="49284b18d0f620150f150829aceb7140b1233356" size="15156" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>War Games</title_clean>
@@ -4685,7 +4839,8 @@ Max Controllers:  1</emu_comment>
 			<game name="Dance Fantasy">
 				<description>Dance Fantasy</description>
 				<rom crc="bff86a98" name="MESS_0.151_Software_List_ROMs/coleco.zip/MESS%200.151%20Software%20List%20ROMs%2Fcoleco%2Fdncfntsy.zip" sha1="6f65bbe13f13a70aee79ce7970095aef280abeaa" size="4758" />
-				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcoleco.zip" size="5617" />
+				<rom name="Mame172arcdcmplt/coleco.zip" size="11617" />
+				<rom name="Mame172arcdcmplt/colecop.zip" size="5617" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecoa.zip" size="5690" />
 				<rom name="MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS%200.151%20ROMs%2Fcolecob.zip" size="5695" />
 				<title_clean>Dance Fantasy</title_clean>

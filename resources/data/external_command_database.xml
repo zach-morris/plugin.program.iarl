@@ -114,30 +114,6 @@
 	<launcher name="RetroArch MAME (Arcade)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch MAME Apple 2GS Softlist (Apple 2GS)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" -rompath "%ROM_BASE_PATH%" apple2gs -flop "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME CDi Softlist (CDi)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" -rompath "%ROM_BASE_PATH%" cdimono1 -cdrom "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME Coleco Softlist (ColecoVision)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" -rompath "%ROM_BASE_PATH%" coleco -cart "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME C64 Softlist (Commodore 64)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" -rompath "%ROM_BASE_PATH%" c64 -cart "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME NeoCD Softlist (Neo Geo CD)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" -rompath "%ROM_BASE_PATH%" neocdz -cdrom "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME PC-98 Softlist (PC-9800)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" -rompath "%ROM_BASE_PATH%" pc9821 -flop "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME Sharp X1 Softlist (Sharp X1)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" -rompath "%ROM_BASE_PATH%" x1 -flop "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME X68k Softlist (x68000)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" -rompath "%ROM_BASE_PATH%" x68000 -flop "%ROM_PATH%"</launcher_command>
-	</launcher>
 	<launcher name="RetroArch Mednafen GBA (GBA)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_gba_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -360,30 +336,6 @@
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" "%ROM_PATH%"</launcher_command>
-	</launcher>
-		<launcher name="RetroArch MAME Apple 2GS Softlist (Apple 2GS)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" -rompath "%ROM_BASE_PATH%" apple2gs -flop "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME CDi Softlist (CDi)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" -rompath "%ROM_BASE_PATH%" cdimono1 -cdrom "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME Coleco Softlist (ColecoVision)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" -rompath "%ROM_BASE_PATH%" coleco -cart "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME C64 Softlist (Commodore 64)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" -rompath "%ROM_BASE_PATH%" c64 -cart "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME NeoCD Softlist (Neo Geo CD)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" -rompath "%ROM_BASE_PATH%" neocdz -cdrom "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME PC-98 Softlist (PC-9800)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" -rompath "%ROM_BASE_PATH%" pc9821 -flop "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME Sharp X1 Softlist (Sharp X1)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" -rompath "%ROM_BASE_PATH%" x1 -flop "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME X68k Softlist (x68000)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" -rompath "%ROM_BASE_PATH%" x68000 -flop "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen GBA (GBA)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_gba_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -608,30 +560,6 @@
 	<launcher name="RetroArch MAME (Arcade)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mame_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch MAME Apple 2GS Softlist (Apple 2GS)" os="Linux/Kodibuntu">
-		<launcher_command>"%APP_PATH%" -L /usr/lib/libretro/mame_libretro.so -rompath "%ROM_BASE_PATH%" apple2gs -flop "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME CDi Softlist (CDi)" os="Linux/Kodibuntu">
-		<launcher_command>"%APP_PATH%" -L /usr/lib/libretro/mame_libretro.so -rompath "%ROM_BASE_PATH%" cdimono1 -cdrom "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME Coleco Softlist (ColecoVision)" os="Linux/Kodibuntu">
-		<launcher_command>"%APP_PATH%" -L /usr/lib/libretro/mame_libretro.so -rompath "%ROM_BASE_PATH%" coleco -cart "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME C64 Softlist (Commodore 64)" os="Linux/Kodibuntu">
-		<launcher_command>"%APP_PATH%" -L /usr/lib/libretro/mame_libretro.so -rompath "%ROM_BASE_PATH%" c64 -cart "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME NeoCD Softlist (Neo Geo CD)" os="Linux/Kodibuntu">
-		<launcher_command>"%APP_PATH%" -L /usr/lib/libretro/mame_libretro.so -rompath "%ROM_BASE_PATH%" neocdz -cdrom "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME PC-98 Softlist (PC-9800)" os="Linux/Kodibuntu">
-		<launcher_command>"%APP_PATH%" -L /usr/lib/libretro/mame_libretro.so -rompath "%ROM_BASE_PATH%" pc9821 -flop "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME Sharp X1 Softlist (Sharp X1)" os="Linux/Kodibuntu">
-		<launcher_command>"%APP_PATH%" -L /usr/lib/libretro/mame_libretro.so -rompath "%ROM_BASE_PATH%" x1 -flop "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME X68k Softlist (x68000)" os="Linux/Kodibuntu">
-		<launcher_command>"%APP_PATH%" -L /usr/lib/libretro/mame_libretro.so -rompath "%ROM_BASE_PATH%" x68000 -flop "%ROM_PATH%"</launcher_command>
-	</launcher>
 	<launcher name="RetroArch Mednafen GBA (GBA)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mednafen_gba_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -855,30 +783,6 @@
 	<launcher name="RetroArch MAME (Arcade)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mame_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch MAME Apple 2GS Softlist (Apple 2GS)" os="Linux/Kodibuntu Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" -L /usr/lib/libretro/mame_libretro.so -rompath "%ROM_BASE_PATH%" apple2gs -flop "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME CDi Softlist (CDi)" os="Linux/Kodibuntu Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" -L /usr/lib/libretro/mame_libretro.so -rompath "%ROM_BASE_PATH%" cdimono1 -cdrom "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME Coleco Softlist (ColecoVision)" os="Linux/Kodibuntu Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" -L /usr/lib/libretro/mame_libretro.so -rompath "%ROM_BASE_PATH%" coleco -cart "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME C64 Softlist (Commodore 64)" os="Linux/Kodibuntu Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" -L /usr/lib/libretro/mame_libretro.so -rompath "%ROM_BASE_PATH%" c64 -cart "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME NeoCD Softlist (Neo Geo CD)" os="Linux/Kodibuntu Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" -L /usr/lib/libretro/mame_libretro.so -rompath "%ROM_BASE_PATH%" neocdz -cdrom "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME PC-98 Softlist (PC-9800)" os="Linux/Kodibuntu Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" -L /usr/lib/libretro/mame_libretro.so -rompath "%ROM_BASE_PATH%" pc9821 -flop "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME Sharp X1 Softlist (Sharp X1)" os="Linux/Kodibuntu Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" -L /usr/lib/libretro/mame_libretro.so -rompath "%ROM_BASE_PATH%" x1 -flop "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME X68k Softlist (x68000)" os="Linux/Kodibuntu Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" -L /usr/lib/libretro/mame_libretro.so -rompath "%ROM_BASE_PATH%" x68000 -flop "%ROM_PATH%"</launcher_command>
-	</launcher>
 	<launcher name="RetroArch Mednafen GBA (GBA)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mednafen_gba_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1101,30 +1005,6 @@
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mame_libretro.dll" "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME Apple 2GS Softlist (Apple 2GS)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" "apple2gs -rompath \"%ROM_BASE_PATH%\" -flop \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME CDi Softlist (CDi)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" "cdimono1 -rompath \"%ROM_BASE_PATH%\" -cdrom \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME Coleco Softlist (ColecoVision)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" "coleco -rompath \"%ROM_BASE_PATH%\" -cart \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME C64 Softlist (Commodore 64)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" "c64 -rompath \"%ROM_BASE_PATH%\" -cart \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME NeoCD Softlist (Neo Geo CD)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" "neocdz -rompath \"%ROM_BASE_PATH%\" -cdrom \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME PC-98 Softlist (PC-9800)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" "pc9821 -rompath \"%ROM_BASE_PATH%\" -flop \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME Sharp X1 Softlist (Sharp X1)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" "x1 -rompath \"%ROM_BASE_PATH%\" -flop \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME X68k Softlist (x68000)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" "x68000 -rompath \"%ROM_BASE_PATH%\" -flop \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen GBA (GBA)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_gba_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1351,30 +1231,6 @@
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mame_libretro.dll" "%ROM_PATH%"</launcher_command>
-	</launcher>
-		<launcher name="RetroArch MAME Apple 2GS Softlist (Apple 2GS)" os="Windows Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" "apple2gs -rompath \"%ROM_BASE_PATH%\" -flop \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME CDi Softlist (CDi)" os="Windows Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" "cdimono1 -rompath \"%ROM_BASE_PATH%\" -cdrom \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME Coleco Softlist (ColecoVision)" os="Windows Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" "coleco -rompath \"%ROM_BASE_PATH%\" -cart \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME C64 Softlist (Commodore 64)" os="Windows Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" "c64 -rompath \"%ROM_BASE_PATH%\" -cart \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME NeoCD Softlist (Neo Geo CD)" os="Windows Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" "neocdz -rompath \"%ROM_BASE_PATH%\" -cdrom \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME PC-98 Softlist (PC-9800)" os="Windows Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" "pc9821 -rompath \"%ROM_BASE_PATH%\" -flop \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME Sharp X1 Softlist (Sharp X1)" os="Windows Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" "x1 -rompath \"%ROM_BASE_PATH%\" -flop \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch MAME X68k Softlist (x68000)" os="Windows Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" "x68000 -rompath \"%ROM_BASE_PATH%\" -flop \"%ROM_PATH%\"" -L "%APP_PATH%\cores\mame_libretro.dll"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen GBA (GBA)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_gba_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1721,229 +1577,229 @@
 	</launcher>
 	<!-- OpenElec RPi (Gamestarter Addon), by default you must close Kodi with OE, Netplay not implemented with this yet -->
 	<launcher name="Amiga UAE4ARM" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh amiga "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh amiga "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch 4DO (3DO)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh 4do "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh 4do "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BlueMSX (MSX)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh bluemsx "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh bluemsx "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BNES (NES)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh bnes "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh bnes "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Accuracy (SNES)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh bsnes_accuracy "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh bsnes_accuracy "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Balanced (SNES)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh bsnes_balanced "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh bsnes_balanced "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Performance v085 (SNES)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh bsnes_cplusplus98 "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh bsnes_cplusplus98 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Performance (SNES)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh bsnes_performance "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh bsnes_performance "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Mercury Accuracy (SNES)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh bsnes_mercury_accuracy "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh bsnes_mercury_accuracy "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Mercury Balanced (SNES)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh bsnes_mercury_balanced "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh bsnes_mercury_balanced "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Mercury Performance (SNES)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh bsnes_mercury_performance "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh bsnes_mercury_performance "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch CAP32 (Amstrad CPC)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh cap32 "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh cap32 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch CATSFC (SNES)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh catsfc "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh catsfc "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Craft (Other)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh craft "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh craft "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch DeSmuME (NDS)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh desmume "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh desmume "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch DOSBox (DOS)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh dosbox "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh dosbox "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch EMUX CHIP-8 (CHIP-8)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh emux_chip8 "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh emux_chip8 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch EMUX GB (GB/GBC)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh emux_gb "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh emux_gb "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch EMUX NES (NES)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh emux_nes "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh emux_nes "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch EMUX SMS (SMS)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh emux_sms "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh emux_sms "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA CPS1 (CPS1)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh fb_alpha_cps1 "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh fb_alpha_cps1 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA CPS2 (CPS2)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh fb_alpha_cps2 "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh fb_alpha_cps2 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA (Arcade)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh fb_alpha "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh fb_alpha "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA NEO (Neo Geo)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh fb_alpha_neo "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh fb_alpha_neo "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA SVN (Arcade)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh fba "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh fba "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FCEUmm (NES)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh fceumm "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh fceumm "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch fMSX (MSX)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh fmsx "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh fmsx "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FUSE (Spectrum)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh fuse "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh fuse "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Gambatte (GB/GBC)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh gambatte "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh gambatte "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Game and Watch (Other)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh gw "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh gw "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh genesis_plus_gx "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh genesis_plus_gx "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch gpSP (GBA)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh gpsp "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh gpsp "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Handy (Lynx)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh handy "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh handy "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh hatari "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh hatari "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch iMAME4All (Arcade)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh imame4all "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh imame4all "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME 2000 (Arcade 0.37b5)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh mame2000 "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mame2000 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME 2003 (Arcade 0.78)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh mame2003 "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mame2003 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME 2010 (Arcade 0.139)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh mame2010 "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mame2010 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME 2014 (Arcade 0.159)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh mame2014 "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mame2014 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh mame "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mame "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen GBA (GBA)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh mednafen_gba "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mednafen_gba "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen Lynx (Lynx)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh mednafen_lynx "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mednafen_lynx "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen NeoPop (NGP/NGPC)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh mednafen_ngp "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mednafen_ngp "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen PCE FAST (PCE/TG16)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh mednafen_pce_fast "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mednafen_pce_fast "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen PCFX (PC-FX)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh mednafen_pcfx "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mednafen_pcfx "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen PSX (PS1)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh mednafen_psx "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mednafen_psx "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh mednafen_snes "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mednafen_snes "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SuperGrafx (PCE SuperGrafx)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh mednafen_supergrafx "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mednafen_supergrafx "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen VB (VirtualBoy)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh mednafen_vb "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mednafen_vb "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen Cygne (WonderSwan/WonderSwan Color)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh mednafen_wswan "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mednafen_wswan "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Meteor (GBA)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh meteor "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh meteor "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch mGBA (GBA)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh mgba "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mgba "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mupen64Plus (N64)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh mupen64plus "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mupen64plus "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Nestopia (NES)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh nestopia "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh nestopia "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh o2em "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh o2em "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PCSX ReArmed (PS1)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh pcsx_rearmed "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh pcsx_rearmed "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PicoDrive (SMS/Gen/Sega CD/32X)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh picodrive "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh picodrive "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PocketSNES (SNES)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh pocketsnes "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh pocketsnes "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PPSSPP (PSP)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh ppsspp "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh ppsspp "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PrBoom (Other)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh prboom "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh prboom "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch ProSystem (Atari 7800)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh prosystem "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh prosystem "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PUAE (Amiga)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh puae "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh puae "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch QuickNES (NES)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh quicknes "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh quicknes "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Reicast (Dreamcast)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh reicast "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh reicast "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch ScummVM (Various)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh scummvm "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh scummvm "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES9x (SNES)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh snes9x "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh snes9x "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES9xNext (SNES)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh snes9x_next "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh snes9x_next "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Stella (Atari 2600)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh stella "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh stella "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch TGBDual (GB/GBC)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh tgbdual "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh tgbdual "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch TyrQuake (Other)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh tyrquake "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh tyrquake "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBANext (GBA)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh vba_next "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh vba_next "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBA-M (GBA)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh vbam "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh vbam "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VECX (Vectrex)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh vecx "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh vecx "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Virtual Jaguar (Jaguar)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh virtualjaguar "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh virtualjaguar "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Yabuse (Saturn)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/emulators/scripts/gamestarter.sh yabause "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh yabause "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<!-- OpenElec RPi (Mezo / Lolo78 Addon), by default you must close Kodi with OE, Netplay not implemented with this yet -->
 	<launcher name="RetroArch 4DO (3DO)" os="OpenElec RPi (Mezo/lollo78 Addon)">
