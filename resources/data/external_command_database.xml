@@ -222,6 +222,9 @@
 	<launcher name="FS-UAE Launcher" os="OSX">
 		<launcher_command>"%APP_PATH_FS_UAE%" "%ROM_PATH%"</launcher_command>
 	</launcher>
+		<launcher name="Dolphin (Wii / Gamecube)" os="OSX">
+		<launcher_command>"%APP_PATH_DOLPHIN%" --exec="%ROM_PATH%" --batch</launcher_command>
+	</launcher>
 	<!-- OSX, with script to close kodi before launch -->
 	<launcher name="RetroArch 4DO (3DO)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/4do_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -444,6 +447,9 @@
 	</launcher>
 	<launcher name="FS-UAE Launcher" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH_FS_UAE%" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="Dolphin (Wii / Gamecube)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH_DOLPHIN%" --exec="%ROM_PATH%" --batch</launcher_command>
 	</launcher>
 	<!-- Linux / Kodibuntu -->
 	<launcher name="RetroArch 4DO (3DO)" os="Linux/Kodibuntu">
@@ -668,6 +674,9 @@
 	<launcher name="FS-UAE Launcher" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH_FS_UAE%" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="Dolphin (Wii / Gamecube)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH_DOLPHIN%" --exec="%ROM_PATH%" --batch</launcher_command>
+	</launcher>
 	<!-- Linux / Kodibuntu, with script to close kodi before launch -->
 	<launcher name="RetroArch 4DO (3DO)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/4do_libretro.so "%ROM_PATH%"</launcher_command>
@@ -890,6 +899,9 @@
 	</launcher>
 	<launcher name="FS-UAE Launcher" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH_FS_UAE%" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="Dolphin (Wii / Gamecube)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH_DOLPHIN%" --exec="%ROM_PATH%" --batch</launcher_command>
 	</launcher>
 	<!-- Windows -->
 	<launcher name="RetroArch 4DO (3DO)" os="Windows">
@@ -1117,6 +1129,9 @@
 	<launcher name="FS-UAE Launcher" os="Windows">
 		<launcher_command>"%APP_PATH_FS_UAE%" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="Dolphin (Wii / Gamecube)" os="Windows">
+		<launcher_command>"%APP_PATH_DOLPHIN%" --exec="%ROM_PATH%" --batch</launcher_command>
+	</launcher>
 	<!-- Windows, with script to close kodi before launch -->
 	<launcher name="RetroArch 4DO (3DO)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\4do_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1337,11 +1352,14 @@
 	<launcher name="RetroArch Yabuse (Saturn)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\yabause_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="Win-UAE (Amiga)" os="Windows Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH_WIN_UAE%" -f "%ROM_PATH%"</launcher_command>
-	</launcher>
 	<launcher name="Project64 (N64)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH_PJ64%" "%ROM_PATH%"</launcher_command>
+	</launcher>
+		<launcher name="FS-UAE Launcher" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH_FS_UAE%" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="Dolphin (Wii / Gamecube)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH_DOLPHIN%" --exec="%ROM_PATH%" --batch</launcher_command>
 	</launcher>
 	<!-- OpenElec x86 (tssemek Addon), by default you must close Kodi with OE, Netplay not implemented with this yet -->
 	<launcher name="RetroArch 4DO (3DO)" os="OpenElec x86 (tssemek Addon)">

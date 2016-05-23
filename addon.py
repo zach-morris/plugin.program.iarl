@@ -30,8 +30,8 @@ iarl_data = {
                             'path_to_retroarch' : plugin.get_setting('iarl_path_to_retroarch',unicode),
                             'path_to_retroarch_system_dir' : plugin.get_setting('iarl_path_to_retroarch_system_dir',unicode),
                             'path_to_retroarch_cfg' : plugin.get_setting('iarl_path_to_retroarch_cfg',unicode),
-                            'enable_additional_emulators' : [plugin.get_setting('iarl_additional_emulator_1_type',unicode),plugin.get_setting('iarl_additional_emulator_2_type',unicode)],
-                            'path_to_additional_emulators' : [plugin.get_setting('iarl_additional_emulator_1_path',unicode),plugin.get_setting('iarl_additional_emulator_2_path',unicode)],
+                            'enable_additional_emulators' : [plugin.get_setting('iarl_additional_emulator_1_type',unicode),plugin.get_setting('iarl_additional_emulator_2_type',unicode),plugin.get_setting('iarl_additional_emulator_3_type',unicode)],
+                            'path_to_additional_emulators' : [plugin.get_setting('iarl_additional_emulator_1_path',unicode),plugin.get_setting('iarl_additional_emulator_2_path',unicode),plugin.get_setting('iarl_additional_emulator_3_path',unicode)],
                             'enable_netplay' : None, #Initialize variable and set later
                             'netplay_host_or_client' : plugin.get_setting('iarl_netplay_hostclient',unicode),
                             'netplay_host_nickname' : plugin.get_setting('iarl_netplay_nickname1',unicode),
@@ -1135,6 +1135,18 @@ def post_download_action(iarl_data,option,option2):
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
             xbmc.log(msg='IARL:  There was an error creating the FS-UAE conf files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)  
+    elif 'generate_uae4arm_conf_file' in option:
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            conversion_success, converted_filename = generate_uae4arm_conf_file(iarl_data)
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error creating the UAE4ARM conf files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)  
     elif 'generate_uae_cd32_conf_file' in option:
         if iarl_data['current_save_data']['rom_save_filenames']:
             conversion_success, converted_filename = generate_uae_cd32_conf_file(iarl_data)
@@ -1195,6 +1207,18 @@ def post_download_action(iarl_data,option,option2):
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
             xbmc.log(msg='IARL:  There was an error converting the 7z track 1 files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
+    elif 'convert_7z_iso' in option:
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            conversion_success, converted_filename = convert_7z_bin_cue_gdi(iarl_data,'iso')
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error converting the 7z iso files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
     elif 'convert_mame_softlist' in option:
         try:
             softlist_type = re.search(r'\([^)]*\)',option).group(0).replace('(','').replace(')','').replace("'",'').strip()

@@ -1,4 +1,7 @@
 Internet Archive ROM Launcher Change Log
+05-23-16
+- Added external launch option for dolphin (may be used in the future)
+- Added UAE4ARM launch function (not tested yet)
 
 05-15-16
 - Added ColecoVision
