@@ -1593,6 +1593,9 @@
 	<launcher name ="FS-UAE OpenElec Addon (Amiga)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>/storage/.kodi/addons/emulator.fs-uae/bin/fs-uae.sh "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name ="PPSSPP OpenElec Addon (PSP)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>/storage/.kodi/addons/emulator.ppsspp/bin/ppsspp.sh "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<!-- OpenElec RPi (Gamestarter Addon), by default you must close Kodi with OE, Netplay not implemented with this yet -->
 	<launcher name="Amiga UAE4ARM" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh amiga "%ROM_PATH%"</launcher_command>
@@ -2305,7 +2308,40 @@
 	<launcher name="MD.EMU (Sega MD)" os="Android">
 		<launcher_command>/system/bin/am start -n com.explusalpha.MdEmu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="Mupen64Plus AE Free Non-Root (N64)" os="Android">
+		<launcher_command>/system/bin/am start -n paulscode.android.mupen64plus.free/paulscode.android.mupen64plusae.MainActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="MSX.EMU (MSX)" os="Android">
 		<launcher_command>/system/bin/am start -n com.explusalpha.MsxEmu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="N64oid (N64)" os="Android">
+		<launcher_command>/system/bin/am start -n com.androidemu.n64/.EmulatorActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="NEO.EMU (Neo Geo)" os="Android">
+		<launcher_command>/system/bin/am start -n com.explusalpha.NeoEmu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="NES.EMU (NES)" os="Android">
+		<launcher_command>/system/bin/am start -n com.androidemu.nes/.EmulatorActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="NGP.EMU (NGP/NGPC)" os="Android">
+		<launcher_command>/system/bin/am start -n com.explusalpha.NgpEmu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="PCE.EMU (PCE/TG16)" os="Android">
+		<launcher_command>/system/bin/am start -n com.PceEmu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="PPSSPP (PSP)" os="Android">
+		<launcher_command>/system/bin/am start -n org.ppsspp.ppsspp/.PpssppActivity -e org.ppsspp.ppsspp.Shortcuts "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="Reicast (Dreamcast)" os="Android">
+		<launcher_command>/system/bin/am start -n com.reicast.emulator/.GL2JNIActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="Snes9x EX+ (SNES)" os="Android">
+		<launcher_command>/system/bin/am start -n com.explusalpha.Snes9xPlus/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="SNesoid (SNES)" os="Android">
+		<launcher_command>/system/bin/am start -n com.androidemu.snes/.EmulatorActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="SuperGNES Lite (SNES)" os="Android">
+		<launcher_command>/system/bin/am start -n com.bubblezapgames.supergnes_lite/.SuperGNES -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
 	</launcher>
 </system>
