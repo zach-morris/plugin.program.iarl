@@ -13,15 +13,21 @@
 	</system>
 	<system name="a5200">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/a5200.xml</web_url>
+		<folder_name>a5200</folder_name>
+		<media_type>-cart</media_type>
 	</system>
 	<system name="a7800">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/a7800.xml</web_url>
 	</system>
 	<system name="a800">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/a800.xml</web_url>
+		<folder_name>a800</folder_name>
+		<media_type>-cart</media_type>
 	</system>
 	<system name="a800_flop">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/a800_flop.xml</web_url>
+		<folder_name>a800</folder_name>
+		<media_type>-flop</media_type>
 	</system>
 	<system name="abc1600">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/abc1600.xml</web_url>
@@ -511,6 +517,8 @@
 	</system>
 	<system name="intv">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/intv.xml</web_url>
+		<folder_name>intv</folder_name>
+		<media_type>-cart</media_type>
 	</system>
 	<system name="intvecs">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/intvecs.xml</web_url>
@@ -1177,6 +1185,8 @@
 	</system>
 	<system name="vectrex">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/vectrex.xml</web_url>
+		<folder_name>vectrex</folder_name>
+		<media_type>-cart</media_type>
 	</system>
 	<system name="vg5k">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/vg5k.xml</web_url>
