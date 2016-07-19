@@ -1,223 +1,226 @@
 <system>
 	<!-- OSX -->
 	<launcher name="RetroArch 4DO (3DO)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/4do_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/4do_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BlueMSX (MSX)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bluemsx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bluemsx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BNES (NES)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bnes_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bnes_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Accuracy (SNES)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_accuracy_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_accuracy_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Balanced (SNES)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_balanced_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_balanced_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Performance v085 (SNES)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_cplusplus98_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_cplusplus98_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Performance (SNES)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_performance_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_performance_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Mercury Accuracy (SNES)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_mercury_accuracy_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_mercury_accuracy_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Mercury Balanced (SNES)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_mercury_balanced_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_mercury_balanced_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Mercury Performance (SNES)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_mercury_performance_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_mercury_performance_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch CAP32 (Amstrad CPC)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/cap32_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/cap32_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch CATSFC (SNES)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/catsfc_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/catsfc_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Craft (Other)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/craft_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/craft_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch DeSmuME (NDS)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/desmume_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/desmume_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch DOSBox (DOS)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/dosbox_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/dosbox_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch EMUX CHIP-8 (CHIP-8)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_chip8_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_chip8_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch EMUX GB (GB/GBC)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_gb_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_gb_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch EMUX NES (NES)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_nes_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_nes_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch EMUX SMS (SMS)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_sms_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_sms_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA CPS1 (CPS1)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_cps1_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_cps1_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA CPS2 (CPS2)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_cps2_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_cps2_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA (Arcade)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA NEO (Neo Geo)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_neo_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_neo_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA SVN (Arcade)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fba_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fba_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FCEUmm (NES)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fceumm_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fceumm_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch fMSX (MSX)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fmsx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fmsx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FUSE (Spectrum)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fuse_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fuse_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Gambatte (GB/GBC)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/gambatte_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/gambatte_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Game and Watch (Other)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/gw_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/gw_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/genesis_plus_gx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/genesis_plus_gx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch gpSP (GBA)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/gpsp_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/gpsp_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Handy (Lynx)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/handy_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/handy_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/hatari_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/hatari_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME 2000 (Arcade 0.37b5)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2000_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2000_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME 2003 (Arcade 0.78)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2003_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2003_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME 2010 (Arcade 0.139)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2010_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2010_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME 2014 (Arcade 0.159)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2014_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2014_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen GBA (GBA)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_gba_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_gba_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen Lynx (Lynx)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_lynx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_lynx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen NeoPop (NGP/NGPC)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_ngp_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_ngp_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen PCE FAST (PCE/TG16)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_pce_fast_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_pce_fast_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen PCFX (PC-FX)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_pcfx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_pcfx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen PSX (PS1)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_psx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_psx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_psx_hw_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_snes_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_snes_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SuperGrafx (PCE SuperGrafx)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_supergrafx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_supergrafx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen VB (VirtualBoy)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_vb_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_vb_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen Cygne (WonderSwan/WonderSwan Color)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_wswan_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_wswan_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Meteor (GBA)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/meteor_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/meteor_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch mGBA (GBA)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mgba_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mgba_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mupen64Plus (N64)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mupen64plus_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mupen64plus_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Nestopia (NES)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/nestopia_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/nestopia_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/o2em_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/o2em_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PCSX ReArmed (PS1)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/pcsx_rearmed_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/pcsx_rearmed_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PicoDrive (SMS/Gen/Sega CD/32X)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/picodrive_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/picodrive_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PocketSNES (SNES)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/pocketsnes_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/pocketsnes_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PPSSPP (PSP)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/ppsspp_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/ppsspp_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PrBoom (Other)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/prboom_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/prboom_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch ProSystem (Atari 7800)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/prosystem_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/prosystem_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PUAE (Amiga)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/puae_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/puae_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch QuickNES (NES)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/quicknes_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/quicknes_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Reicast (Dreamcast)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/reicast_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/reicast_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch ScummVM (Various)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/scummvm_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/scummvm_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES9x (SNES)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/snes9x_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/snes9x_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES9xNext (SNES)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/snes9x_next_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/snes9x_next_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Stella (Atari 2600)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/stella_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/stella_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch TGBDual (GB/GBC)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/tgbdual_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/tgbdual_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch TyrQuake (Other)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/tyrquake_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/tyrquake_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBANext (GBA)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vba_next_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vba_next_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBA-M (GBA)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vbam_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vbam_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VECX (Vectrex)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vecx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vecx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Virtual Jaguar (Jaguar)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/virtualjaguar_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/virtualjaguar_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Yabuse (Saturn)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/yabause_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/yabause_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="FS-UAE Launcher" os="OSX">
 		<launcher_command>"%APP_PATH_FS_UAE%" "%ROM_PATH%"</launcher_command>
@@ -227,223 +230,226 @@
 	</launcher>
 	<!-- OSX, with script to close kodi before launch -->
 	<launcher name="RetroArch 4DO (3DO)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/4do_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/4do_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BlueMSX (MSX)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bluemsx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bluemsx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BNES (NES)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bnes_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bnes_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Accuracy (SNES)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_accuracy_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_accuracy_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Balanced (SNES)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_balanced_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_balanced_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Performance v085 (SNES)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_cplusplus98_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_cplusplus98_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Performance (SNES)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_performance_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_performance_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Mercury Accuracy (SNES)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_mercury_accuracy_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_mercury_accuracy_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Mercury Balanced (SNES)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_mercury_balanced_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_mercury_balanced_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BSNES Mercury Performance (SNES)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_mercury_performance_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/bsnes_mercury_performance_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch CAP32 (Amstrad CPC)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/cap32_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/cap32_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch CATSFC (SNES)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/catsfc_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/catsfc_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Craft (Other)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/craft_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/craft_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch DeSmuME (NDS)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/desmume_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/desmume_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch DOSBox (DOS)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/dosbox_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/dosbox_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch EMUX CHIP-8 (CHIP-8)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_chip8_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_chip8_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch EMUX GB (GB/GBC)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_gb_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_gb_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch EMUX NES (NES)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_nes_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_nes_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch EMUX SMS (SMS)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_sms_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_sms_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA CPS1 (CPS1)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_cps1_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_cps1_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA CPS2 (CPS2)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_cps2_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_cps2_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA (Arcade)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA NEO (Neo Geo)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_neo_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_neo_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA SVN (Arcade)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fba_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fba_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FCEUmm (NES)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fceumm_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fceumm_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch fMSX (MSX)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fmsx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fmsx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FUSE (Spectrum)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fuse_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fuse_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Gambatte (GB/GBC)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/gambatte_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/gambatte_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Game and Watch (Other)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/gw_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/gw_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/genesis_plus_gx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/genesis_plus_gx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch gpSP (GBA)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/gpsp_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/gpsp_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Handy (Lynx)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/handy_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/handy_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/hatari_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/hatari_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME 2000 (Arcade 0.37b5)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2000_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2000_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME 2003 (Arcade 0.78)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2003_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2003_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME 2010 (Arcade 0.139)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2010_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2010_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME 2014 (Arcade 0.159)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2014_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2014_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen GBA (GBA)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_gba_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_gba_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen Lynx (Lynx)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_lynx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_lynx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen NeoPop (NGP/NGPC)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_ngp_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_ngp_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen PCE FAST (PCE/TG16)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_pce_fast_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_pce_fast_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen PCFX (PC-FX)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_pcfx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_pcfx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen PSX (PS1)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_psx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_psx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_psx_hw_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_snes_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_snes_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SuperGrafx (PCE SuperGrafx)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_supergrafx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_supergrafx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen VB (VirtualBoy)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_vb_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_vb_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen Cygne (WonderSwan/WonderSwan Color)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_wswan_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_wswan_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Meteor (GBA)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/meteor_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/meteor_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch mGBA (GBA)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mgba_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mgba_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mupen64Plus (N64)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mupen64plus_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mupen64plus_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Nestopia (NES)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/nestopia_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/nestopia_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/o2em_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/o2em_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PCSX ReArmed (PS1)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/pcsx_rearmed_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/pcsx_rearmed_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PicoDrive (SMS/Gen/Sega CD/32X)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/picodrive_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/picodrive_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PocketSNES (SNES)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/pocketsnes_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/pocketsnes_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PPSSPP (PSP)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/ppsspp_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/ppsspp_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PrBoom (Other)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/prboom_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/prboom_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch ProSystem (Atari 7800)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/prosystem_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/prosystem_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PUAE (Amiga)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/puae_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/puae_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch QuickNES (NES)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/quicknes_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/quicknes_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Reicast (Dreamcast)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/reicast_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/reicast_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch ScummVM (Various)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/scummvm_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/scummvm_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES9x (SNES)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/snes9x_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/snes9x_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES9xNext (SNES)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/snes9x_next_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/snes9x_next_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Stella (Atari 2600)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/stella_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/stella_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch TGBDual (GB/GBC)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/tgbdual_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/tgbdual_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch TyrQuake (Other)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/tyrquake_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/tyrquake_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBANext (GBA)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vba_next_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vba_next_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBA-M (GBA)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vbam_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vbam_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VECX (Vectrex)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vecx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vecx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Virtual Jaguar (Jaguar)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/virtualjaguar_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/virtualjaguar_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Yabuse (Saturn)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/yabause_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/yabause_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="FS-UAE Launcher" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH_FS_UAE%" "%ROM_PATH%"</launcher_command>
@@ -583,6 +589,9 @@
 	</launcher>
 	<launcher name="RetroArch Mednafen PSX (PS1)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mednafen_psx_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mednafen_psx_hw_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mednafen_snes_libretro.so "%ROM_PATH%"</launcher_command>
@@ -810,6 +819,9 @@
 	<launcher name="RetroArch Mednafen PSX (PS1)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mednafen_psx_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mednafen_psx_hw_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mednafen_snes_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1035,6 +1047,9 @@
 	</launcher>
 	<launcher name="RetroArch Mednafen PSX (PS1)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_psx_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_psx_hw_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_snes_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1265,6 +1280,9 @@
 	<launcher name="RetroArch Mednafen PSX (PS1)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_psx_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_psx_hw_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_snes_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1494,6 +1512,9 @@
 	<launcher name="RetroArch Mednafen PSX (PS1)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh mednafen_psx "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh mednafen_psx_hw "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh mednafen_snes "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1592,9 +1613,6 @@
 	</launcher>
 	<launcher name ="FS-UAE OpenElec Addon (Amiga)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>/storage/.kodi/addons/emulator.fs-uae/bin/fs-uae.sh "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name ="PPSSPP OpenElec Addon (PSP)" os="OpenElec x86 (tssemek Addon)">
-		<launcher_command>/storage/.kodi/addons/emulator.ppsspp/bin/ppsspp.sh "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<!-- OpenElec RPi (Gamestarter Addon), by default you must close Kodi with OE, Netplay not implemented with this yet -->
 	<launcher name="Amiga UAE4ARM" os="OpenElec RPi (Gamestarter Addon)">
@@ -1734,6 +1752,9 @@
 	</launcher>
 	<launcher name="RetroArch Mednafen PSX (PS1)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mednafen_psx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="OpenElec RPi (Gamestarter Addon)">
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mednafen_psx_hw "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mednafen_snes "%ROM_PATH%"</launcher_command>
@@ -1957,6 +1978,9 @@
 	</launcher>
 	<launcher name="RetroArch Mednafen PSX (PS1)" os="OpenElec RPi (Mezo/lollo78 Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mednafen_psx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mednafen_psx_hw "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mednafen_snes "%ROM_PATH%"</launcher_command>
@@ -2184,6 +2208,9 @@
 	<launcher name="RetroArch Mednafen PSX (PS1)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mednafen_psx_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mednafen_psx_hw_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mednafen_snes_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
@@ -2308,40 +2335,7 @@
 	<launcher name="MD.EMU (Sega MD)" os="Android">
 		<launcher_command>/system/bin/am start -n com.explusalpha.MdEmu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="Mupen64Plus AE Free Non-Root (N64)" os="Android">
-		<launcher_command>/system/bin/am start -n paulscode.android.mupen64plus.free/paulscode.android.mupen64plusae.MainActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
-	</launcher>
 	<launcher name="MSX.EMU (MSX)" os="Android">
 		<launcher_command>/system/bin/am start -n com.explusalpha.MsxEmu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="N64oid (N64)" os="Android">
-		<launcher_command>/system/bin/am start -n com.androidemu.n64/.EmulatorActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="NEO.EMU (Neo Geo)" os="Android">
-		<launcher_command>/system/bin/am start -n com.explusalpha.NeoEmu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="NES.EMU (NES)" os="Android">
-		<launcher_command>/system/bin/am start -n com.androidemu.nes/.EmulatorActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="NGP.EMU (NGP/NGPC)" os="Android">
-		<launcher_command>/system/bin/am start -n com.explusalpha.NgpEmu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="PCE.EMU (PCE/TG16)" os="Android">
-		<launcher_command>/system/bin/am start -n com.PceEmu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="PPSSPP (PSP)" os="Android">
-		<launcher_command>/system/bin/am start -n org.ppsspp.ppsspp/.PpssppActivity -e org.ppsspp.ppsspp.Shortcuts "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="Reicast (Dreamcast)" os="Android">
-		<launcher_command>/system/bin/am start -n com.reicast.emulator/.GL2JNIActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="Snes9x EX+ (SNES)" os="Android">
-		<launcher_command>/system/bin/am start -n com.explusalpha.Snes9xPlus/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="SNesoid (SNES)" os="Android">
-		<launcher_command>/system/bin/am start -n com.androidemu.snes/.EmulatorActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="SuperGNES Lite (SNES)" os="Android">
-		<launcher_command>/system/bin/am start -n com.bubblezapgames.supergnes_lite/.SuperGNES -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
 	</launcher>
 </system>
