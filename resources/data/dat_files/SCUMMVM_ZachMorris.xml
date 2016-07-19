@@ -121,7 +121,7 @@
 			<emu_launcher>external</emu_launcher>
 			<emu_ext_launch_cmd>none</emu_ext_launch_cmd>
 			<emu_downloadpath>default</emu_downloadpath>
-			<emu_postdlaction>none</emu_postdlaction>
+			<emu_postdlaction>unzip_scummvm_update_conf_file</emu_postdlaction>
 			<emu_comment>ScummVM List by Zach Morris, filtered to remove duplicates.  This list focuses on the original floppy DOS versions of the game.  For a newer version (CD ROM, Windows, etc) please see the full/unfiltered archive listing.[CR]SCUMMVM originally stood for: Script Creation Utility for Maniac Mansion Virtual Machine, but now ScummVM is a general game emulator, allowing the user to play supported adventure games on their platform of choice.</emu_comment>
 			<emu_thumb>http://i.imgur.com/1r0915y.jpg</emu_thumb>
 			<emu_banner>http://i.imgur.com/n0rnnCJ.jpg</emu_banner>

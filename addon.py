@@ -1046,6 +1046,18 @@ def post_download_action(iarl_data,option,option2):
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
             xbmc.log(msg='IARL:  There was an error converting the DOSBox archive for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)  
+    elif 'unzip_scummvm_update_conf_file' in option:
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            conversion_success, converted_filename = unzip_scummvm_update_conf_file(iarl_data)
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error converting the ScummVM archive for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)  
     elif option == 'convert_chd_bin':
         if iarl_data['current_save_data']['rom_save_filenames']:
             for filenames in iarl_data['current_save_data']['rom_save_filenames']:

@@ -1873,6 +1873,67 @@ def setup_mame_softlist_game(iarl_data,softlist_type):
 
 	return overall_success, new_fname
 
+def unzip_scummvm_update_conf_file(iarl_data):
+	zip_success = list()
+	overall_success = False
+	new_launch_exe = None
+	scummvm_config_template = os.path.join(iarl_data['addon_data']['addon_install_path'],'resources','data','scummvm_template.scummvm')
+	current_save_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][0])
+	current_save_path = current_save_fileparts[0]
+	unzip_folder_name = str(iarl_data['current_rom_data']['rom_emu_command'])
+	unzip_folder_path = os.path.join(current_save_path,unzip_folder_name)
+	scummvm_config_template = os.path.join(iarl_data['addon_data']['addon_install_path'],'resources','data','scummvm_template.scummvm')
+	conf_filename = os.path.join(unzip_folder_path,str(iarl_data['current_rom_data']['rom_emu_command'])+'.scummvm')
+	current_dialog = xbmcgui.Dialog()
+	current_dialog.notification('Please Wait','Converting ScummVM Archive...', xbmcgui.NOTIFICATION_INFO, 500000)
+
+	if not os.path.isdir(unzip_folder_path): #If the directory doesnt already exist
+		for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
+			if zipfile.is_zipfile(iarl_data['current_save_data']['rom_save_filenames'][ii]):
+				try:
+					z_file = zipfile.ZipFile(iarl_data['current_save_data']['rom_save_filenames'][ii])
+					z_file.extractall(unzip_folder_path)
+					z_file.close()
+					zip_success.append(True)
+					xbmc.log(msg='IARL:  ScummVM archive unzip successful', level=xbmc.LOGDEBUG)
+				except:
+					zip_success.append(False)
+					xbmc.log(msg='IARL:  ScummVM archive unzip failed', level=xbmc.LOGERROR)
+					current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
+		if False in zip_success:
+			overall_success = False
+			conf_filename = None
+		else: #Make the conf file
+			if not os.path.isfile(conf_filename): #If the conf file doesnt exist yet, make it
+				with open(scummvm_config_template, 'r') as content_file:
+					scummvm_config_content = content_file.read()
+				scummvm_config_content = scummvm_config_content.replace('%GAME_PATH%',unzip_folder_path)
+				scummvm_config_content = scummvm_config_content.replace('%GAME_ID%',str(iarl_data['current_rom_data']['rom_emu_command']))	
+				with open(conf_filename, 'w') as fout:
+					fout.write(scummvm_config_content)
+
+				current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
+				xbmc.log(msg='IARL:  ScummVM conversion successful', level=xbmc.LOGDEBUG)
+				overall_success = True
+	else: #Folder already exists
+		if os.path.isfile(conf_filename): #The conf file already exists
+			current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
+			xbmc.log(msg='IARL:  ScummVM conf file already exists', level=xbmc.LOGDEBUG)
+			overall_success = True
+		else: #Make the conf file
+			with open(scummvm_config_template, 'r') as content_file:
+				scummvm_config_content = content_file.read()
+			scummvm_config_content = scummvm_config_content.replace('%GAME_PATH%',unzip_folder_path)
+			scummvm_config_content = scummvm_config_content.replace('%GAME_ID%',str(iarl_data['current_rom_data']['rom_emu_command']))	
+			with open(conf_filename, 'w') as fout:
+				fout.write(scummvm_config_content)
+
+			current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
+			xbmc.log(msg='IARL:  ScummVM conversion successful', level=xbmc.LOGDEBUG)
+			overall_success = True
+
+	return overall_success, conf_filename
+
 def convert_chd_bin(current_fname,iarl_setting_chdman_path,point_to_file_type):
 
 	if not point_to_file_type:
