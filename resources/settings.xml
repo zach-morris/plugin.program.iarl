@@ -12,16 +12,18 @@
 		<setting id="iarl_setting_dl_cache" type="select" label="Cache Size (MB)" values="Zero (One ROM and Supporting Files Only)|10 MB|25MB|50MB|100MB|150MB|200MB|250MB|300MB|350MB|400MB|450MB|500MB|1GB|2GB|5GB|10GB|20GB" default="Zero (One ROM and Supporting Files Only)"/>
 	</category>
 	<category label="External Launchers">
-		<setting id="iarl_external_user_external_env" type="select" label="My System Type" values="Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|OpenElec RPi (Gamestarter Addon)|Android" default="Select" visible="true"/>
+		<setting id="iarl_external_user_external_env" type="select" label="My System Type" values="Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|LibreElec x86|OpenElec RPi (Gamestarter Addon)|Android" default="Select" visible="true"/>
 		<setting id="iarl_external_launch_close_kodi" type="select" label="Close Kodi on Launch" values="Disabled|Enabled" default="Disabled" visible="eq(-1,OSX)|eq(-1,Windows)|eq(-1,Linux/Kodibuntu)"/>
 		<setting id="iarl_path_to_retroarch" type="executable" label="RetroArch App Location" visible="eq(-2,OSX)|eq(-2,Windows)|eq(-2,Linux/Kodibuntu)"/>
 		<setting id="iarl_path_to_retroarch_system_dir" type="folder" label="RetroArch System Folder" visible="!eq(-3,Select)"/>
 		<setting id="iarl_path_to_retroarch_cfg" type="file" label="RetroArch CFG Location" visible="eq(-4,Android)"/>
 		<setting label="Additional Emulators:" type="lsep" visible="eq(-5,OSX)|eq(-5,Windows)|eq(-5,Linux/Kodibuntu)"/>
-		<setting id="iarl_additional_emulator_1_type" type="select" label="Additional Emulator 1" values="Disabled|FS-UAE|Project 64 (Win)" default="Disabled" visible="eq(-6,OSX)|eq(-6,Windows)|eq(-6,Linux/Kodibuntu)"/>
+		<setting id="iarl_additional_emulator_1_type" type="select" label="Additional Emulator 1" values="Disabled|FS-UAE|Project 64 (Win)|Dolphin" default="Disabled" visible="eq(-6,OSX)|eq(-6,Windows)|eq(-6,Linux/Kodibuntu)"/>
 		<setting id="iarl_additional_emulator_1_path" type="executable" label="Emulator 1 App Location" visible="!eq(-1,Disabled)"/>
-		<setting id="iarl_additional_emulator_2_type" type="select" label="Additional Emulator 2" values="Disabled|FS-UAE|Project 64 (Win)" default="Disabled" visible="eq(-8,OSX)|eq(-8,Windows)|eq(-8,Linux/Kodibuntu)"/>
+		<setting id="iarl_additional_emulator_2_type" type="select" label="Additional Emulator 2" values="Disabled|FS-UAE|Project 64 (Win)|Dolphin" default="Disabled" visible="eq(-8,OSX)|eq(-8,Windows)|eq(-8,Linux/Kodibuntu)"/>
 		<setting id="iarl_additional_emulator_2_path" type="executable" label="Emulator 2 App Location" visible="!eq(-1,Disabled)"/>
+		<setting id="iarl_additional_emulator_3_type" type="select" label="Additional Emulator 3" values="Disabled|FS-UAE|Project 64 (Win)|Dolphin" default="Disabled" visible="eq(-10,OSX)|eq(-10,Windows)|eq(-10,Linux/Kodibuntu)"/>
+		<setting id="iarl_additional_emulator_3_path" type="executable" label="Emulator 3 App Location" visible="!eq(-1,Disabled)"/>
 	</category>
 	<category label="Netplay">
 		<setting id="iarl_enable_netplay" type="select" label="Enable Netplay" values="Enabled|Disabled" default="Disabled"/>
@@ -36,7 +38,7 @@
 	<category label="Setup Wizard">
 		<setting label="Wizard setup for external launchers" type="lsep" visible="true"/>
 		<setting label="Before running, please setup the external launcher tab" type="lsep" visible="true"/>
-		<setting id="iarl_external_user_external_env" type="select" label="My System Type" values="Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|OpenElec RPi (Gamestarter Addon)|Android" default="Select" visible="true" enable="false"/>
+		<setting id="iarl_external_user_external_env" type="select" label="My System Type" values="Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|LibreElec x86|OpenElec RPi (Gamestarter Addon)|Android" default="Select" visible="true" enable="false"/>
 		<setting id="iarl_external_launch_close_kodi" type="select" label="Close Kodi on Launch" values="Disabled|Enabled" default="Disabled" visible="true" enable="false"/>
 		<setting id="iarl_wizard_launcher" type="select" label="Emulator Launcher" values="Select|External|Kodi Retroplayer" default="External" visible="false"/>
 		<setting id="iarl_wizard_launcher_group" type="select" label="Set me up for" values="Select|Most Playable (Least CPU Intensive)|Balanced|Most Accurate" default="Select" visible="true"/>

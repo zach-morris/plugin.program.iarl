@@ -143,6 +143,11 @@ def get_operating_system():
 						current_OS = 'OpenElec RPi'
 					else:
 						current_OS = 'OpenElec x86'
+				elif 'LibreElec'.lower() in os_content_file.lower():
+					if 'RPi2.arm'.lower() in os_content_file.lower():
+						current_OS = 'LibreElec RPi'
+					else:
+						current_OS = 'LibreElec x86'
 			except:
 				current_OS = 'Nix'
 		else:
@@ -322,7 +327,10 @@ def get_addondata_bindir():
 	return os.path.join(get_addon_install_path(),'resources','bin')
 
 def get_youtube_plugin_url(videoid):
-	return 'plugin://plugin.video.youtube/play/?video_id=%s'%videoid
+	if 'http' in videoid:
+		return videoid
+	else:
+		return 'plugin://plugin.video.youtube/play/?video_id=%s'%videoid
 
 def update_addonxml(option):
 	current_dialog = xbmcgui.Dialog()
@@ -583,7 +591,7 @@ def update_external_launch_commands(iarl_data,xml_id,plugin):
 			external_launch_database_os = iarl_data['settings']['external_launch_env'] + ' Close_Kodi' #Look for launch commands to close Kodi
 		else:
 			external_launch_database_os = iarl_data['settings']['external_launch_env']
-		if iarl_data['settings']['external_launch_env'] in 'OpenElec x86 (tssemek Addon)|OpenElec RPi (Gamestarter Addon)|OpenElec RPi (Mezo/lollo78 Addon)|Android'.split('|'):
+		if iarl_data['settings']['external_launch_env'] in 'OpenElec x86 (tssemek Addon)|LibreElec x86|OpenElec RPi (Gamestarter Addon)|Android'.split('|'):
 			external_launch_database_os = external_launch_database_os.replace(' Close_Kodi','') #By default, the above setups auto close Kodi, so there's only one list of launchers to choose from
 		for entries in results:
 			if entries['operating_system'][0] == external_launch_database_os:
