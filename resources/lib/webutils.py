@@ -18,7 +18,9 @@
    	
 """
     
-import xbmc,xbmcplugin,xbmcgui,xbmcaddon,urllib,urllib2,tarfile,os,sys,re,gzip
+import xbmc,xbmcplugin,xbmcgui,xbmcaddon,urllib,urllib2,tarfile,os,sys,re,gzip,requests
+import requests.packages.urllib3
+requests.packages.urllib3.disable_warnings()
 from StringIO import StringIO
 
 user_agent = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1468.0 Safari/537.36'
@@ -31,7 +33,36 @@ class download_tools():
 		success = False
 		try:
 			xbmc.log(msg='IARL:  Download URL: '+str(url), level=xbmc.LOGDEBUG)
-			urllib.urlretrieve(url,dest,lambda nb, bs, fs, url=url: self._pbhook(nb,bs,fs,est_filesize,dp))
+			username = xbmcaddon.Addon('plugin.program.iarl').getSetting('username')
+			if username:
+				password = xbmcaddon.Addon('plugin.program.iarl').getSetting('password')
+				s = requests.Session()
+				r = s.get("https://archive.org/account/login.php")
+				data={"username":username, "password":password, "remember":"CHECKED","action":"login","submit":"Log+in"}
+				r = s.post('https://archive.org/account/login.php', data=data)
+				r = s.get(url,verify=False,stream=True)
+				f = open(dest, 'wb')
+				size = 0
+				import time
+				last_time = time.time()
+				for chunk in r.iter_content(1024):
+					size = size + 1024.0
+					percent = 100.0 * size / est_filesize
+					f.write(chunk)
+					now = time.time()
+					diff = now - last_time
+					if diff > 1:
+						percent = int(percent)
+						last_time = now
+						dp.update(percent)
+						if dp.iscanceled():
+							dp.close()
+							raise
+				f.flush()
+				f.close()
+				dp.close()
+			else:
+				urllib.urlretrieve(url,dest,lambda nb, bs, fs, url=url: self._pbhook(nb,bs,fs,est_filesize,dp))
 			success = True
 		except:
 			xbmc.log(msg='IARL:  Download was cancelled by the user.', level=xbmc.LOGNOTICE)
