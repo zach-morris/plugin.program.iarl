@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
 	<category label="General">
+		<setting id="username" type="text" label="archive.org Username" default=""/>
+		<setting id="password" type="text" label="archive.org Password" default=""/>    
 		<setting id="iarl_setting_cache_list" type="bool" label="Cache ROM Lists After Parsing" default="true"/>
 		<setting id="iarl_setting_clean_list" type="bool" label="Clean ROM Title" default="true"/>
 		<setting id="iarl_setting_listing" type="select" label="Game Listing Convention" values="One Big List|Alphabetical" default="One Big List"/>
