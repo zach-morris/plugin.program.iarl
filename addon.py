@@ -25,6 +25,9 @@ iarl_data = {
                             'game_select_action' : plugin.get_setting('iarl_setting_default_action',unicode),
                             'window_theme' : plugin.get_setting('iarl_setting_rom_window_theme',unicode),
                             'download_cache' : None, #Initialize variable and set later
+                            'ia_enable_login' : None, #Initialize variable and set later
+                            'ia_username' : plugin.get_setting('iarl_setting_ia_username',unicode),
+                            'ia_password' : plugin.get_setting('iarl_setting_ia_password',unicode),
                             'external_launch_env' : plugin.get_setting('iarl_external_user_external_env',unicode),
                             'external_launch_close_kodi' : plugin.get_setting('iarl_external_launch_close_kodi',unicode),
                             'path_to_retroarch' : plugin.get_setting('iarl_path_to_retroarch',unicode),
@@ -178,6 +181,14 @@ except ValueError:
 
 if iarl_data['settings']['netplay_sync_frames'] is None:
     iarl_data['settings']['netplay_sync_frames'] = False #Default to False if not initialized correctly
+
+try:
+    iarl_data['settings']['ia_enable_login'] = enabled_disabled_options[plugin.get_setting('iarl_enable_login',unicode)]
+except ValueError:
+    iarl_data['settings']['ia_enable_login'] = False #Default to False if not initialized correctly
+
+if iarl_data['settings']['ia_enable_login'] is None:
+    iarl_data['settings']['ia_enable_login'] = False #Default to False if not initialized correctly
 
 #Define path to 7za binary
 if 'OSX' in iarl_data['addon_data']['operating_system']:
@@ -947,7 +958,7 @@ def download_rom_only(iarl_data):
             else:
                 download_filename = True #Download the file if the file does not exist
         if download_filename:
-            iarl_data['current_save_data']['rom_save_filenames_success'][ii] = download_tools().Downloader(quote_url(iarl_data['current_rom_data']['rom_filenames'][ii]),iarl_data['current_rom_data']['rom_save_filenames'][ii],iarl_data['current_rom_data']['rom_size'][ii],iarl_data['current_rom_data']['rom_title'],'Downloading, please wait...')
+            iarl_data['current_save_data']['rom_save_filenames_success'][ii] = download_tools().Downloader(quote_url(iarl_data['current_rom_data']['rom_filenames'][ii]),iarl_data['current_rom_data']['rom_save_filenames'][ii],iarl_data['settings']['ia_enable_login'],iarl_data['settings']['ia_username'],iarl_data['settings']['ia_password'],iarl_data['current_rom_data']['rom_size'][ii],iarl_data['current_rom_data']['rom_title'],'Downloading, please wait...')
             if iarl_data['current_save_data']['rom_save_filenames_success'][ii]:
                 if not check_downloaded_file(iarl_data['current_rom_data']['rom_save_filenames'][ii]): #Check the file, if its 0 bytes, then archive.org couldnt find the file
                     iarl_data['current_save_data']['rom_save_filenames_exist'][ii] = True
@@ -963,7 +974,7 @@ def download_rom_only(iarl_data):
             else:
                 download_filename = True #Download the file if the file does not exist
         if download_filename:
-            iarl_data['current_save_data']['rom_save_supporting_filenames_success'][ii] = download_tools().Downloader(quote_url(iarl_data['current_rom_data']['rom_supporting_filenames'][ii]),iarl_data['current_rom_data']['rom_save_supporting_filenames'][ii],9999999,iarl_data['current_rom_data']['rom_supporting_filenames'][ii],'Downloading, please wait...')
+            iarl_data['current_save_data']['rom_save_supporting_filenames_success'][ii] = download_tools().Downloader(quote_url(iarl_data['current_rom_data']['rom_supporting_filenames'][ii]),iarl_data['current_rom_data']['rom_save_supporting_filenames'][ii],iarl_data['settings']['ia_enable_login'],iarl_data['settings']['ia_username'],iarl_data['settings']['ia_password'],9999999,iarl_data['current_rom_data']['rom_supporting_filenames'][ii],'Downloading, please wait...')
             if iarl_data['current_save_data']['rom_save_supporting_filenames_success'][ii]:
                 if not check_downloaded_file(iarl_data['current_rom_data']['rom_save_supporting_filenames'][ii]):
                     iarl_data['current_save_data']['rom_save_supporting_filenames_exist'][ii] = True

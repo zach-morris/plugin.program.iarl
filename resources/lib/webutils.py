@@ -16,26 +16,68 @@
     clean(text) -> Remove specific characters from the page source
     url_isup(url, headers=None) -> Check if url is up. Returns True or False.
    	
+   	Thanks to primaeval for updated code for login capability
 """
     
 import xbmc,xbmcplugin,xbmcgui,xbmcaddon,urllib,urllib2,tarfile,os,sys,re,gzip
+
+try: #Enable login
+	if 'Enabled' in xbmcaddon.Addon('plugin.program.iarl').getSetting('iarl_enable_login'):
+		import requests
+		import time
+		import requests.packages.urllib3
+		requests.packages.urllib3.disable_warnings()
+	else:
+		xbmc.log(msg='IARL:  Login not enabled', level=xbmc.LOGDEBUG)
+except:
+	xbmc.log(msg='IARL:  script.module.requests is not installed, login is not supported without it!', level=xbmc.LOGDEBUG)
+
 from StringIO import StringIO
 
 user_agent = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1468.0 Safari/537.36'
 
 class download_tools():
-	def Downloader(self,url,dest,est_filesize,description,heading):
+	def Downloader(self,url,dest,login_opt,username,password,est_filesize,description,heading):
 		dp = xbmcgui.DialogProgress()
 		dp.create(heading,description,'')
 		dp.update(0)
 		success = False
-		try:
-			xbmc.log(msg='IARL:  Download URL: '+str(url), level=xbmc.LOGDEBUG)
-			urllib.urlretrieve(url,dest,lambda nb, bs, fs, url=url: self._pbhook(nb,bs,fs,est_filesize,dp))
+		if len(username)>0 and len(password)>0 and login_opt: #Attempt to login for downloading
+			s = requests.Session()
+			r = s.get("https://archive.org/account/login.php")
+			data={"username":username, "password":password, "remember":"CHECKED","action":"login","submit":"Log+in"}
+			r = s.post('https://archive.org/account/login.php', data=data)
+			if 'that password seems incorrect' in str(r.text.encode('utf-8')).lower():
+				xbmc.log(msg='IARL:  Login and Password were not accepted, we will try to download anyway', level=xbmc.LOGDEBUG)
+			r = s.get(url,verify=False,stream=True)
+			f = open(dest, 'wb')
+			size = 0
+			last_time = time.time()
+			for chunk in r.iter_content(1024):
+				size = size + 1024.0
+				percent = 100.0 * size / est_filesize
+				f.write(chunk)
+				now = time.time()
+				diff = now - last_time
+				if diff > 1:
+					percent = int(percent)
+					last_time = now
+					dp.update(percent)
+					if dp.iscanceled():
+						dp.close()
+						raise
+			f.flush()
+			f.close()
 			success = True
-		except:
-			xbmc.log(msg='IARL:  Download was cancelled by the user.', level=xbmc.LOGNOTICE)
-			success = False
+			dp.close()
+		else: #No login / pass available or login not enabled, use the old download method
+			try:
+				xbmc.log(msg='IARL:  Download no login URL: '+str(url), level=xbmc.LOGDEBUG)
+				urllib.urlretrieve(url,dest,lambda nb, bs, fs, url=url: self._pbhook(nb,bs,fs,est_filesize,dp))
+				success = True
+			except:
+				xbmc.log(msg='IARL:  Download was cancelled by the user.', level=xbmc.LOGNOTICE)
+				success = False
 
 		return success
 

@@ -666,6 +666,8 @@ def replace_external_launch_variables(iarl_data):
 	        command_out = command_out.replace('%APP_PATH_PJ64%',iarl_data['settings']['path_to_additional_emulators'][jj])
 	    if 'Dolphin' in iarl_data['settings']['enable_additional_emulators'][jj]:
 	        command_out = command_out.replace('%APP_PATH_DOLPHIN%',iarl_data['settings']['path_to_additional_emulators'][jj])
+	    if 'MAME Standalone' in iarl_data['settings']['enable_additional_emulators'][jj]:
+	        command_out = command_out.replace('%APP_PATH_MAME%',iarl_data['settings']['path_to_additional_emulators'][jj])
 
 	if iarl_data['settings']['enable_netplay']:
 	    current_netplay_command = ''

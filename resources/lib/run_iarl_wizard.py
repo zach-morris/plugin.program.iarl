@@ -3,7 +3,8 @@ from descriptionparserfactory import *
 from util import *
 
 addon = xbmcaddon.Addon(id='plugin.program.iarl')
-
+archive_data = get_archive_info()
+print archive_data
 wizard_data = {
 			'settings' : {  'iarl_external_user_external_env' : addon.getSetting('iarl_external_user_external_env'),
 							'iarl_external_launch_close_kodi' : addon.getSetting('iarl_external_launch_close_kodi'),
@@ -64,6 +65,9 @@ wizard_data = {
 							'PS1_Bestof_ZachMorris' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
 							'PS1_ZachMorris_Full' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
 							'PS1_ZachMorris' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
+							# 'PS1_Bestof_ZachMorris' : ['hidden','hidden','hidden'],
+							# 'PS1_ZachMorris_Full' : ['hidden','hidden','hidden'],
+							# 'PS1_ZachMorris' : ['hidden','hidden','hidden'],
 							'Sega_CD_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
 							'Sega_Saturn_ZachMorris' : ['RetroArch Yabuse (Saturn)','RetroArch Yabuse (Saturn)','RetroArch Yabuse (Saturn)'],
 							'Sega_SG1000_ZachMorris' : ['RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)','RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)','RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)'],
@@ -74,7 +78,8 @@ wizard_data = {
 							'TG16_Bestof_ZachMorris' : ['RetroArch Mednafen PCE FAST (PCE/TG16)','RetroArch Mednafen PCE FAST (PCE/TG16)','RetroArch Mednafen PCE FAST (PCE/TG16)'],
 							'TG16_ZachMorris_Full' : ['RetroArch Mednafen PCE FAST (PCE/TG16)','RetroArch Mednafen PCE FAST (PCE/TG16)','RetroArch Mednafen PCE FAST (PCE/TG16)'],
 							'TG16_ZachMorris' : ['RetroArch Mednafen PCE FAST (PCE/TG16)','RetroArch Mednafen PCE FAST (PCE/TG16)','RetroArch Mednafen PCE FAST (PCE/TG16)'],
-							'ZX_Spectrum_ZachMorris' : ['RetroArch FUSE (Spectrum)','RetroArch FUSE (Spectrum)','RetroArch FUSE (Spectrum)'],
+							# 'ZX_Spectrum_ZachMorris' : ['RetroArch FUSE (Spectrum)','RetroArch FUSE (Spectrum)','RetroArch FUSE (Spectrum)'],
+							'ZX_Spectrum_ZachMorris' : ['hidden','hidden','hidden'],
 							'x68000_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'x68000_ZachMorris_Full' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'Apple2GS_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
@@ -84,7 +89,8 @@ wizard_data = {
 							'Atari_5200_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'Vectrex_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'MAME_CHD_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
-							'MAME_2010_ZachMorris' : ['RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)'],
+							# 'MAME_2010_ZachMorris' : ['RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)'],
+							'MAME_2010_ZachMorris' : ['hidden','hidden','hidden'],
 							'FBA_ZachMorris' : ['RetroArch FBA (Arcade)','RetroArch FBA (Arcade)','RetroArch FBA (Arcade)'],
 							'SCUMMVM_ZachMorris' : ['RetroArch ScummVM (Various)','RetroArch ScummVM (Various)','RetroArch ScummVM (Various)'],
 							'SCUMMVM_ZachMorris_Full' : ['RetroArch ScummVM (Various)','RetroArch ScummVM (Various)','RetroArch ScummVM (Various)'],
@@ -136,9 +142,12 @@ wizard_data = {
 							'NGPC_ZachMorris' : ['RetroArch Mednafen NeoPop (NGP/NGPC)','RetroArch Mednafen NeoPop (NGP/NGPC)','RetroArch Mednafen NeoPop (NGP/NGPC)'],
 							'NGPC_ZachMorris_Full' : ['RetroArch Mednafen NeoPop (NGP/NGPC)','RetroArch Mednafen NeoPop (NGP/NGPC)','RetroArch Mednafen NeoPop (NGP/NGPC)'],
 							'Point_and_Click_Bestof_ZachMorris' : ['RetroArch DOSBox (DOS)','RetroArch DOSBox (DOS)','RetroArch DOSBox (DOS)'],
-							'PS1_Bestof_ZachMorris' : ['RetroArch Mednafen PSX (PS1)','RetroArch Mednafen PSX (PS1)','RetroArch Mednafen PSX (PS1)'],
-							'PS1_ZachMorris_Full' : ['RetroArch Mednafen PSX (PS1)','RetroArch Mednafen PSX (PS1)','RetroArch Mednafen PSX (PS1)'],
-							'PS1_ZachMorris' : ['RetroArch Mednafen PSX (PS1)','RetroArch Mednafen PSX (PS1)','RetroArch Mednafen PSX (PS1)'],
+							'PS1_Bestof_ZachMorris' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
+							'PS1_ZachMorris_Full' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
+							'PS1_ZachMorris' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
+							# 'PS1_Bestof_ZachMorris' : ['hidden','hidden','hidden'],
+							# 'PS1_ZachMorris_Full' : ['hidden','hidden','hidden'],
+							# 'PS1_ZachMorris' : ['hidden','hidden','hidden'],
 							'Sega_CD_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
 							'Sega_Saturn_ZachMorris' : ['RetroArch Yabuse (Saturn)','RetroArch Yabuse (Saturn)','RetroArch Yabuse (Saturn)'],
 							'Sega_SG1000_ZachMorris' : ['RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)','RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)','RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)'],
@@ -159,7 +168,8 @@ wizard_data = {
 							'Atari_5200_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'Vectrex_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'MAME_CHD_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
-							'MAME_2010_ZachMorris' : ['RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)'],
+							# 'MAME_2010_ZachMorris' : ['RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)'],
+							'MAME_2010_ZachMorris' : ['hidden','hidden','hidden'],
 							'FBA_ZachMorris' : ['RetroArch FBA (Arcade)','RetroArch FBA (Arcade)','RetroArch FBA (Arcade)'],
 							'SCUMMVM_ZachMorris' : ['RetroArch ScummVM (Various)','RetroArch ScummVM (Various)','RetroArch ScummVM (Various)'],
 							'SCUMMVM_ZachMorris_Full' : ['RetroArch ScummVM (Various)','RetroArch ScummVM (Various)','RetroArch ScummVM (Various)'],
@@ -214,6 +224,9 @@ wizard_data = {
 							'PS1_Bestof_ZachMorris' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
 							'PS1_ZachMorris_Full' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
 							'PS1_ZachMorris' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
+							# 'PS1_Bestof_ZachMorris' : ['hidden','hidden','hidden'],
+							# 'PS1_ZachMorris_Full' : ['hidden','hidden','hidden'],
+							# 'PS1_ZachMorris' : ['hidden','hidden','hidden'],
 							'Sega_CD_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
 							'Sega_Saturn_ZachMorris' : ['RetroArch Yabuse (Saturn)','RetroArch Yabuse (Saturn)','RetroArch Yabuse (Saturn)'],
 							'Sega_SG1000_ZachMorris' : ['RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)','RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)','RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)'],
@@ -234,7 +247,8 @@ wizard_data = {
 							'Atari_5200_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'Vectrex_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'MAME_CHD_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
-							'MAME_2010_ZachMorris' : ['RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)'],
+							# 'MAME_2010_ZachMorris' : ['RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)'],
+							'MAME_2010_ZachMorris' : ['hidden','hidden','hidden'],
 							'FBA_ZachMorris' : ['RetroArch FBA (Arcade)','RetroArch FBA (Arcade)','RetroArch FBA (Arcade)'],
 							'SCUMMVM_ZachMorris' : ['RetroArch ScummVM (Various)','RetroArch ScummVM (Various)','RetroArch ScummVM (Various)'],
 							'SCUMMVM_ZachMorris_Full' : ['RetroArch ScummVM (Various)','RetroArch ScummVM (Various)','RetroArch ScummVM (Various)'],
@@ -289,6 +303,9 @@ wizard_data = {
 							'PS1_Bestof_ZachMorris' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
 							'PS1_ZachMorris_Full' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
 							'PS1_ZachMorris' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
+							# 'PS1_Bestof_ZachMorris' : ['hidden','hidden','hidden'],
+							# 'PS1_ZachMorris_Full' : ['hidden','hidden','hidden'],
+							# 'PS1_ZachMorris' : ['hidden','hidden','hidden'],
 							'Sega_CD_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
 							'Sega_Saturn_ZachMorris' : ['RetroArch Yabuse (Saturn)','RetroArch Yabuse (Saturn)','RetroArch Yabuse (Saturn)'],
 							'Sega_SG1000_ZachMorris' : ['RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)','RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)','RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)'],
@@ -309,7 +326,8 @@ wizard_data = {
 							'Atari_5200_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'Vectrex_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'MAME_CHD_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
-							'MAME_2010_ZachMorris' : ['RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)'],
+							# 'MAME_2010_ZachMorris' : ['RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)'],
+							'MAME_2010_ZachMorris' : ['hidden','hidden','hidden'],
 							'FBA_ZachMorris' : ['RetroArch FBA (Arcade)','RetroArch FBA (Arcade)','RetroArch FBA (Arcade)'],
 							'SCUMMVM_ZachMorris' : ['RetroArch ScummVM (Various)','RetroArch ScummVM (Various)','RetroArch ScummVM (Various)'],
 							'SCUMMVM_ZachMorris_Full' : ['RetroArch ScummVM (Various)','RetroArch ScummVM (Various)','RetroArch ScummVM (Various)'],
@@ -364,6 +382,9 @@ wizard_data = {
 							'PS1_Bestof_ZachMorris' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
 							'PS1_ZachMorris_Full' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
 							'PS1_ZachMorris' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
+							# 'PS1_Bestof_ZachMorris' : ['hidden','hidden','hidden'],
+							# 'PS1_ZachMorris_Full' : ['hidden','hidden','hidden'],
+							# 'PS1_ZachMorris' : ['hidden','hidden','hidden'],
 							'Sega_CD_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
 							'Sega_Saturn_ZachMorris' : ['RetroArch Yabuse (Saturn)','RetroArch Yabuse (Saturn)','RetroArch Yabuse (Saturn)'],
 							'Sega_SG1000_ZachMorris' : ['RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)','RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)','RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)'],
@@ -384,7 +405,8 @@ wizard_data = {
 							'Atari_5200_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'Vectrex_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'MAME_CHD_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
-							'MAME_2010_ZachMorris' : ['RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)'],
+							# 'MAME_2010_ZachMorris' : ['RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)'],
+							'MAME_2010_ZachMorris' : ['hidden','hidden','hidden'],
 							'FBA_ZachMorris' : ['RetroArch FBA (Arcade)','RetroArch FBA (Arcade)','RetroArch FBA (Arcade)'],
 							'SCUMMVM_ZachMorris' : ['RetroArch ScummVM (Various)','RetroArch ScummVM (Various)','RetroArch ScummVM (Various)'],
 							'SCUMMVM_ZachMorris_Full' : ['RetroArch ScummVM (Various)','RetroArch ScummVM (Various)','RetroArch ScummVM (Various)'],
@@ -439,6 +461,9 @@ wizard_data = {
 							'PS1_Bestof_ZachMorris' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
 							'PS1_ZachMorris_Full' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
 							'PS1_ZachMorris' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
+							# 'PS1_Bestof_ZachMorris' : ['hidden','hidden','hidden'],
+							# 'PS1_ZachMorris_Full' : ['hidden','hidden','hidden'],
+							# 'PS1_ZachMorris' : ['hidden','hidden','hidden'],
 							'Sega_CD_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
 							'Sega_Saturn_ZachMorris' : ['RetroArch Yabuse (Saturn)','RetroArch Yabuse (Saturn)','RetroArch Yabuse (Saturn)'],
 							'Sega_SG1000_ZachMorris' : ['RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)','RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)','RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)'],
@@ -501,6 +526,9 @@ wizard_data = {
 							'PS1_Bestof_ZachMorris' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
 							'PS1_ZachMorris_Full' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
 							'PS1_ZachMorris' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
+							# 'PS1_Bestof_ZachMorris' : ['hidden','hidden','hidden'],
+							# 'PS1_ZachMorris_Full' : ['hidden','hidden','hidden'],
+							# 'PS1_ZachMorris' : ['hidden','hidden','hidden'],
 							'Sega_CD_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
 							'Sega_Saturn_ZachMorris' : ['RetroArch Yabuse (Saturn)','RetroArch Yabuse (Saturn)','RetroArch Yabuse (Saturn)'],
 							'Sega_SG1000_ZachMorris' : ['RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)','RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)','RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)'],
@@ -521,7 +549,8 @@ wizard_data = {
 							'Atari_5200_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'Vectrex_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'MAME_CHD_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
-							'MAME_2010_ZachMorris' : ['RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)'],
+							# 'MAME_2010_ZachMorris' : ['RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)'],
+							'MAME_2010_ZachMorris' : ['hidden','hidden','hidden'],
 							'FBA_ZachMorris' : ['RetroArch FBA (Arcade)','RetroArch FBA (Arcade)','RetroArch FBA (Arcade)'],
 							'SCUMMVM_ZachMorris' : ['RetroArch ScummVM (Various)','RetroArch ScummVM (Various)','RetroArch ScummVM (Various)'],
 							'SCUMMVM_ZachMorris_Full' : ['RetroArch ScummVM (Various)','RetroArch ScummVM (Various)','RetroArch ScummVM (Various)'],
@@ -576,6 +605,9 @@ wizard_data = {
 							'PS1_Bestof_ZachMorris' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
 							'PS1_ZachMorris_Full' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
 							'PS1_ZachMorris' : ['RetroArch PCSX ReArmed (PS1)','RetroArch PCSX ReArmed (PS1)','RetroArch Mednafen PSX (PS1)'],
+							# 'PS1_Bestof_ZachMorris' : ['hidden','hidden','hidden'],
+							# 'PS1_ZachMorris_Full' : ['hidden','hidden','hidden'],
+							# 'PS1_ZachMorris' : ['hidden','hidden','hidden'],
 							'Sega_CD_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
 							'Sega_Saturn_ZachMorris' : ['RetroArch Yabuse (Saturn)','RetroArch Yabuse (Saturn)','RetroArch Yabuse (Saturn)'],
 							'Sega_SG1000_ZachMorris' : ['RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)','RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)','RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)'],
@@ -596,7 +628,8 @@ wizard_data = {
 							'Atari_5200_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'Vectrex_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'MAME_CHD_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
-							'MAME_2010_ZachMorris' : ['RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)'],
+							# 'MAME_2010_ZachMorris' : ['RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)','RetroArch MAME 2010 (Arcade 0.139)'],
+							'MAME_2010_ZachMorris' : ['hidden','hidden','hidden'],
 							'FBA_ZachMorris' : ['RetroArch FBA (Arcade)','RetroArch FBA (Arcade)','RetroArch FBA (Arcade)'],
 							'SCUMMVM_ZachMorris' : ['RetroArch ScummVM (Various)','RetroArch ScummVM (Various)','RetroArch ScummVM (Various)'],
 							'SCUMMVM_ZachMorris_Full' : ['RetroArch ScummVM (Various)','RetroArch ScummVM (Various)','RetroArch ScummVM (Various)'],
@@ -681,8 +714,6 @@ if not not_ready:
 			xbmc.log(msg='IARL:  Wizard setting for '+str(current_name)+' could not be found', level=xbmc.LOGDEBUG)
 
 		if current_key is not None:
-			# print current_name
-			# print current_key
 			# print launch_command[user_options.index(current_key)]
 			percent_complete = int((int(userdata_files.index(ffiles))*100)/int(len(userdata_files)))
 			dp.update(percent_complete)
@@ -690,15 +721,28 @@ if not not_ready:
 			if dp.iscanceled():
 				dp.close()
 				raise
-			try:
-				update_xml_header(userdata_xmldir,ffiles,'emu_launcher','external')
-			except:
-				xbmc.log(msg='IARL:  emu_launcher command for '+str(ffiles)+' could not be set in Wizard', level=xbmc.LOGDEBUG)
-			try:
-				update_xml_header(userdata_xmldir,ffiles,'emu_ext_launch_cmd',launch_command[user_options.index(current_key)])
-				xbmc.log(msg='IARL:  '+str(ffiles)+' new command: '+str(launch_command[user_options.index(current_key)]), level=xbmc.LOGDEBUG)
-			except:
-				xbmc.log(msg='IARL:  emu_ext_launch_cmd for '+str(ffiles)+' could not be set in Wizard', level=xbmc.LOGDEBUG)
+			if 'hidden' in current_key:
+				try:
+					arch_idx = archive_data['category_id'].index(current_name)
+					current_emu_category = archive_data['emu_category'][arch_idx]
+					if 'hidden' not in current_emu_category:
+						new_xml_category = current_emu_category + ', hidden'
+						update_xml_header(userdata_xmldir,ffiles,'emu_category',new_xml_category)
+						xbmc.log(msg='IARL:  The listing for '+str(ffiles)+' was hidden with the Wizard', level=xbmc.LOGDEBUG)
+					else:
+						xbmc.log(msg='IARL:  The listing for '+str(ffiles)+' is already hidden', level=xbmc.LOGDEBUG)
+				except:
+					xbmc.log(msg='IARL:  The listing for '+str(ffiles)+' could not be hidden with the Wizard', level=xbmc.LOGDEBUG)
+			else:
+				try:
+					update_xml_header(userdata_xmldir,ffiles,'emu_launcher','external')
+				except:
+					xbmc.log(msg='IARL:  emu_launcher command for '+str(ffiles)+' could not be set in Wizard', level=xbmc.LOGDEBUG)
+				try:
+					update_xml_header(userdata_xmldir,ffiles,'emu_ext_launch_cmd',launch_command[user_options.index(current_key)])
+					xbmc.log(msg='IARL:  '+str(ffiles)+' new command: '+str(launch_command[user_options.index(current_key)]), level=xbmc.LOGDEBUG)
+				except:
+					xbmc.log(msg='IARL:  emu_ext_launch_cmd for '+str(ffiles)+' could not be set in Wizard', level=xbmc.LOGDEBUG)
 	
 	clear_userdata_list_cache_dir()
 	dp.close()
