@@ -441,6 +441,10 @@ def initialize_userdata():
 					ret1 = current_dialog.select('Overwrite old file: '+addon_file_info['emu_name'][0]+' ?', ["Yes, Replace!", "Remind me later", "No, Never!"])
 					if ret1 == 0: #Yes, replace!
 						xbmc.log(msg='IARL:  Copying new file '+str(file_name)+' to userdata', level=xbmc.LOGDEBUG)
+						try:
+							os.remove(os.path.join(userdata_xmldir,file_name)) #Remove the old userdata file
+						except:
+							xbmc.log(msg='IARL:  Attempt to delete the old XML file '+str(file_name)+' failed.', level=xbmc.LOGERROR)
 						copyFile(os.path.join(addondata_xmldir,file_name), os.path.join(userdata_xmldir,file_name))
 						if os.path.isfile(os.path.join(userdata_xmldir,file_name)): #Copy was successful, delete addondata file
 							os.remove(os.path.join(addondata_xmldir,file_name)) #Remove the file from the addondata folder
