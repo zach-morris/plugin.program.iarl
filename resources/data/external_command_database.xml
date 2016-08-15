@@ -36,6 +36,9 @@
 	<launcher name="RetroArch CATSFC (SNES)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/catsfc_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch CaveStory (NXEngine)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/nxengine_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Craft (Other)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/craft_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -267,6 +270,9 @@
 	</launcher>
 	<launcher name="RetroArch CATSFC (SNES)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/catsfc_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch CaveStory (NXEngine)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/nxengine_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Craft (Other)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/craft_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -500,6 +506,9 @@
 	<launcher name="RetroArch CATSFC (SNES)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/catsfc_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch CaveStory (NXEngine)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/nxengine_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Craft (Other)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/craft_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -732,6 +741,9 @@
 	<launcher name="RetroArch CATSFC (SNES)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/catsfc_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+		<launcher name="RetroArch CaveStory (NXEngine)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/nxengine_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Craft (Other)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/craft_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -963,6 +975,9 @@
 	</launcher>
 	<launcher name="RetroArch CATSFC (SNES)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\catsfc_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch CaveStory (NXEngine)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\nxengine_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Craft (Other)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\craft_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1199,6 +1214,9 @@
 	<launcher name="RetroArch CATSFC (SNES)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\catsfc_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch CaveStory (NXEngine)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\nxengine_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Craft (Other)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\craft_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1434,6 +1452,9 @@
 	<launcher name="RetroArch CATSFC (SNES)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh catsfc "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch CaveStory (NXEngine)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh nxengine "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Craft (Other)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh craft "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1632,6 +1653,235 @@
 	<launcher name ="FS-UAE OpenElec Addon (Amiga)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>/storage/.kodi/addons/emulator.fs-uae/bin/fs-uae.sh "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<!-- LibreElec x86 (Escalade Build) -->
+	<launcher name="RetroArch 4DO (3DO)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/4do_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BlueMSX (MSX)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/bluemsx_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BNES (NES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/bnes_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Accuracy (SNES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/bsnes_accuracy_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Balanced (SNES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/bsnes_balanced_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Performance v085 (SNES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/bsnes_cplusplus98_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Performance (SNES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/bsnes_performance_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Mercury Accuracy (SNES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/bsnes_mercury_accuracy_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Mercury Balanced (SNES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/bsnes_mercury_balanced_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch BSNES Mercury Performance (SNES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/bsnes_mercury_performance_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch CAP32 (Amstrad CPC)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/cap32_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch CATSFC (SNES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/catsfc_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch CaveStory (NXEngine)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/nxengine_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Craft (Other)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/craft_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch DeSmuME (NDS)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/desmume_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch DOSBox (DOS)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/dosbox_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch EMUX CHIP-8 (CHIP-8)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/emux_chip8_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch EMUX GB (GB/GBC)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/emux_gb_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch EMUX NES (NES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/emux_nes_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch EMUX SMS (SMS)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/emux_sms_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA CPS1 (CPS1)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fb_alpha_cps1_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA CPS2 (CPS2)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fb_alpha_cps2_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA (Arcade)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fb_alpha_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA NEO (Neo Geo)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fb_alpha_neo_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA SVN (Arcade)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fba_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FCEUmm (NES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fceumm_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch fMSX (MSX)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fmsx_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FUSE (Spectrum)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fuse_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Gambatte (GB/GBC)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/gambatte_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Game and Watch (Other)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/gw_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/genesis_plus_gx_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch gpSP (GBA)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/gpsp_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Handy (Lynx)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/handy_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/hatari_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2000 (Arcade 0.37b5)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mame2000_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2003 (Arcade 0.78)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mame2003_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2010 (Arcade 0.139)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mame2010_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2014 (Arcade 0.159)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mame2014_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME (Arcade)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mame_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen GBA (GBA)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mednafen_gba_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen Lynx (Lynx)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mednafen_lynx_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen NeoPop (NGP/NGPC)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mednafen_ngp_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PCE FAST (PCE/TG16)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mednafen_pce_fast_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PCFX (PC-FX)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mednafen_pcfx_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PSX (PS1)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mednafen_psx_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mednafen_psx_hw_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen SNES (SNES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mednafen_snes_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen SuperGrafx (PCE SuperGrafx)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mednafen_supergrafx_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen VB (VirtualBoy)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mednafen_vb_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen Cygne (WonderSwan/WonderSwan Color)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mednafen_wswan_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Meteor (GBA)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/meteor_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch mGBA (GBA)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mgba_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mupen64Plus (N64)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mupen64plus_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Nestopia (NES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/nestopia_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/o2em_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch PCSX ReArmed (PS1)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/pcsx_rearmed_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch PicoDrive (SMS/Gen/Sega CD/32X)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/picodrive_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch PocketSNES (SNES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/pocketsnes_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch PPSSPP (PSP)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/ppsspp_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch PrBoom (Other)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/prboom_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch ProSystem (Atari 7800)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/prosystem_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch PUAE (Amiga)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/puae_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch QuickNES (NES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/quicknes_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Reicast (Dreamcast)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/reicast_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch ScummVM (Various)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/scummvm_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x (SNES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/snes9x_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9xNext (SNES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/snes9x_next_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Stella (Atari 2600)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/stella_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch TGBDual (GB/GBC)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/tgbdual_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch TyrQuake (Other)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/tyrquake_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VBANext (GBA)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/vba_next_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VBA-M (GBA)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/vbam_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VECX (Vectrex)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/vecx_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Virtual Jaguar (Jaguar)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/virtualjaguar_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Yabuse (Saturn)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/yabause_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="FS-UAE Launcher" os="LibreElec x86">
+		<launcher_command>/usr/bin/fs-uae.sh "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<!-- OpenElec RPi (Gamestarter Addon), by default you must close Kodi with OE, Netplay not implemented with this yet -->
 	<launcher name="Amiga UAE4ARM" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh amiga "%ROM_PATH%"</launcher_command>
@@ -1671,6 +1921,9 @@
 	</launcher>
 	<launcher name="RetroArch CATSFC (SNES)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh catsfc "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch CaveStory (NXEngine)" os="OpenElec RPi (Gamestarter Addon)">
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh nxengine "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Craft (Other)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh craft "%ROM_PATH%"</launcher_command>
@@ -1897,6 +2150,9 @@
 	</launcher>
 	<launcher name="RetroArch CATSFC (SNES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh catsfc "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch CaveStory (NXEngine)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh nxengine "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Craft (Other)" os="OpenElec RPi (Mezo/lollo78 Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh craft "%ROM_PATH%"</launcher_command>
@@ -2130,6 +2386,9 @@
 	<launcher name="RetroArch CATSFC (SNES)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/catsfc_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
+	<launcher name="RetroArch CaveStory (NXEngine)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/nxengine_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Craft (Other)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/craft_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
@@ -2355,5 +2614,11 @@
 	</launcher>
 	<launcher name="MSX.EMU (MSX)" os="Android">
 		<launcher_command>/system/bin/am start -n com.explusalpha.MsxEmu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="MAME4Droid (Arcade)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -n com.seleuco.mame4droid/com.seleuco.mame4droid.MAME4droid -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="ePSXe (PS1)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -n com.epsxe.ePSXe/.ePSXe -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e com.epsxe.ePSXe.isoName "%ROM_PATH%"</launcher_command>
 	</launcher>
 </system>
