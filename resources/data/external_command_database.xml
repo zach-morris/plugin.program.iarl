@@ -1702,6 +1702,9 @@
 	<launcher name="RetroArch DOSBox (DOS)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/dosbox_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Dolphin (Gamecube, Wii)" os="LibreElec x86">
+		<launcher_command>/usr/bin/dolphin.start -e %ROM%_PATH%</launcher_command>
+	</launcher>
 <launcher name="RetroArch Dinothawr (Dinothawr)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/dinothawr_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
