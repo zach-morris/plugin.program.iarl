@@ -1654,10 +1654,7 @@
 		<launcher_command>/storage/.kodi/addons/emulator.fs-uae/bin/fs-uae.sh "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<!-- LibreElec x86 (Escalade Build) -->
-        <launcher name="Fs-uae (Amiga)" os="LibreElec x86">
-  		<launcher_command>/usr/bin/fs-uae.start "%ROM_RAW%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch 4DO (3DO)" os="LibreElec x86">
+        <launcher name="RetroArch 4DO (3DO)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/4do_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BlueMSX (MSX)" os="LibreElec x86">
