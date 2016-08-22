@@ -1885,6 +1885,9 @@
 	<launcher name="RetroArch Yabuse (Saturn)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/yabause_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Mednafen Saturn (Saturn)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mednafen_saturn_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="FS-UAE Launcher" os="LibreElec x86">
 		<launcher_command>/usr/bin/fs-uae.sh "%ROM_PATH%"</launcher_command>
 	</launcher>
