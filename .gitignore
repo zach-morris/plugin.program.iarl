@@ -21,3 +21,5 @@ pip-log.txt
 
 #Eclipse project files
 *.*project
+
+.DS_Store
