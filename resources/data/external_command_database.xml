@@ -45,6 +45,9 @@
 	<launcher name="RetroArch DeSmuME (NDS)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/desmume_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Dinothawr (Other)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/dinothawr_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch DOSBox (DOS)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/dosbox_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -137,6 +140,9 @@
 	</launcher>
 	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_psx_hw_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen Saturn (Saturn)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_saturn_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_snes_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -280,6 +286,9 @@
 	<launcher name="RetroArch DeSmuME (NDS)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/desmume_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
+		<launcher name="RetroArch Dinothawr (Other)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/dinothawr_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch DOSBox (DOS)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/dosbox_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -372,6 +381,9 @@
 	</launcher>
 	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_psx_hw_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen Saturn (Saturn)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_saturn_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mednafen_snes_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -515,6 +527,9 @@
 	<launcher name="RetroArch DeSmuME (NDS)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/desmume_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Dinothawr (Other)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/dinothawr_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>	
 	<launcher name="RetroArch DOSBox (DOS)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/dosbox_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -607,6 +622,9 @@
 	</launcher>
 	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mednafen_psx_hw_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen Saturn (Saturn)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mednafen_saturn_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mednafen_snes_libretro.so "%ROM_PATH%"</launcher_command>
@@ -750,6 +768,9 @@
 	<launcher name="RetroArch DeSmuME (NDS)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/desmume_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+		<launcher name="RetroArch Dinothawr (Other)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/dinothawr_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch DOSBox (DOS)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/dosbox_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -842,6 +863,9 @@
 	</launcher>
 	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mednafen_psx_hw_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen Saturn (Saturn)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mednafen_saturn_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mednafen_snes_libretro.so "%ROM_PATH%"</launcher_command>
@@ -985,6 +1009,9 @@
 	<launcher name="RetroArch DeSmuME (NDS)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\desmume_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Dinothawr (Other)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\dinothawr_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch DOSBox (DOS)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\dosbox_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1077,6 +1104,9 @@
 	</launcher>
 	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_psx_hw_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen Saturn (Saturn)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_saturn_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_snes_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1223,6 +1253,9 @@
 	<launcher name="RetroArch DeSmuME (NDS)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\desmume_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Dinothawr (Other)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\dinothawr_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch DOSBox (DOS)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\dosbox_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1315,6 +1348,9 @@
 	</launcher>
 	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_psx_hw_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen Saturn (Saturn)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_saturn_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_snes_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1461,6 +1497,9 @@
 	<launcher name="RetroArch DeSmuME (NDS)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh desmume "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Dinothawr (Other)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh dinothawr "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch DOSBox (DOS)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh dosbox "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1554,6 +1593,9 @@
 	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh mednafen_psx_hw "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Mednafen Saturn (Saturn)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh mednafen_saturn "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh mednafen_snes "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1574,9 +1616,6 @@
 	</launcher>
 	<launcher name="RetroArch Mupen64Plus (N64)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh mupen64plus "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch Nestopia 2 (NES)" os="OpenElec x86 (tssemek Addon)">
-		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE2.sh ~/retroarch/default/bin/retroarch -c ~/retroarch/default/config/retroarch.cfg %NETPLAY_COMMAND% -L ~/retroarch/default/libretro/cores/nestopia_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Nestopia (NES)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh nestopia "%ROM_PATH%"</launcher_command>
@@ -1699,6 +1738,9 @@
 	<launcher name="RetroArch DeSmuME (NDS)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/desmume_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Dinothawr (Other)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/dinothawr_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>	
 	<launcher name="RetroArch DOSBox (DOS)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/dosbox_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1792,6 +1834,9 @@
 	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mednafen_psx_hw_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Mednafen Saturn (Saturn)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mednafen_saturn_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mednafen_snes_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1882,6 +1927,12 @@
 	<launcher name="FS-UAE Launcher" os="LibreElec x86">
 		<launcher_command>/usr/bin/fs-uae.sh "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="Dolphin (Gamecube, Wii)" os="LibreElec x86">
+		<launcher_command>/usr/bin/dolphin.sh -e "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="Vice (C64)" os="LibreElec x86">
+		<launcher_command>/usr/bin/x64.start -autostart "%ROM_RAW%"</launcher_command>
+	</launcher>
 	<!-- OpenElec RPi (Gamestarter Addon), by default you must close Kodi with OE, Netplay not implemented with this yet -->
 	<launcher name="Amiga UAE4ARM" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh amiga "%ROM_PATH%"</launcher_command>
@@ -1930,6 +1981,9 @@
 	</launcher>
 	<launcher name="RetroArch DeSmuME (NDS)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh desmume "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Dinothawr (Other)" os="OpenElec RPi (Gamestarter Addon)">
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh dinothawr "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch DOSBox (DOS)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh dosbox "%ROM_PATH%"</launcher_command>
@@ -2026,6 +2080,9 @@
 	</launcher>
 	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mednafen_psx_hw "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen Saturn (Saturn)" os="OpenElec RPi (Gamestarter Addon)">
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mednafen_saturn "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mednafen_snes "%ROM_PATH%"</launcher_command>
@@ -2160,6 +2217,9 @@
 	<launcher name="RetroArch DeSmuME (NDS)" os="OpenElec RPi (Mezo/lollo78 Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh desmume "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Dinothawr (Other)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh dinothawr "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch DOSBox (DOS)" os="OpenElec RPi (Mezo/lollo78 Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh dosbox "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -2255,6 +2315,9 @@
 	</launcher>
 	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="OpenElec RPi (Mezo/lollo78 Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mednafen_psx_hw "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen Saturn (Saturn)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mednafen_saturn "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="OpenElec RPi (Mezo/lollo78 Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mednafen_snes "%ROM_PATH%"</launcher_command>
@@ -2395,6 +2458,9 @@
 	<launcher name="RetroArch DeSmuME (NDS)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/desmume_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Dinothawr (Other)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/dinothawr_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
 	<launcher name="RetroArch DOSBox (DOS)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/dosbox_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
@@ -2487,6 +2553,9 @@
 	</launcher>
 	<launcher name="RetroArch Mednafen PSX HW (PS1)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mednafen_psx_hw_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mednafen Saturn (Saturn)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mednafen_saturn_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Mednafen SNES (SNES)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mednafen_snes_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
