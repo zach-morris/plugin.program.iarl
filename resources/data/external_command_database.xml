@@ -1654,7 +1654,7 @@
 		<launcher_command>/storage/.kodi/addons/emulator.fs-uae/bin/fs-uae.sh "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<!-- LibreElec x86 (Escalade Build) -->
-	<launcher name="RetroArch 4DO (3DO)" os="LibreElec x86">
+        <launcher name="RetroArch 4DO (3DO)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/4do_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BlueMSX (MSX)" os="LibreElec x86">
@@ -1701,6 +1701,12 @@
 	</launcher>
 	<launcher name="RetroArch DOSBox (DOS)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/dosbox_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="Dolphin (Gamecube, Wii)" os="LibreElec x86">
+		<launcher_command>/usr/bin/dolphin.sh -e "%ROM_PATH%"</launcher_command>
+	</launcher>
+        <launcher name="RetroArch Dinothawr (Dinothawr)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/dinothawr_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch EMUX CHIP-8 (CHIP-8)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/emux_chip8_libretro.so "%ROM_PATH%"</launcher_command>
@@ -1879,8 +1885,14 @@
 	<launcher name="RetroArch Yabuse (Saturn)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/yabause_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Mednafen Saturn (Saturn)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mednafen_saturn_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="FS-UAE Launcher" os="LibreElec x86">
 		<launcher_command>/usr/bin/fs-uae.sh "%ROM_PATH%"</launcher_command>
+	</launcher>
+		<launcher name="Vice (C64)" os="LibreElec x86">
+		<launcher_command>/usr/bin/x64.start -autostart "%ROM_RAW%"</launcher_command>
 	</launcher>
 	<!-- OpenElec RPi (Gamestarter Addon), by default you must close Kodi with OE, Netplay not implemented with this yet -->
 	<launcher name="Amiga UAE4ARM" os="OpenElec RPi (Gamestarter Addon)">
