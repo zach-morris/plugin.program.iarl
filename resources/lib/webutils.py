@@ -176,7 +176,10 @@ def clean(text):
       return regex.sub(lambda mo: command[mo.group(0)], text)
 
 def quote_url(text):
-	new_url = urllib.quote(text,':%/')
+	if 'drive.google.com' not in text: #Dont quote google drive urls
+		new_url = urllib.quote(text,':%/')
+	else:
+		new_url = text
 	return new_url
 
 def unquote_name(text):

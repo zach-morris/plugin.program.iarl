@@ -4,7 +4,7 @@ from util import *
 
 addon = xbmcaddon.Addon(id='plugin.program.iarl')
 archive_data = get_archive_info()
-print archive_data
+
 wizard_data = {
 			'settings' : {  'iarl_external_user_external_env' : addon.getSetting('iarl_external_user_external_env'),
 							'iarl_external_launch_close_kodi' : addon.getSetting('iarl_external_launch_close_kodi'),
@@ -18,6 +18,7 @@ wizard_data = {
 						},
 										#Most Playable, Balanced, Accurate
 			'OSX' : { '32X_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
+							'3DO_ZachMorris' : ['RetroArch 4DO (3DO)','RetroArch 4DO (3DO)','RetroArch 4DO (3DO)'],
 							'Amiga_CD32_Full' : ['FS-UAE Launcher','FS-UAE Launcher','FS-UAE Launcher'],
 							'Amiga_Full_ZRL' : ['FS-UAE Launcher','FS-UAE Launcher','FS-UAE Launcher'],
 							'Amiga_Bestof' : ['FS-UAE Launcher','FS-UAE Launcher','FS-UAE Launcher'],
@@ -27,6 +28,8 @@ wizard_data = {
 							'Atari_7800_ZachMorris' : ['RetroArch ProSystem (Atari 7800)','RetroArch ProSystem (Atari 7800)','RetroArch ProSystem (Atari 7800)'],
 							'Atari_Jaguar_ZachMorris' : ['RetroArch Virtual Jaguar (Jaguar)','RetroArch Virtual Jaguar (Jaguar)','RetroArch Virtual Jaguar (Jaguar)'],
 							'Atari_Lynx_ZachMorris' : ['RetroArch Handy (Lynx)','RetroArch Handy (Lynx)','RetroArch Mednafen Lynx (Lynx)'],
+							'Atari_ST_ZachMorris' : ['RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)'],
+							'Atari_ST_ZachMorris_Full' : ['RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)'],
 							'C64_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'C64_ZachMorris_Full' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'Colecovision_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
@@ -101,8 +104,10 @@ wizard_data = {
 							'Quake_Lefty420' : ['RetroArch TyrQuake (Other)','RetroArch TyrQuake (Other)','RetroArch TyrQuake (Other)'],
 							'Doom_Lefty420' : ['RetroArch PrBoom (Other)','RetroArch PrBoom (Other)','RetroArch PrBoom (Other)'],
 							'Cavestory_Lefty420' : ['RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)'],
+							'Dinothawr_Lefty420' : ['RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)'],
 							},
 			'Windows' : { '32X_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
+							'3DO_ZachMorris' : ['RetroArch 4DO (3DO)','RetroArch 4DO (3DO)','RetroArch 4DO (3DO)'],
 							'Amiga_CD32_Full' : ['FS-UAE Launcher','FS-UAE Launcher','FS-UAE Launcher'],
 							'Amiga_Full_ZRL' : ['FS-UAE Launcher','FS-UAE Launcher','FS-UAE Launcher'],
 							'Amiga_Bestof' : ['FS-UAE Launcher','FS-UAE Launcher','FS-UAE Launcher'],
@@ -112,6 +117,8 @@ wizard_data = {
 							'Atari_7800_ZachMorris' : ['RetroArch ProSystem (Atari 7800)','RetroArch ProSystem (Atari 7800)','RetroArch ProSystem (Atari 7800)'],
 							'Atari_Jaguar_ZachMorris' : ['RetroArch Virtual Jaguar (Jaguar)','RetroArch Virtual Jaguar (Jaguar)','RetroArch Virtual Jaguar (Jaguar)'],
 							'Atari_Lynx_ZachMorris' : ['RetroArch Handy (Lynx)','RetroArch Handy (Lynx)','RetroArch Mednafen Lynx (Lynx)'],
+							'Atari_ST_ZachMorris' : ['RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)'],
+							'Atari_ST_ZachMorris_Full' : ['RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)'],
 							'C64_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'C64_ZachMorris_Full' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'Colecovision_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
@@ -185,8 +192,10 @@ wizard_data = {
 							'Quake_Lefty420' : ['RetroArch TyrQuake (Other)','RetroArch TyrQuake (Other)','RetroArch TyrQuake (Other)'],
 							'Doom_Lefty420' : ['RetroArch PrBoom (Other)','RetroArch PrBoom (Other)','RetroArch PrBoom (Other)'],
 							'Cavestory_Lefty420' : ['RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)'],
+							'Dinothawr_Lefty420' : ['RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)'],
 							},
 			'Linux/Kodibuntu' : { '32X_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
+							'3DO_ZachMorris' : ['RetroArch 4DO (3DO)','RetroArch 4DO (3DO)','RetroArch 4DO (3DO)'],
 							'Amiga_CD32_Full' : ['FS-UAE Launcher','FS-UAE Launcher','FS-UAE Launcher'],
 							'Amiga_Full_ZRL' : ['FS-UAE Launcher','FS-UAE Launcher','FS-UAE Launcher'],
 							'Amiga_Bestof' : ['FS-UAE Launcher','FS-UAE Launcher','FS-UAE Launcher'],
@@ -196,6 +205,8 @@ wizard_data = {
 							'Atari_7800_ZachMorris' : ['RetroArch ProSystem (Atari 7800)','RetroArch ProSystem (Atari 7800)','RetroArch ProSystem (Atari 7800)'],
 							'Atari_Jaguar_ZachMorris' : ['RetroArch Virtual Jaguar (Jaguar)','RetroArch Virtual Jaguar (Jaguar)','RetroArch Virtual Jaguar (Jaguar)'],
 							'Atari_Lynx_ZachMorris' : ['RetroArch Handy (Lynx)','RetroArch Handy (Lynx)','RetroArch Mednafen Lynx (Lynx)'],
+							'Atari_ST_ZachMorris' : ['RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)'],
+							'Atari_ST_ZachMorris_Full' : ['RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)'],
 							'C64_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'C64_ZachMorris_Full' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'Colecovision_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
@@ -269,8 +280,10 @@ wizard_data = {
 							'Quake_Lefty420' : ['RetroArch TyrQuake (Other)','RetroArch TyrQuake (Other)','RetroArch TyrQuake (Other)'],
 							'Doom_Lefty420' : ['RetroArch PrBoom (Other)','RetroArch PrBoom (Other)','RetroArch PrBoom (Other)'],
 							'Cavestory_Lefty420' : ['RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)'],
+							'Dinothawr_Lefty420' : ['RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)'],
 							},
 			'OpenElec x86 (tssemek Addon)' : { '32X_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
+							'3DO_ZachMorris' : ['RetroArch 4DO (3DO)','RetroArch 4DO (3DO)','RetroArch 4DO (3DO)'],
 							'Amiga_CD32_Full' : ['FS-UAE OpenElec Addon (Amiga)','FS-UAE OpenElec Addon (Amiga)','FS-UAE OpenElec Addon (Amiga)'],
 							'Amiga_Full_ZRL' : ['FS-UAE OpenElec Addon (Amiga)','FS-UAE OpenElec Addon (Amiga)','FS-UAE OpenElec Addon (Amiga)'],
 							'Amiga_Bestof' : ['FS-UAE OpenElec Addon (Amiga)','FS-UAE OpenElec Addon (Amiga)','FS-UAE OpenElec Addon (Amiga)'],
@@ -280,6 +293,8 @@ wizard_data = {
 							'Atari_7800_ZachMorris' : ['RetroArch ProSystem (Atari 7800)','RetroArch ProSystem (Atari 7800)','RetroArch ProSystem (Atari 7800)'],
 							'Atari_Jaguar_ZachMorris' : ['RetroArch Virtual Jaguar (Jaguar)','RetroArch Virtual Jaguar (Jaguar)','RetroArch Virtual Jaguar (Jaguar)'],
 							'Atari_Lynx_ZachMorris' : ['RetroArch Handy (Lynx)','RetroArch Handy (Lynx)','RetroArch Mednafen Lynx (Lynx)'],
+							'Atari_ST_ZachMorris' : ['RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)'],
+							'Atari_ST_ZachMorris_Full' : ['RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)'],
 							'C64_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'C64_ZachMorris_Full' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'Colecovision_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
@@ -353,8 +368,10 @@ wizard_data = {
 							'Quake_Lefty420' : ['RetroArch TyrQuake (Other)','RetroArch TyrQuake (Other)','RetroArch TyrQuake (Other)'],
 							'Doom_Lefty420' : ['RetroArch PrBoom (Other)','RetroArch PrBoom (Other)','RetroArch PrBoom (Other)'],
 							'Cavestory_Lefty420' : ['RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)'],
+							'Dinothawr_Lefty420' : ['RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)'],
 							},
 			'LibreElec x86' : { '32X_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
+							'3DO_ZachMorris' : ['RetroArch 4DO (3DO)','RetroArch 4DO (3DO)','RetroArch 4DO (3DO)'],
 							'Amiga_CD32_Full' : ['FS-UAE Launcher','FS-UAE Launcher','FS-UAE Launcher'],
 							'Amiga_Full_ZRL' : ['FS-UAE Launcher','FS-UAE Launcher','FS-UAE Launcher'],
 							'Amiga_Bestof' : ['FS-UAE Launcher','FS-UAE Launcher','FS-UAE Launcher'],
@@ -364,6 +381,8 @@ wizard_data = {
 							'Atari_7800_ZachMorris' : ['RetroArch ProSystem (Atari 7800)','RetroArch ProSystem (Atari 7800)','RetroArch ProSystem (Atari 7800)'],
 							'Atari_Jaguar_ZachMorris' : ['RetroArch Virtual Jaguar (Jaguar)','RetroArch Virtual Jaguar (Jaguar)','RetroArch Virtual Jaguar (Jaguar)'],
 							'Atari_Lynx_ZachMorris' : ['RetroArch Handy (Lynx)','RetroArch Handy (Lynx)','RetroArch Mednafen Lynx (Lynx)'],
+							'Atari_ST_ZachMorris' : ['RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)'],
+							'Atari_ST_ZachMorris_Full' : ['RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)','RetroArch Hatari (Atari ST/STE/TT/Falcon)'],
 							'C64_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'C64_ZachMorris_Full' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
 							'Colecovision_ZachMorris' : ['RetroArch MAME (Arcade)','RetroArch MAME (Arcade)','RetroArch MAME (Arcade)'],
@@ -437,8 +456,10 @@ wizard_data = {
 							'Quake_Lefty420' : ['RetroArch TyrQuake (Other)','RetroArch TyrQuake (Other)','RetroArch TyrQuake (Other)'],
 							'Doom_Lefty420' : ['RetroArch PrBoom (Other)','RetroArch PrBoom (Other)','RetroArch PrBoom (Other)'],
 							'Cavestory_Lefty420' : ['RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)'],
+							'Dinothawr_Lefty420' : ['RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)'],
 							},
 			'OpenElec RPi (Gamestarter Addon)' : { '32X_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
+							'3DO_ZachMorris' : ['RetroArch 4DO (3DO)','RetroArch 4DO (3DO)','RetroArch 4DO (3DO)'],
 							'Amiga_CD32_Full' : ['hidden','hidden','hidden'],
 							'Amiga_Full_ZRL' : ['hidden','hidden','hidden'],
 							'Amiga_Bestof' : ['hidden','hidden','hidden'],
@@ -522,8 +543,10 @@ wizard_data = {
 							'Quake_Lefty420' : ['RetroArch TyrQuake (Other)','RetroArch TyrQuake (Other)','RetroArch TyrQuake (Other)'],
 							'Doom_Lefty420' : ['RetroArch PrBoom (Other)','RetroArch PrBoom (Other)','RetroArch PrBoom (Other)'],
 							'Cavestory_Lefty420' : ['RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)'],
+							'Dinothawr_Lefty420' : ['RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)'],
 							},
 			'OpenElec RPi (Mezo/lollo78 Addon)' : { '32X_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
+							'3DO_ZachMorris' : ['RetroArch 4DO (3DO)','RetroArch 4DO (3DO)','RetroArch 4DO (3DO)'],
 							'Amiga_CD32_Full' : ['RetroArch PUAE (Amiga)','RetroArch PUAE (Amiga)','RetroArch PUAE (Amiga)'],
 							'Amiga_Full_ZRL' : ['RetroArch PUAE (Amiga)','RetroArch PUAE (Amiga)','RetroArch PUAE (Amiga)'],
 							'Amiga_Bestof' : ['RetroArch PUAE (Amiga)','RetroArch PUAE (Amiga)','RetroArch PUAE (Amiga)'],
@@ -606,8 +629,10 @@ wizard_data = {
 							'Quake_Lefty420' : ['RetroArch TyrQuake (Other)','RetroArch TyrQuake (Other)','RetroArch TyrQuake (Other)'],
 							'Doom_Lefty420' : ['RetroArch PrBoom (Other)','RetroArch PrBoom (Other)','RetroArch PrBoom (Other)'],
 							'Cavestory_Lefty420' : ['RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)'],
+							'Dinothawr_Lefty420' : ['RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)'],
 							},
 			'Android' : { '32X_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
+							'3DO_ZachMorris' : ['RetroArch 4DO (3DO)','RetroArch 4DO (3DO)','RetroArch 4DO (3DO)'],
 							'Amiga_CD32_Full' : ['RetroArch PUAE (Amiga)','RetroArch PUAE (Amiga)','RetroArch PUAE (Amiga)'],
 							'Amiga_Full_ZRL' : ['RetroArch PUAE (Amiga)','RetroArch PUAE (Amiga)','RetroArch PUAE (Amiga)'],
 							'Amiga_Bestof' : ['RetroArch PUAE (Amiga)','RetroArch PUAE (Amiga)','RetroArch PUAE (Amiga)'],
@@ -690,6 +715,7 @@ wizard_data = {
 							'Quake_Lefty420' : ['RetroArch TyrQuake (Other)','RetroArch TyrQuake (Other)','RetroArch TyrQuake (Other)'],
 							'Doom_Lefty420' : ['RetroArch PrBoom (Other)','RetroArch PrBoom (Other)','RetroArch PrBoom (Other)'],
 							'Cavestory_Lefty420' : ['RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)'],
+							'Dinothawr_Lefty420' : ['RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)'],
 							},
             }
 
@@ -724,7 +750,7 @@ if not not_ready:
 
 if not not_ready:
 	try:
-		group_index = 'Select|Most Playable (Least CPU Intensive)|Balanced|Most Accurate'.split('|').index(wizard_data['settings']['iarl_wizard_launcher_group'])
+		group_index = 'Select|Most Playable (Least CPU Intensive)|Balanced|Most Accurate|RetroPlayer'.split('|').index(wizard_data['settings']['iarl_wizard_launcher_group'])
 	except:
 		group_index = None
 		not_ready = True
@@ -732,73 +758,100 @@ if not not_ready:
 
 #Main script start
 if not not_ready:
-	user_options = list()
-	launch_command = list()
-	new_launch_command = None
-	xbmc.log(msg='IARL:  Wizard Script Started', level=xbmc.LOGNOTICE)
-	if 'enabled' in wizard_data['settings']['iarl_external_launch_close_kodi'].lower():
-		external_launch_database_os = wizard_data['settings']['iarl_external_user_external_env'] + ' Close_Kodi' #Look for launch commands to close Kodi
-	else:
-		external_launch_database_os = wizard_data['settings']['iarl_external_user_external_env']
-	if wizard_data['settings']['iarl_external_user_external_env'] in 'OpenElec x86 (tssemek Addon)|OpenElec RPi (Gamestarter Addon)|OpenElec RPi (Mezo/lollo78 Addon)|Android'.split('|'):
-		external_launch_database_os = external_launch_database_os.replace(' Close_Kodi','') #By default, the above setups auto close Kodi, so there's only one list of launchers to choose from
-	
-	for entries in results:
-		#Define the list of commands from the external database corresponding to the current environment
-		if entries['operating_system'][0] == external_launch_database_os:
-			user_options.append(entries['launcher'][0])
-			launch_command.append(entries['launcher_command'][0])
+	xbmc.log(msg='IARL:  Wizard attempting to initialize userdata', level=xbmc.LOGDEBUG)
+	try:
+		initialize_userdata()
+	except:
+		xbmc.log(msg='IARL:  Unable to initialize userdata', level=xbmc.LOGERROR)
+	if group_index < 4: #External Launching selected
+		user_options = list()
+		launch_command = list()
+		new_launch_command = None
+		xbmc.log(msg='IARL:  Wizard Script Started for external launching', level=xbmc.LOGNOTICE)
+		if 'enabled' in wizard_data['settings']['iarl_external_launch_close_kodi'].lower():
+			external_launch_database_os = wizard_data['settings']['iarl_external_user_external_env'] + ' Close_Kodi' #Look for launch commands to close Kodi
+		else:
+			external_launch_database_os = wizard_data['settings']['iarl_external_user_external_env']
+		if wizard_data['settings']['iarl_external_user_external_env'] in 'OpenElec x86 (tssemek Addon)|OpenElec RPi (Gamestarter Addon)|OpenElec RPi (Mezo/lollo78 Addon)|Android'.split('|'):
+			external_launch_database_os = external_launch_database_os.replace(' Close_Kodi','') #By default, the above setups auto close Kodi, so there's only one list of launchers to choose from
+		
+		for entries in results:
+			#Define the list of commands from the external database corresponding to the current environment
+			if entries['operating_system'][0] == external_launch_database_os:
+				user_options.append(entries['launcher'][0])
+				launch_command.append(entries['launcher_command'][0])
 
-	initialize_userdata()
-	userdata_xmldir = get_userdata_xmldir()
-	userdata_subfolders, userdata_files = xbmcvfs.listdir(userdata_xmldir)
+		# initialize_userdata()
+		userdata_xmldir = get_userdata_xmldir()
+		userdata_subfolders, userdata_files = xbmcvfs.listdir(userdata_xmldir)
 
-	dp = xbmcgui.DialogProgress()
-	dp.create('IARL Wizard','Updating Settings','')
-	dp.update(0)
-	for ffiles in userdata_files:
-		try:
-			current_name = os.path.splitext(os.path.split(ffiles)[-1])[0]
-		except:
-			current_name = None
-			xbmc.log(msg='IARL:  '+str(current_name)+' could not be found', level=xbmc.LOGDEBUG)
-		try:
-			current_key = wizard_data[wizard_data['settings']['iarl_external_user_external_env']][current_name][group_index-1]
-		except:
-			current_key = None
-			xbmc.log(msg='IARL:  Wizard setting for '+str(current_name)+' could not be found', level=xbmc.LOGDEBUG)
+		dp = xbmcgui.DialogProgress()
+		dp.create('IARL Wizard','Updating Settings','')
+		dp.update(0)
+		for ffiles in userdata_files:
+			try:
+				current_name = os.path.splitext(os.path.split(ffiles)[-1])[0]
+			except:
+				current_name = None
+				xbmc.log(msg='IARL:  '+str(current_name)+' could not be found', level=xbmc.LOGDEBUG)
+			try:
+				current_key = wizard_data[wizard_data['settings']['iarl_external_user_external_env']][current_name][group_index-1]
+			except:
+				current_key = None
+				xbmc.log(msg='IARL:  Wizard setting for '+str(current_name)+' could not be found', level=xbmc.LOGDEBUG)
 
-		if current_key is not None:
-			# print launch_command[user_options.index(current_key)]
+			if current_key is not None:
+				# print launch_command[user_options.index(current_key)]
+				percent_complete = int((int(userdata_files.index(ffiles))*100)/int(len(userdata_files)))
+				dp.update(percent_complete)
+				xbmc.sleep(100)
+				if dp.iscanceled():
+					dp.close()
+					raise
+				if 'hidden' in current_key:
+					try:
+						arch_idx = archive_data['category_id'].index(current_name)
+						current_emu_category = archive_data['emu_category'][arch_idx]
+						if 'hidden' not in current_emu_category:
+							new_xml_category = current_emu_category + ', hidden'
+							update_xml_header(userdata_xmldir,ffiles,'emu_category',new_xml_category)
+							xbmc.log(msg='IARL:  The listing for '+str(ffiles)+' was hidden with the Wizard', level=xbmc.LOGDEBUG)
+						else:
+							xbmc.log(msg='IARL:  The listing for '+str(ffiles)+' is already hidden', level=xbmc.LOGDEBUG)
+					except:
+						xbmc.log(msg='IARL:  The listing for '+str(ffiles)+' could not be hidden with the Wizard', level=xbmc.LOGDEBUG)
+				else:
+					try:
+						update_xml_header(userdata_xmldir,ffiles,'emu_launcher','external')
+					except:
+						xbmc.log(msg='IARL:  emu_launcher command for '+str(ffiles)+' could not be set in Wizard', level=xbmc.LOGDEBUG)
+					try:
+						update_xml_header(userdata_xmldir,ffiles,'emu_ext_launch_cmd',launch_command[user_options.index(current_key)])
+						xbmc.log(msg='IARL:  '+str(ffiles)+' new command: '+str(launch_command[user_options.index(current_key)]), level=xbmc.LOGDEBUG)
+					except:
+						xbmc.log(msg='IARL:  emu_ext_launch_cmd for '+str(ffiles)+' could not be set in Wizard', level=xbmc.LOGDEBUG)
+	else: #Retroplayer Launching selected
+		xbmc.log(msg='IARL:  Wizard Script Started for RetroPlayer launching', level=xbmc.LOGNOTICE)
+
+		# initialize_userdata()
+		userdata_xmldir = get_userdata_xmldir()
+		userdata_subfolders, userdata_files = xbmcvfs.listdir(userdata_xmldir)
+
+		dp = xbmcgui.DialogProgress()
+		dp.create('IARL Wizard','Updating Settings','')
+		dp.update(0)
+		for ffiles in userdata_files:
 			percent_complete = int((int(userdata_files.index(ffiles))*100)/int(len(userdata_files)))
 			dp.update(percent_complete)
 			xbmc.sleep(100)
 			if dp.iscanceled():
 				dp.close()
 				raise
-			if 'hidden' in current_key:
-				try:
-					arch_idx = archive_data['category_id'].index(current_name)
-					current_emu_category = archive_data['emu_category'][arch_idx]
-					if 'hidden' not in current_emu_category:
-						new_xml_category = current_emu_category + ', hidden'
-						update_xml_header(userdata_xmldir,ffiles,'emu_category',new_xml_category)
-						xbmc.log(msg='IARL:  The listing for '+str(ffiles)+' was hidden with the Wizard', level=xbmc.LOGDEBUG)
-					else:
-						xbmc.log(msg='IARL:  The listing for '+str(ffiles)+' is already hidden', level=xbmc.LOGDEBUG)
-				except:
-					xbmc.log(msg='IARL:  The listing for '+str(ffiles)+' could not be hidden with the Wizard', level=xbmc.LOGDEBUG)
-			else:
-				try:
-					update_xml_header(userdata_xmldir,ffiles,'emu_launcher','external')
-				except:
-					xbmc.log(msg='IARL:  emu_launcher command for '+str(ffiles)+' could not be set in Wizard', level=xbmc.LOGDEBUG)
-				try:
-					update_xml_header(userdata_xmldir,ffiles,'emu_ext_launch_cmd',launch_command[user_options.index(current_key)])
-					xbmc.log(msg='IARL:  '+str(ffiles)+' new command: '+str(launch_command[user_options.index(current_key)]), level=xbmc.LOGDEBUG)
-				except:
-					xbmc.log(msg='IARL:  emu_ext_launch_cmd for '+str(ffiles)+' could not be set in Wizard', level=xbmc.LOGDEBUG)
-	
+			try:
+				update_xml_header(userdata_xmldir,ffiles,'emu_launcher','retroplayer')
+			except:
+				xbmc.log(msg='IARL:  emu_launcher command for '+str(ffiles)+' could not be set in Wizard', level=xbmc.LOGDEBUG)
+
 	clear_userdata_list_cache_dir()
 	dp.close()
 	ok_ret = current_dialog.ok('Complete','Wizard run completed!')

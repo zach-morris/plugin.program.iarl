@@ -47,6 +47,7 @@ iarl_data = {
                             'hidden_setting_clear_hidden_archives' : plugin.get_setting('iarl_setting_clear_hidden_archives',bool),
                             'hidden_setting_warn_chd' : plugin.get_setting('iarl_setting_warn_chd',bool),
                             'hidden_setting_warn_iso' : plugin.get_setting('iarl_setting_warn_iso',bool),
+                            'launch_with_subprocess' : plugin.get_setting('iarl_setting_subprocess_launch',bool),
                             'hard_coded_include_back_link' : False,
                         },
             'addon_data':{  'plugin_name' : 'plugin.program.iarl',
@@ -128,10 +129,12 @@ iarl_data = {
                             },
             'current_save_data':{'rom_save_filenames' : list(),
                             'rom_save_filenames_exist' : list(),
+                            'matching_rom_save_filenames' : list(),
                             'rom_save_filenames_success' : list(),
                             'rom_supporting_filenames' : list(),
                             'rom_save_supporting_filenames' : list(),
                             'rom_save_supporting_filenames_exist' : list(),
+                            'matching_rom_save_supporting_filenames' : list(),
                             'rom_save_supporting_filenames_success' : list(),
                             'rom_converted_filenames' : list(),
                             'rom_converted_filenames_success' : list(),
@@ -892,10 +895,12 @@ def download_rom_only(iarl_data):
     #Initialize current save data dict since it may have been populated with the last selected game
     iarl_data['current_save_data']['rom_save_filenames'] = list()
     iarl_data['current_save_data']['rom_save_filenames_exist'] = list()
+    iarl_data['current_save_data']['matching_rom_save_filenames'] = list()
     iarl_data['current_save_data']['rom_save_filenames_success'] = list()
     iarl_data['current_save_data']['rom_supporting_filenames'] = list()
     iarl_data['current_save_data']['rom_save_supporting_filenames'] = list()
     iarl_data['current_save_data']['rom_save_supporting_filenames_exist'] = list()
+    iarl_data['current_save_data']['matching_rom_save_supporting_filenames'] = list()
     iarl_data['current_save_data']['rom_save_supporting_filenames_success'] = list()
     iarl_data['current_save_data']['rom_converted_filenames'] = list()
     iarl_data['current_save_data']['rom_converted_filenames_success'] = list()
@@ -914,20 +919,28 @@ def download_rom_only(iarl_data):
     for filenames in iarl_data['current_rom_data']['rom_save_filenames']:
         if filenames:
             iarl_data['current_save_data']['rom_save_filenames'].append(filenames)
-            if os.path.exists(filenames):
+            # if os.path.exists(filenames):
+            file_exists_wc, file_found_wc = check_file_exists_wildcard(filenames)
+            if file_exists_wc:
                 iarl_data['current_save_data']['rom_save_filenames_exist'].append(True)
+                iarl_data['current_save_data']['matching_rom_save_filenames'].append(file_found_wc)
                 iarl_data['current_save_data']['rom_save_filenames_success'].append(True)
             else:
                 iarl_data['current_save_data']['rom_save_filenames_exist'].append(False)
+                iarl_data['current_save_data']['matching_rom_save_filenames'].append(None)
                 iarl_data['current_save_data']['rom_save_filenames_success'].append(False)
     for filenames in iarl_data['current_rom_data']['rom_save_supporting_filenames']:
         if filenames:
             iarl_data['current_save_data']['rom_save_supporting_filenames'].append(filenames)
-            if os.path.exists(filenames):
+            # if os.path.exists(filenames):
+            file_exists_wc, file_found_wc = check_file_exists_wildcard(filenames)
+            if file_exists_wc:
                 iarl_data['current_save_data']['rom_save_supporting_filenames_exist'].append(True)
+                iarl_data['current_save_data']['matching_rom_save_supporting_filenames'].append(file_found_wc)
                 iarl_data['current_save_data']['rom_save_supporting_filenames_success'].append(True)
             else:
                 iarl_data['current_save_data']['rom_save_supporting_filenames_exist'].append(False)
+                iarl_data['current_save_data']['matching_rom_save_supporting_filenames'].append(None)
                 iarl_data['current_save_data']['rom_save_supporting_filenames_success'].append(False)
 
     #3.  Determine action if file already exists
@@ -965,6 +978,10 @@ def download_rom_only(iarl_data):
                 else: #File was 0 bytes, delete it and call it a fail
                     iarl_data['current_save_data']['rom_save_filenames_success'][ii] = False
                     iarl_data['current_save_data']['rom_save_filenames_exist'][ii] = False
+        else: #File already exists locally, but potentially has a different file extension or naming convention
+            if iarl_data['current_rom_data']['rom_save_filenames'][ii] is not None:
+                xbmc.log(msg='IARL:  Matching file that already exists: '+str(iarl_data['current_save_data']['matching_rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+                iarl_data['current_save_data']['rom_save_filenames'][ii] = iarl_data['current_save_data']['matching_rom_save_filenames'][ii]
     for ii in range (0,len(iarl_data['current_rom_data']['rom_save_supporting_filenames'])):
         download_filename = False
         if iarl_data['current_rom_data']['rom_save_supporting_filenames'][ii]:
@@ -981,6 +998,10 @@ def download_rom_only(iarl_data):
                 else:
                     iarl_data['current_save_data']['rom_save_supporting_filenames_success'][ii] = False
                     iarl_data['current_save_data']['rom_save_supporting_filenames_exist'][ii] = False
+        else: #File already exists locally, but potentially has a different file extension or naming convention
+            if iarl_data['current_rom_data']['rom_save_supporting_filenames'][ii] is not None:
+                xbmc.log(msg='IARL:  Matching file that already exists: '+str(iarl_data['current_save_data']['matching_rom_save_supporting_filenames'][ii]), level=xbmc.LOGDEBUG)
+                iarl_data['current_save_data']['rom_save_supporting_filenames'][ii] = iarl_data['current_save_data']['matching_rom_save_supporting_filenames'][ii]
     
     #5.  Check to ensure each file was a success
     for check in iarl_data['current_save_data']['rom_save_filenames_success']:
@@ -1021,6 +1042,18 @@ def post_download_action(iarl_data,option,option2):
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
             xbmc.log(msg='IARL:  There was an error unzipping files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)
+    elif option == 'unzip_and_rename_file':
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            conversion_success, converted_filename = unzip_and_rename_file(iarl_data)
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error unzipping and reanaming for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)  
     elif option == 'unzip_update_rom_path_dosbox':
         if iarl_data['current_save_data']['rom_save_filenames']:
             for filenames in iarl_data['current_save_data']['rom_save_filenames']:
@@ -1304,8 +1337,10 @@ def download_and_launch_rom(romwindow,iarl_data):
                             xbmc.audioSuspend()
                             xbmc.enableNavSounds(False) 
                             xbmc.sleep(500) #This pause seems to help... I'm not really sure why
-                            # execute_subprocess_command(current_external_command.encode('utf-8'))
-                            os.system(current_external_command.encode('utf-8')) #Android is frustrating...
+                            if iarl_data['settings']['launch_with_subprocess']: 
+                                execute_subprocess_command(current_external_command.encode('utf-8'))
+                            else:
+                                os.system(current_external_command.encode('utf-8')) #Android is frustrating...
                             #Resume audio after external command is complete
                             xbmc.audioResume()
                             xbmc.enableNavSounds(True)
@@ -1315,8 +1350,10 @@ def download_and_launch_rom(romwindow,iarl_data):
                             xbmc.audioSuspend()
                             xbmc.enableNavSounds(False) 
                             xbmc.sleep(500) #This pause seems to help... I'm not really sure why
-                            # execute_subprocess_command(current_external_command)
-                            external_command = subprocess.call(current_external_command,shell=True)
+                            if iarl_data['settings']['launch_with_subprocess']: 
+                                execute_subprocess_command(current_external_command)
+                            else:
+                                external_command = subprocess.call(current_external_command,shell=True)
                             #Resume audio after external command is complete
                             xbmc.audioResume()
                             xbmc.enableNavSounds(True)

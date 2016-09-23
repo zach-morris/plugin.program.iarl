@@ -12,7 +12,7 @@
 		<setting id="iarl_setting_dl_cache" type="select" label="Cache Size (MB)" values="Zero (One ROM and Supporting Files Only)|10 MB|25MB|50MB|100MB|150MB|200MB|250MB|300MB|350MB|400MB|450MB|500MB|1GB|2GB|5GB|10GB|20GB" default="Zero (One ROM and Supporting Files Only)"/>
 		<setting id="iarl_enable_login" type="select" label="Enable Login" values="Enabled|Disabled" default="Disabled"/>
 		<setting id="iarl_setting_ia_username" type="text" label="archive.org Username" default="" visible="eq(-1,Enabled)"/>
- +		<setting id="iarl_setting_ia_password" type="text" label="archive.org Password" default="" visible="eq(-2,Enabled)"/>  
+ +		<setting id="iarl_setting_ia_password" type="text" label="archive.org Password" default="" option="hidden" visible="eq(-2,Enabled)"/>  
 	</category>
 	<category label="External Launchers">
 		<setting id="iarl_external_user_external_env" type="select" label="My System Type" values="Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|LibreElec x86|OpenElec RPi (Gamestarter Addon)|Android" default="Select" visible="true"/>
@@ -44,7 +44,7 @@
 		<setting id="iarl_external_user_external_env" type="select" label="My System Type" values="Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|LibreElec x86|OpenElec RPi (Gamestarter Addon)|Android" default="Select" visible="true" enable="false"/>
 		<setting id="iarl_external_launch_close_kodi" type="select" label="Close Kodi on Launch" values="Disabled|Enabled" default="Disabled" visible="true" enable="false"/>
 		<setting id="iarl_wizard_launcher" type="select" label="Emulator Launcher" values="Select|External|Kodi Retroplayer" default="External" visible="false"/>
-		<setting id="iarl_wizard_launcher_group" type="select" label="Set me up for" values="Select|Most Playable (Least CPU Intensive)|Balanced|Most Accurate" default="Select" visible="true"/>
+		<setting id="iarl_wizard_launcher_group" type="select" label="Set me up for" values="Select|Most Playable (Least CPU Intensive)|Balanced|Most Accurate|RetroPlayer" default="Select" visible="true"/>
 		<setting type="sep"/>
 		<setting visible="true" label="Run the Wizard" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/run_iarl_wizard.py)"/>
 	</category>
@@ -61,5 +61,6 @@
 		<setting visible="false" id="iarl_setting_clear_cache_value" type="bool" label="Clear Plugin Cache Value" default="false"/>
 		<setting visible="false" id="iarl_setting_warn_size" type="bool" label="Display Size Warning" default="true"/>
 		<setting visible="false" id="iarl_setting_warn_retroarch_sys_dir" type="bool" label="No System Dir Defined" default="true"/>
+		<setting visible="false" id="iarl_setting_subprocess_launch" type="bool" label="Launch Games with Subprocess" default="false"/>
 	</category>
 </settings>

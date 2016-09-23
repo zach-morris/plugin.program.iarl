@@ -2,7 +2,7 @@
 #Zach Morris
 #https://github.com/zach-morris/plugin.program.iarl
 
-import os, sys, re, shutil, json, zipfile, urllib
+import os, sys, re, shutil, json, zipfile, urllib, glob
 import xbmc, xbmcaddon, xbmcvfs, xbmcgui
 # 	from resources.lib.xbmcswift2b import xbmcgui
 from descriptionparserfactory import *
@@ -168,7 +168,7 @@ def get_operating_system():
 def execute_subprocess_command(command_in):
 	try:
 		return_data = check_output([command_in],shell=True)
-		xbmc.log(msg='IARL:  Android command returned data: '+str(return_data), level=xbmc.LOGDEBUG)
+		xbmc.log(msg='IARL:  Subprocess command returned: '+str(return_data), level=xbmc.LOGDEBUG)
 	except:
 		xbmc.log(msg='IARL:  Unable to execute subprocess command, trying OS command', level=xbmc.LOGDEBUG)
 		os.system(command_in) #Android is frustrating...
@@ -1449,12 +1449,61 @@ def unzip_file(current_fname):
 		if zip_success:
 			os.remove(current_fname)
 	else:
-		xbmc.log(msg='IARL:  File was not recognized as a zipfile and not extracted: ' +str(current_fname), level=xbmc.LOGERROR)
+		xbmc.log(msg='IARL:  File was not recognized as a zipfile and not extracted, pointing back to file: ' +str(current_fname), level=xbmc.LOGERROR)
+		zip_success = True
+		new_fname = current_fname
 
 	if uz_file_extension is not None: #The file was unzipped, change from zip to rom extension
 		new_fname = os.path.join(current_zip_fileparts[0],z_file.namelist()[0]) #Updated unzipped filename
 	else:
 		new_fname = current_fname #Didn't unzip or didn't find a file extension
+
+	return zip_success, new_fname
+
+
+def unzip_and_rename_file(iarl_data): #This will probably only work when there is one file in the zip
+	overall_success = False
+	zip_success = list()
+	new_fname = None
+
+	for current_fname in iarl_data['current_save_data']['rom_save_filenames']:
+		zip_success.append(False)
+		uz_file_extension = None
+
+		if zipfile.is_zipfile(current_fname):
+			try:
+				current_zip_fileparts = os.path.split(current_fname)
+				current_file_basename = os.path.splitext(current_zip_fileparts[-1])[0]
+				current_zip_path = current_zip_fileparts[0]
+				z_file = zipfile.ZipFile(current_fname)
+				z_file.extractall(current_zip_path)
+				z_file.close()
+				zip_success[-1] = True
+				xbmc.log(msg='IARL:  Unzip Successful for ' +str(current_fname), level=xbmc.LOGDEBUG)
+
+				for ind_z_file in z_file.namelist():
+					try:
+						uz_file_extension = os.path.splitext(os.path.split(os.path.join(current_zip_path,ind_z_file))[-1])[-1]
+						os.rename(os.path.join(current_zip_path,ind_z_file),os.path.join(current_zip_path,current_file_basename+uz_file_extension)) #Rename file with new extension
+						if new_fname is None:
+							new_fname = os.path.join(current_zip_path,current_file_basename+uz_file_extension)
+						xbmc.log(msg='IARL:  Filename renamed to ' +str(current_file_basename+uz_file_extension), level=xbmc.LOGDEBUG)
+					except:
+						xbmc.log(msg='IARL:  Unable to rename ' +str(ind_z_file), level=xbmc.LOGDEBUG)
+			except:
+				zip_success[-1] = False
+				xbmc.log(msg='IARL:  Unzip Failed for ' +str(current_fname), level=xbmc.LOGERROR)
+			if zip_success:
+				os.remove(current_fname)
+		else:
+			xbmc.log(msg='IARL:  File was not recognized as a zipfile and not extracted, pointing back to file: ' +str(current_fname), level=xbmc.LOGERROR)
+			zip_success[-1] = True
+			new_fname = current_fname
+
+	if False in zip_success:
+		overall_success = False
+	else:
+		overall_success = True
 
 	return zip_success, new_fname
 
@@ -2038,7 +2087,7 @@ def convert_7z_bin_cue_gdi(iarl_data,point_to_file_type):
 	if not os.path.isdir(un7zip_folder_path): #If the directory doesnt already exist
 		for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
 			if iarl_data['addon_data']['7za_path'] is not None:
-				if '7z' in iarl_data['current_save_data']['rom_save_filenames'][ii]:
+				if '7z' in iarl_data['current_save_data']['rom_save_filenames'][ii] or 'zip' in iarl_data['current_save_data']['rom_save_filenames'][ii]:
 					command = '"%7ZA_APP_PATH%" -aoa -o"%OUTPUT_DIR%" e "%INPUT_7Z%"' #May need to provide other OS options here
 					command = command.replace('%7ZA_APP_PATH%',iarl_data['addon_data']['7za_path'])
 					command = command.replace('%INPUT_7Z%',iarl_data['current_save_data']['rom_save_filenames'][ii])
@@ -2222,15 +2271,24 @@ def lynx_header_fix(current_fname):
 				header_text = '???'
 
 			with open(new_rom_fname, 'rb') as old:
-				with open(temp_filename, 'wb') as new:
-				    new.write(use_header)
-				    new.write(old.read())
+				if use_header in old.read():
+					xbmc.log(msg='IARL:  Lynx ROM already appears to have the expected header.', level=xbmc.LOGDEBUG)
+					update_file_with_header = False
+				else:
+					xbmc.log(msg='IARL:  Lynx ROM does not appear to have the expected header.  Attempting to update', level=xbmc.LOGDEBUG)
+					update_file_with_header = True
 
-			os.remove(new_rom_fname) #Remove Old File
-			os.rename(temp_filename,new_rom_fname) #Rename Temp File
+			if update_file_with_header:
+				with open(new_rom_fname, 'rb') as old:
+					with open(temp_filename, 'wb') as new:
+					    new.write(use_header)
+					    new.write(old.read())
+				os.remove(new_rom_fname) #Remove Old File
+				os.rename(temp_filename,new_rom_fname) #Rename Temp File
+				xbmc.log(msg='IARL:  Lynx ROM updated with '+str(header_text)+' bytes.', level=xbmc.LOGDEBUG)
+
 			new_fname = new_rom_fname
 			success = True
-			xbmc.log(msg='IARL:  Lynx ROM updated with '+str(header_text)+' bytes.', level=xbmc.LOGDEBUG)
 
 	return success, new_fname
 
@@ -2341,6 +2399,24 @@ def set_new_emu_launcher(xml_id,plugin):
 			delete_userdata_list_cache_file(current_xml_filename.split('.')[0])
 	else:
 		pass
+
+def check_file_exists_wildcard(file_path):
+	#A more robust file exists check.  This will check for any file or folder with the same base filename (replacing spaces with wildcard and file extension with wildcard) that is trying to be launched
+	file_found = False #Default to not found
+	try:
+		matching_files = glob.glob(os.path.join(os.path.split(file_path)[0],os.path.splitext(os.path.split(file_path)[-1])[0].replace(' ','*')+'*')) #Search for the filename with a different extension or folder with same name
+		matching_files = matching_files+glob.glob(os.path.join(os.path.split(file_path)[0],'*',os.path.splitext(os.path.split(file_path)[-1])[0].replace(' ','*')+'*')) #Add recursive search one folder down for MESS type setups
+		matching_files = matching_files+glob.glob(os.path.join(os.path.split(file_path)[0],clean_file_folder_name(os.path.splitext(os.path.split(file_path)[-1])[0].split('(')[0])+'*')) #Add search for processed filenames used in IARL
+		if len(matching_files)>0:
+			file_found = True
+			xbmc.log(msg='IARL:  Matching files found for '+str(file_path)+': '+str(', '.join(matching_files)), level=xbmc.LOGDEBUG)
+			file_path = str(matching_files[0]) #Return the first file found?  Not sure if this will work in all cases, maybe prompt the user?
+		else:
+			xbmc.log(msg='IARL:  No matching file found for '+str(file_path), level=xbmc.LOGDEBUG)
+	except:
+		xbmc.log(msg='IARL:  The file '+str(file_path)+' couldnt be searched', level=xbmc.LOGDEBUG)
+
+	return file_found, file_path
 
 def check_downloaded_file(file_path):
 	bad_file_found = False
