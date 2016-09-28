@@ -1087,7 +1087,7 @@ def define_game_listitem(property_name,iarl_data,rom_info):
 						if 'MAME'.lower() in iarl_data['current_archive_data']['emu_parser'].lower():
 							if 'zip'.lower() not in rom_file_name:
 								rom_file_name = rom_file_name+'.zip' #Sometimes MAME archives dont append the extension, so add it
-						property_value.append(html_unescape(iarl_data['current_archive_data']['emu_base_url']+xstr(rom_file_name).replace(',','')))
+						property_value.append(html_unescape(iarl_data['current_archive_data']['emu_base_url']+xstr(rom_file_name).replace(',',''))) #Commas removed for zipfiles, they dont like that
 		elif property_name == 'rom_save_filenames':
 			property_value = list()
 			if 'default' in iarl_data['current_archive_data']['emu_download_path']:
@@ -1098,7 +1098,7 @@ def define_game_listitem(property_name,iarl_data,rom_info):
 						if 'MAME'.lower() in iarl_data['current_archive_data']['emu_parser'].lower():
 							if 'zip'.lower() not in rom_file_name:
 								rom_file_name = rom_file_name+'.zip' #Sometimes MAME archives dont append the extension, so add it
-						property_value.append(os.path.join(iarl_data['current_archive_data']['emu_download_path'],os.path.split(unquote_text(xstr(rom_file_name)))[-1].replace(',','')))
+						property_value.append(os.path.join(iarl_data['current_archive_data']['emu_download_path'],os.path.split(unquote_text(xstr(rom_file_name)))[-1].replace(',',''))) #Commas removed for zipfiles, they dont like that
 		elif property_name == 'rom_supporting_filenames':
 			property_value = list()
 			for rom_sup_file_name in rom_info['rom_supporting_file']:
@@ -1107,7 +1107,7 @@ def define_game_listitem(property_name,iarl_data,rom_info):
 						if 'MAME'.lower() in iarl_data['current_archive_data']['emu_parser'].lower():
 							if 'zip'.lower() not in rom_sup_file_name:
 								rom_sup_file_name = rom_sup_file_name+'.zip' #Sometimes MAME archives dont append the extension, so add it
-						property_value.append(html_unescape(iarl_data['current_archive_data']['emu_base_url']+xstr(rom_sup_file_name).replace(',','')))
+						property_value.append(html_unescape(iarl_data['current_archive_data']['emu_base_url']+xstr(rom_sup_file_name).replace(',',''))) #Commas removed for zipfiles, they dont like that
 		elif property_name == 'rom_save_supporting_filenames':
 			property_value = list()
 			if 'default' in iarl_data['current_archive_data']['emu_download_path']:
@@ -1118,7 +1118,7 @@ def define_game_listitem(property_name,iarl_data,rom_info):
 						if 'MAME'.lower() in iarl_data['current_archive_data']['emu_parser'].lower():
 							if 'zip'.lower() not in rom_sup_file_name:
 								rom_sup_file_name = rom_sup_file_name+'.zip' #Sometimes MAME archives dont append the extension, so add it
-						property_value.append(os.path.join(iarl_data['current_archive_data']['emu_download_path'],os.path.split(unquote_text(xstr(rom_sup_file_name)))[-1].replace(',','')))
+						property_value.append(os.path.join(iarl_data['current_archive_data']['emu_download_path'],os.path.split(unquote_text(xstr(rom_sup_file_name)))[-1].replace(',',''))) #Commas removed for zipfiles, they dont like that
 		else: #By default, set the property value to the same name
 			if property_name in rom_info.keys():
 				if rom_info[property_name] is not None:
@@ -1913,20 +1913,26 @@ def setup_mame_softlist_game(iarl_data,softlist_type):
 					except:
 						xbmc.log(msg='IARL:  Error creating mame folder path for ' +str(softlist_type), level=xbmc.LOGERROR)
 				for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
-					new_save_file_location = os.path.join(current_save_path,softlist_info['folder_name'][0],os.path.split(iarl_data['current_save_data']['rom_save_filenames'][ii])[-1])
-					if not os.path.isfile(new_save_file_location):
-						copyFile(iarl_data['current_save_data']['rom_save_filenames'][ii],new_save_file_location)
-					if os.path.isfile(new_save_file_location): #Copy was successful
-						try:
-							os.remove(iarl_data['current_save_data']['rom_save_filenames'][ii]) #Remove the old file
-						except:
-							xbmc.log(msg='IARL:  Old file was not found and could not be deleted '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
-						iarl_data['current_save_data']['rom_save_filenames'][ii] = new_save_file_location
-						converted_success.append(True)
+					if os.path.isfile(iarl_data['current_save_data']['rom_save_filenames'][ii]): #Copy files to new location
+						new_save_file_location = os.path.join(current_save_path,softlist_info['folder_name'][0],os.path.split(iarl_data['current_save_data']['rom_save_filenames'][ii])[-1])
+						if not os.path.isfile(new_save_file_location):
+							copyFile(iarl_data['current_save_data']['rom_save_filenames'][ii],new_save_file_location)
+						if os.path.isfile(new_save_file_location): #Copy was successful
+							try:
+								if new_save_file_location != iarl_data['current_save_data']['rom_save_filenames'][ii]: #Only remove the old file if the new save location is different
+									os.remove(iarl_data['current_save_data']['rom_save_filenames'][ii]) #Remove the old file
+									xbmc.log(msg='IARL:  File deleted '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+								else:
+									xbmc.log(msg='IARL:  File already exists and will not be deleted '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+							except:
+								xbmc.log(msg='IARL:  Old file was not found and could not be deleted '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+							iarl_data['current_save_data']['rom_save_filenames'][ii] = new_save_file_location
+							converted_success.append(True)
+						else:
+							converted_success.append(False)
+							xbmc.log(msg='IARL:  Copying the XML file '+str(new_save_file_location)+' failed.', level=xbmc.LOGERROR)
 					else:
-						converted_success.append(False)
-						xbmc.log(msg='IARL:  Copying the XML file '+str(file_name)+' failed.', level=xbmc.LOGERROR)
-
+						xbmc.log(msg='IARL:  Skipped copy of '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
 			#3 Define new launch filename
 			if False in converted_success:
 				overall_success = False
@@ -2148,6 +2154,7 @@ def convert_7z_bin_cue_gdi(iarl_data,point_to_file_type):
 						output_filename = os.path.join(un7zip_folder_path,ffiles)
 						found_files = True
 						overall_success = True
+		current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
 				
 	return overall_success, output_filename
 
@@ -2211,6 +2218,7 @@ def convert_7z_m3u(iarl_data):
 				fout.write(m3u_content)
 				fout.close()
 				overall_success = True
+		current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
 				
 	return overall_success, m3u_filename
 
@@ -2400,13 +2408,37 @@ def set_new_emu_launcher(xml_id,plugin):
 	else:
 		pass
 
-def check_file_exists_wildcard(file_path):
+def check_file_exists_wildcard(file_path,file_name_2):
 	#A more robust file exists check.  This will check for any file or folder with the same base filename (replacing spaces with wildcard and file extension with wildcard) that is trying to be launched
+	#It will not match retroarch save filetypes like srm, sav, etc
 	file_found = False #Default to not found
 	try:
-		matching_files = glob.glob(os.path.join(os.path.split(file_path)[0],os.path.splitext(os.path.split(file_path)[-1])[0].replace(' ','*')+'*')) #Search for the filename with a different extension or folder with same name
-		matching_files = matching_files+glob.glob(os.path.join(os.path.split(file_path)[0],'*',os.path.splitext(os.path.split(file_path)[-1])[0].replace(' ','*')+'*')) #Add recursive search one folder down for MESS type setups
-		matching_files = matching_files+glob.glob(os.path.join(os.path.split(file_path)[0],clean_file_folder_name(os.path.splitext(os.path.split(file_path)[-1])[0].split('(')[0])+'*')) #Add search for processed filenames used in IARL
+		file_path_base = os.path.split(file_path)[0]
+		file_path_name = os.path.splitext(os.path.split(file_path)[-1])[0].replace('][','*').replace('[','*').replace(']','*') #glob doesnt like literal brackets in filenames
+		if len(os.path.splitext(file_name_2)[-1]) == 4:
+			file_path_name2 = os.path.splitext(file_name_2)[0] #Remove extension if present
+		else:
+			file_path_name2 = file_name_2
+		for ii in range(1,101): #Remove numbers 1. - 100. from filename
+			if file_path_name2.startswith(str(ii)+'.'):
+				file_path_name2 = file_path_name2.replace(str(ii)+'.','').strip()
+		matching_files = glob.glob(os.path.join(file_path_base,file_path_name.replace(' ','*')+'*')) #Search for the filename with a different extension or folder with same name
+		matching_files = matching_files+glob.glob(os.path.join(file_path_base,'*',file_path_name.replace(' ','*')+'*')) #Add recursive search one folder down for MESS type setups
+		matching_files = matching_files+glob.glob(os.path.join(file_path_base,clean_file_folder_name(file_path_name.split('(')[0])+'*')) #Add search for processed filenames used in IARL
+		#Search again for files without commas in the filename	
+		matching_files = matching_files+glob.glob(os.path.join(file_path_base,file_path_name.replace(',','*').replace(' ','*')+'*')) #Search for the filename with a different extension or folder with same name
+		matching_files = matching_files+glob.glob(os.path.join(file_path_base,'*',file_path_name.replace(',','*').replace(' ','*')+'*')) #Add recursive search one folder down for MESS type setups
+		matching_files = matching_files+glob.glob(os.path.join(file_path_base,clean_file_folder_name(file_path_name.replace(',','*').split('(')[0])+'*')) #Add search for processed filenames used in IARL
+		if file_path_name != file_path_name2: #if the save filename is not the same as the rom name, search for that too unzipped files may be named per rom name rather than save filename
+			matching_files = matching_files+glob.glob(os.path.join(file_path_base,file_path_name2.replace(' ','*')+'*')) #Search for the filename with a different extension or folder with same name
+			matching_files = matching_files+glob.glob(os.path.join(file_path_base,'*',file_path_name2.replace(' ','*')+'*')) #Add recursive search one folder down for MESS type setups
+			matching_files = matching_files+glob.glob(os.path.join(file_path_base,clean_file_folder_name(file_path_name2.split('(')[0])+'*')) #Add search for processed filenames used in IARL
+			#Search again for files without commas in the filename	
+			matching_files = matching_files+glob.glob(os.path.join(file_path_base,file_path_name2.replace(',','*').replace(' ','*')+'*')) #Search for the filename with a different extension or folder with same name
+			matching_files = matching_files+glob.glob(os.path.join(file_path_base,'*',file_path_name2.replace(',','*').replace(' ','*')+'*')) #Add recursive search one folder down for MESS type setups
+			matching_files = matching_files+glob.glob(os.path.join(file_path_base,clean_file_folder_name(file_path_name2.replace(',','*').split('(')[0])+'*')) #Add search for processed filenames used in IARL
+		remove_these_filetypes = ['srm','sav','fs'] #Save filetypes
+		matching_files = list(set([x for x in matching_files if x.split('.')[-1].lower() not in remove_these_filetypes])) #Remove duplicates and save filetypes
 		if len(matching_files)>0:
 			file_found = True
 			xbmc.log(msg='IARL:  Matching files found for '+str(file_path)+': '+str(', '.join(matching_files)), level=xbmc.LOGDEBUG)

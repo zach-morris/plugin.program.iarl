@@ -920,7 +920,7 @@ def download_rom_only(iarl_data):
         if filenames:
             iarl_data['current_save_data']['rom_save_filenames'].append(filenames)
             # if os.path.exists(filenames):
-            file_exists_wc, file_found_wc = check_file_exists_wildcard(filenames)
+            file_exists_wc, file_found_wc = check_file_exists_wildcard(filenames,iarl_data['current_rom_data']['rom_name'])
             if file_exists_wc:
                 iarl_data['current_save_data']['rom_save_filenames_exist'].append(True)
                 iarl_data['current_save_data']['matching_rom_save_filenames'].append(file_found_wc)
@@ -933,7 +933,7 @@ def download_rom_only(iarl_data):
         if filenames:
             iarl_data['current_save_data']['rom_save_supporting_filenames'].append(filenames)
             # if os.path.exists(filenames):
-            file_exists_wc, file_found_wc = check_file_exists_wildcard(filenames)
+            file_exists_wc, file_found_wc = check_file_exists_wildcard(filenames,iarl_data['current_rom_data']['rom_name'])
             if file_exists_wc:
                 iarl_data['current_save_data']['rom_save_supporting_filenames_exist'].append(True)
                 iarl_data['current_save_data']['matching_rom_save_supporting_filenames'].append(file_found_wc)

@@ -113,15 +113,15 @@
 			<emu_parser>NoIntro_parser.xml</emu_parser>
 			<emu_description>MSX</emu_description>
 			<emu_category>PC</emu_category>
-			<emu_version>05152016</emu_version>
-			<emu_date>05/15/2016</emu_date>
+			<emu_version>092816</emu_version>
+			<emu_date>09/28/2016</emu_date>
 			<emu_author>Zach Morris</emu_author>
 			<emu_homepage>http://www.no-intro.org</emu_homepage>
 			<emu_baseurl>https://archive.org/download/MESS_0.151_Software_List_ROMs/</emu_baseurl>
 			<emu_launcher>retroplayer</emu_launcher>
 			<emu_ext_launch_cmd>none</emu_ext_launch_cmd>
 			<emu_downloadpath>default</emu_downloadpath>
-			<emu_postdlaction>unzip_rom</emu_postdlaction>
+			<emu_postdlaction>none</emu_postdlaction>
 			<emu_comment>Internet Archive MSX List by Zach Morris.
 
 MSX is the name of a standardized home computer architecture, first announced by Microsoft in 1983. It was conceived by Kazuhiko Nishi, then Vice-president at Microsoft Japan and Director at ASCII Corporation. It is said that Microsoft led the project as an attempt to create unified standards among hardware makers.

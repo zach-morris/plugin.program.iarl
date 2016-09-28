@@ -49,6 +49,8 @@ class download_tools():
 			r = s.post('https://archive.org/account/login.php', data=data)
 			if 'that password seems incorrect' in str(r.text.encode('utf-8')).lower():
 				xbmc.log(msg='IARL:  Login and Password were not accepted, we will try to download anyway', level=xbmc.LOGDEBUG)
+			xbmc.log(msg='IARL:  Download with login URL: '+str(url), level=xbmc.LOGDEBUG)
+			xbmc.log(msg='IARL:  Download save filename: '+str(dest), level=xbmc.LOGDEBUG)
 			r = s.get(url,verify=False,stream=True)
 			f = open(dest, 'wb')
 			size = 0
@@ -73,6 +75,7 @@ class download_tools():
 		else: #No login / pass available or login not enabled, use the old download method
 			try:
 				xbmc.log(msg='IARL:  Download no login URL: '+str(url), level=xbmc.LOGDEBUG)
+				xbmc.log(msg='IARL:  Download save filename: '+str(dest), level=xbmc.LOGDEBUG)
 				urllib.urlretrieve(url,dest,lambda nb, bs, fs, url=url: self._pbhook(nb,bs,fs,est_filesize,dp))
 				success = True
 			except:
