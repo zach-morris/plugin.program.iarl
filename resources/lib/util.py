@@ -252,24 +252,181 @@ def save_userdata_list_cache_file(list_object,category_id):
 	list_cache_dir = get_userdata_list_cache_dir()
 	pickle_filename = os.path.join(get_userdata_list_cache_dir(),category_id+'.pickle')
 
-	if os.path.isfile(pickle_filename): #File already exists, so delete it
+	#Removed this code, wb file writing overwrites the old file anyway, so no need to delete
+	# if os.path.isfile(pickle_filename): #File already exists, so delete it
+	# 	try:
+	# 		os.remove(pickle_filename)
+	# 	except:
+	# 		xbmc.log(msg='IARL:  Error deleting current list cache file '+str(pickle_filename)+' prior to save.', level=xbmc.LOGERROR)
+	# else: #File doesn't exist, so save it
+	try:
+		pickle.dump(list_object,open(pickle_filename,'wb')) #Save/overwrite file as pickle
+		save_success = True
+		xbmc.log(msg='IARL:  List cached to file '+str(pickle_filename), level=xbmc.LOGDEBUG)
+	except:
+		xbmc.log(msg='IARL:  Unable to save list cache file '+str(pickle_filename), level=xbmc.LOGERROR)
 		try:
-			os.remove(pickle_filename)
+			file_object.close() #Close the file if there was an error
+			os.remove(pickle_filename) #Delete the attempted saved file
 		except:
-			xbmc.log(msg='IARL:  Error deleting current list cache file '+str(pickle_filename)+' prior to save.', level=xbmc.LOGERROR)
-	else: #File doesn't exist, so save it
- 		try:
- 			pickle.dump(list_object,open(pickle_filename,'wb')) #Save file as pickle
-			save_success = True
-			xbmc.log(msg='IARL:  List cached to file '+str(pickle_filename), level=xbmc.LOGDEBUG)
-		except:
-			xbmc.log(msg='IARL:  Unable to save list cache file '+str(pickle_filename), level=xbmc.LOGERROR)
-		finally:
+			xbmc.log(msg='IARL:  Unable to save list cache file '+str(pickle_filename)+', the file may be corrupted', level=xbmc.LOGERROR)
+
+	return save_success
+
+def update_history_cache_file(iarl_data,plugin):
+	save_success = False
+	load_success = False
+	list_cache_dir = get_userdata_list_cache_dir()
+	pickle_filename = os.path.join(get_userdata_list_cache_dir(),'iarl_history.pickle')
+	list_out = []
+
+	if iarl_data['settings']['iarl_setting_history'] > 0 and iarl_data['settings']['cache_list']: #History is set to something other than 0, so save the current list item to history
+		if os.path.isfile(pickle_filename):
+			xbmc.log(msg='IARL:  Loading history cache '+str(pickle_filename), level=xbmc.LOGDEBUG)
 			try:
-				file_object.close() #Close the file if there was an error
-				os.remove(pickle_filename) #Delete the attempted saved file
+				with open(pickle_filename,'rb') as content_file:
+					history_list = pickle.load(content_file)
+				load_success = True
 			except:
-				xbmc.log(msg='IARL:  Unable to save list cache file '+str(pickle_filename)+', the file may be corrupted', level=xbmc.LOGERROR)
+				load_success = False
+				history_list = []
+				xbmc.log(msg='IARL:  Unable to load list cache file '+str(pickle_filename), level=xbmc.LOGERROR)
+		else:
+			load_success = True #No file to load
+			history_list = []
+
+		if load_success:
+			#Top of the list is last played
+			list_out.append({
+	        'label' : iarl_data['current_rom_data']['rom_label'],
+	        'label2' : iarl_data['current_rom_data']['rom_name'],
+	        'icon': iarl_data['current_rom_data']['rom_icon'],
+	        'thumbnail' : iarl_data['current_rom_data']['rom_thumbnail'],
+	        'path' : plugin.url_for('get_selected_rom', category_id=iarl_data['current_archive_data']['category_id'], romname=iarl_data['current_rom_data']['rom_name']),
+	        'info' : {'title' : iarl_data['current_rom_data']['rom_title'],
+	        		  'genre': iarl_data['current_rom_data']['rom_genre'],
+	        		  'year': iarl_data['current_rom_data']['rom_year'],
+	        		  'studio': iarl_data['current_rom_data']['rom_studio'],
+	        		  'date': iarl_data['current_rom_data']['rom_date'],
+	        		  'plot': iarl_data['current_rom_data']['rom_plot'],
+	        		  'trailer': iarl_data['current_rom_data']['rom_trailer'],
+	        		  'rating': iarl_data['current_rom_data']['rom_rating'],
+	        		  'mpaa' : iarl_data['current_rom_data']['rom_esrb'],
+	        		  'size': sum(map(int,iarl_data['current_rom_data']['rom_size'])) #For display purposes only
+	        		  },
+	        'properties' : {'fanart_image' : iarl_data['current_rom_data']['rom_fanarts'][0],
+							'banner' : iarl_data['current_rom_data']['rom_banners'][0],
+							'clearlogo': iarl_data['current_rom_data']['rom_logos'][0],
+							'poster': iarl_data['current_rom_data']['rom_thumbnail'],
+							'tag': iarl_data['current_rom_data']['rom_tag'],
+							'rating': iarl_data['current_rom_data']['rom_rating'],
+							'perspective': iarl_data['current_rom_data']['rom_perspective'],
+							'esrb': iarl_data['current_rom_data']['rom_esrb'],
+							'rom_name': iarl_data['current_rom_data']['rom_name'],
+							'rom_icon': iarl_data['current_rom_data']['rom_icon'],
+							'rom_thumbnail': iarl_data['current_rom_data']['rom_thumbnail'],
+							'rom_title': iarl_data['current_rom_data']['rom_title'],
+							'rom_studio': iarl_data['current_rom_data']['rom_studio'],
+							'rom_genre': iarl_data['current_rom_data']['rom_genre'],
+							'rom_date': iarl_data['current_rom_data']['rom_date'],
+							'rom_year': iarl_data['current_rom_data']['rom_year'],
+							'rom_plot': iarl_data['current_rom_data']['rom_plot'],
+							'rom_trailer': iarl_data['current_rom_data']['rom_trailer'],
+							'rom_label': iarl_data['current_rom_data']['rom_label'],
+							'fanart1': iarl_data['current_rom_data']['rom_fanarts'][0],
+							'fanart2': iarl_data['current_rom_data']['rom_fanarts'][1],
+							'fanart3': iarl_data['current_rom_data']['rom_fanarts'][2],
+							'fanart4': iarl_data['current_rom_data']['rom_fanarts'][3],
+							'fanart5': iarl_data['current_rom_data']['rom_fanarts'][4],
+							'fanart6': iarl_data['current_rom_data']['rom_fanarts'][5],
+							'fanart7': iarl_data['current_rom_data']['rom_fanarts'][6],
+							'fanart8': iarl_data['current_rom_data']['rom_fanarts'][7],
+							'fanart9': iarl_data['current_rom_data']['rom_fanarts'][8],
+							'fanart10': iarl_data['current_rom_data']['rom_fanarts'][9],
+							'banner1': iarl_data['current_rom_data']['rom_banners'][0],
+							'banner2': iarl_data['current_rom_data']['rom_banners'][1],
+							'banner3': iarl_data['current_rom_data']['rom_banners'][2],
+							'banner4': iarl_data['current_rom_data']['rom_banners'][3],
+							'banner5': iarl_data['current_rom_data']['rom_banners'][4],
+							'banner6': iarl_data['current_rom_data']['rom_banners'][5],
+							'banner7': iarl_data['current_rom_data']['rom_banners'][6],
+							'banner8': iarl_data['current_rom_data']['rom_banners'][7],
+							'banner9': iarl_data['current_rom_data']['rom_banners'][8],
+							'banner10': iarl_data['current_rom_data']['rom_banners'][9],
+							'snapshot1': iarl_data['current_rom_data']['rom_snapshots'][0],
+							'snapshot2': iarl_data['current_rom_data']['rom_snapshots'][1],
+							'snapshot3': iarl_data['current_rom_data']['rom_snapshots'][2],
+							'snapshot4': iarl_data['current_rom_data']['rom_snapshots'][3],
+							'snapshot5': iarl_data['current_rom_data']['rom_snapshots'][4],
+							'snapshot6': iarl_data['current_rom_data']['rom_snapshots'][5],
+							'snapshot7': iarl_data['current_rom_data']['rom_snapshots'][6],
+							'snapshot8': iarl_data['current_rom_data']['rom_snapshots'][7],
+							'snapshot9': iarl_data['current_rom_data']['rom_snapshots'][8],
+							'snapshot10': iarl_data['current_rom_data']['rom_snapshots'][9],
+							'boxart1': iarl_data['current_rom_data']['rom_boxarts'][0],
+							'boxart2': iarl_data['current_rom_data']['rom_boxarts'][1],
+							'boxart3': iarl_data['current_rom_data']['rom_boxarts'][2],
+							'boxart4': iarl_data['current_rom_data']['rom_boxarts'][3],
+							'boxart5': iarl_data['current_rom_data']['rom_boxarts'][4],
+							'boxart6': iarl_data['current_rom_data']['rom_boxarts'][5],
+							'boxart7': iarl_data['current_rom_data']['rom_boxarts'][6],
+							'boxart8': iarl_data['current_rom_data']['rom_boxarts'][7],
+							'boxart9': iarl_data['current_rom_data']['rom_boxarts'][8],
+							'boxart10': iarl_data['current_rom_data']['rom_boxarts'][9],
+							'logo1': iarl_data['current_rom_data']['rom_logos'][0],
+							'logo2': iarl_data['current_rom_data']['rom_logos'][1],
+							'logo3': iarl_data['current_rom_data']['rom_logos'][2],
+							'logo4': iarl_data['current_rom_data']['rom_logos'][3],
+							'logo5': iarl_data['current_rom_data']['rom_logos'][4],
+							'logo6': iarl_data['current_rom_data']['rom_logos'][5],
+							'logo7': iarl_data['current_rom_data']['rom_logos'][6],
+							'logo8': iarl_data['current_rom_data']['rom_logos'][7],
+							'logo9': iarl_data['current_rom_data']['rom_logos'][8],
+							'logo10': iarl_data['current_rom_data']['rom_logos'][9],
+							'nplayers': iarl_data['current_rom_data']['rom_nplayers'],
+							#Need to convert lists into comma seperated strings for listitem properties
+							'rom_filenames': ','.join(map(str, iarl_data['current_rom_data']['rom_filenames'])),
+							'rom_file_sizes': ','.join(map(str, iarl_data['current_rom_data']['rom_size'])),
+							'rom_supporting_filenames': ','.join(map(str, iarl_data['current_rom_data']['rom_supporting_filenames'])),
+							'rom_save_filenames': ','.join(map(str, iarl_data['current_rom_data']['rom_save_filenames'])),
+							'rom_save_supporting_filenames': ','.join(map(str, iarl_data['current_rom_data']['rom_save_supporting_filenames'])),
+							'rom_emu_command': iarl_data['current_rom_data']['rom_emu_command'],
+							'emu_name' : iarl_data['current_archive_data']['emu_name'],
+							'category_id' : iarl_data['current_archive_data']['category_id'],
+							'emu_parser' : iarl_data['current_archive_data']['emu_parser'],
+							'emu_filepath' : iarl_data['current_archive_data']['emu_filepath'],
+							'emu_plot' : iarl_data['current_archive_data']['emu_plot'],
+							'emu_category' : iarl_data['current_archive_data']['emu_category'],
+							'emu_version' : iarl_data['current_archive_data']['emu_version'],
+							'emu_date' : iarl_data['current_archive_data']['emu_date'],
+							'emu_author' : iarl_data['current_archive_data']['emu_author'],
+							'emu_base_url' : iarl_data['current_archive_data']['emu_base_url'],
+							'emu_download_path' : iarl_data['current_archive_data']['emu_download_path'],
+							'emu_post_download_action' : iarl_data['current_archive_data']['emu_post_download_action'],
+							'emu_launcher' : iarl_data['current_archive_data']['emu_launcher'],
+							'emu_ext_launch_cmd' : iarl_data['current_archive_data']['emu_ext_launch_cmd'],
+							'emu_boxart' : iarl_data['current_archive_data']['emu_boxart'],
+							'emu_banner' : iarl_data['current_archive_data']['emu_banner'],
+							'emu_fanart' : iarl_data['current_archive_data']['emu_fanart'],
+							'emu_logo': iarl_data['current_archive_data']['emu_logo'],
+							'emu_trailer': iarl_data['current_archive_data']['emu_trailer']
+							},
+	        				'context_menu': None
+							})
+
+			for ii in range(0,max(0,min(iarl_data['settings']['iarl_setting_history'],len(history_list)))): #Iterate up to either the max number of items allowed or the total number of history items
+				if ii < iarl_data['settings']['iarl_setting_history']-1:
+					list_out.append(history_list[ii])
+
+			save_success = save_userdata_list_cache_file(list_out,'iarl_history')
+
+	else: #History is set to 0 items, if the file exists, delete it
+		if os.path.isfile(pickle_filename):
+			try:
+				os.remove(pickle_filename)
+				xbmc.log(msg='IARL:  History set to 0, deleted cache '+str(pickle_filename), level=xbmc.LOGDEBUG)
+			except:
+				xbmc.log(msg='IARL:  Error deleting current list cache file '+str(pickle_filename), level=xbmc.LOGERROR)
 
 	return save_success
 
@@ -2186,20 +2343,21 @@ def convert_7z_m3u(iarl_data):
 
 					if success_text.lower() in results1.lower():
 						xbmc.log(msg='IARL:  7Z conversion successful', level=xbmc.LOGDEBUG)
-						current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
+						# current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
 						converted_success.append(True)
 					else:
 						xbmc.log(msg='IARL:  7Z conversion failed: '+str(results1), level=xbmc.LOGDEBUG)
-						current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
+						# current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
 						converted_success.append(False)
 			else:
 				xbmc.log(msg='IARL:  7z binary is not defined for your system: '+str(os.uname()), level=xbmc.LOGERROR)
-				current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
+				# current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
 				converted_success.append(False)
 
 		if False in converted_success:
 			overall_success = False
 			m3u_filename = None
+			current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
 		else:
 			if '.cue' in [os.path.splitext(x)[-1] for x in os.listdir(un7zip_folder_path)]:
 				m3u_content = '\r\n'.join([x for x in os.listdir(un7zip_folder_path) if 'cue' in x])
@@ -2207,10 +2365,12 @@ def convert_7z_m3u(iarl_data):
 				fout.write(m3u_content)
 				fout.close()
 				overall_success = True
+				current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
 		# hide_busy_dialog()
 	else: #Folder already exists
 		if os.path.isfile(m3u_filename): #The m3u file already exists
 			overall_success = True
+			current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
 		else: #Make the m3u file
 			if '.cue' in [os.path.splitext(x)[-1] for x in os.listdir(un7zip_folder_path)]:
 				m3u_content = '\r\n'.join([x for x in os.listdir(un7zip_folder_path) if 'cue' in x])

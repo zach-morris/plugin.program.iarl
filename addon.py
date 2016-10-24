@@ -21,6 +21,7 @@ iarl_data = {
                             'listing_convention' : plugin.get_setting('iarl_setting_listing',unicode),
                             'naming_convention' : plugin.get_setting('iarl_setting_naming',unicode),
                             'items_per_page_setting' : None, #Initialize variable and set later
+                            'iarl_setting_history' : plugin.get_setting('iarl_setting_history',int),
                             'local_file_action' : plugin.get_setting('iarl_setting_localfile_action',unicode),
                             'game_select_action' : plugin.get_setting('iarl_setting_default_action',unicode),
                             'window_theme' : plugin.get_setting('iarl_setting_rom_window_theme',unicode),
@@ -437,6 +438,24 @@ def index():
     items[-1].set_poster(items[-1].get_property('poster'))
     items[-1].set_clearlogo(items[-1].get_property('clearlogo'))
     items[-1].set_clearart(items[-1].get_property('clearlogo'))
+
+    if iarl_data['settings']['cache_list']: #Only show if history is turned ON
+        #Append Last Played Function
+        items.append(plugin._listitemify({ 
+            'label' : '\xc2\xa0\xc2\xa0\xc2\xa0Last Played',
+            'path' :  plugin.url_for('last_played'),
+            'icon': os.path.join(iarl_data['addon_data']['addon_media_path'],'last_played.jpg'),
+            'thumbnail' : os.path.join(iarl_data['addon_data']['addon_media_path'],'last_played.jpg'),
+            'info' : {'genre': '\xc2\xa0\xc2\xa0\xc2\xa0', 'date': '01/01/2999', 'plot' : 'View your game history.'},
+            'properties' : {'fanart_image' : os.path.join(iarl_data['addon_data']['addon_media_path'],'fanart.jpg'),
+                            'banner' : os.path.join(iarl_data['addon_data']['addon_media_path'],'last_played_banner.jpg')}
+            }))
+        items[-1].set_banner(items[-1].get_property('banner'))
+        items[-1].set_landscape(items[-1].get_property('banner'))
+        items[-1].set_poster(items[-1].get_property('poster'))
+        items[-1].set_clearlogo(items[-1].get_property('clearlogo'))
+        items[-1].set_clearart(items[-1].get_property('clearlogo'))
+
 
     return plugin.finish(items, update_listing=True, sort_methods=[xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_GENRE])
 
@@ -889,6 +908,21 @@ def random_play():
         return plugin.finish([],update_listing=False)
     # pass
 
+@plugin.route('/History')
+def last_played():
+    
+    if os.path.isfile(os.path.join(iarl_data['addon_data']['addon_list_cache_path'],'iarl_history.pickle')): #Cached list exists
+        xbmc.log(msg='IARL:  Loading game history file', level=xbmc.LOGDEBUG)
+        load_success, rom_list = load_userdata_list_cache_file('iarl_history')
+    else:
+        load_success = False
+        xbmc.log(msg='IARL:  No game history file was found', level=xbmc.LOGNOTICE)
+
+    if load_success:
+        return rom_list
+    else:
+        pass
+
 def download_rom_only(iarl_data):
     xbmc.log(msg='IARL:  Download started for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGNOTICE)
 
@@ -918,30 +952,32 @@ def download_rom_only(iarl_data):
     #2.  Check if filename(s) already exist
     for filenames in iarl_data['current_rom_data']['rom_save_filenames']:
         if filenames:
-            iarl_data['current_save_data']['rom_save_filenames'].append(filenames)
-            # if os.path.exists(filenames):
-            file_exists_wc, file_found_wc = check_file_exists_wildcard(filenames,iarl_data['current_rom_data']['rom_name'])
-            if file_exists_wc:
-                iarl_data['current_save_data']['rom_save_filenames_exist'].append(True)
-                iarl_data['current_save_data']['matching_rom_save_filenames'].append(file_found_wc)
-                iarl_data['current_save_data']['rom_save_filenames_success'].append(True)
-            else:
-                iarl_data['current_save_data']['rom_save_filenames_exist'].append(False)
-                iarl_data['current_save_data']['matching_rom_save_filenames'].append(None)
-                iarl_data['current_save_data']['rom_save_filenames_success'].append(False)
+            if filenames.lower() != 'none':
+                iarl_data['current_save_data']['rom_save_filenames'].append(filenames)
+                # if os.path.exists(filenames):
+                file_exists_wc, file_found_wc = check_file_exists_wildcard(filenames,iarl_data['current_rom_data']['rom_name'])
+                if file_exists_wc:
+                    iarl_data['current_save_data']['rom_save_filenames_exist'].append(True)
+                    iarl_data['current_save_data']['matching_rom_save_filenames'].append(file_found_wc)
+                    iarl_data['current_save_data']['rom_save_filenames_success'].append(True)
+                else:
+                    iarl_data['current_save_data']['rom_save_filenames_exist'].append(False)
+                    iarl_data['current_save_data']['matching_rom_save_filenames'].append(None)
+                    iarl_data['current_save_data']['rom_save_filenames_success'].append(False)
     for filenames in iarl_data['current_rom_data']['rom_save_supporting_filenames']:
         if filenames:
-            iarl_data['current_save_data']['rom_save_supporting_filenames'].append(filenames)
-            # if os.path.exists(filenames):
-            file_exists_wc, file_found_wc = check_file_exists_wildcard(filenames,iarl_data['current_rom_data']['rom_name'])
-            if file_exists_wc:
-                iarl_data['current_save_data']['rom_save_supporting_filenames_exist'].append(True)
-                iarl_data['current_save_data']['matching_rom_save_supporting_filenames'].append(file_found_wc)
-                iarl_data['current_save_data']['rom_save_supporting_filenames_success'].append(True)
-            else:
-                iarl_data['current_save_data']['rom_save_supporting_filenames_exist'].append(False)
-                iarl_data['current_save_data']['matching_rom_save_supporting_filenames'].append(None)
-                iarl_data['current_save_data']['rom_save_supporting_filenames_success'].append(False)
+            if filenames.lower() != 'none':
+                iarl_data['current_save_data']['rom_save_supporting_filenames'].append(filenames)
+                # if os.path.exists(filenames):
+                file_exists_wc, file_found_wc = check_file_exists_wildcard(filenames,iarl_data['current_rom_data']['rom_name'])
+                if file_exists_wc:
+                    iarl_data['current_save_data']['rom_save_supporting_filenames_exist'].append(True)
+                    iarl_data['current_save_data']['matching_rom_save_supporting_filenames'].append(file_found_wc)
+                    iarl_data['current_save_data']['rom_save_supporting_filenames_success'].append(True)
+                else:
+                    iarl_data['current_save_data']['rom_save_supporting_filenames_exist'].append(False)
+                    iarl_data['current_save_data']['matching_rom_save_supporting_filenames'].append(None)
+                    iarl_data['current_save_data']['rom_save_supporting_filenames_success'].append(False)
 
     #3.  Determine action if file already exists
     if (True in iarl_data['current_save_data']['rom_save_filenames_exist']) or (True in iarl_data['current_save_data']['rom_save_supporting_filenames_exist']):
@@ -965,11 +1001,12 @@ def download_rom_only(iarl_data):
     for ii in range (0,len(iarl_data['current_rom_data']['rom_save_filenames'])):
         download_filename = False
         if iarl_data['current_rom_data']['rom_save_filenames'][ii]:
-            if iarl_data['current_save_data']['rom_save_filenames_exist'][ii]:
-                if iarl_data['current_save_data']['overwrite_existing_files']:
-                    download_filename = True #Download the file if the file exists and overwrite was selected
-            else:
-                download_filename = True #Download the file if the file does not exist
+            if iarl_data['current_rom_data']['rom_save_filenames'][ii].lower() != 'none': #XBMC listitem uses none string
+                if iarl_data['current_save_data']['rom_save_filenames_exist'][ii]:
+                    if iarl_data['current_save_data']['overwrite_existing_files']:
+                        download_filename = True #Download the file if the file exists and overwrite was selected
+                else:
+                    download_filename = True #Download the file if the file does not exist
         if download_filename:
             iarl_data['current_save_data']['rom_save_filenames_success'][ii] = download_tools().Downloader(quote_url(iarl_data['current_rom_data']['rom_filenames'][ii]),iarl_data['current_rom_data']['rom_save_filenames'][ii],iarl_data['settings']['ia_enable_login'],iarl_data['settings']['ia_username'],iarl_data['settings']['ia_password'],iarl_data['current_rom_data']['rom_size'][ii],iarl_data['current_rom_data']['rom_title'],'Downloading, please wait...')
             if iarl_data['current_save_data']['rom_save_filenames_success'][ii]:
@@ -980,16 +1017,18 @@ def download_rom_only(iarl_data):
                     iarl_data['current_save_data']['rom_save_filenames_exist'][ii] = False
         else: #File already exists locally, but potentially has a different file extension or naming convention
             if iarl_data['current_rom_data']['rom_save_filenames'][ii] is not None:
-                xbmc.log(msg='IARL:  Matching file that already exists: '+str(iarl_data['current_save_data']['matching_rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
-                iarl_data['current_save_data']['rom_save_filenames'][ii] = iarl_data['current_save_data']['matching_rom_save_filenames'][ii]
+                if iarl_data['current_rom_data']['rom_save_filenames'][ii].lower() != 'none': #XBMC listitem uses none string
+                    xbmc.log(msg='IARL:  Matching file that already exists: '+str(iarl_data['current_save_data']['matching_rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+                    iarl_data['current_save_data']['rom_save_filenames'][ii] = iarl_data['current_save_data']['matching_rom_save_filenames'][ii]
     for ii in range (0,len(iarl_data['current_rom_data']['rom_save_supporting_filenames'])):
         download_filename = False
         if iarl_data['current_rom_data']['rom_save_supporting_filenames'][ii]:
-            if iarl_data['current_save_data']['rom_save_supporting_filenames_exist'][ii]:
-                if iarl_data['current_save_data']['overwrite_existing_files']:
-                    download_filename = True #Download the file if the file exists and overwrite was selected
-            else:
-                download_filename = True #Download the file if the file does not exist
+            if iarl_data['current_rom_data']['rom_save_supporting_filenames'][ii].lower() != 'none': #XBMC listitem uses none string
+                if iarl_data['current_save_data']['rom_save_supporting_filenames_exist'][ii]:
+                    if iarl_data['current_save_data']['overwrite_existing_files']:
+                        download_filename = True #Download the file if the file exists and overwrite was selected
+                else:
+                    download_filename = True #Download the file if the file does not exist
         if download_filename:
             iarl_data['current_save_data']['rom_save_supporting_filenames_success'][ii] = download_tools().Downloader(quote_url(iarl_data['current_rom_data']['rom_supporting_filenames'][ii]),iarl_data['current_rom_data']['rom_save_supporting_filenames'][ii],iarl_data['settings']['ia_enable_login'],iarl_data['settings']['ia_username'],iarl_data['settings']['ia_password'],9999999,iarl_data['current_rom_data']['rom_supporting_filenames'][ii],'Downloading, please wait...')
             if iarl_data['current_save_data']['rom_save_supporting_filenames_success'][ii]:
@@ -1000,8 +1039,9 @@ def download_rom_only(iarl_data):
                     iarl_data['current_save_data']['rom_save_supporting_filenames_exist'][ii] = False
         else: #File already exists locally, but potentially has a different file extension or naming convention
             if iarl_data['current_rom_data']['rom_save_supporting_filenames'][ii] is not None:
-                xbmc.log(msg='IARL:  Matching file that already exists: '+str(iarl_data['current_save_data']['matching_rom_save_supporting_filenames'][ii]), level=xbmc.LOGDEBUG)
-                iarl_data['current_save_data']['rom_save_supporting_filenames'][ii] = iarl_data['current_save_data']['matching_rom_save_supporting_filenames'][ii]
+                if iarl_data['current_rom_data']['rom_save_supporting_filenames'][ii].lower() != 'none': #XBMC listitem uses none string
+                    xbmc.log(msg='IARL:  Matching file that already exists: '+str(iarl_data['current_save_data']['matching_rom_save_supporting_filenames'][ii]), level=xbmc.LOGDEBUG)
+                    iarl_data['current_save_data']['rom_save_supporting_filenames'][ii] = iarl_data['current_save_data']['matching_rom_save_supporting_filenames'][ii]
     
     #5.  Check to ensure each file was a success
     for check in iarl_data['current_save_data']['rom_save_filenames_success']:
@@ -1314,6 +1354,8 @@ def post_download_action(iarl_data,option,option2):
 def download_and_launch_rom(romwindow,iarl_data):
     xbmc.log(msg='IARL:  Download and Launch started for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGNOTICE)
 
+    if 'plugin.program.iarl/History' not in xbmc.getInfoLabel('Container.FolderPath'): #Update history cache if not already in the history list
+        history_cache_success = update_history_cache_file(iarl_data,plugin)
     #Use External Launcher
     if iarl_data['current_archive_data']['emu_launcher'] == 'external':
         if 'Select'.lower() in iarl_data['settings']['external_launch_env'].lower():
@@ -1358,13 +1400,15 @@ def download_and_launch_rom(romwindow,iarl_data):
                             xbmc.audioResume()
                             xbmc.enableNavSounds(True)
                     else:
+                        current_dialog = xbmcgui.Dialog()
+                        ok_ret = current_dialog.ok('Error','Settings are not defined for external launching.[CR]See log for more info')
                         xbmc.log(msg='IARL:  There is an undefined value in the external launch command: '+str(current_external_command.split('%')[1]), level=xbmc.LOGERROR)
                 #Error downloading, so the game will not be launched
                 else:
                     xbmc.log(msg='IARL:  There was an error downloading the requested files, so the game will not be launched.', level=xbmc.LOGERROR)
             else:
                 current_dialog = xbmcgui.Dialog()
-                ok_ret = current_dialog.ok('Error','External launch command not defined.')
+                ok_ret = current_dialog.ok('Error','External launch command not defined.[CR]See log for more info')
                 xbmc.log(msg='IARL:  External Launch Command is not defined for: '+str(iarl_data['current_archive_data']['emu_name']), level=xbmc.LOGERROR)
     #Use Retroplayer
     else:
