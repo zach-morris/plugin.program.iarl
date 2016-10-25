@@ -31,7 +31,7 @@ Download the latest version zipfile from [here](https://goo.gl/ylg2rJ) to [insta
 
 IARL in Action
 -------------------
-[![IARL](http://i.imgur.com/apj1vSe.gif)](https://www.youtube.com/watch?v=fJ6nuyM6sOo)
+[![IARL](https://github.com/zach-morris/iarl.media/raw/master/support/IARL_Slideshow.gif)](https://www.youtube.com/watch?v=fJ6nuyM6sOo)
 ----------
 
 
