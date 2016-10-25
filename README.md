@@ -22,9 +22,11 @@ IARL uses xml files to provide the information for Games on the [Internet Archiv
 Installation
 -------------
 
-Download my repository from [here](https://goo.gl/Cjy7S5) to install the addon and get automatic updates.
+- Download my repository from [here](https://goo.gl/Cjy7S5) to install the addon and get automatic updates.  See info [here](http://www.wirelesshack.org/step-by-step-how-to-install-any-kodi-add-on-or-repository.html) on how to install a repository in Kodi.
+
 or
-Download the latest version zipfile from [here](https://goo.gl/ylg2rJ) to [install by zip](http://kodi.wiki/view/add-on_manager#How_to_install_from_a_ZIP_file).
+
+- Download the latest version zipfile from [here](https://goo.gl/ylg2rJ) to install by zipfile.  See info [here](http://www.wirelesshack.org/step-by-step-how-to-install-any-kodi-add-on-or-repository.html) on how to install an addon by zipfile in Kodi.
 
 ----------
 
