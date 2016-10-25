@@ -31,7 +31,7 @@ Download the latest version zipfile from [here](https://goo.gl/ylg2rJ) to [insta
 
 Screenshots
 -------------------
-![Screenshots](http://i.imgur.com/apj1vSe.gifv)
+![Screenshots](http://i.imgur.com/apj1vSe.gif)
 ----------
 
 
