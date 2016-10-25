@@ -19,22 +19,23 @@ IARL uses xml files to provide the information for Games on the [Internet Archiv
 
 ----------
 
+Installation
+-------------
 
-Screenshots
--------------------
-![Screen #1](https://raw.githubusercontent.com/zach-morris/plugin.program.iarl/master/support/media/screen1.jpg)
+Download my repository from [here](https://goo.gl/Cjy7S5) to install the addon and get automatic updates.
+or
+Download the latest version zipfile from [here](https://goo.gl/ylg2rJ) to [install by zip](http://kodi.wiki/view/add-on_manager#How_to_install_from_a_ZIP_file).
 
-![Screen #2](https://raw.githubusercontent.com/zach-morris/plugin.program.iarl/master/support/media/screen2.jpg)
-
-![Screen #3](https://raw.githubusercontent.com/zach-morris/plugin.program.iarl/master/support/media/screen3.jpg)
 ----------
 
 
-To do
+Screenshots
+-------------------
+![Screenshots](http://i.imgur.com/apj1vSe.gifv)
+----------
+
+
+Support
 -------------------
 
- - Revise the xml database files for accuracy.  Some of the media is not accurate for the ROM listed.  Any help with this would be appreciated :-)
-   
- - Add additional sources.  This depends on which cores for retroplayer are available / working.
-   
- - Bug fixes / code robustness
+Support the internet archive by [donating](https://archive.org/donate/)!
