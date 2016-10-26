@@ -12,7 +12,7 @@ The Internet Archive ROM Launcher (IARL) will launch Games using [Kodi](http://k
 Installation
 -------------
 
-- Download my repository from [here](https://goo.gl/Cjy7S5) to install the addon and get automatic updates.  See info [here](http://www.wirelesshack.org/step-by-step-how-to-install-any-kodi-add-on-or-repository.html) on how to install a repository in Kodi.
+- Download my repository zipfile from [here](https://goo.gl/AdQoNt) to install the addon and get automatic updates.  See info [here](http://www.wirelesshack.org/step-by-step-how-to-install-any-kodi-add-on-or-repository.html) on how to install a repository in Kodi.
 
 or
 
