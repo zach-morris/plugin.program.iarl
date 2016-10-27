@@ -20,6 +20,10 @@ or
 
 ----------
 
+Help
+-------------
+See the [wiki](https://github.com/zach-morris/plugin.program.iarl/wiki)
+----------
 
 IARL in Action
 -------------------
