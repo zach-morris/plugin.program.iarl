@@ -6,6 +6,7 @@ Internet Archive ROM Launcher
 Play retro games from the cloud!
 
 The Internet Archive ROM Launcher (IARL) will launch Games using [Kodi](http://kodi.tv)
+
 ----------
 
 Installation
@@ -21,12 +22,15 @@ or
 
 Help
 -------------
+
 See the [wiki](https://github.com/zach-morris/plugin.program.iarl/wiki)
+
 ----------
 
 IARL in Action
 -------------------
 [![IARL](https://github.com/zach-morris/iarl.media/raw/master/support/IARL_Slideshow.gif)](https://www.youtube.com/watch?v=fJ6nuyM6sOo)
+
 ----------
 
 
