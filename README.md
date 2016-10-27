@@ -5,7 +5,7 @@ Internet Archive ROM Launcher
 
 Play retro games from the cloud!
 
-The Internet Archive ROM Launcher (IARL) will launch Games using [Kodi](http://kodi.tv)
+The Internet Archive ROM Launcher (IARL) will launch Games from the cloud using [Kodi](http://kodi.tv)
 
 
 
