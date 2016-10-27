@@ -7,7 +7,7 @@ Play retro games from the cloud!
 
 The Internet Archive ROM Launcher (IARL) will launch Games using [Kodi](http://kodi.tv)
 
-----------
+
 
 Installation
 -------------
@@ -18,20 +18,19 @@ or
 
 - Download the latest version zipfile from [here](https://goo.gl/ylg2rJ) to install by zipfile.  See info [here](http://www.wirelesshack.org/step-by-step-how-to-install-any-kodi-add-on-or-repository.html) on how to install an addon by zipfile in Kodi.
 
-----------
+
 
 Help
 -------------
 
 See the [wiki](https://github.com/zach-morris/plugin.program.iarl/wiki)
 
-----------
+
 
 IARL in Action
 -------------------
 [![IARL](https://github.com/zach-morris/iarl.media/raw/master/support/IARL_Slideshow.gif)](https://www.youtube.com/watch?v=fJ6nuyM6sOo)
 
-----------
 
 
 Support
