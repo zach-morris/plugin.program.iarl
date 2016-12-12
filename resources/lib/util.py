@@ -1214,15 +1214,20 @@ def define_game_listitem(property_name,iarl_data,rom_info):
 						property_sub_value = rom_info['rom_snapshot'+str(ii+1)][0] #Search through all the snapshots, make the thumb the first one
 			property_value = html_unescape(xstr(property_sub_value))
 		elif property_name == 'rom_date':
-			if rom_info['rom_date']:
-				property_value = date_parser.parse(xstr(rom_info['rom_date'][0])).strftime(addon_date_format)
+			if rom_info['rom_date'] and len(rom_info['rom_date'])>0:
+				property_sub_value = date_parser.parse(xstr(rom_info['rom_date'][0])).strftime(addon_date_format)
+			else:
+				if rom_info['rom_year'] and len(rom_info['rom_year'])>0: #Generate the date based on the year tag if no date tag is present
+					property_sub_value = date_parser.parse('1/1/'+xstr(rom_info['rom_year'][0])).strftime(addon_date_format)
+				# else:
+				# 	property_value = date_parser.parse('1/1/9999').strftime(addon_date_format)
+			property_value = property_sub_value
 		elif property_name == 'rom_year':
-			if rom_info['rom_year']:
-				if rom_info['rom_year']:
-					property_sub_value = rom_info['rom_year'][0]
-				else:
-					if rom_info['rom_date']:
-						property_sub_value = date_parser.parse(xstr(rom_info['rom_date'][0])).strftime(addon_year_format)
+			if rom_info['rom_year'] and len(rom_info['rom_year'])>0:
+				property_sub_value = rom_info['rom_year'][0]
+			else:
+				if rom_info['rom_date'] and len(rom_info['rom_date'])>0: #Generate the year based on the releasedate tag if no year tag is present
+					property_sub_value = date_parser.parse(xstr(rom_info['rom_date'][0])).strftime(addon_year_format)
 			property_value = property_sub_value
 		elif property_name == 'rom_trailer':
 			if rom_info['rom_videoid']:

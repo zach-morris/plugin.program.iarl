@@ -719,34 +719,42 @@ wizard_data = {
 							},
             }
 
-parserfile = os.path.join(addon.getAddonInfo('path'),'resources','data','external_launcher_parser.xml')
-launchersfile = os.path.join(addon.getAddonInfo('path'),'resources','data','external_command_database.xml')
-descParser = DescriptionParserFactory.getParser(parserfile)
-results = descParser.parseDescription(launchersfile,'xml')
+try:
+	parserfile = os.path.join(addon.getAddonInfo('path'),'resources','data','external_launcher_parser.xml')
+	launchersfile = os.path.join(addon.getAddonInfo('path'),'resources','data','external_command_database.xml')
+	descParser = DescriptionParserFactory.getParser(parserfile)
+	results = descParser.parseDescription(launchersfile,'xml')
+except:
+	xbmc.log(msg='IARL:  Wizard could not find the external launch database.', level=xbmc.LOGDEBUG)
 # print results[0]
 
 current_dialog = xbmcgui.Dialog()
 not_ready = False
+not_ready_reason = 'See Debug Log.'
 
 if 'Select' in wizard_data['settings']['iarl_wizard_launcher_group']:
-	ok_ret = current_dialog.ok('Setup not ready','Please select a setup type[CR]Then hit OK to save your settings and try again.')
+	# ok_ret = current_dialog.ok('Setup not ready','Please select a setup type[CR]Then hit OK to save your settings and try again.')
+	not_ready_reason = 'Please select (Playable/Accurate/Balanced)[CR]Then hit OK to close & save addon settings and try again.'
 	not_ready = True
 
 # Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|OpenElec RPi (Gamestarter Addon)|Android
 if not not_ready:
 	if 'Select' in wizard_data['settings']['iarl_external_user_external_env']:
-		ok_ret = current_dialog.ok('Setup not ready','Please select your system type[CR]Then hit OK to save your settings and try again.')
+		# ok_ret = current_dialog.ok('Setup not ready','Please select your system type[CR]Then hit OK to save your settings and try again.')
+		not_ready_reason = 'Please select your system type[CR]Then hit OK to close & save addon settings and try again.'
 		not_ready = True
 
 if not not_ready:
-	if 'OSX' in wizard_data['settings']['iarl_external_user_external_env'] or 'Windows' in wizard_data['settings']['iarl_external_user_external_env'] or 'Linux/Kodibuntu' in wizard_data['settings']['iarl_external_user_external_env'] :
+	if 'OSX' in wizard_data['settings']['iarl_external_user_external_env'] or 'Windows' in wizard_data['settings']['iarl_external_user_external_env'] or 'Linux/Kodibuntu' in wizard_data['settings']['iarl_external_user_external_env']:
 		if len(wizard_data['settings']['iarl_path_to_retroarch'])<1:
-			ok_ret = current_dialog.ok('External Program Warning','Path to retroarch must be set first.[CR]Then hit OK to save your settings and try again.')
+			# ok_ret = current_dialog.ok('External Program Warning','Path to retroarch must be set first.[CR]Then hit OK to save your settings and try again.')
+			not_ready_reason = 'Path to retroarch must be set first.[CR]Then hit OK to close & save addon settings and try again.'
 			not_ready = True
 		if 'Disabled' in wizard_data['settings']['iarl_additional_emulator_1_type'] and 'Disabled' in wizard_data['settings']['iarl_additional_emulator_2_type']:
 			ret2 = current_dialog.select('Additional emulators for some archives are not setup, continue?', ['Yes','Cancel'])
 			if ret2>0:
 				not_ready = True
+				not_ready_reason = 'Additional Emulators arent setup.[CR]User cancelled wizard.'
 
 if not not_ready:
 	try:
@@ -755,6 +763,7 @@ if not not_ready:
 		group_index = None
 		not_ready = True
 		xbmc.log(msg='IARL:  Wizard group could not be defined', level=xbmc.LOGDEBUG)
+		not_ready_reason = 'Please select (Playable/Accurate/Balanced)[CR]Then hit OK to close & save addon settings and try again.'
 
 #Main script start
 if not not_ready:
@@ -857,4 +866,10 @@ if not not_ready:
 	ok_ret = current_dialog.ok('Complete','Wizard run completed!')
 	xbmc.log(msg='IARL:  Wizard Script Completed', level=xbmc.LOGNOTICE)
 else:
-	xbmc.log(msg='IARL:  Wizard Script Cancelled', level=xbmc.LOGNOTICE)
+	xbmc.log(msg='IARL:  Wizard Script Cancelled or Setup Not Ready', level=xbmc.LOGNOTICE)
+	xbmc.log(msg='IARL:  W_Setting Ext Env:  '+str(wizard_data['settings']['iarl_external_user_external_env']), level=xbmc.LOGDEBUG)
+	xbmc.log(msg='IARL:  W_Setting Close Kodi:  '+str(wizard_data['settings']['iarl_external_launch_close_kodi']), level=xbmc.LOGDEBUG)
+	xbmc.log(msg='IARL:  W_Setting RA Path:  '+str(wizard_data['settings']['iarl_path_to_retroarch']), level=xbmc.LOGDEBUG)
+	xbmc.log(msg='IARL:  W_Setting RA CFG Path:  '+str(wizard_data['settings']['iarl_path_to_retroarch_cfg']), level=xbmc.LOGDEBUG)
+	xbmc.log(msg='IARL:  W_Setting Launch Group:  '+str(wizard_data['settings']['iarl_wizard_launcher_group']), level=xbmc.LOGDEBUG)
+	ok_ret = current_dialog.ok('Setup not ready',not_ready_reason)
