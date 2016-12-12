@@ -195,25 +195,32 @@ if iarl_data['settings']['ia_enable_login'] is None:
     iarl_data['settings']['ia_enable_login'] = False #Default to False if not initialized correctly
 
 #Define path to 7za binary
-if 'OSX' in iarl_data['addon_data']['operating_system']:
-    iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.OSX')
-elif 'Windows' in iarl_data['addon_data']['operating_system']:
-    iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.exe')
-elif 'Nix' in iarl_data['addon_data']['operating_system']:
-    iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.Nix')
-elif 'OpenElec RPi' in iarl_data['addon_data']['operating_system'] or 'Android' in iarl_data['addon_data']['operating_system'] or 'LibreElec RPi' in iarl_data['addon_data']['operating_system']:
+if xbmc.getCondVisibility('System.HasAddon(virtual.system-tools)'):
     try:
-        if 'v7' in os.uname()[4]:
-            iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.armv7l')
-        else:
-            iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.armv6l')
+        iarl_data['addon_data']['7za_path'] = xbmc.translatePath('special://home/addons/virtual.system-tools/bin/7za')
+        xbmc.log(msg='IARL:  7ZA Path was found in virtual.system-tools', level=xbmc.LOGDEBUG)
     except:
-        iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.armv6l')
-elif 'OpenElec x86' in iarl_data['addon_data']['operating_system'] or 'LibreElec x86' in iarl_data['addon_data']['operating_system']:
-    iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.x86_64')
+        xbmc.log(msg='IARL:  virtual.system-tools was found but the path could not be defined', level=xbmc.LOGDEBUG)
 else:
-    iarl_data['addon_data']['7za_path'] = None
-    xbmc.log(msg='IARL:  7ZA Path could not be defined', level=xbmc.LOGDEBUG)
+    if 'OSX' in iarl_data['addon_data']['operating_system']:
+        iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.OSX')
+    elif 'Windows' in iarl_data['addon_data']['operating_system']:
+        iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.exe')
+    elif 'Nix' in iarl_data['addon_data']['operating_system']:
+        iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.Nix')
+    elif 'OpenElec RPi' in iarl_data['addon_data']['operating_system'] or 'Android' in iarl_data['addon_data']['operating_system'] or 'LibreElec RPi' in iarl_data['addon_data']['operating_system']:
+        try:
+            if 'v7' in os.uname()[4]:
+                iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.armv7l')
+            else:
+                iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.armv6l')
+        except:
+            iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.armv6l')
+    elif 'OpenElec x86' in iarl_data['addon_data']['operating_system'] or 'LibreElec x86' in iarl_data['addon_data']['operating_system']:
+        iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.x86_64')
+    else:
+        iarl_data['addon_data']['7za_path'] = None
+        xbmc.log(msg='IARL:  7ZA Path could not be defined', level=xbmc.LOGDEBUG)
 
 #Define path to CHDMAN binary
 if 'OSX' in iarl_data['addon_data']['operating_system']:

@@ -2055,7 +2055,7 @@ def setup_mame_softlist_game(iarl_data,softlist_type):
 						xbmc.log(msg='IARL:  Error creating MAME hash path: ' +str(current_hash_path), level=xbmc.LOGERROR)
 				if not os.path.isfile(save_hash_filename): #Download the hash file if it's not already present
 					from resources.lib.webutils import *
-					hash_dl_success = download_tools().Downloader(softlist_info['web_url'][0],save_hash_filename,99999,str(os.path.split(softlist_info['web_url'][0])),'Downloading hash file, please wait...')
+					hash_dl_success = download_tools().Downloader(softlist_info['web_url'][0],save_hash_filename,False,'','',99999,str(os.path.split(softlist_info['web_url'][0])),'Downloading hash file, please wait...') #No login required for github raw files
 					if not hash_dl_success:
 						xbmc.log(msg='IARL:  Error downloading MAME hash file: ' +str(softlist_info['web_url'][0]), level=xbmc.LOGERROR)
 				else:
@@ -2597,7 +2597,7 @@ def check_file_exists_wildcard(file_path,file_name_2):
 			matching_files = matching_files+glob.glob(os.path.join(file_path_base,file_path_name2.replace(',','*').replace(' ','*')+'*')) #Search for the filename with a different extension or folder with same name
 			matching_files = matching_files+glob.glob(os.path.join(file_path_base,'*',file_path_name2.replace(',','*').replace(' ','*')+'*')) #Add recursive search one folder down for MESS type setups
 			matching_files = matching_files+glob.glob(os.path.join(file_path_base,clean_file_folder_name(file_path_name2.replace(',','*').split('(')[0])+'*')) #Add search for processed filenames used in IARL
-		remove_these_filetypes = ['srm','sav','fs'] #Save filetypes
+		remove_these_filetypes = ['srm','sav','fs','state','auto'] #Save filetypes
 		matching_files = list(set([x for x in matching_files if x.split('.')[-1].lower() not in remove_these_filetypes])) #Remove duplicates and save filetypes
 		if len(matching_files)>0:
 			file_found = True
@@ -2620,5 +2620,17 @@ def check_downloaded_file(file_path):
 		xbmc.log(msg='IARL:  The file '+str(file_path)+' was 0 bytes in size.', level=xbmc.LOGERROR)
 		os.remove(file_path) #Remove Zero Byte File
 		bad_file_found = True
+	if st.st_size > 1 and st.st_size < 6000: #Small file, check if archive.org returned 'item not found'
+		try:
+			with open(file_path, 'r') as content_file:
+				file_contents = content_file.read().replace('\n', '')
+			if '<title>item not available' in file_contents.lower():
+				current_dialog = xbmcgui.Dialog()
+				ok_ret = current_dialog.ok('Error','Archive returned no file or requires login in settings.')
+				xbmc.log(msg='IARL:  Archive.org returned a bad file for '+str(file_path)+'.  The archive may require login to download this file.', level=xbmc.LOGERROR)
+				os.remove(file_path) #Remove bad file.
+				bad_file_found = True	
+		except:
+			xbmc.log(msg='IARL:  The file '+str(file_path)+' couldnt be read for validity.', level=xbmc.LOGDEBUG)
 
 	return bad_file_found
