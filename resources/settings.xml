@@ -4,7 +4,7 @@
 		<setting id="iarl_setting_cache_list" type="bool" label="Cache ROM Lists and Save History" default="true"/>
 		<setting id="iarl_setting_clean_list" type="bool" label="Clean ROM Title" default="true"/>
 		<setting id="iarl_setting_listing" type="select" label="Game Listing Convention" values="One Big List|Alphabetical" default="One Big List"/>
-		<setting id="iarl_setting_naming" type="select" label="Display Naming Convention" values="Title|Title, Genre|Title, Date|Title, Genre, Date|Title, Genre, Size|Title, Date, Size|Genre, Title|Date, Title|Genre, Title, Date|Date, Title, Genre|Title, Genre, Date, ROM Tag|Title, Genre, Date, Size" default="Title"/>
+		<setting id="iarl_setting_naming" type="select" label="Display Naming Convention" values="Title|Title, Genre|Title, Date|Title, Players|Title, Genre, Date|Title, Genre, Size|Title, Genre, Players|Title, Date, Size|Title, Date, Players|Genre, Title|Date, Title|Players, Title|Genre, Title, Date|Date, Title, Genre|Players, Title, Genre|Players, Title, Date|Title, Genre, Date, ROM Tag|Title, Genre, Date, Players|Title, Genre, Players, ROM Tag|Title, Genre, Date, Size" default="Title"/>
 		<setting id="iarl_setting_items_pp" type="select" label="Number of Items Per Page" values="10|25|50|100|150|200|250|300|350|400|450|500|List All" default="List All"/>
 		<setting id="iarl_setting_history" type="slider" label="Last Played History" default="10" range="0,1,100" option="int"/>
 		<setting id="iarl_setting_localfile_action" type="select" label="If Game Already Exists Locally" values="Prompt|Do Not ReDownload|ReDownload and Overwrite" default="Prompt"/>

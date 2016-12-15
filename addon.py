@@ -110,6 +110,8 @@ iarl_data = {
                             'rom_supporting_filenames' : list(),
                             'rom_save_supporting_filenames' : list(),
                             'rom_emu_command' : None,
+                            'rom_override_cmd' : None,
+                            'rom_override_postdl' : None,
                             'rom_size' : list(),
                             'rom_plot' : None,
                             'rom_date' : None,
@@ -208,7 +210,7 @@ else:
         iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.exe')
     elif 'Nix' in iarl_data['addon_data']['operating_system']:
         iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.Nix')
-    elif 'OpenElec RPi' in iarl_data['addon_data']['operating_system'] or 'Android' in iarl_data['addon_data']['operating_system'] or 'LibreElec RPi' in iarl_data['addon_data']['operating_system']:
+    elif 'OpenElec RPi' in iarl_data['addon_data']['operating_system'] or 'LibreElec RPi' in iarl_data['addon_data']['operating_system']:
         try:
             if 'v7' in os.uname()[4]:
                 iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.armv7l')
@@ -216,11 +218,43 @@ else:
                 iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.armv6l')
         except:
             iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.armv6l')
+    elif 'Android' in iarl_data['addon_data']['operating_system']:  #Android.  Your walled garden is confusing and generally sucks balls...
+        if os.path.isdir('/data/data/org.xbmc.kodi/lib/'):
+            if not os.path.isfile('/data/data/org.xbmc.kodi/lib/7za.android'):
+                try:
+                    copyFile(os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.android'),'/data/data/org.xbmc.kodi/lib/7za.android')
+                    xbmc.log(msg='IARL:  7za was copied to /data/data/org.xbmc.kodi/lib/7za.android', level=xbmc.LOGDEBUG)
+                except:
+                    xbmc.log(msg='IARL:  Unable to copy 7za to /data/data/org.xbmc.kodi/lib/7za.android', level=xbmc.LOGDEBUG)
+                try:
+                    os.chmod('/data/data/org.xbmc.kodi/lib/7za.android', os.stat('/data/data/org.xbmc.kodi/lib/7za.android').st_mode | 0o111)
+                    iarl_data['addon_data']['7za_path'] = '/data/data/org.xbmc.kodi/lib/7za.android'
+                except:
+                    xbmc.log(msg='IARL:  chmod failed for /data/data/org.xbmc.kodi/lib/7za.android', level=xbmc.LOGDEBUG)
+                    iarl_data['addon_data']['7za_path'] = None
+                    xbmc.log(msg='IARL:  7ZA Path could not be defined', level=xbmc.LOGDEBUG)
+        else:  #The normal location isnt available, need to try and install the 7za binary in the kodi root dir-http://forum.kodi.tv/showthread.php?tid=231642
+            if not os.path.isfile(os.path.join(xbmc.translatePath('special://xbmc'),'7za.android')):
+                try:
+                    copyFile(os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.android'),os.path.join(xbmc.translatePath('special://xbmc'),'7za.android'))
+                    xbmc.log(msg='IARL:  7za was copied to '+str(os.path.join(xbmc.translatePath('special://xbmc'),'7za.android')), level=xbmc.LOGDEBUG)
+                except:
+                    xbmc.log(msg='IARL:  Unable to copy 7za to '+str(os.path.join(xbmc.translatePath('special://xbmc'),'7za.android')), level=xbmc.LOGDEBUG)
+                try:
+                    os.chmod(os.path.join(xbmc.translatePath('special://xbmc'),'7za.android'), os.stat(os.path.join(xbmc.translatePath('special://xbmc'),'7za.android')).st_mode | 0o111)
+                    iarl_data['addon_data']['7za_path'] = xbmc.translatePath('special://xbmc'),'7za.android')
+                except:
+                    xbmc.log(msg='IARL:  chmod failed for '+str(os.path.join(xbmc.translatePath('special://xbmc'),'7za.android')), level=xbmc.LOGDEBUG)
+                    iarl_data['addon_data']['7za_path'] = None
+                    xbmc.log(msg='IARL:  7ZA Path could not be defined', level=xbmc.LOGDEBUG)
     elif 'OpenElec x86' in iarl_data['addon_data']['operating_system'] or 'LibreElec x86' in iarl_data['addon_data']['operating_system']:
         iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.x86_64')
     else:
         iarl_data['addon_data']['7za_path'] = None
         xbmc.log(msg='IARL:  7ZA Path could not be defined', level=xbmc.LOGDEBUG)
+
+if iarl_data['addon_data']['7za_path'] is not None:
+    xbmc.log(msg='IARL:  7ZA Path is defined as '+str(iarl_data['addon_data']['7za_path']), level=xbmc.LOGDEBUG)
 
 #Define path to CHDMAN binary
 if 'OSX' in iarl_data['addon_data']['operating_system']:
@@ -327,6 +361,14 @@ def update_favorite_items(item_string):
     iarl_data['current_rom_data']['rom_esrb'] = ystr(xbmc.getInfoLabel('ListItem.Property(esrb)'))
     iarl_data['current_rom_data']['rom_perspective'] = ystr(xbmc.getInfoLabel('ListItem.Property(perspective)'))
     iarl_data['current_rom_data']['rom_emu_command'] = ystr(xbmc.getInfoLabel('ListItem.Property(rom_emu_command)'))
+    try:
+        iarl_data['current_rom_data']['rom_override_cmd'] = ystr(xbmc.getInfoLabel('ListItem.Property(rom_override_cmd)'))
+    except:
+        iarl_data['current_rom_data']['rom_override_cmd'] = None
+    try:
+        iarl_data['current_rom_data']['rom_override_postdl'] = ystr(xbmc.getInfoLabel('ListItem.Property(rom_override_postdl)'))
+    except:
+        iarl_data['current_rom_data']['rom_override_postdl'] = None
     iarl_data['current_rom_data']['rom_label'] = ystr(xbmc.getInfoLabel('ListItem.Label'))
     iarl_data['current_rom_data']['emu_post_download_action'] = ystr(xbmc.getInfoLabel('ListItem.Property(emu_post_download_action)')) #Needed to add this for xml favorites
     iarl_data['current_rom_data']['rom_filenames'] = [ystr(x) for x in xbmc.getInfoLabel('ListItem.Property(rom_filenames)').split(',')] #Split into list
@@ -647,6 +689,14 @@ def get_selected_rom(category_id,romname):
             iarl_data['current_rom_data']['rom_esrb'] = rom_list[rom_idx]['properties']['esrb']
             iarl_data['current_rom_data']['rom_perspective'] = rom_list[rom_idx]['properties']['perspective']
             iarl_data['current_rom_data']['rom_emu_command'] = ystr(rom_list[rom_idx]['properties']['rom_emu_command'])
+            try: #Leave as a try statement for now, to catch any issues with old lists that dont include these values
+                iarl_data['current_rom_data']['rom_override_cmd'] = ystr(rom_list[rom_idx]['properties']['rom_override_cmd'])
+            except:
+                iarl_data['current_rom_data']['rom_override_cmd'] = None
+            try: #Leave as a try statement for now, to catch any issues with old lists that dont include these values
+                iarl_data['current_rom_data']['rom_override_postdl'] = ystr(rom_list[rom_idx]['properties']['rom_override_postdl'])
+            except:
+                iarl_data['current_rom_data']['rom_override_postdl'] = None
             iarl_data['current_rom_data']['rom_label'] = rom_list[rom_idx]['properties']['rom_label']
             iarl_data['current_rom_data']['rom_filenames'] = [ystr(x) for x in rom_list[rom_idx]['properties']['rom_filenames'].split(',')] #Split into list
             iarl_data['current_rom_data']['rom_supporting_filenames'] = [ystr(x) for x in rom_list[rom_idx]['properties']['rom_supporting_filenames'].split(',')] #Split into list
@@ -677,6 +727,14 @@ def get_selected_rom(category_id,romname):
         iarl_data['current_rom_data']['rom_esrb'] = ystr(xbmc.getInfoLabel('ListItem.Property(esrb)'))
         iarl_data['current_rom_data']['rom_perspective'] = ystr(xbmc.getInfoLabel('ListItem.Property(perspective)'))
         iarl_data['current_rom_data']['rom_emu_command'] = ystr(xbmc.getInfoLabel('ListItem.Property(rom_emu_command)'))
+        try:
+            iarl_data['current_rom_data']['rom_override_cmd'] = ystr(xbmc.getInfoLabel('ListItem.Property(rom_override_cmd)'))
+        except:
+            iarl_data['current_rom_data']['rom_override_cmd'] = None
+        try:
+            iarl_data['current_rom_data']['rom_override_postdl'] = ystr(xbmc.getInfoLabel('ListItem.Property(rom_override_postdl)'))
+        except:
+            iarl_data['current_rom_data']['rom_override_postdl'] = None
         iarl_data['current_rom_data']['rom_label'] = ystr(xbmc.getInfoLabel('ListItem.Label'))
         iarl_data['current_rom_data']['rom_filenames'] = [ystr(x) for x in xbmc.getInfoLabel('ListItem.Property(rom_filenames)').split(',')] #Split into list
         iarl_data['current_rom_data']['rom_supporting_filenames'] = [ystr(x) for x in xbmc.getInfoLabel('ListItem.Property(rom_supporting_filenames)').split(',')] #Split into list
@@ -1060,7 +1118,11 @@ def download_rom_only(iarl_data):
 
     #5.  Post-download process the files if necessary
     if iarl_data['current_save_data']['overall_download_success']:
-        iarl_data['current_save_data']['launch_filename'], post_download_action_success = post_download_action(iarl_data,iarl_data['current_archive_data']['emu_post_download_action'],None)
+        if iarl_data['current_rom_data']['rom_override_postdl'] is not None and len(iarl_data['current_rom_data']['rom_override_postdl']) > 0: #Override postdl command detected, so use that
+            xbmc.log(msg='IARL:  Post DL Override command detected for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGDEBUG)
+            iarl_data['current_save_data']['launch_filename'], post_download_action_success = post_download_action(iarl_data,iarl_data['current_rom_data']['rom_override_postdl'],None)
+        else: #No override command was found, use the current_archive_data emu_post_download_action
+            iarl_data['current_save_data']['launch_filename'], post_download_action_success = post_download_action(iarl_data,iarl_data['current_archive_data']['emu_post_download_action'],None)
     else:
         xbmc.log(msg='IARL:  There was a download error for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)
     return iarl_data['current_save_data']

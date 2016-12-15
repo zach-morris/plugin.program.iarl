@@ -177,7 +177,7 @@ def make_scripts_executable():
 	#Attempt to make addon scripts executable
 	bin_path = get_addondata_bindir()
 
-	bin_file_list = ['7za/7za.armv6l', '7za/7za.armv7l', '7za/7za.exe', '7za/7za.OSX','7za/7za.Nix', '7za/7za.x86_64', 'applaunch_OE.sh', 'applaunch-vbs.bat', 'applaunch.bat', 'applaunch.sh', 'chdman/chdman.armhf','chdman/chdman.OSX','chdman/chdman.Nix','chdman/chdman.exe','LaunchKODI.vbs', 'romlaunch_OE_RPi2.sh', 'romlaunch_OE.sh', 'Sleep.vbs']
+	bin_file_list = [os.path.join('7za','7za.android'), os.path.join('7za','7za.armv6l'), os.path.join('7za','7za.armv7l'), os.path.join('7za','7za.exe'), os.path.join('7za','7za.OSX'),os.path.join('7za','7za.Nix'),os.path.join('7za','7za.x86_64'), 'applaunch_OE.sh', 'applaunch-vbs.bat', 'applaunch.bat', 'applaunch.sh',os.path.join('chdman','chdman.armhf'),os.path.join('chdman','chdman.OSX'),os.path.join('chdman','chdman.Nix'),os.path.join('chdman','chdman.exe'),'LaunchKODI.vbs', 'romlaunch_OE_RPi2.sh', 'romlaunch_OE.sh', 'Sleep.vbs']
 	
 	for ffiles in bin_file_list:
 		try:
@@ -391,6 +391,8 @@ def update_history_cache_file(iarl_data,plugin):
 							'rom_save_filenames': ','.join(map(str, iarl_data['current_rom_data']['rom_save_filenames'])),
 							'rom_save_supporting_filenames': ','.join(map(str, iarl_data['current_rom_data']['rom_save_supporting_filenames'])),
 							'rom_emu_command': iarl_data['current_rom_data']['rom_emu_command'],
+							'rom_override_cmd': iarl_data['current_rom_data']['rom_override_cmd'],
+							'rom_override_postdl': iarl_data['current_rom_data']['rom_override_postdl'],
 							'emu_name' : iarl_data['current_archive_data']['emu_name'],
 							'category_id' : iarl_data['current_archive_data']['category_id'],
 							'emu_parser' : iarl_data['current_archive_data']['emu_parser'],
@@ -783,7 +785,12 @@ def update_external_launch_commands(iarl_data,xml_id,plugin):
 		ok_ret = current_dialog.ok('Notice','External Launch Addon Settings are not available.')
 
 def replace_external_launch_variables(iarl_data):
-	command_out = str(iarl_data['current_archive_data']['emu_ext_launch_cmd'])
+
+	if iarl_data['current_rom_data']['rom_override_cmd'] is not None and len(iarl_data['current_rom_data']['rom_override_cmd']) > 0:
+		xbmc.log(msg='IARL:  ROM Override command detected for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGDEBUG)
+		command_out = str(iarl_data['current_rom_data']['rom_override_cmd']) #Use individual ROM override command if present
+	else:
+		command_out = str(iarl_data['current_archive_data']['emu_ext_launch_cmd'])  #Otherwise use the default command for the entire archive listing
 
 	#Define %APP_PATH% Variable
 	if iarl_data['addon_data']['operating_system'] == 'OSX':
@@ -1020,6 +1027,8 @@ def parse_xml_romfile(iarl_data,current_index,plugin):
 		iarl_data['current_rom_data']['rom_esrb'] = define_game_listitem('rom_esrb',None,entries)
 		iarl_data['current_rom_data']['rom_perspective'] = define_game_listitem('rom_perspective',None,entries)
 		iarl_data['current_rom_data']['rom_emu_command'] = define_game_listitem('rom_emu_command',None,entries)
+		iarl_data['current_rom_data']['rom_override_cmd'] = define_game_listitem('rom_override_cmd',None,entries)
+		iarl_data['current_rom_data']['rom_override_postdl'] = define_game_listitem('rom_override_postdl',None,entries)
 		iarl_data['current_rom_data']['rom_filenames'] = define_game_listitem('rom_filenames',iarl_data,entries)
 		iarl_data['current_rom_data']['rom_supporting_filenames'] = define_game_listitem('rom_supporting_filenames',iarl_data,entries)
 		iarl_data['current_rom_data']['rom_save_filenames'] = define_game_listitem('rom_save_filenames',iarl_data,entries)
@@ -1129,6 +1138,8 @@ def parse_xml_romfile(iarl_data,current_index,plugin):
 							'rom_save_filenames': ','.join(map(str, iarl_data['current_rom_data']['rom_save_filenames'])),
 							'rom_save_supporting_filenames': ','.join(map(str, iarl_data['current_rom_data']['rom_save_supporting_filenames'])),
 							'rom_emu_command': iarl_data['current_rom_data']['rom_emu_command'],
+							'rom_override_cmd': iarl_data['current_rom_data']['rom_override_cmd'],
+							'rom_override_postdl': iarl_data['current_rom_data']['rom_override_postdl'],
 							'emu_name' : iarl_data['current_archive_data']['emu_name'],
 							'category_id' : iarl_data['current_archive_data']['category_id'],
 							'emu_parser' : iarl_data['current_archive_data']['emu_parser'],
@@ -1172,22 +1183,36 @@ def define_game_listitem(property_name,iarl_data,rom_info):
 				property_value = iarl_data['current_rom_data']['rom_title'] + label_sep + iarl_data['current_rom_data']['rom_genre']
 			elif iarl_data['settings']['naming_convention'] == 'Title, Date':
 				property_value = iarl_data['current_rom_data']['rom_title'] + label_sep + iarl_data['current_rom_data']['rom_date']
+			elif iarl_data['settings']['naming_convention'] == 'Title, Players':
+				property_value = iarl_data['current_rom_data']['rom_title'] + label_sep + iarl_data['current_rom_data']['rom_nplayers']
 			elif iarl_data['settings']['naming_convention'] == 'Title, Genre, Date':
 				property_value = iarl_data['current_rom_data']['rom_title'] + label_sep + iarl_data['current_rom_data']['rom_genre'] + label_sep + iarl_data['current_rom_data']['rom_date']
+			elif iarl_data['settings']['naming_convention'] == 'Title, Genre, Players':
+				property_value = iarl_data['current_rom_data']['rom_title'] + label_sep + iarl_data['current_rom_data']['rom_genre'] + label_sep + iarl_data['current_rom_data']['rom_nplayers']
 			elif iarl_data['settings']['naming_convention'] == 'Genre, Title':
 				property_value = iarl_data['current_rom_data']['rom_genre'] + label_sep + iarl_data['current_rom_data']['rom_title']
 			elif iarl_data['settings']['naming_convention'] == 'Date, Title':
 				property_value = iarl_data['current_rom_data']['rom_date'] + label_sep + iarl_data['current_rom_data']['rom_title']
 			elif iarl_data['settings']['naming_convention'] == 'Genre, Title, Date':
 				property_value = iarl_data['current_rom_data']['rom_genre']+ label_sep + iarl_data['current_rom_data']['rom_title'] + label_sep + iarl_data['current_rom_data']['rom_date']
+			elif iarl_data['settings']['naming_convention'] == 'Players, Title, Date':
+				property_value = iarl_data['current_rom_data']['rom_nplayers']+ label_sep + iarl_data['current_rom_data']['rom_title'] + label_sep + iarl_data['current_rom_data']['rom_date']
 			elif iarl_data['settings']['naming_convention'] == 'Date, Title, Genre':
 				property_value = iarl_data['current_rom_data']['rom_date'] + label_sep + iarl_data['current_rom_data']['rom_title'] + label_sep + iarl_data['current_rom_data']['rom_genre']
+			elif iarl_data['settings']['naming_convention'] == 'Players, Title, Genre':
+				property_value = iarl_data['current_rom_data']['rom_nplayers'] + label_sep + iarl_data['current_rom_data']['rom_title'] + label_sep + iarl_data['current_rom_data']['rom_genre']
 			elif iarl_data['settings']['naming_convention'] == 'Title, Genre, Date, ROM Tag':
 				property_value = iarl_data['current_rom_data']['rom_title'] + label_sep + iarl_data['current_rom_data']['rom_genre'] + label_sep + iarl_data['current_rom_data']['rom_date'] + label_sep + iarl_data['current_rom_data']['rom_tag']
+			elif iarl_data['settings']['naming_convention'] == 'Title, Genre, Date, Players':
+				property_value = iarl_data['current_rom_data']['rom_title'] + label_sep + iarl_data['current_rom_data']['rom_genre'] + label_sep + iarl_data['current_rom_data']['rom_date'] + label_sep + iarl_data['current_rom_data']['rom_nplayers']
+			elif iarl_data['settings']['naming_convention'] == 'Title, Genre, Players, ROM Tag':
+				property_value = iarl_data['current_rom_data']['rom_title'] + label_sep + iarl_data['current_rom_data']['rom_genre'] + label_sep + iarl_data['current_rom_data']['rom_nplayers'] + label_sep + iarl_data['current_rom_data']['rom_tag']
 			elif iarl_data['settings']['naming_convention'] == 'Title, Genre, Size':
 				property_value = iarl_data['current_rom_data']['rom_title'] + label_sep + iarl_data['current_rom_data']['rom_genre'] + label_sep + bytes_to_string_size(iarl_data['current_rom_data']['rom_size'])
 			elif iarl_data['settings']['naming_convention'] == 'Title, Date, Size':
 				property_value = iarl_data['current_rom_data']['rom_title'] + label_sep + iarl_data['current_rom_data']['rom_date'] + label_sep + bytes_to_string_size(iarl_data['current_rom_data']['rom_size'])
+			elif iarl_data['settings']['naming_convention'] == 'Title, Date, Players':
+				property_value = iarl_data['current_rom_data']['rom_title'] + label_sep + iarl_data['current_rom_data']['rom_date'] + label_sep + iarl_data['current_rom_data']['rom_nplayers']
 			elif iarl_data['settings']['naming_convention'] == 'Title, Genre, Date, Size':
 				property_value = iarl_data['current_rom_data']['rom_title'] + label_sep + iarl_data['current_rom_data']['rom_genre'] + label_sep + iarl_data['current_rom_data']['rom_date'] + label_sep + bytes_to_string_size(iarl_data['current_rom_data']['rom_size'])
 			else:
