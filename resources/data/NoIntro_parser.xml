@@ -16,6 +16,7 @@
         <rom_emu_command>emu_command</rom_emu_command>
         <rom_override_cmd>rom_override_cmd</rom_override_cmd>
         <rom_override_postdl>rom_override_postdl</rom_override_postdl>
+        <rom_override_downloadpath>rom_override_downloadpath</rom_override_downloadpath>
         <rom_snapshot1>snapshot1</rom_snapshot1>
         <rom_snapshot2>snapshot2</rom_snapshot2>
         <rom_snapshot3>snapshot3</rom_snapshot3>

@@ -393,6 +393,7 @@ def update_history_cache_file(iarl_data,plugin):
 							'rom_emu_command': iarl_data['current_rom_data']['rom_emu_command'],
 							'rom_override_cmd': iarl_data['current_rom_data']['rom_override_cmd'],
 							'rom_override_postdl': iarl_data['current_rom_data']['rom_override_postdl'],
+							'rom_override_downloadpath': iarl_data['current_rom_data']['rom_override_downloadpath'],
 							'emu_name' : iarl_data['current_archive_data']['emu_name'],
 							'category_id' : iarl_data['current_archive_data']['category_id'],
 							'emu_parser' : iarl_data['current_archive_data']['emu_parser'],
@@ -787,7 +788,7 @@ def update_external_launch_commands(iarl_data,xml_id,plugin):
 def replace_external_launch_variables(iarl_data):
 
 	if iarl_data['current_rom_data']['rom_override_cmd'] is not None and len(iarl_data['current_rom_data']['rom_override_cmd']) > 0:
-		xbmc.log(msg='IARL:  ROM Override command detected for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGDEBUG)
+		xbmc.log(msg='IARL:  ROM Override command detected for '+str(iarl_data['current_rom_data']['rom_name'])+' - '+str(iarl_data['current_rom_data']['rom_override_cmd']), level=xbmc.LOGDEBUG)
 		command_out = str(iarl_data['current_rom_data']['rom_override_cmd']) #Use individual ROM override command if present
 	else:
 		command_out = str(iarl_data['current_archive_data']['emu_ext_launch_cmd'])  #Otherwise use the default command for the entire archive listing
@@ -1029,6 +1030,7 @@ def parse_xml_romfile(iarl_data,current_index,plugin):
 		iarl_data['current_rom_data']['rom_emu_command'] = define_game_listitem('rom_emu_command',None,entries)
 		iarl_data['current_rom_data']['rom_override_cmd'] = define_game_listitem('rom_override_cmd',None,entries)
 		iarl_data['current_rom_data']['rom_override_postdl'] = define_game_listitem('rom_override_postdl',None,entries)
+		iarl_data['current_rom_data']['rom_override_downloadpath'] = define_game_listitem('rom_override_downloadpath',None,entries)
 		iarl_data['current_rom_data']['rom_filenames'] = define_game_listitem('rom_filenames',iarl_data,entries)
 		iarl_data['current_rom_data']['rom_supporting_filenames'] = define_game_listitem('rom_supporting_filenames',iarl_data,entries)
 		iarl_data['current_rom_data']['rom_save_filenames'] = define_game_listitem('rom_save_filenames',iarl_data,entries)
@@ -1140,6 +1142,7 @@ def parse_xml_romfile(iarl_data,current_index,plugin):
 							'rom_emu_command': iarl_data['current_rom_data']['rom_emu_command'],
 							'rom_override_cmd': iarl_data['current_rom_data']['rom_override_cmd'],
 							'rom_override_postdl': iarl_data['current_rom_data']['rom_override_postdl'],
+							'rom_override_downloadpath': iarl_data['current_rom_data']['rom_override_downloadpath'],
 							'emu_name' : iarl_data['current_archive_data']['emu_name'],
 							'category_id' : iarl_data['current_archive_data']['category_id'],
 							'emu_parser' : iarl_data['current_archive_data']['emu_parser'],
@@ -1277,8 +1280,18 @@ def define_game_listitem(property_name,iarl_data,rom_info):
 						property_value.append(html_unescape(iarl_data['current_archive_data']['emu_base_url']+xstr(rom_file_name).replace(',',''))) #Commas removed for zipfiles, they dont like that
 		elif property_name == 'rom_save_filenames':
 			property_value = list()
-			if 'default' in iarl_data['current_archive_data']['emu_download_path']:
+
+			#Determine what the save location should be
+			if iarl_data['current_rom_data']['rom_override_downloadpath'] is not None and len(iarl_data['current_rom_data']['rom_override_downloadpath']) > 0:
+				download_path = iarl_data['current_rom_data']['rom_override_downloadpath']
+			else:
+				download_path = iarl_data['current_archive_data']['emu_download_path']
+							
+			if 'default' in download_path:
 				iarl_data['current_archive_data']['emu_download_path'] = iarl_data['addon_data']['addon_temp_dl_path']
+			else:
+				iarl_data['current_archive_data']['emu_download_path'] = download_path
+
 			for rom_file_name in rom_info['rom_filename']:
 				if rom_file_name is not None:
 					if len(rom_file_name)>0:
@@ -1297,8 +1310,18 @@ def define_game_listitem(property_name,iarl_data,rom_info):
 						property_value.append(html_unescape(iarl_data['current_archive_data']['emu_base_url']+xstr(rom_sup_file_name).replace(',',''))) #Commas removed for zipfiles, they dont like that
 		elif property_name == 'rom_save_supporting_filenames':
 			property_value = list()
-			if 'default' in iarl_data['current_archive_data']['emu_download_path']:
+
+			#Determine what the save location should be
+			if iarl_data['current_rom_data']['rom_override_downloadpath'] is not None and len(iarl_data['current_rom_data']['rom_override_downloadpath']) > 0:
+				download_path = iarl_data['current_rom_data']['rom_override_downloadpath']
+			else:
+				download_path = iarl_data['current_archive_data']['emu_download_path']
+
+			if 'default' in download_path:
 				iarl_data['current_archive_data']['emu_download_path'] = iarl_data['addon_data']['addon_temp_dl_path']
+			else:
+				iarl_data['current_archive_data']['emu_download_path'] = download_path
+				
 			for rom_sup_file_name in rom_info['rom_supporting_file']:
 				if rom_sup_file_name is not None:
 					if len(rom_sup_file_name)>0:
@@ -1360,7 +1383,12 @@ def query_favorites_xml(iarl_data):
 
 def create_new_favorites_list(new_filename):
 	saved_filename = None
-	template_path = get_parser_file('Favorites_Template.xml')
+	current_dialog = xbmcgui.Dialog()
+	ret1 = current_dialog.select('Favorites List Emulator Launcher', ['Kodi RetroPlayer','External'])
+	if ret1 < 1:
+		template_path = get_parser_file('Favorites_Template.xml')
+	else:
+		template_path = get_parser_file('Favorites_Template_External.xml')
 	dat_path = get_XML_files_path()
 	new_xml_filename = os.path.join(dat_path,new_filename+'.xml')
 	copyFile(template_path, new_xml_filename)
@@ -1401,6 +1429,34 @@ def add_favorite_to_xml(iarl_data,favorites_xml_filename):
 	for ii in range(0,len(iarl_data['current_rom_data']['rom_supporting_filenames'])):
 		try: xml_string = xml_string+'<rom name="%ROM_URL%" size="%ROM_SIZE%"/>\r\n'.replace('%ROM_URL%',iarl_data['current_rom_data']['rom_supporting_filenames'][ii].replace(strip_base_url_string_1,'').replace(strip_base_url_string_2,'')).replace('%ROM_SIZE%',str(99999)) #Size of supporting files is unknown, so just make it a big number
 		except: pass
+
+	#Provide new launching commands.  If there is an override command already present, we will use that.  Otherwise, we will use the current archives command.
+	if iarl_data['current_rom_data']['rom_override_cmd'] is not None and len(iarl_data['current_rom_data']['rom_override_cmd']) > 0:
+		xml_string = xml_string+'<rom_override_cmd>%ROM_OVERRIDE_CMD%</rom_override_cmd>\r\n'.replace('%ROM_OVERRIDE_CMD%',xstr(iarl_data['current_rom_data']['rom_override_cmd']))
+		# except: pass
+	else:
+		xml_string = xml_string+'<rom_override_cmd>%ROM_OVERRIDE_CMD%</rom_override_cmd>\r\n'.replace('%ROM_OVERRIDE_CMD%',xstr(iarl_data['current_rom_data']['emu_ext_launch_cmd']))
+		# except: pass
+	#Provide new post DL commands.  If there is an override command already present, we will use that.  Otherwise, we will use the current archives command.
+	if iarl_data['current_rom_data']['rom_override_postdl'] is not None and len(iarl_data['current_rom_data']['rom_override_postdl']) > 0:
+		try: xml_string = xml_string+'<rom_override_postdl>%ROM_OVERRIDE_POSTDL%</rom_override_postdl>\r\n'.replace('%ROM_OVERRIDE_POSTDL%',xstr(iarl_data['current_rom_data']['rom_override_postdl']))
+		except: pass
+	else:
+		try: xml_string = xml_string+'<rom_override_postdl>%ROM_OVERRIDE_POSTDL%</rom_override_postdl>\r\n'.replace('%ROM_OVERRIDE_POSTDL%',xstr(iarl_data['current_rom_data']['emu_post_download_action']))
+		except: pass
+	#Provide new post DL commands.  If there is an override command already present, we will use that.  Otherwise, we will use the current archives command.
+	if iarl_data['current_rom_data']['rom_override_downloadpath'] is not None and len(iarl_data['current_rom_data']['rom_override_downloadpath']) > 0:
+		try: xml_string = xml_string+'<rom_override_downloadpath>%ROM_OVERRIDE_DLPATH%</rom_override_downloadpath>\r\n'.replace('%ROM_OVERRIDE_DLPATH%',xstr(iarl_data['current_rom_data']['rom_override_downloadpath']))
+		except: pass
+	#Provide new DL location.	If there is an override command already present, we will use that.  Otherwise, we will use the current archives location.
+	else:
+		try:
+			if iarl_data['current_rom_data']['emu_download_path'] != iarl_data['addon_data']['addon_temp_dl_path']:
+				xml_string = xml_string+'<rom_override_downloadpath>%ROM_OVERRIDE_DLPATH%</rom_override_downloadpath>\r\n'.replace('%ROM_OVERRIDE_DLPATH%',xstr(iarl_data['current_rom_data']['emu_download_path']))
+			else:
+				xml_string = xml_string+'<rom_override_downloadpath>%ROM_OVERRIDE_DLPATH%</rom_override_downloadpath>\r\n'.replace('%ROM_OVERRIDE_DLPATH%','default')
+		except:
+			pass
 	try: xml_string = xml_string+'<plot>%GAME_PLOT%</plot>\r\n'.replace('%GAME_PLOT%',xstr(iarl_data['current_rom_data']['rom_plot']))
 	except: pass
 	try: xml_string = xml_string+'<year>%GAME_YEAR%</year>\r\n'.replace('%GAME_YEAR%',xstr(iarl_data['current_rom_data']['rom_year']))
@@ -1521,17 +1577,21 @@ def add_favorite_to_xml(iarl_data,favorites_xml_filename):
 	except: pass
 	try: xml_string = xml_string+'<clearlogo10>%GAME_clearlogo10%</clearlogo10>\r\n'.replace('%GAME_clearlogo10%',xstr(iarl_data['current_rom_data']['rom_logos'][9]))
 	except: pass
-	try: xml_string = xml_string+'\r\n\r\n<emu_command>%GAME_COMMAND%</emu_command>\r\n'.replace('%GAME_COMMAND%',current_rom_command)
+	try: xml_string = xml_string+'\r\n\r\n<emu_command>%GAME_COMMAND%</emu_command>\r\n'.replace('%GAME_COMMAND%',xstr(iarl_data['current_rom_data']['rom_emu_command']))
 	except: pass
+	# try: xml_string = xml_string+'\r\n\r\n<emu_command>%GAME_COMMAND%</emu_command>\r\n'.replace('%GAME_COMMAND%',current_rom_command)
+	# except: pass
 	try: xml_string = xml_string+'</game>\r\n'
 	except: pass
 
+	#Clean up your hacky xml
 	xml_string = xml_string.replace('<plot></plot>','').replace('<releasedate></releasedate>','').replace('<studio></studio>','').replace('<nplayers></nplayers>','').replace('<videoid></videoid>','').replace('<genre></genre>','').replace('<year></year>','').replace('<perspective></perspective>','').replace('<rating></rating>','').replace('<ESRB></ESRB>','')
 	xml_string = xml_string.replace('<boxart1></boxart1>','').replace('<boxart2></boxart2>','').replace('<boxart3></boxart3>','').replace('<boxart4></boxart4>','').replace('<boxart5></boxart5>','').replace('<boxart6></boxart6>','').replace('<boxart7></boxart7>','').replace('<boxart8></boxart8>','').replace('<boxart9></boxart9>','').replace('<boxart10></boxart10>','')
 	xml_string = xml_string.replace('<snapshot1></snapshot1>','').replace('<snapshot2></snapshot2>','').replace('<snapshot3></snapshot3>','').replace('<snapshot4></snapshot4>','').replace('<snapshot5></snapshot5>','').replace('<snapshot6></snapshot6>','').replace('<snapshot7></snapshot7>','').replace('<snapshot8></snapshot8>','').replace('<snapshot9></snapshot9>','').replace('<snapshot10></snapshot10>','')
 	xml_string = xml_string.replace('<fanart1></fanart1>','').replace('<fanart2></fanart2>','').replace('<fanart3></fanart3>','').replace('<fanart4></fanart4>','').replace('<fanart5></fanart5>','').replace('<fanart6></fanart6>','').replace('<fanart7></fanart7>','').replace('<fanart8></fanart8>','').replace('<fanart9></fanart9>','').replace('<fanart10></fanart10>','')
 	xml_string = xml_string.replace('<banner1></banner1>','').replace('<banner2></banner2>','').replace('<banner3></banner3>','').replace('<banner4></banner4>','').replace('<banner5></banner5>','').replace('<banner6></banner6>','').replace('<banner7></banner7>','').replace('<banner8></banner8>','').replace('<banner9></banner9>','').replace('<banner10></banner10>','')
 	xml_string = xml_string.replace('<clearlogo1></clearlogo1>','').replace('<clearlogo2></clearlogo2>','').replace('<clearlogo3></clearlogo3>','').replace('<clearlogo4></clearlogo4>','').replace('<clearlogo5></clearlogo5>','').replace('<clearlogo6></clearlogo6>','').replace('<clearlogo7></clearlogo7>','').replace('<clearlogo8></clearlogo8>','').replace('<clearlogo9></clearlogo9>','').replace('<clearlogo10></clearlogo10>','')
+	xml_string = xml_string.replace('<rom_override_cmd></rom_override_cmd>','').replace('<rom_override_postdl></rom_override_postdl>','').replace('<rom_override_downloadpath></rom_override_downloadpath>','')
 	xml_string = xml_string.replace('\r\n\r\n\r\n\r\n','\r\n')
 	xml_string = xml_string.replace('\r\n\r\n\r\n','\r\n')
 	xml_string = xml_string.replace('\r\n\r\n','\r\n')
