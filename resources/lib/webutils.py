@@ -78,8 +78,11 @@ class download_tools():
 				xbmc.log(msg='IARL:  Download save filename: '+str(dest), level=xbmc.LOGDEBUG)
 				urllib.urlretrieve(url,dest,lambda nb, bs, fs, url=url: self._pbhook(nb,bs,fs,est_filesize,dp))
 				success = True
+			except IOError as e:
+				xbmc.log(msg='IARL:  There was an error downloading: '+str(e.strerror), level=xbmc.LOGERROR)
+				success = False
 			except:
-				xbmc.log(msg='IARL:  Download was cancelled by the user.', level=xbmc.LOGNOTICE)
+				xbmc.log(msg='IARL:  Download was cancelled by the user or some unknown error occured.', level=xbmc.LOGNOTICE)
 				success = False
 
 		return success
