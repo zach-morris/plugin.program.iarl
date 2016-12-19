@@ -63,14 +63,26 @@
 	<launcher name="RetroArch EMUX SMS (SMS)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_sms_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA CPS1 2012 (CPS1)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fbalpha2012_cps1_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA CPS1 (CPS1)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_cps1_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA CPS2 2012 (CPS2)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fbalpha2012_cps2_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA CPS2 (CPS2)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_cps2_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA 2012 (Arcade)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fbalpha2012_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA (Arcade)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fbalpha_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA NEO 2012 (Neo Geo)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fbalpha2012_neogeo_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA NEO (Neo Geo)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_neo_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -207,6 +219,15 @@
 	<launcher name="RetroArch SNES9xNext (SNES)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/snes9x_next_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch SNES9x 2002 (SNES)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/snes9x2002_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2005 (SNES)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/snes9x2010_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2005 (SNES)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/snes9x2005_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Stella (Atari 2600)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/stella_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -215,6 +236,9 @@
 	</launcher>
 	<launcher name="RetroArch TyrQuake (Other)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/tyrquake_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch UME2014 (MESS)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/ume2014_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBANext (GBA)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vba_next_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -286,7 +310,7 @@
 	<launcher name="RetroArch DeSmuME (NDS)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/desmume_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
-		<launcher name="RetroArch Dinothawr (Other)" os="OSX Close_Kodi">
+	<launcher name="RetroArch Dinothawr (Other)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/dinothawr_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch DOSBox (DOS)" os="OSX Close_Kodi">
@@ -304,14 +328,26 @@
 	<launcher name="RetroArch EMUX SMS (SMS)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/emux_sms_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA CPS1 2012 (CPS1)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fbalpha2012_cps1_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA CPS1 (CPS1)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_cps1_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA CPS2 2012 (CPS2)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fbalpha2012_cps2_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA CPS2 (CPS2)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_cps2_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA 2012 (Arcade)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fbalpha2012_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA (Arcade)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_libretro.dylib" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fbalpha_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA NEO 2012 (Neo Geo)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fbalpha2012_neogeo_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA NEO (Neo Geo)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fb_alpha_neo_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -448,6 +484,15 @@
 	<launcher name="RetroArch SNES9xNext (SNES)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/snes9x_next_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch SNES9x 2002 (SNES)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/snes9x2002_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2005 (SNES)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/snes9x2010_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2005 (SNES)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/snes9x2005_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Stella (Atari 2600)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/stella_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -456,6 +501,9 @@
 	</launcher>
 	<launcher name="RetroArch TyrQuake (Other)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/tyrquake_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch UME2014 (MESS)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/ume2014_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBANext (GBA)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vba_next_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -475,7 +523,7 @@
 	<launcher name="FS-UAE Launcher" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH_FS_UAE%" "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="Dolphin (Wii / Gamecube)" os="OSX Close_Kodi">
+		<launcher name="Dolphin (Wii / Gamecube)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH_DOLPHIN%" --exec="%ROM_PATH%" --batch</launcher_command>
 	</launcher>
 	<launcher name="MAME Standalone (Arcade)" os="OSX Close_Kodi">
@@ -545,14 +593,26 @@
 	<launcher name="RetroArch EMUX SMS (SMS)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/emux_sms_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA CPS1 2012 (CPS1)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fbalpha2012_cps1_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA CPS1 (CPS1)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fb_alpha_cps1_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA CPS2 2012 (CPS2)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fbalpha2012_cps2_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA CPS2 (CPS2)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fb_alpha_cps2_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA 2012 (Arcade)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fbalpha2012_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA (Arcade)" os="Linux/Kodibuntu">
-		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fb_alpha_libretro.so "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fbalpha_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA NEO 2012 (Neo Geo)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fbalpha2012_neogeo_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA NEO (Neo Geo)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fb_alpha_neo_libretro.so "%ROM_PATH%"</launcher_command>
@@ -577,6 +637,9 @@
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/genesis_plus_gx_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Glupen64 (N64)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/glupen64_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch gpSP (GBA)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/gpsp_libretro.so "%ROM_PATH%"</launcher_command>
@@ -638,6 +701,9 @@
 	<launcher name="RetroArch Mednafen Cygne (WonderSwan/WonderSwan Color)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mednafen_wswan_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch MESS 2014 (MESS)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mess2014_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Meteor (GBA)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/meteor_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -652,6 +718,9 @@
 	</launcher>
 	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/o2em_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch ParaLLEl (N64)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/parallel_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PCSX ReArmed (PS1)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/pcsx_rearmed_libretro.so "%ROM_PATH%"</launcher_command>
@@ -686,6 +755,15 @@
 	<launcher name="RetroArch SNES9x (SNES)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/snes9x_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch SNES9x 2002 (SNES)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/snes9x2002_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2005 (SNES)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/snes9x2005_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2010 (SNES)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/snes9x2010_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch SNES9xNext (SNES)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/snes9x_next_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -697,6 +775,9 @@
 	</launcher>
 	<launcher name="RetroArch TyrQuake (Other)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/tyrquake_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch UME2014 (MESS)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/ume2014_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBANext (GBA)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/vba_next_libretro.so "%ROM_PATH%"</launcher_command>
@@ -723,7 +804,7 @@
 		<launcher_command>"%APP_PATH_MAME%" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<!-- Linux / Kodibuntu, with script to close kodi before launch -->
-	<launcher name="RetroArch 4DO (3DO)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher name="RetroArch 4DO (3DO)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/4do_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch BlueMSX (MSX)" os="Linux/Kodibuntu Close_Kodi">
@@ -759,7 +840,7 @@
 	<launcher name="RetroArch CATSFC (SNES)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/catsfc_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
-		<launcher name="RetroArch CaveStory (NXEngine)" os="Linux/Kodibuntu Close_Kodi">
+	<launcher name="RetroArch CaveStory (NXEngine)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/nxengine_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Craft (Other)" os="Linux/Kodibuntu Close_Kodi">
@@ -768,9 +849,9 @@
 	<launcher name="RetroArch DeSmuME (NDS)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/desmume_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
-		<launcher name="RetroArch Dinothawr (Other)" os="Linux/Kodibuntu Close_Kodi">
+	<launcher name="RetroArch Dinothawr (Other)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/dinothawr_libretro.so "%ROM_PATH%"</launcher_command>
-	</launcher>
+	</launcher>	
 	<launcher name="RetroArch DOSBox (DOS)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/dosbox_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -786,14 +867,26 @@
 	<launcher name="RetroArch EMUX SMS (SMS)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/emux_sms_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA CPS1 2012 (CPS1)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fbalpha2012_cps1_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA CPS1 (CPS1)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fb_alpha_cps1_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA CPS2 2012 (CPS2)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fbalpha2012_cps2_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA CPS2 (CPS2)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fb_alpha_cps2_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA 2012 (Arcade)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fbalpha2012_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA (Arcade)" os="Linux/Kodibuntu Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fb_alpha_libretro.so "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fbalpha_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA NEO 2012 (Neo Geo)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fbalpha2012_neogeo_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA NEO (Neo Geo)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/fb_alpha_neo_libretro.so "%ROM_PATH%"</launcher_command>
@@ -818,6 +911,9 @@
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/genesis_plus_gx_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Glupen64 (N64)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/glupen64_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch gpSP (GBA)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/gpsp_libretro.so "%ROM_PATH%"</launcher_command>
@@ -879,6 +975,9 @@
 	<launcher name="RetroArch Mednafen Cygne (WonderSwan/WonderSwan Color)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mednafen_wswan_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch MESS 2014 (MESS)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mess2014_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Meteor (GBA)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/meteor_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -893,6 +992,9 @@
 	</launcher>
 	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/o2em_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch ParaLLEl (N64)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/parallel_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PCSX ReArmed (PS1)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/pcsx_rearmed_libretro.so "%ROM_PATH%"</launcher_command>
@@ -927,6 +1029,15 @@
 	<launcher name="RetroArch SNES9x (SNES)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/snes9x_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch SNES9x 2002 (SNES)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/snes9x2002_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2005 (SNES)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/snes9x2005_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2010 (SNES)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/snes9x2010_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch SNES9xNext (SNES)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/snes9x_next_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -938,6 +1049,9 @@
 	</launcher>
 	<launcher name="RetroArch TyrQuake (Other)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/tyrquake_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch UME2014 (MESS)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/ume2014_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBANext (GBA)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/vba_next_libretro.so "%ROM_PATH%"</launcher_command>
@@ -1027,14 +1141,26 @@
 	<launcher name="RetroArch EMUX SMS (SMS)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\emux_sms_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA CPS1 2012 (CPS1)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fbalpha2012_cps1_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA CPS1 (CPS1)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fb_alpha_cps1_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA CPS2 2012 (CPS2)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fbalpha2012_cps2_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA CPS2 (CPS2)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fb_alpha_cps2_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA 2012 (Arcade)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fbalpha2012_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA (Arcade)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fb_alpha_libretro.dll" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fbalpha_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA NEO 2012 (Neo Geo)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fbalpha2012_neogeo_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA NEO (Neo Geo)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fb_alpha_neo_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1059,6 +1185,9 @@
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\genesis_plus_gx_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Glupen64 (N64)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\glupen64_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch gpSP (GBA)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\gpsp_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1120,6 +1249,9 @@
 	<launcher name="RetroArch Mednafen Cygne (WonderSwan/WonderSwan Color)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_wswan_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch MESS 2014 (MESS)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mess2014_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Meteor (GBA)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\meteor_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1134,6 +1266,9 @@
 	</launcher>
 	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\o2em_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch ParaLLEl (N64)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\parallel_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PCSX ReArmed (PS1)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\pcsx_rearmed_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1165,6 +1300,12 @@
 	<launcher name="RetroArch ScummVM (Various)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\scummvm_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch SNES9x 2005 (SNES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\snes9x2005_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2010 (SNES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\snes9x2010_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch SNES9x (SNES)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\snes9x_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1179,6 +1320,9 @@
 	</launcher>
 	<launcher name="RetroArch TyrQuake (Other)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\tyrquake_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch UME2014 (MESS)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\ume2014_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBANext (GBA)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\vba_next_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1271,14 +1415,26 @@
 	<launcher name="RetroArch EMUX SMS (SMS)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\emux_sms_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA CPS1 2012 (CPS1)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fbalpha2012_cps1_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA CPS1 (CPS1)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fb_alpha_cps1_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA CPS2 2012 (CPS2)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fbalpha2012_cps2_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA CPS2 (CPS2)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fb_alpha_cps2_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA 2012 (Arcade)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fbalpha2012_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA (Arcade)" os="Windows Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fb_alpha_libretro.dll" "%ROM_PATH%"</launcher_command>
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fbalpha_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA NEO 2012 (Neo Geo)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fbalpha2012_neogeo_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA NEO (Neo Geo)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fb_alpha_neo_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1303,6 +1459,9 @@
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\genesis_plus_gx_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Glupen64 (N64)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\glupen64_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch gpSP (GBA)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\gpsp_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1364,6 +1523,9 @@
 	<launcher name="RetroArch Mednafen Cygne (WonderSwan/WonderSwan Color)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mednafen_wswan_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch MESS 2014 (MESS)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mess2014_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Meteor (GBA)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\meteor_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1378,6 +1540,9 @@
 	</launcher>
 	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\o2em_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch ParaLLEl (N64)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\parallel_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PCSX ReArmed (PS1)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\pcsx_rearmed_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1409,6 +1574,12 @@
 	<launcher name="RetroArch ScummVM (Various)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\scummvm_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch SNES9x 2005 (SNES)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\snes9x2005_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2010 (SNES)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\snes9x2010_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch SNES9x (SNES)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\snes9x_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1423,6 +1594,9 @@
 	</launcher>
 	<launcher name="RetroArch TyrQuake (Other)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\tyrquake_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch UME2014 (MESS)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\ume2014_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBANext (GBA)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\vba_next_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1442,7 +1616,7 @@
 	<launcher name="Project64 (N64)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH_PJ64%" "%ROM_PATH%"</launcher_command>
 	</launcher>
-		<launcher name="FS-UAE Launcher" os="Windows Close_Kodi">
+	<launcher name="FS-UAE Launcher" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH_FS_UAE%" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="Dolphin (Wii / Gamecube)" os="Windows Close_Kodi">
@@ -1515,14 +1689,26 @@
 	<launcher name="RetroArch EMUX SMS (SMS)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh emux_sms "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA CPS1 2012 (CPS1)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh fbalpha2012_cps1 "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA CPS1 (CPS1)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh fb_alpha_cps1 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA CPS2 2012 (CPS2)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh fbalpha2012_cps2 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA CPS2 (CPS2)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh fb_alpha_cps2 "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA 2012 (Arcade)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh fbalpha2012 "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA (Arcade)" os="OpenElec x86 (tssemek Addon)">
-		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh fb_alpha "%ROM_PATH%"</launcher_command>
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh fbalpha "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA NEO 2012 (Neo Geo)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh fbalpha2012_neogeo "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA NEO (Neo Geo)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh fb_alpha_neo "%ROM_PATH%"</launcher_command>
@@ -1547,6 +1733,9 @@
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh genesis_plus_gx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Glupen64 (N64)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh glupen64 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch gpSP (GBA)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh gpsp "%ROM_PATH%"</launcher_command>
@@ -1608,6 +1797,9 @@
 	<launcher name="RetroArch Mednafen Cygne (WonderSwan/WonderSwan Color)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh mednafen_wswan "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch MESS 2014 (MESS)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh mess2014 "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Meteor (GBA)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh meteor "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1622,6 +1814,9 @@
 	</launcher>
 	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh o2em "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch ParaLLEl (N64)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh parallel "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PCSX ReArmed (PS1)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh pcsx_rearmed "%ROM_PATH%"</launcher_command>
@@ -1653,6 +1848,15 @@
 	<launcher name="RetroArch ScummVM (Various)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh scummvm "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch SNES9x 2002 (SNES)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh snes9x2002 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2005 (SNES)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh snes9x2005 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2010 (SNES)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh snes9x2010 "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch SNES9x (SNES)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh snes9x "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1667,6 +1871,9 @@
 	</launcher>
 	<launcher name="RetroArch TyrQuake (Other)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh tyrquake "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch UME2014 (MESS)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh ume2014 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBANext (GBA)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh vba_next "%ROM_PATH%"</launcher_command>
@@ -1756,14 +1963,26 @@
 	<launcher name="RetroArch EMUX SMS (SMS)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/emux_sms_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA CPS1 2012 (CPS1)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fbalpha2012_cps1_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA CPS1 (CPS1)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fb_alpha_cps1_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA CPS2 2012 (CPS2)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fbalpha2012_cps2_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA CPS2 (CPS2)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fb_alpha_cps2_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA 2012 (Arcade)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fbalpha2012_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA (Arcade)" os="LibreElec x86">
-		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fb_alpha_libretro.so "%ROM_PATH%"</launcher_command>
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fbalpha_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch FBA NEO 2012 (Neo Geo)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fbalpha2012_neogeo_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA NEO (Neo Geo)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fb_alpha_neo_libretro.so "%ROM_PATH%"</launcher_command>
@@ -1791,6 +2010,9 @@
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/genesis_plus_gx_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Glupen64 (N64)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/glupen64_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch gpSP (GBA)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/gpsp_libretro.so "%ROM_PATH%"</launcher_command>
@@ -1852,6 +2074,9 @@
 	<launcher name="RetroArch Mednafen Cygne (WonderSwan/WonderSwan Color)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mednafen_wswan_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch MESS 2014 (MESS)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mess2014_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Meteor (GBA)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/meteor_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1897,6 +2122,15 @@
 	<launcher name="RetroArch ScummVM (Various)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/scummvm_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch SNES9x 2002 (SNES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/snes9x2002_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2005 (SNES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/snes9x2005_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2010 (SNES)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/snes9x2010_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch SNES9x (SNES)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/snes9x_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1911,6 +2145,9 @@
 	</launcher>
 	<launcher name="RetroArch TyrQuake (Other)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/tyrquake_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch UME2014 (MESS)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/ume2014_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch VBANext (GBA)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/vba_next_libretro.so "%ROM_PATH%"</launcher_command>
@@ -2009,8 +2246,11 @@
 	<launcher name="RetroArch FBA CPS2 (CPS2)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh fb_alpha_cps2 "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA 2012 (Arcade)" os="OpenElec RPi (Gamestarter Addon)">
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh fbalpha2012 "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA (Arcade)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh fb_alpha "%ROM_PATH%"</launcher_command>
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh fbalpha "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA NEO (Neo Geo)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh fb_alpha_neo "%ROM_PATH%"</launcher_command>
@@ -2035,6 +2275,12 @@
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh genesis_plus_gx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Glupen64 GLES3 (N64)" os="OpenElec RPi (Gamestarter Addon)">
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh glupen64_gles3 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Glupen64 (N64)" os="OpenElec RPi (Gamestarter Addon)">
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh glupen64 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch gpSP (GBA)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh gpsp "%ROM_PATH%"</launcher_command>
@@ -2114,6 +2360,9 @@
 	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh o2em "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch ParaLLEl (N64)" os="OpenElec RPi (Gamestarter Addon)">
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh parallel "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch PCSX ReArmed (PS1)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh pcsx_rearmed "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -2143,6 +2392,15 @@
 	</launcher>
 	<launcher name="RetroArch ScummVM (Various)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh scummvm "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2002 (SNES)" os="OpenElec RPi (Gamestarter Addon)">
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh snes9x2002 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2005 (SNES)" os="OpenElec RPi (Gamestarter Addon)">
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh snes9x2005 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2010 (SNES)" os="OpenElec RPi (Gamestarter Addon)">
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh snes9x2010 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES9x (SNES)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh snes9x "%ROM_PATH%"</launcher_command>
@@ -2485,8 +2743,11 @@
 	<launcher name="RetroArch FBA CPS2 (CPS2)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/fb_alpha_cps2_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FBA 2012 (Arcade)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/fbalpha2012_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FBA (Arcade)" os="Android">
-		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/fb_alpha_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/fbalpha_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch FBA NEO (Neo Geo)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/fb_alpha_neo_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
@@ -2511,6 +2772,12 @@
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/genesis_plus_gx_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Glupen64 GLES3 (N64)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/glupen64_gles3_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Glupen64 (N64)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/glupen64_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch gpSP (GBA)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/gpsp_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
@@ -2587,6 +2854,9 @@
 	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/o2em_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
+	<launcher name="RetroArch ParaLLEl (N64)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/parallel_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
 	<launcher name="RetroArch PCSX ReArmed (PS1)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/pcsx_rearmed_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
@@ -2622,6 +2892,15 @@
 	</launcher>
 	<launcher name="RetroArch SNES9xNext (SNES)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/snes9x_next_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2002 (SNES)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/snes9x2002_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2005 (SNES)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/snes9x2005_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES9x 2010 (SNES)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/snes9x2010_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Stella (Atari 2600)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/stella_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
