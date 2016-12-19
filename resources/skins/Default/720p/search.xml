@@ -202,6 +202,7 @@
                     <selectedcolor>green</selectedcolor>
                     <align>left</align>
                     <info>ListItem.Label</info>
+                    <visible>IntegerGreaterThan(ListItem.Property(hide_in_search),0)</visible>
                 </control>
                 <control type="image">
                     <posx>5</posx>
@@ -239,6 +240,7 @@
                     <selectedcolor>green</selectedcolor>
                     <align>left</align>
                     <info>ListItem.Label</info>
+                    <visible>IntegerGreaterThan(ListItem.Property(hide_in_search),0)</visible>
                     <texture>button-highlight1.png</texture>
                 </control>
             </focusedlayout>

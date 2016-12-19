@@ -874,6 +874,18 @@ def search_roms_results(search_term,**kwargs):
     if iarl_data['archive_data'] is None:
         iarl_data['archive_data'] = get_archive_info()
 
+    # #Create the search dict for archives that are not hidden
+    # search_archive_data = dict()
+    # for kk in iarl_data['archive_data'].keys():
+    #     search_archive_data[kk] = list()
+    # for ii in range(0,len(iarl_data['archive_data']['emu_category'])):
+    #     if 'hidden' not in iarl_data['archive_data']['emu_category'][ii]:
+    #         for kk in iarl_data['archive_data'].keys():
+    #             try:
+    #                 search_archive_data[kk].append(iarl_data['archive_data'][kk][ii])
+    #             except:
+    #                 pass
+
     progress_dialog = xbmcgui.DialogProgress()
     progress_dialog.create('IARL', 'Searching...')
 
@@ -1765,6 +1777,13 @@ class SearchWindow(xbmcgui.WindowXMLDialog):
                 current_listitem = xbmcgui.ListItem(label=iarl_data['archive_data']['emu_name'][ii])
                 current_listitem.setIconImage(iarl_data['archive_data']['emu_boxart'][ii])
                 current_listitem.setProperty('include_in_search','0') #Default to not include in search
+                current_listitem.setProperty('hide_in_search','1') #Do not show item in search list
+                self.archive_list.addItem(current_listitem) #Add item to the filter list
+            else:
+                current_listitem = xbmcgui.ListItem(label=iarl_data['archive_data']['emu_name'][ii])
+                current_listitem.setIconImage(iarl_data['archive_data']['emu_boxart'][ii])
+                current_listitem.setProperty('include_in_search','0') #Default to not include in search
+                current_listitem.setProperty('hide_in_search','0') #Show item in search list
                 self.archive_list.addItem(current_listitem) #Add item to the filter list
 
     def onAction(self, action):
@@ -1779,14 +1798,16 @@ class SearchWindow(xbmcgui.WindowXMLDialog):
         if controlId == 101:
             current_item = self.archive_list.getSelectedItem()
             if current_item.getProperty('include_in_search') == '0':
-                current_item.setProperty('include_in_search','1') #It wasnt included, and now should be included
+                if current_item.getProperty('hide_in_search') != '0': #Prevent selection if its hidden
+                    current_item.setProperty('include_in_search','1') #It wasnt included, and now should be included
             else:
                 current_item.setProperty('include_in_search','0') #It was included, and now shouldnt be included
 
         if controlId == 3001:
             for ii in range(0,self.archive_list.size()):
                 current_listitem = self.archive_list.getListItem(ii)
-                current_listitem.setProperty('include_in_search','1') #Select All
+                if current_listitem.getProperty('hide_in_search') != '0': #Prevent selection if its hidden
+                    current_listitem.setProperty('include_in_search','1') #Select All
 
         if controlId == 3002:
             for ii in range(0,self.archive_list.size()):
