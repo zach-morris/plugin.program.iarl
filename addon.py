@@ -211,7 +211,7 @@ else:
         iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.exe')
     elif 'Nix' in iarl_data['addon_data']['operating_system']:
         iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.Nix')
-    elif 'OpenElec RPi' in iarl_data['addon_data']['operating_system'] or 'LibreElec RPi' in iarl_data['addon_data']['operating_system']:
+    elif 'OpenElec RPi' in iarl_data['addon_data']['operating_system'] or 'LibreElec RPi' in iarl_data['addon_data']['operating_system'] or 'LibreElec SX05' in iarl_data['addon_data']['operating_system']:
         try:
             if 'v7' in os.uname()[4]:
                 iarl_data['addon_data']['7za_path'] = os.path.join(iarl_data['addon_data']['addon_bin_path'],'7za','7za.armv7l')

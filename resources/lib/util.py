@@ -755,7 +755,7 @@ def update_external_launch_commands(iarl_data,xml_id,plugin):
 			external_launch_database_os = iarl_data['settings']['external_launch_env'] + ' Close_Kodi' #Look for launch commands to close Kodi
 		else:
 			external_launch_database_os = iarl_data['settings']['external_launch_env']
-		if iarl_data['settings']['external_launch_env'] in 'OpenElec x86 (tssemek Addon)|LibreElec x86|OpenElec RPi (Gamestarter Addon)|Android'.split('|'):
+		if iarl_data['settings']['external_launch_env'] in 'OpenElec x86 (tssemek Addon)|LibreElec x86|LibreElec SX05|OpenElec RPi (Gamestarter Addon)|Android'.split('|'):
 			external_launch_database_os = external_launch_database_os.replace(' Close_Kodi','') #By default, the above setups auto close Kodi, so there's only one list of launchers to choose from
 		for entries in results:
 			if entries['operating_system'][0] == external_launch_database_os:

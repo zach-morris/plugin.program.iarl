@@ -16,7 +16,7 @@
  +		<setting id="iarl_setting_ia_password" type="text" label="archive.org Password" default="" option="hidden" visible="eq(-2,Enabled)"/>  
 	</category>
 	<category label="External Launchers">
-		<setting id="iarl_external_user_external_env" type="select" label="My System Type" values="Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|LibreElec x86|OpenElec RPi (Gamestarter Addon)|Android" default="Select" visible="true"/>
+		<setting id="iarl_external_user_external_env" type="select" label="My System Type" values="Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|LibreElec x86|LibreElec SX05|OpenElec RPi (Gamestarter Addon)|Android" default="Select" visible="true"/>
 		<setting id="iarl_external_launch_close_kodi" type="select" label="Close Kodi on Launch" values="Disabled|Enabled" default="Disabled" visible="eq(-1,OSX)|eq(-1,Windows)|eq(-1,Linux/Kodibuntu)"/>
 		<setting id="iarl_path_to_retroarch" type="executable" label="RetroArch App Location" visible="eq(-2,OSX)|eq(-2,Windows)|eq(-2,Linux/Kodibuntu)"/>
 		<setting id="iarl_path_to_retroarch_system_dir" type="folder" label="RetroArch System Folder" visible="!eq(-3,Select)"/>
@@ -42,7 +42,7 @@
 	<category label="Setup Wizard">
 		<setting label="Wizard setup for external launchers" type="lsep" visible="true"/>
 		<setting label="Before running, please setup the external launcher tab" type="lsep" visible="true"/>
-		<setting id="iarl_external_user_external_env" type="select" label="My System Type" values="Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|LibreElec x86|OpenElec RPi (Gamestarter Addon)|Android" default="Select" visible="true" enable="false"/>
+		<setting id="iarl_external_user_external_env" type="select" label="My System Type" values="Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|LibreElec x86|LibreElec SX05|OpenElec RPi (Gamestarter Addon)|Android" default="Select" visible="true" enable="false"/>
 		<setting id="iarl_external_launch_close_kodi" type="select" label="Close Kodi on Launch" values="Disabled|Enabled" default="Disabled" visible="true" enable="false"/>
 		<setting id="iarl_wizard_launcher" type="select" label="Emulator Launcher" values="Select|External|Kodi Retroplayer" default="External" visible="false"/>
 		<setting id="iarl_wizard_launcher_group" type="select" label="Set me up for" values="Select|Most Playable (Least CPU Intensive)|Balanced|Most Accurate|RetroPlayer" default="Select" visible="true"/>
