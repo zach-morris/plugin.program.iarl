@@ -80,9 +80,13 @@ class download_tools():
 				success = True
 			except IOError as e:
 				xbmc.log(msg='IARL:  There was an error downloading: '+str(e.strerror), level=xbmc.LOGERROR)
+				current_dialog = xbmcgui.Dialog()
+				current_dialog.notification('Error', 'Error Downloading, see log', xbmcgui.NOTIFICATION_INFO, 1000)
 				success = False
 			except:
 				xbmc.log(msg='IARL:  Download was cancelled by the user or some unknown error occured.', level=xbmc.LOGNOTICE)
+				current_dialog = xbmcgui.Dialog()
+				current_dialog.notification('Stopped', 'Download Stopped, see log', xbmcgui.NOTIFICATION_INFO, 1000)
 				success = False
 
 		return success
