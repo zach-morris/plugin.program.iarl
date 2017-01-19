@@ -2332,7 +2332,12 @@ def convert_7z_bin_cue_gdi(iarl_data,point_to_file_type):
 	current_save_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][0])
 	current_save_path = current_save_fileparts[0]
 	un7zip_folder_name = clean_file_folder_name(iarl_data['current_rom_data']['rom_title'])
-	un7zip_folder_path = os.path.join(current_save_path,un7zip_folder_name)
+
+	if un7zip_folder_name == os.path.split(current_save_path)[-1]: #GDI game folder is already present on system
+		un7zip_folder_path = current_save_path #Change the unzip folder to the existing folder at a minimum, then check if the gdi file is already present
+	else:
+		un7zip_folder_path = os.path.join(current_save_path,un7zip_folder_name)
+
 	output_filename = None
 	current_dialog = xbmcgui.Dialog()
 	current_dialog.notification('Please Wait','Converting 7z File...', xbmcgui.NOTIFICATION_INFO, 500000)
