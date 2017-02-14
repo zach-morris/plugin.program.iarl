@@ -10,6 +10,7 @@
 		<setting id="iarl_setting_localfile_action" type="select" label="If Game Already Exists Locally" values="Prompt|Do Not ReDownload|ReDownload and Overwrite" default="Prompt"/>
 		<setting id="iarl_setting_default_action" type="select" label="Default Action on Selecting ROM" values="Download and Launch|Download Only|ROM Info Page" default="ROM Info Page"/>
 		<setting id="iarl_setting_rom_window_theme" type="select" label="ROM Window Theme" values="IARL Classic Window|Try to Match Skin" default="IARL Classic Window" visible="false"/>
+		<setting id="iarl_setting_autoplay_trailer" type="select" label="Autoplay Game Trailer" values="No|Yes" default="No"/>
 		<setting id="iarl_setting_dl_cache" type="select" label="Cache Size (MB)" values="Zero (One ROM and Supporting Files Only)|10 MB|25MB|50MB|100MB|150MB|200MB|250MB|300MB|350MB|400MB|450MB|500MB|1GB|2GB|5GB|10GB|20GB" default="Zero (One ROM and Supporting Files Only)"/>
 		<setting id="iarl_enable_login" type="select" label="Enable Login" values="Enabled|Disabled" default="Disabled"/>
 		<setting id="iarl_setting_ia_username" type="text" label="archive.org Username" default="" visible="eq(-1,Enabled)"/>

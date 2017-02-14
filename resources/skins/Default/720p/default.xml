@@ -21,6 +21,13 @@
             <onleft>3001</onleft>
             <onright>3001</onright>
         </control>
+        <control type="list" id=113>
+            <description>Invisible List for Info</description>
+            <posx>1</posx>
+            <posy>1</posy>
+            <itemlayout width="0" height="0"></itemlayout>
+            <focusedlayout width="0" height="0"></focusedlayout>
+        </control>
         <control type="wraplist" id=111>
             <description>Poster Slideshow List</description>
             <posx>25</posx>
@@ -96,7 +103,7 @@
          <pagecontrol>13</pagecontrol>
          <scrolltime>200</scrolltime>
          <autoscroll delay="3000" time="1000" repeat="10000"></autoscroll>
-         <label>No Info Available</label>
+         <label>$INFO[Container(113).ListItem.Property(rom_plot)]</label>
         </control>
         <control type="image">
             <description>Header Color</description>
@@ -113,6 +120,7 @@
             <width>200</width>
             <height>70</height>
             <aspectratio>keep</aspectratio>
+            <texture>$INFO[Container(113).ListItem.Property(emu_logo)]</texture>
         </control>
         <control type="button" id="3001">
             <description>Download Only Button</description>
@@ -142,7 +150,7 @@
             <onleft>3001</onleft>
             <onright>3003</onright>
         </control>
-        <control type="group" id="3012">
+        <!--<control type="group" id="3012">
           <control type="image">
             <description>Busy animation</description>
             <posx>800</posx>
@@ -151,6 +159,7 @@
             <height>50</height>
             <texture>busy-pac.png</texture>
             <aspectratio>keep</aspectratio>
+            <visible>false</visible>
             <animation effect="rotate" start="360" end="0" center="825,680" time="900" loop="true" condition="true">true</animation>
           </control>
           <control type="textbox">
@@ -165,8 +174,9 @@
              <font>font14</font>
              <textcolor>white</textcolor>
              <label>Please Wait...</label>
+             <visible>false</visible>
            </control>
-        </control>
+        </control>-->
         <control type="button" id="3003">
             <description>Exit Button</description>
             <posx>1100</posx>
@@ -241,7 +251,7 @@
            <textcolor>black</textcolor>
            <scrolltime>200</scrolltime>
            <autoscroll delay="3000" time="1000" repeat="10000"></autoscroll>
-           <label>Unknown</label>
+           <label>$INFO[Container(113).ListItem.Property(rom_name)]</label>
        </control>
         <control type="textbox" id=3008>
            <description>Genre</description>

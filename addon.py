@@ -25,6 +25,7 @@ iarl_data = {
                             'local_file_action' : plugin.get_setting('iarl_setting_localfile_action',unicode),
                             'game_select_action' : plugin.get_setting('iarl_setting_default_action',unicode),
                             'window_theme' : plugin.get_setting('iarl_setting_rom_window_theme',unicode),
+                            'autoplay_trailer' : plugin.get_setting('iarl_setting_autoplay_trailer',unicode),
                             'download_cache' : None, #Initialize variable and set later
                             'ia_enable_login' : None, #Initialize variable and set later
                             'ia_username' : plugin.get_setting('iarl_setting_ia_username',unicode),
@@ -1556,8 +1557,8 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
         pass
 
     def onInit(self):
-        self.please_wait = self.getControl(3012) #Number of players
-        self.please_wait.setVisible(False)
+        # self.please_wait = self.getControl(3012) #Number of players
+        # self.please_wait.setVisible(False)
         #Define theme for ROM Window
         xbmcgui.Window(10000).setProperty('iarl.current_theme',str(iarl_data['current_archive_data']['emu_name']))
         xbmcgui.Window(10000).setProperty('iarl.default_thumb',str(iarl_data['current_archive_data']['emu_boxart']))
@@ -1567,8 +1568,49 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
         xbmcgui.Window(10000).setProperty('iarl.buttonnofocustheme',str(iarl_data['current_archive_data']['button_nofocus']))
 
         self.action_exitkeys_id = [10, 13]
-        self.logo_art = self.getControl(103) #Logo
-        self.plot_box = self.getControl(104) #Plot
+        #Create invisible listitem for skinning purposes
+        self.info_listitem = xbmcgui.ListItem(label=iarl_data['current_rom_data']['rom_name'])
+        self.info_listitem.setProperty('fanart_image', iarl_data['current_rom_data']['rom_fanarts'][0])
+        self.info_listitem.setProperty('banner', iarl_data['current_rom_data']['rom_banners'][0])
+        self.info_listitem.setProperty('clearlogo', iarl_data['current_rom_data']['rom_logos'][0])
+        self.info_listitem.setProperty('poster', iarl_data['current_rom_data']['rom_thumbnail'])
+        self.info_listitem.setProperty('tag', iarl_data['current_rom_data']['rom_tag'])
+        self.info_listitem.setProperty('rating', iarl_data['current_rom_data']['rom_rating'])
+        self.info_listitem.setProperty('perspective', iarl_data['current_rom_data']['rom_perspective'])
+        self.info_listitem.setProperty('esrb', iarl_data['current_rom_data']['rom_esrb'])
+        self.info_listitem.setProperty('rom_name', iarl_data['current_rom_data']['rom_name'])
+        self.info_listitem.setProperty('rom_icon', iarl_data['current_rom_data']['rom_icon'])
+        self.info_listitem.setProperty('rom_thumbnail', iarl_data['current_rom_data']['rom_thumbnail'])
+        self.info_listitem.setProperty('rom_title', iarl_data['current_rom_data']['rom_title'])
+        self.info_listitem.setProperty('rom_studio', iarl_data['current_rom_data']['rom_studio'])
+        self.info_listitem.setProperty('rom_genre', iarl_data['current_rom_data']['rom_genre'])
+        self.info_listitem.setProperty('rom_date', iarl_data['current_rom_data']['rom_date'])
+        self.info_listitem.setProperty('rom_year', iarl_data['current_rom_data']['rom_year'])
+        self.info_listitem.setProperty('rom_plot', iarl_data['current_rom_data']['rom_plot'])
+        self.info_listitem.setProperty('rom_trailer', iarl_data['current_rom_data']['rom_trailer'])
+        self.info_listitem.setProperty('rom_label', iarl_data['current_rom_data']['rom_label'])
+        self.info_listitem.setProperty('nplayers', iarl_data['current_rom_data']['rom_nplayers'])
+        self.info_listitem.setProperty('rom_size', str(sum(map(int,iarl_data['current_rom_data']['rom_size']))))
+        self.info_listitem.setProperty('emu_name', iarl_data['current_archive_data']['emu_name'])
+        self.info_listitem.setProperty('emu_boxart', iarl_data['current_archive_data']['emu_boxart'])
+        self.info_listitem.setProperty('emu_banner', iarl_data['current_archive_data']['emu_banner'])
+        self.info_listitem.setProperty('emu_fanart', iarl_data['current_archive_data']['emu_fanart'])
+        self.info_listitem.setProperty('emu_logo', iarl_data['current_archive_data']['emu_logo'])
+        self.info_listitem.setProperty('emu_trailer', iarl_data['current_archive_data']['emu_trailer'])
+        self.info_listitem.setProperty('emu_category', iarl_data['current_archive_data']['emu_category'])
+        self.info_listitem.setProperty('emu_plot', iarl_data['current_archive_data']['emu_plot'])
+        for ii in range(0,total_arts):
+            self.info_listitem.setProperty('fanart'+str(ii), iarl_data['current_rom_data']['rom_fanarts'][ii])
+            self.info_listitem.setProperty('banner'+str(ii), iarl_data['current_rom_data']['rom_banners'][ii])
+            self.info_listitem.setProperty('snapshot'+str(ii), iarl_data['current_rom_data']['rom_snapshots'][ii])
+            self.info_listitem.setProperty('boxart'+str(ii), iarl_data['current_rom_data']['rom_boxarts'][ii])
+            self.info_listitem.setProperty('logo'+str(ii), iarl_data['current_rom_data']['rom_logos'][ii])
+        
+        # self.logo_art = self.getControl(103) #Logo
+        # self.plot_box = self.getControl(104) #Plot
+        self.info_list = self.getControl(113) #Invisible list for game properties and the like
+        self.info_list.addItem(self.info_listitem)
+
         self.left_art2 = self.getControl(111) #Left Art List
         self.right_art2 = self.getControl(112) #Right Art List
         self.play_button = self.getControl(3005) #Play Trailer
@@ -1614,10 +1656,10 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
         self.button_action2.setLabel('Launch')
         self.button_exit.setLabel('Close')
 
-        self.plot_box.setText(iarl_data['current_rom_data']['rom_plot']) #Enter the plot if its available
-        self.logo_art.setImage(iarl_data['current_archive_data']['emu_logo']) #Place the emu logo
+        # self.plot_box.setText(iarl_data['current_rom_data']['rom_plot']) #Enter the plot if its available
+        # self.logo_art.setImage(iarl_data['current_archive_data']['emu_logo']) #Place the emu logo
+        # self.title_box.setText(iarl_data['current_rom_data']['rom_title'])
 
-        self.title_box.setText(iarl_data['current_rom_data']['rom_title'])
         if iarl_data['current_rom_data']['rom_genre'] is not None:
             genre_box_text = str(iarl_data['current_rom_data']['rom_genre'])
         else:
@@ -1665,6 +1707,15 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
         if not left_art_found:
             self.left_art2.addItem(xbmcgui.ListItem(label2=str(iarl_data['current_rom_data']['rom_name']), thumbnailImage=iarl_data['current_rom_data']['rom_icon'])) #If no boxart is found, make it the default box
 
+        #Auto play trailer if settings are defined
+        if 'yes' in iarl_data['settings']['autoplay_trailer'].lower():
+            if iarl_data['current_rom_data']['rom_trailer']:
+                self.right_art2.setVisible(False) #Get Fanart out of the way
+                xbmc.sleep(500)
+                xbmc.Player().play(iarl_data['current_rom_data']['rom_trailer'], windowed=True)
+                self.play_button.setVisible(False)
+                self.stop_button.setVisible(True)
+                # self.setFocus(self.stop_button)
 
     def onAction(self, action):
         # Same as normal python Windows.
