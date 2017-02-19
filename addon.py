@@ -1381,6 +1381,18 @@ def post_download_action(iarl_data,option,option2):
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
             xbmc.log(msg='IARL:  There was an error converting the 7z files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)  
+    elif 'convert_zip_m3u' in option:
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            conversion_success, converted_filename = convert_zip_m3u(iarl_data)
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error converting the 7z files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)  
     elif 'convert_7z_track1_bin' in option:
         if iarl_data['current_save_data']['rom_save_filenames']:
             conversion_success, converted_filename = convert_7z_bin_cue_gdi(iarl_data,'track 1')
@@ -1707,6 +1719,7 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
         if not left_art_found:
             self.left_art2.addItem(xbmcgui.ListItem(label2=str(iarl_data['current_rom_data']['rom_name']), thumbnailImage=iarl_data['current_rom_data']['rom_icon'])) #If no boxart is found, make it the default box
 
+        # print xbmc.getInfoLabel('System.BuildVersion') #17.0 or 18.0
         #Auto play trailer if settings are defined
         if 'yes' in iarl_data['settings']['autoplay_trailer'].lower():
             if iarl_data['current_rom_data']['rom_trailer']:

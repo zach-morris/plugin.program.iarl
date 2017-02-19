@@ -2417,7 +2417,13 @@ def convert_7z_m3u(iarl_data):
 	current_save_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][0])
 	current_save_path = current_save_fileparts[0]
 	un7zip_folder_name = clean_file_folder_name(iarl_data['current_rom_data']['rom_title'])
-	un7zip_folder_path = os.path.join(current_save_path,un7zip_folder_name)
+
+	if un7zip_folder_name == os.path.split(current_save_path)[-1]: #M3U game folder is already present on system
+		un7zip_folder_path = current_save_path #Change the unzip folder to the existing folder at a minimum, then check if the gdi file is already present
+	else:
+		un7zip_folder_path = os.path.join(current_save_path,un7zip_folder_name)
+
+
 	m3u_filename = os.path.join(un7zip_folder_path,str(un7zip_folder_name)+'.m3u')
 	current_dialog = xbmcgui.Dialog()
 	current_dialog.notification('Please Wait','Converting 7z File...', xbmcgui.NOTIFICATION_INFO, 500000)
@@ -2469,6 +2475,66 @@ def convert_7z_m3u(iarl_data):
 		else: #Make the m3u file
 			if '.cue' in [os.path.splitext(x)[-1] for x in os.listdir(un7zip_folder_path)]:
 				m3u_content = '\r\n'.join([x for x in os.listdir(un7zip_folder_path) if 'cue' in x])
+				fout = open(m3u_filename, 'w') # out file
+				fout.write(m3u_content)
+				fout.close()
+				overall_success = True
+		current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
+				
+	return overall_success, m3u_filename
+
+
+def convert_zip_m3u(iarl_data):
+
+	converted_success = list()
+	overall_success = False
+	current_save_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][0])
+	current_save_path = current_save_fileparts[0]
+	unzip_folder_name = clean_file_folder_name(iarl_data['current_rom_data']['rom_title'])
+
+	if unzip_folder_name == os.path.split(current_save_path)[-1]: #M3U game folder is already present on system
+		unzip_folder_path = current_save_path #Change the unzip folder to the existing folder at a minimum, then check if the gdi file is already present
+	else:
+		unzip_folder_path = os.path.join(current_save_path,unzip_folder_name)
+
+
+	m3u_filename = os.path.join(unzip_folder_path,str(unzip_folder_name)+'.m3u')
+	current_dialog = xbmcgui.Dialog()
+	current_dialog.notification('Please Wait','Converting zip File...', xbmcgui.NOTIFICATION_INFO, 500000)
+
+	if not os.path.isdir(unzip_folder_path): #If the directory doesnt already exist
+		for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
+			if zipfile.is_zipfile(iarl_data['current_save_data']['rom_save_filenames'][ii]):
+				try:
+					z_file = zipfile.ZipFile(iarl_data['current_save_data']['rom_save_filenames'][ii])
+					z_file.extractall(unzip_folder_path)
+					z_file.close()
+					zip_success = True
+					xbmc.log(msg='IARL:  Unzip Successful for ' +str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+					converted_success.append(True)
+				except:
+					xbmc.log(msg='IARL:  Unzip Failed for ' +str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+					converted_success.append(False)
+
+		if False in converted_success:
+			overall_success = False
+			m3u_filename = None
+			current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
+		else:
+			if '.cue' in [os.path.splitext(x)[-1] for x in os.listdir(unzip_folder_path)]:
+				m3u_content = '\r\n'.join([x for x in os.listdir(unzip_folder_path) if 'cue' in x])
+				fout = open(m3u_filename, 'w') # out file
+				fout.write(m3u_content)
+				fout.close()
+				overall_success = True
+				current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
+	else: #Folder already exists
+		if os.path.isfile(m3u_filename): #The m3u file already exists
+			overall_success = True
+			current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
+		else: #Make the m3u file
+			if '.cue' in [os.path.splitext(x)[-1] for x in os.listdir(unzip_folder_path)]:
+				m3u_content = '\r\n'.join([x for x in os.listdir(unzip_folder_path) if 'cue' in x])
 				fout = open(m3u_filename, 'w') # out file
 				fout.write(m3u_content)
 				fout.close()
