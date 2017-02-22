@@ -122,15 +122,15 @@
 		<emu_parser>NoIntro_parser.xml</emu_parser>
 		<emu_description>PlayStation</emu_description>
 		<emu_category>Top 50</emu_category>
-		<emu_version>04012016</emu_version>
-		<emu_date>04/01/2016</emu_date>
+		<emu_version>02222017</emu_version>
+		<emu_date>02/22/2017</emu_date>
 		<emu_author>redump</emu_author>
 		<emu_homepage>http://redump.org/</emu_homepage>
 		<emu_baseurl>https://archive.org/download/</emu_baseurl>
-		<emu_launcher>retroplayer</emu_launcher>
+		<emu_launcher>external</emu_launcher>
 		<emu_ext_launch_cmd>none</emu_ext_launch_cmd>
 		<emu_downloadpath>default</emu_downloadpath>
-		<emu_postdlaction>convert_7z_m3u</emu_postdlaction>
+		<emu_postdlaction>convert_zip_m3u</emu_postdlaction>
 		<emu_comment>The PlayStation 1 was released in 1994.  Over 20 years ago!  Even though that's ancient compared to todays systems, everyone acknowledges that the original PlayStation was an important and well-supported console.[CR][CR]Whether the PlayStation was pumping out beautiful sprites or 3D polygons, the experiences it made possible are some of gaming's greatest. These 50 titles capture the PS1's spirit of new and exciting frontiers - and even after all these years, they still (mostly) hold up thanks to their exemplary gameplay. Take a trip down memory lane with us as we recall the best PlayStation games of all time...</emu_comment>
 			<emu_thumb>special://home/addons/plugin.program.iarl/resources/skins/Default/media/bestof_PS1.jpg</emu_thumb>
 			<emu_banner>special://home/addons/plugin.program.iarl/resources/skins/Default/media/bestof_PS1_banner.jpg</emu_banner>
@@ -140,7 +140,7 @@
 		</header>
 			<game name="Syphon Filter (USA) (v1.1)">
 				<description>50.  Syphon Filter</description>
-				<rom crc="f81673f2" name="psx_redump_usa_20141221/Syphon Filter (USA) (v1.1).7z" sha1="83c21f3c3449632ac846ff37c410b992cb74c643" size="373979368" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Syphon%20Filter%20%28USA%29%20%28v1.1%29.zip" size="435689544" />
 				<title_clean>Syphon Filter</title_clean>
 				<plot>There's a moment in Syphon Filter where we are tasked with killing someone while he stands next to his assistant. Nothing out of the ordinary, but here's the catch: Not only can we not kill the assistant, we can't even let the assistant know we're the ones killing the target. Somehow, some way, we have to concoct a method to kill his guy with no trace of our involvement. How the hell are we going to do that?[CR][CR]This is the beauty of Syphon Filter. There are more out-of-the-box moments like this here than in most other games we've played. Scenes like the one above kept us wondering how the game would challenge us next, inducing the "just one more mission" feeling that raise games to higher echelons of quality. Before Sam Fisher there was Syphon Filter, and we loved every second.</plot>
 				<releasedate>4/4/1999</releasedate>
@@ -176,7 +176,7 @@
 			</game>
 			<game name="Bloody Roar II (USA)">
 				<description>49.  Bloody Roar II</description>
-				<rom crc="5679034e" name="psx_redump_usa_20141221/Bloody Roar II (USA).7z" sha1="2477b6562b13731eff5f202e22303b73606565cf" size="261146769" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Bloody%20Roar%20II%20%28USA%29.zip" size="317978721" />
 				<title_clean>Bloody Roar II</title_clean>
 				<plot>The PS served as fertile ground for the fighting genre, as many of the top names in virtual fisticuffs got their start on Sony's first console. Some franchises, however, haven't been able to break the current mold despite being incredible games. Bloody Roar, and its martial-artists-turning-into-animals premise, is a prime example.[CR][CR]Bloody Roar 2 serves as the cream of the bloody crop. A sound fighting system, plenty of modes and match types, and impressive graphics make this one of the top fighters on the entire system. Of course, being able to transform from a human to a kung-fu tiger or a deadly ninja mole is always a good thing.</plot>
 				<releasedate>26/5/1999</releasedate>
@@ -214,8 +214,8 @@
 			</game>
 			<game name="Star Ocean - The Second Story (USA)">
 				<description>48.  Star Ocean - The Second Story</description>
-				<rom crc="2ee82266" name="psx_redump_usa_20141221/Star Ocean - The Second Story (USA) (Disc 1).7z" sha1="c13756292cbf2a27d2be247c5576e584552ce40f" size="305354247" />
-				<rom crc="2ee82266" name="psx_redump_usa_20141221/Star Ocean - The Second Story (USA) (Disc 2).7z" sha1="c13756292cbf2a27d2be247c5576e584552ce40f" size="280927464" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Star%20Ocean%20-%20The%20Second%20Story%20%28USA%29%20%28Disc%201%29.zip" size="432018709" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Star%20Ocean%20-%20The%20Second%20Story%20%28USA%29%20%28Disc%202%29.zip" size="548788229" />
 				<title_clean>Star Ocean - The Second Story</title_clean>
 				<plot>There's nothing we like more than being able to craft an unique adventure. That's why series like The Elder Scrolls are so successful: While the story may remain the same, no two people played through it the same way.[CR][CR]Enix gave us a fantastic example of this with Star Ocean: The Second Story. Sure, the 40-hour story didn't change from playthrough to playthrough, but the way we interacted with the world did. Item creation allowed us to forge equipment to fit our needs. Real-time combat, coupled with the inclusion of group spells and attack combos, made fighting each battle more fluid and unique. All of these things make Star Ocean: The Second Story a classic RPG worthy of any RPG fan's collection.</plot>
 				<releasedate>6/8/1999</releasedate>
@@ -252,7 +252,7 @@
 			</game>
 			<game name="Alundra (USA) (v1.1)">
 				<description>47.  Alundra</description>
-				<rom crc="2cb6c08a" name="psx_redump_usa_20141221/Alundra (USA) (v1.1).7z" sha1="d7df45cc620f02c4e09e7c560180b69d4b292c37" size="271200927" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Alundra%20%28USA%29%20%28v1.1%29.zip" size="346741896" />
 				<title_clean>Alundra</title_clean>
 				<plot>We all have a masochistic side. There's a part of us that, no matter how difficult a game may be, even if it drives us stark raving mad, we will be victorious. We may have less hair on our head, but we beat the game, dammit.[CR][CR]Alundra will test every single one of your limits. You will curse. You will cry. Controllers will be thrown. However, every second of the game is absolutely worth it. A fantastic story, gameplay mirroring A Link to the Past, and a tremendous soundtrack will all soothe the inevitable bloody knuckles you'll get from punching a wall. Did we mention it's hard?</plot>
 				<releasedate>7/1/1998</releasedate>
@@ -291,8 +291,8 @@
 			</game>
 			<game name="Valkyrie Profile (USA)">
 				<description>46.  Valkyrie Profile</description>
-				<rom crc="cd7413dc" name="psx_redump_usa_20141221/Valkyrie Profile (USA) (Disc 1).7z" sha1="19ab8e60dac609f46263f72abeb56610e537b778" size="396629539" />
-				<rom crc="cd7413dc" name="psx_redump_usa_20141221/Valkyrie Profile (USA) (Disc 2).7z" sha1="19ab8e60dac609f46263f72abeb56610e537b778" size="420507228" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Valkyrie%20Profile%20%28USA%29%20%28Disc%201%29.zip" size="552532628" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Valkyrie%20Profile%20%28USA%29%20%28Disc%202%29.zip" size="561274431" />
 				<title_clean>Valkyrie Profile</title_clean>
 				<plot>"A side-scrolling RPG? Preposterous! Those two genres don't fit together! This will never work!" That's how many felt before Valkyrie Profile proved them wrong. Not only does a side-scrolling RPG work, it's one of the best games on the PS.[CR][CR]Recruiting heroes to fight for Odin during Ragnarok sounds epic on its own, and in practice it meets every expectation. The gorgeous hand-drawn art style and engaging battle system will keep any RPG fan playing for days. Plus, Valkyrie Profile is one of the few games to reward you for switching to Hard Mode, unlocking characters and dungeons only to those who decide to brave the hardest setting. After putting ourselves through that gauntlet, we say bring on Ragnarok. We need a break.</plot>
 				<releasedate>29/8/2000</releasedate>
@@ -334,7 +334,7 @@
 			</game>
 			<game name="Need for Speed III - Hot Pursuit (USA)">
 				<description>45.  Need for Speed III - Hot Pursuit</description>
-				<rom crc="60d4a3f8" name="psx_redump_usa_20141221/Need for Speed III - Hot Pursuit (USA).7z" sha1="227246fc1d2715bfe23d60d539dee367ae1c2abf" size="350474469" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Need%20for%20Speed%20III%20-%20Hot%20Pursuit%20%28USA%29.zip" size="426492770" />
 				<title_clean>Need for Speed III - Hot Pursuit</title_clean>
 				<plot>The original Need for Speed included a police ticketing system that made racing a little more dangerous. We didn't want to get arrested and lose our sweet ride, who would? The mechanic was abandoned in NFS2, but EA decided to make it the main focus of the third title, and a new classic was born.[CR][CR]Need for Speed III: Hot Pursuit gave us a whole new perspective on adrenaline: Racing at top speeds was enough, but now fleeing for our freedom from the oppressive police military complex? That was a feeling sorely missed in the second Need for Speed game. It also allowed us to live out our reckless, seat-of-our-pants criminal fantasies without actually doing anything illegal, and for that we will always be thankful.</plot>
 				<releasedate>25/3/1998</releasedate>
@@ -367,8 +367,8 @@
 			</game>
 			<game name="Colony Wars (USA)">
 				<description>44.  Colony Wars</description>
-				<rom crc="ad500321" name="psx_redump_usa_20141221/Colony Wars (USA) (Disc 1).7z" sha1="703ac60fef651e9fe7815501a0de8b7ab6d1bf1f" size="363835828" />
-				<rom crc="ad500321" name="psx_redump_usa_20141221/Colony Wars (USA) (Disc 2).7z" sha1="703ac60fef651e9fe7815501a0de8b7ab6d1bf1f" size="448488989" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Colony%20Wars%20%28USA%29%20%28Disc%201%29.zip" size="382526939" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Colony%20Wars%20%28USA%29%20%28Disc%202%29.zip" size="468769450" />
 				<title_clean>Colony Wars</title_clean>
 				<plot>Colony Wars: Vengeance is another game that, like Alundra previously, often caused us to throw things in utter disgust. But we didn't care. The experience was enjoyable enough that a few holes in the wall wouldn't deter us one bit.[CR][CR]Part of what made Colony Wars: Vengeance so stressful was the branching storyline being directly affected by the outcome of a mission. One failed mission could result in us viewing the worst ending in the game, and we had to pick up and start all over again just to see an improved outcome. We didn't know what missions were more important than others, so all we could do is try and pass them all. Sure, our gaming rooms ended up looking like Swiss cheese, but it was totally worth it.</plot>
 				<releasedate>5/11/1997</releasedate>
@@ -402,7 +402,7 @@
 			</game>
 			<game name="Mr. Driller (USA)">
 				<description>43.  Mr. Driller</description>
-				<rom crc="7599112a" name="psx_redump_usa_20141221/Mr. Driller (USA).7z" sha1="90828b586973623bdc759ed76c380de934f9a555" size="135790368" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Mr.%20Driller%20%28USA%29.zip" size="162740932" />
 				<title_clean>Mr. Driller</title_clean>
 				<plot>There's not a whole lot to Mr. Driller: The goal is to drill down through an onslaught of colored blocks, trying to reach a certain distance below the ground, before either our air runs out and we suffocate or we become the filling of a colored-block sandwich. It's essentially the love child of Tetris and Dig Dug, but holy falling blocks is it fun.[CR][CR]We've drilled through countless countries, suffocated who knows how many times, and made plenty of sandwiches, but we just can't stop trying to achieve higher and higher scores. It's addicting puzzle gameplay at its best, and it will suck any innocent viewers in for hours of entertainment. Oh, and speaking of "love children," Mr. Driller is actually the son of Dig Dug himself, Taizo Hori. How cool is that?</plot>
 				<releasedate>10/5/2000</releasedate>
@@ -438,7 +438,7 @@
 			</game>
 			<game name="Tenchu 2 - Birth of the Stealth Assassins (USA)">
 				<description>42.  Tenchu 2 - Birth of the Stealth Assassins</description>
-				<rom crc="511cb849" name="psx_redump_usa_20141221/Tenchu 2 - Birth of the Stealth Assassins (USA).7z" sha1="2ae199a640e7c49231b376f0016d2264f924024a" size="399387197" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Tenchu%202%20-%20Birth%20of%20the%20Stealth%20Assassins%20%28USA%29.zip" size="512424732" />
 				<title_clean>Tenchu 2 - Birth of the Stealth Assassins</title_clean>
 				<plot>Metal Gear Solid is the pinnacle of stealth games, but for everything that Snake embodies, he's still not a bona fide, authentic ninja. Rikimaru and Ayame are just that, and their adventures in Tenchu 2 make for some high-quality stealth action.[CR][CR]While playing the game had its merits, the true excellence of Tenchu 2 lies in its mission-creation modes. We could build our own assassination mission from the ground up; we could create everything from level layout to objectives, allowing us to stretch our creative talents into crafting the perfect setting for a kill. We probably spent more time making missions than completing them, but we don't care.</plot>
 				<releasedate>15/8/2000</releasedate>
@@ -474,7 +474,7 @@
 			</game>
 			<game name="Front Mission 3 (USA)">
 				<description>41.  Front Mission 3</description>
-				<rom crc="0228572b" name="psx_redump_usa_20141221/Front Mission 3 (USA).7z" sha1="6062f100b6f1691f77e2014996323a8487f47631" size="320620655" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Front%20Mission%203%20%28USA%29.zip" size="386738052" />
 				<title_clean>Front Mission 3</title_clean>
 				<plot>We love giant walking mechs. We love good turn-based strategy games. Front Mission 3 combines the two in such an effective way that we can't help but enjoy every bit of it.[CR][CR]Front Mission 3's biggest strength lies in its Double Feature Scenario, allowing you to look at the same story through two different views. Each side comes with its own characters and missions, giving you over 60 missions' worth of gameplay to experience. We knew we'd love turn-based strategy mechs; we just didn't realize how much.</plot>
 				<releasedate>21/3/2000</releasedate>
@@ -509,7 +509,7 @@
 			</game>
 			<game name="Wild Arms (USA)">
 				<description>40.  Wild Arms</description>
-				<rom crc="56515d97" name="psx_redump_usa_20141221/Wild Arms (USA).7z" sha1="1b636f23d67554518c9987be130297146c016614" size="211663271" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Wild%20Arms%20%28USA%29.zip" size="286248838" />
 				<title_clean>Wild Arms</title_clean>
 				<plot>The PS served as a launching point for many an RPG, and while most will think of that game with Cloud and Sephiroth as the top of the PS RPG mountain, a game that saw daylight a full five months before remains one of the best on the system.[CR][CR]Wild Arms set the bar high for PS role-playing, combining an American Western theme with a great storyline and a 2D, 3D hybrid graphical style that marked a first for the genre. There are also some action-oriented minigames thrown in for variety, leaving nothing to be desired. Saddle up boys and girls. Wild Arms is a Wild West adventure not to be missed.</plot>
 				<releasedate>30/4/1997</releasedate>
@@ -551,7 +551,7 @@
 			</game>
 			<game name="Return Fire (USA)">
 				<description>39.  Return Fire</description>
-				<rom crc="6bd8f7c8" name="psx_redump_usa_20141221/Return Fire (USA).7z" sha1="1e029ac6222eb4ddb1b58ebda53fe7b968c2646d" size="322881518" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Return%20Fire%20%28USA%29.zip" size="358782315" />
 				<title_clean>Return Fire</title_clean>
 				<plot>Excellent port of the classic 3DO game, Return Fire has you playing action packed games of capture the flag. You choose your vehicle at the start (helicopter, jeep, tank, or support vehicle) attack the enemy base, and then attempt to drive back to your own base with flag in tow. The game is still very addictive!</plot>
 				<releasedate>12/4/1996</releasedate>
@@ -584,7 +584,7 @@
 			</game>
 			<game name="I.Q - Intelligent Qube (USA)">
 				<description>38.  I.Q - Intelligent Qube</description>
-				<rom crc="95f05e0e" name="psx_redump_usa_20141221/I.Q - Intelligent Qube (USA).7z" sha1="dbf54794d242f7a6041836a9070a333ae278f30c" size="77883309" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/I.Q%20-%20Intelligent%20Qube%20%28USA%29.zip" size="120764225" />
 				<title_clean>I.Q - Intelligent Qube</title_clean>
 				<plot>Like many of the PlayStation rarities, Intelligent Qube is a game that falls under "blink and you'll miss it." While European and Japanese gamers have been able to relive it in the PlayStation Store (it was titled Kurushi in PAL territories), North Americans haven't been so fortunate. That's a shame, since its system of rotating rows of rising and moving blocks was one of the first times many of us remember using the term "addictive" to describe a game without the typical negative attachments.[CR][CR]It's not as flashy as Lumines, and it's not the PB and J that Puzzle Quest was, but damned if IQ wasn't one of the best puzzle games to grace the genre in the late '90s. If there was a game we'd lobby SCEA especially hard to bring to the PlayStation Store, it'd be IQ. If you can track down a (rather expensive) copy on eBay, it's still an exceptional game.</plot>
 				<releasedate>30/9/1997</releasedate>
@@ -606,7 +606,7 @@
 			</game>
 			<game name="Soul Blade (USA) (v1.1)">
 				<description>37.  Soul Blade</description>
-				<rom crc="bbd6aacc" name="psx_redump_usa_20141221/Soul Blade (USA) (v1.1).7z" sha1="507ea2da8a8b2cc1c1565136580f9d8664ac011a" size="338123034" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Soul%20Blade%20%28USA%29%20%28v1.1%29.zip" size="360965203" />
 				<title_clean>Soul Blade</title_clean>
 				<plot>Soulcalibur may have put this sword-fighting franchise on the map, but the characters, the story, and the setting all originated a full generation before with Soul Blade.[CR][CR]Soul Blade serves as the foundation of everything that makes the Soul series great. 3D graphics and a varied roster of fighters made this one of the premier games on the system, despite later being overshadowed by its Dreamcast sequel. Better still was the edge master mode, a fully fleshed out RPG-style story mode covering the tales of 10 characters. Yes, the "caliber" of quality may not have been realized until later on, but Soul Blade laid the foundation for what became a benchmark fighting name.</plot>
 				<releasedate>28/2/1997</releasedate>
@@ -644,8 +644,8 @@
 			</game>
 			<game name="Chrono Cross (USA)">
 				<description>36.  Chrono Cross</description>
-				<rom crc="005354c2" name="psx_redump_usa_20141221/Chrono Cross (USA) (Disc 1).7z" sha1="14cebdeaf5a9b1192e589e912f6d0e310645811f" size="358287967" />
-				<rom crc="005354c2" name="psx_redump_usa_20141221/Chrono Cross (USA) (Disc 2).7z" sha1="14cebdeaf5a9b1192e589e912f6d0e310645811f" size="339950394" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Chrono%20Cross%20%28USA%29%20%28Disc%201%29.zip" size="516025319" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Chrono%20Cross%20%28USA%29%20%28Disc%202%29.zip" size="497565293" />
 				<title_clean>Chrono Cross</title_clean>
 				<plot>How do you make a sequel to one of the most revered video games of all time live up to the same standard? It's a challenge developers face even now, and very few are able to accomplish such a feat. Chrono Cross is one of those success stories, continuing the excellence of Chrono Trigger onto the PS.[CR][CR]Where Chrono Trigger dealt with the idea of time travel, Chrono Cross explores parallel worlds, unlocking a mystery spanning multiple universes. While it doesn't revolutionize the RPG like Trigger did, Cross has its fair share of memorable moments and incredible gameplay. It didn't leave the same impression on us as its predecessor, but Chrono Cross is definitely worthy of the Chrono name and is one of the best RPGs on the system.</plot>
 				<releasedate>15/8/2000</releasedate>
@@ -689,7 +689,7 @@
 			</game>
 			<game name="Klonoa - Door to Phantomile (USA)">
 				<description>35.  Klonoa - Door to Phantomile</description>
-				<rom crc="b2af1628" name="psx_redump_usa_20141221/Klonoa - Door to Phantomile (USA).7z" sha1="39aed53e756025289f88676086b8205782ec001d" size="411640720" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Klonoa%20-%20Door%20to%20Phantomile%20%28USA%29.zip" size="445571341" />
 				<title_clean>Klonoa - Door to Phantomile</title_clean>
 				<plot>Even though Klonoa was targeted more at children that adults, people young and old could appreciate the brilliant universe and unique game design. It was a cute, fun, simple platformer that relied on a relatively new approach to grab gamers’ attention.[CR][CR]The 2.5D (3D game engine with a mostly 2D style of play) design was a perfect way to keep the accessibility and desirability of older 2D platformers while simultaneously acknowledging the industry’s almost unanimous jump into the 3D realm. It made for very fresh platforming and a progression that never got stale. Klonoa may not have created the legacy Namco had hoped for, but at least he’ll always live on in our hearts.</plot>
 				<releasedate>3/11/1998</releasedate>
@@ -727,7 +727,7 @@
 			</game>
 			<game name="Suikoden II (USA)">
 				<description>34.  Suikoden II</description>
-				<rom crc="aa311fb0" name="psx_redump_usa_20141221/Suikoden II (USA).7z" sha1="800030d8d80db7276459aed7154a13c8d39165d6" size="265483929" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Suikoden%20II%20%28USA%29.zip" size="348862642" />
 				<title_clean>Suikoden II</title_clean>
 				<plot>If you’ve never played or heard of Suikoden II, it was probably because you just couldn’t get your hands on a copy. Despite high review scores and a passionate following (that perhaps formed too late), Suikoden II was never reprinted after its initial limited run. Which is a real shame, because that forced one of the greatest PlayStation RPGs to fade into relative obscurity.[CR][CR]Story was the standout component here, and not just the one involving the game’s protagonist. You spent much of the game recruiting up to 108 allies to fight alongside you. It was a bit like Pokémon, only these allies could speak, kill, and were never constrained by magical ball-prisons. Hmm, OK, maybe it was nothing like Pokémon...</plot>
 				<releasedate>29/9/1999</releasedate>
@@ -771,8 +771,8 @@
 			</game>
 			<game name="Rival Schools - United by Fate (USA) (Arcade Disc)">
 				<description>33.  Rival Schools - United by Fate</description>
-				<rom crc="b5fb2808" name="psx_redump_usa_20141221/Rival Schools - United by Fate (USA) (Disc 1) (Arcade Disc).7z" sha1="cb10281a502b7d5b3526e2fd0ad0fccb61c8d7ba" size="278431342" />
-				<rom crc="b5fb2808" name="psx_redump_usa_20141221/Rival Schools - United by Fate (USA) (Disc 2) (Evolution Disc).7z" sha1="cb10281a502b7d5b3526e2fd0ad0fccb61c8d7ba" size="197159914" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Rival%20Schools%20-%20United%20by%20Fate%20%28USA%29%20%28Disc%201%29%20%28Arcade%20Disc%29.zip" size="412481127" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Rival%20Schools%20-%20United%20by%20Fate%20%28USA%29%20%28Disc%202%29%20%28Evolution%20Disc%29.zip" size="230902478" />
 				<title_clean>Rival Schools - United by Fate</title_clean>
 				<plot>Go back to your high-school days for a second (or if you're still in high school, remember yesterday): Did your alma mater have a rival? Sports rival, cross-town rival, anything? Imagine if that rivalry was settled with beatdowns on school grounds, and you'd be living in the world of Rival Schools.[CR][CR]The strongest point of Rival Schools outside of its tag-team style format is the awesome character design. All of the major high-school stereotypes are here: the jocks, the bullies, the "geeks," everything. Part of me wonders why all high schools can't be like this...</plot>
 				<releasedate>30/9/1998</releasedate>
@@ -806,7 +806,7 @@
 			</game>
 			<game name="Driver - You Are the Wheelman (USA) (v1.1)">
 				<description>32.  Driver - You Are the Wheelman</description>
-				<rom crc="863d2a56" name="psx_redump_usa_20141221/Driver - You Are the Wheelman (USA) (v1.1).7z" sha1="85f27114570cb046584546388b88e7810724c408" size="380903086" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Driver%20-%20You%20Are%20the%20Wheelman%20%28USA%29%20%28v1.1%29.zip" size="487784198" />
 				<title_clean>Driver - You Are the Wheelman</title_clean>
 				<plot>A '70s car chase movie come to life, Driver turned you into the tough-guy undercover cop that you always wanted to be. We'd spend hours driving through impressive urban areas, eluding authorities and wreaking havoc while completing our main missions. New York, San Francisco, Miami, and Los Angeles were our playgrounds, and we were ready to play.[CR][CR]Car physics were as authentic as they could be back in those days, with every crash leaving some kind of mark on our vehicles. While we wanted to be indestructible (and who doesn't?), Driver's realism and fast-paced action left us wanting more anyway.</plot>
 				<giantbomb_url>http://www.giantbomb.com/driver/3030-7020/</giantbomb_url>
@@ -826,7 +826,7 @@
 			</game>
 			<game name="Darkstalkers 3 (USA)">
 				<description>31.  Darkstalkers 3</description>
-				<rom crc="1f1f57ac" name="psx_redump_usa_20141221/Darkstalkers 3 (USA).7z" sha1="6e9f3b5448617cb504d8c38f08e437ac91445e54" size="439874259" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Darkstalkers%203%20%28USA%29.zip" size="504785287" />
 				<title_clean>Darkstalkers 3</title_clean>
 				<plot>Enough with the standard gi-wearing karate men; fighting game fans longed for some variety. Capcom answered the call with Darkstalkers, a fighter starring the creatures of our worst nightmares: zombies, succubi, mummies, even a sasquatch were all selectable, and fans flocked to it.[CR][CR]Darkstalkers 3 is the top of the line for the series, boasting a diverse roster of over 18 characters, an enhanced six-button fighting system, and some of the craziest stage designs we've ever seen. Seriously, one stage is a giant womb with a deformed fetus in the background. Stuff of nightmares. Since the game kept us awake, we figured we may as well play more, which we suppose makes Darkstalkers 3 that much better.</plot>
 				<releasedate>4/11/1998</releasedate>
@@ -863,7 +863,7 @@
 			</game>
 			<game name="Point Blank (USA)">
 				<description>30.  Point Blank</description>
-				<rom crc="b08f3ca9" name="psx_redump_usa_20141221/Point Blank (USA).7z" sha1="7cbfdee30b282a4a5f3595fd4f4f046b7616c92b" size="136374192" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Point%20Blank%20%28USA%29.zip" size="167864046" />
 				<title_clean>Point Blank</title_clean>
 				<plot>Back when gun peripherals were in style, the GunCon was the premier plastic pistol for the PlayStation. Packaged with the gun was Point Blank, a target shooting game that served as the perfect introduction to the accessory. Little did we know it would end up being one of the best games on the entire system, let alone for the gun.[CR][CR]Point Blank was a wacky target shooter where the only objective was to score as many point as possible in various stages. We shot targets, fruit, bombs, all kinds of crazy stuff. Point Blank made purchasing the GunCon worth the price, giving us our own shooting gallery without having to constantly purchase ammunition. Seriously, bullets are expensive.</plot>
 				<releasedate>13/4/1998</releasedate>
@@ -895,7 +895,7 @@
 			</game>
 			<game name="Spyro 2 - Ripto's Rage! (USA)">
 				<description>29.  Spyro 2 - Ripto's Rage!</description>
-				<rom crc="fe1cd9e3" name="psx_redump_usa_20141221/Spyro 2 - Ripto's Rage! (USA).7z" sha1="68067a353f74b993429dc8f62b5d95ed98bbd2cd" size="330011807" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Spyro%202%20-%20Ripto%27s%20Rage%21%20%28USA%29.zip" size="387192478" />
 				<title_clean>Spyro 2 - Ripto's Rage!</title_clean>
 				<plot>Besides Crash Bandicoot (who we'll get to later), Spyro was sort of the Mario of the PlayStation. The cute, purple dragon had a number of adventures throughout the years, though his finest moment was undoubtedly Spyro 2: Ripto's Rage!, his second excursion in 1999.[CR][CR]Spyro 2 wasn't drastically different from the first game because it didn't have to be, but slight modifications to the controls and core gameplay made for a much more streamlined, enjoyable experience. Plus, you get to play as a dragon. A dragon! And he's adorable.</plot>
 				<releasedate>3/11/1999</releasedate>
@@ -935,8 +935,8 @@
 			</game>
 			<game name="Grandia (USA)">
 				<description>28.  Grandia</description>
-				<rom crc="0f50623b" name="psx_redump_usa_20141221/Grandia (USA) (Disc 1).7z" sha1="71e0c6039496891c88be03ca80d67132bb110e91" size="424726447" />
-				<rom crc="0f50623b" name="psx_redump_usa_20141221/Grandia (USA) (Disc 2).7z" sha1="71e0c6039496891c88be03ca80d67132bb110e91" size="405336805" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Grandia%20%28USA%29%20%28Disc%201%29.zip" size="506545187" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Grandia%20%28USA%29%20%28Disc%202%29.zip" size="478741948" />
 				<title_clean>Grandia</title_clean>
 				<plot>Grandia doesn't look much different from other RPGs. Its setting is rooted in fantasy, the animation looks like all the others, and we're still battling with swords and magic. However, Grandia made some changes to the formula, giving it an original feel that pleases from the get go[CR][CR]The worlds are incredibly detailed, more so than most other RPGs around. We could actually see rubble falling off the walls in dungeons, and that wasn't normal. The battle system isn't revolutionary, but there's one major twist: no random battles. That's right, we can see every enemy in the field, and we can choose fight or flight on our own. Any RPG that does away with those damn random encounters is alright by us. Thanks, Grandia.</plot>
 				<releasedate>28/10/1999</releasedate>
@@ -980,7 +980,7 @@
 			</game>
 			<game name="Spider-Man (USA)">
 				<description>27.  Spider-Man</description>
-				<rom crc="5b840d78" name="psx_redump_usa_20141221/Spider-Man (USA).7z" sha1="439ad67df75212d7cc017a7d253ddbdc06896599" size="392556983" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Spider-Man%20%28USA%29.zip" size="435467255" />
 				<title_clean>Spider-Man</title_clean>
 				<plot>Finally, a game that delivers a true Spider-Man experience. The PS1 Spider-Man adventure made us feel like we were actually the Webslinger himself, climbing rooftops and beating up bad guys without breaking a sweat.[CR][CR]We could shoot web, we could swing on web, we could do everything Peter Parker could while saving the day from bad guys. There was no better comic book game available when Spider-Man was released (lol Superman 64), and we're hard-pressed to find a better Spider-Man game even now.</plot>
 				<releasedate>24/8/2000</releasedate>
@@ -1018,7 +1018,7 @@
 			</game>
 			<game name="Vagrant Story (USA)">
 				<description>26.  Vagrant Story</description>
-				<rom crc="4938b87b" name="psx_redump_usa_20141221/Vagrant Story (USA).7z" sha1="d96b690a9484345d078019567af399a88433d804" size="68970872" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Vagrant%20Story%20%28USA%29.zip" size="116547820" />
 				<title_clean>Vagrant Story</title_clean>
 				<plot>From the first five minutes, we knew we'd be hooked on Vagrant Story. There isn't a better introduction to a video game anywhere else. Any self-respecting gamer who watches that has to continue to play. There's no way around it.[CR][CR]Luckily for us, the rest of the game is just as fantastic. The battle system, despite being one of the deepest we've ever played, never feels too intimidating. Graphically there's a lot of brown, but this is one of the few games that makes it work. Finally, of course, is that story... like we said, once you're in, you're hooked. Vagrant Story is a masterpiece overshadowed by more big-time names. We can't recommend it enough.</plot>
 				<releasedate>16/5/2000</releasedate>
@@ -1062,7 +1062,7 @@
 			</game>
 			<game name="Mega Man X4 (USA)">
 				<description>25.  Mega Man X4</description>
-				<rom crc="46f5d659" name="psx_redump_usa_20141221/Mega Man X4 (USA).7z" sha1="fa6b66b711789dd066108056751f781ac13239a4" size="384284979" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Mega%20Man%20X4%20%28USA%29.zip" size="411190915" />
 				<title_clean>Mega Man X4</title_clean>
 				<plot>When Mega Man X made the jump to the PlayStation, some fans worried that the overall quality of the series would be compromised. One look at Mega Man 8 did not earn Capcom a lot of confidence. Thankfully, Mega Man X4 maintains the quality of the SNES titles, bringing the X series to a whole new level.[CR][CR]X4 allowed you to finally choose between X and Zero for the entire game, creating two incredibly different playing styles. X played more like the normal Mega Man experience, but Zero's sword capabilities made him quite intriguing. X4 feels like two games in one thanks to that choice, making the entire experience that much better.</plot>
 				<releasedate>4/10/1997</releasedate>
@@ -1101,7 +1101,7 @@
 			</game>
 			<game name="Ridge Racer Revolution (USA)">
 				<description>24.  Ridge Racer Revolution</description>
-				<rom crc="5fa45e36" name="psx_redump_usa_20141221/Ridge Racer Revolution (USA).7z" sha1="d2cf2a6d4e281c857d254cf7c21609c1a1633327" size="586403390" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Ridge%20Racer%20Revolution%20%28USA%29.zip" size="696374120" />
 				<title_clean>Ridge Racer Revolution</title_clean>
 				<plot>Though they may have looked similar graphically, RR was far from the racing sim Gran Turismo 2 was. Ridge Racer was always about arcade controls, drifting, and most importantly, accessibility. This meant that even gamers who weren’t so good at driving games could escape the degradation of kart racing and feel like a true pro. R4 was the last and best Ridge Racer game on the PlayStation, and despite the franchise continuing on to the present day, some still consider R4 to be the pinnacle of the series.[CR][CR]Phew, it’s hard to believe we made it to the end of this entry without succumbing to the urge to type out a certain meme. RIIIIIDG--no! Must resist!</plot>
 				<releasedate>30/9/1996</releasedate>
@@ -1140,7 +1140,7 @@
 			</game>
 			<game name="Street Fighter Alpha 3 (USA)">
 				<description>23.  Street Fighter Alpha 3</description>
-				<rom crc="1db7caa6" name="psx_redump_usa_20141221/Street Fighter Alpha 3 (USA).7z" sha1="5e640de7f4840a0dddbd6a575669ba649b8eb0c5" size="294409396" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Street%20Fighter%20Alpha%203%20%28USA%29.zip" size="348000302" />
 				<title_clean>Street Fighter Alpha 3</title_clean>
 				<plot>The PSOne gets knocks from retro gamers for popularizing polygonal visuals over 2D sprites, but that ignores a good number of games that kept hand-drawn graphics alive. A great example of that is the culmination of everything that Capcom got right with the Alpha series, Street Fighter Alpha 3 aka the pinnacle of 2D fighters on the PlayStation.[CR][CR]SFA3 not only featured multiple playstyles and combo gauges to choose from, it also had an impressively rich roster. Fans got to see dream match-ups as Alpha originals like Rose and Sakura faced off against SF2 classics like Guile, Fei Long, and Blanka. Ultimately SFA3 was proof that old-school fighters still had a place in the era of polygons.</plot>
 				<releasedate>4/5/1999</releasedate>
@@ -1185,7 +1185,7 @@
 			</game>
 			<game name="Tomb Raider II - Starring Lara Croft (USA) (v1.3)">
 				<description>22.  Tomb Raider II - Starring Lara Croft</description>
-				<rom crc="4fdd8678" name="psx_redump_usa_20141221/Tomb Raider II - Starring Lara Croft (USA) (v1.3).7z" sha1="1fc340452f9841fc53e644e3f623522426eed3cf" size="461785618" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Tomb%20Raider%20II%20-%20Starring%20Lara%20Croft%20%28USA%29%20%28v1.3%29.zip" size="531781568" />
 				<title_clean>Tomb Raider II - Starring Lara Croft</title_clean>
 				<plot>The original Tomb Raider may have pioneered the 3D action adventure genre, but when it was first introduced, the PlayStation was young and many gamers had never truly been confronted by a purely polygonal being before. By the time Tomb Raider II landed one year later, everyone knew who Lara Croft was. Everyone was ready.[CR][CR]And Core Design did not disappoint. The developer learned a lot from creating the first game, and in turn gave us a bigger, cleaner, more exciting world in which to maneuver. TR2 felt like a big step up from its predecessor--something we can’t really say about the slightly tweaked cash-in that Tomb Raider III turned out to be.</plot>
 				<releasedate>31/12/1997</releasedate>
@@ -1228,10 +1228,10 @@
 			</game>
 			<game name="Final Fantasy VIII (USA)">
 				<description>21.  Final Fantasy VIII</description>
-				<rom crc="0ae78843" name="psx_redump_usa_20141221/Final Fantasy VIII (USA) (Disc 1).7z" sha1="14654df01b27967a94ae85000e49043440c179b2" size="495663274" />
-				<rom crc="0ae78843" name="psx_redump_usa_20141221/Final Fantasy VIII (USA) (Disc 2).7z" sha1="14654df01b27967a94ae85000e49043440c179b2" size="420181905" />
-				<rom crc="0ae78843" name="psx_redump_usa_20141221/Final Fantasy VIII (USA) (Disc 3).7z" sha1="14654df01b27967a94ae85000e49043440c179b2" size="434861395" />
-				<rom crc="0ae78843" name="psx_redump_usa_20141221/Final Fantasy VIII (USA) (Disc 4).7z" sha1="14654df01b27967a94ae85000e49043440c179b2" size="442666391" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Final%20Fantasy%20VIII%20%28USA%29%20%28Disc%201%29.zip" size="578994193" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Final%20Fantasy%20VIII%20%28USA%29%20%28Disc%202%29.zip" size="534560158" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Final%20Fantasy%20VIII%20%28USA%29%20%28Disc%203%29.zip" size="552939913" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Final%20Fantasy%20VIII%20%28USA%29%20%28Disc%204%29.zip" size="521610705" />
 				<title_clean>Final Fantasy VIII</title_clean>
 				<plot>Fithos. Lusec. Wecos. Vinosec.[CR][CR]And with that, we set forth into Final Fantasy VIII The story of Squall and company captivated us, the new Guardian Force and Draw systems intrigued us, and the Triple Triad card minigame calmed us down after a particularly stressful plot point. If nothing else, FF8's Chocobo theme, "Odeka ke Chocobo," is the best one since FF5's "Mambo de Chocobo," and you won't convince us otherwise. While some Final Fantasy diehards rag on the love story between Squall and Rinoa and curse the new battle mechanics, we're head over heels for everything Final Fantasy VIII offers.</plot>
 				<releasedate>9/9/1999</releasedate>
@@ -1280,7 +1280,7 @@
 			</game>
 			<game name="Oddworld - Abe's Oddysee (USA) (v1.1)">
 				<description>20.  Oddworld - Abe's Oddysee</description>
-				<rom crc="570d4321" name="psx_redump_usa_20141221/Oddworld - Abe's Oddysee (USA) (v1.1).7z" sha1="daf7b340154ccbcb0f984547d14deeb14c99ae0e" size="387523129" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Oddworld%20-%20Abe%27s%20Oddysee%20%28USA%29%20%28v1.1%29.zip" size="505303137" />
 				<title_clean>Oddworld - Abe's Oddysee</title_clean>
 				<plot>Dammit, Abe’s Oddysee was beautiful. Maybe not in a conventional sense (a forcefully muted slave leading a revolt to escape death by meat grinder is hardly soothing), but the high artistic value of both the visual design and soundtrack were hard to deny. Oddworld was exactly as its name implied, and that was a huge part of the appeal.[CR][CR]Even the game engine was unique enough to garner its own name: A.L.I.V.E (Aware Lifeforms In a Virtual Environment). Enemies and allies both had personality, and responded in different ways to specific stimuli as opposed to just predictably walking left or right. The result was a world that engaged you in a cerebral and contemplative way--a fresh concept for 2D platformers.</plot>
 				<releasedate>31/8/1997</releasedate>
@@ -1326,7 +1326,7 @@
 			</game>
 			<game name="CTR - Crash Team Racing (USA)">
 				<description>19.  CTR - Crash Team Racing</description>
-				<rom crc="c358fba2" name="psx_redump_usa_20141221/CTR - Crash Team Racing (USA).7z" sha1="2ff60f30b7f068b9c79adb5311004a940d72de07" size="280789156" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/CTR%20-%20Crash%20Team%20Racing%20%28USA%29.zip" size="355166732" />
 				<title_clean>CTR - Crash Team Racing</title_clean>
 				<plot>Crash Team Racing was the PlayStation’s highly successful answer to (or shameless clone of, depending on your level of rabid allegiance) Mario Kart 64 and Diddy Kong Racing. It may have been very similar to the Nintendo kart racers, but CTR was incredibly well designed and the best option for PS players looking to enjoy the subgenre.[CR][CR]The crazy combat, wacky characters, and solid controls were all there. And the fact that the Crash universe was already well established by the time CTR was released drew in legions of platform-specific fans. It’s just a shame all Crash-related offerings that came after this were, err, far from stellar.</plot>
 				<releasedate>30/9/1999</releasedate>
@@ -1365,7 +1365,7 @@
 			</game>
 			<game name="Legacy of Kain - Soul Reaver (USA)">
 				<description>18.  Legacy of Kain - Soul Reaver</description>
-				<rom crc="6557d49c" name="psx_redump_usa_20141221/Legacy of Kain - Soul Reaver (USA).7z" sha1="59e4b319be14429537d39ccd0e72d87bdc136c5e" size="284342197" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Legacy%20of%20Kain%20-%20Soul%20Reaver%20%28USA%29.zip" size="441274000" />
 				<title_clean>Legacy of Kain - Soul Reaver</title_clean>
 				<plot>Soul Reaver was one of the most memorable 3D action adventure games on the PlayStation thanks to its dark story, impressive voice acting, and varied mechanics. It was surprising that it turned out so well, considering that stylistically, Legacy of Kain was a brand-new take on the series, it’s prequel being a top-down RPG.[CR][CR]Switching between the physical and spectral realms in order to solve puzzles was a fresh and fascinating element that helped cover up the fact that the game as a whole was pretty easy. But easy doesn’t necessarily mean bad, and we fondly remember kicking vampire ass with the Soul Reaver.</plot>
 				<releasedate>31/7/1999</releasedate>
@@ -1403,9 +1403,9 @@
 			</game>
 			<game name="Final Fantasy VII (USA)">
 				<description>17.  Final Fantasy VII</description>
-				<rom crc="07a7324d" name="psx_redump_usa_20141221/Final Fantasy VII (USA) (Disc 1).7z" sha1="c8df949f13d990d325ac3b8d6eb835c440380e52" size="483789588" />
-				<rom crc="07a7324d" name="psx_redump_usa_20141221/Final Fantasy VII (USA) (Disc 2).7z" sha1="c8df949f13d990d325ac3b8d6eb835c440380e52" size="476801062" />
-				<rom crc="07a7324d" name="psx_redump_usa_20141221/Final Fantasy VII (USA) (Disc 3).7z" sha1="c8df949f13d990d325ac3b8d6eb835c440380e52" size="420694283" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Final%20Fantasy%20VII%20%28USA%29%20%28Disc%201%29.zip" size="543773232" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Final%20Fantasy%20VII%20%28USA%29%20%28Disc%202%29.zip" size="531554833" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Final%20Fantasy%20VII%20%28USA%29%20%28Disc%203%29.zip" size="478128600" />
 				<title_clean>Final Fantasy VII</title_clean>
 				<plot>There's really not a whole lot we can say about Final Fantasy VII that you don't already know. This game raised the bar for the RPG genre; it's the Beatles of role-playing games. Cloud and Sephiroth have become icons in gaming, all because of their grand adventure in 1997.[CR][CR]Final Fantasy VII succeeded at all three of the major gaming points: gameplay, story, and graphics. The Materia-based battle system still influences game design today, the story features one of the most tragic plot twists of all time, and the graphics (at the time) were beyond anything we'd ever seen. FF7 was a revolution, and everyone else just had to catch up.</plot>
 				<releasedate>31/8/1997</releasedate>
@@ -1456,7 +1456,7 @@
 			</game>
 			<game name="Ape Escape (USA)">
 				<description>16.  Ape Escape</description>
-				<rom crc="8e306ae4" name="psx_redump_usa_20141221/Ape Escape (USA).7z" sha1="580593c474ec29a0fa88ade27b407e049de12433" size="106845864" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Ape%20Escape%20%28USA%29.zip" size="138455007" />
 				<title_clean>Ape Escape</title_clean>
 				<plot>When the Dual Shock controller was introduced, few games took advantage as well as Ape Escape. Instead of using the right stick for camera movements, you controlled a multitude of unique and fun gadgets in an effort to capture increasingly elusive simians. Whether it was an ape squirming under your net or a revved-up dash hoop spinning around your waist, every precisely controlled action was rewarded with unprecedented tactile feedback.[CR][CR]And honestly, who wouldn’t want to travel through time bashing rogue apes over the head with something that looked like a lightsaber before scooping them up in a Time Net and instantly zapping them back to the present? The concept sells itself.</plot>
 				<releasedate>23/6/1999</releasedate>
@@ -1502,7 +1502,7 @@
 			</game>
 			<game name="Tekken 3 (USA)">
 				<description>15.  Tekken 3</description>
-				<rom crc="7b45fae0" name="psx_redump_usa_20141221/Tekken 3 (USA).7z" sha1="69d1f34ff24096b9fb95b45232ba684872cd8de2" size="459830816" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Tekken%203%20%28USA%29.zip" size="495210938" />
 				<title_clean>Tekken 3</title_clean>
 				<plot>It didn’t take much to sell a three-dimensional fighting game during the second half of the '90s, but Tekken 3 definitely wasn’t content to rest on its laurels. The arcade port pushed the boundaries of the PlayStation’s graphical capability, and the highly acclaimed gameplay improvements took the series even further into the third dimension.[CR][CR]There we so many new fighters and so many things to do (thanks to the addition of minigames) that it was hard to believe Tekken 3 could even exist on the PS. But exist it did, and it was awesome enough that many people still consider it the best of the entire series.</plot>
 				<releasedate>30/4/1998</releasedate>
@@ -1545,8 +1545,8 @@
 			</game>
 			<game name="Lunar - Silver Star Story Complete (USA)">
 				<description>14.  Lunar - Silver Star Story Complete</description>
-				<rom crc="56813d3c" name="psx_redump_usa_20141221/Lunar - Silver Star Story Complete (USA) (Disc 1).7z" sha1="37d57cb208361c382f70636b5148c8c95ad06e6b" size="292204394" />
-				<rom crc="56813d3c" name="psx_redump_usa_20141221/Lunar - Silver Star Story Complete (USA) (Disc 2).7z" sha1="37d57cb208361c382f70636b5148c8c95ad06e6b" size="368069403" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Lunar%20-%20Silver%20Star%20Story%20Complete%20%28USA%29%20%28Disc%201%29.zip" size="372726765" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Lunar%20-%20Silver%20Star%20Story%20Complete%20%28USA%29%20%28Disc%202%29.zip" size="447745326" />
 				<title_clean>Lunar - Silver Star Story Complete</title_clean>
 				<plot>Here we had a very traditional RPG with a 2D, sprite-based world, turn-based combat, etc. Its lack of graphical prowess had a lot to do with it originally being a Japanese Sega Saturn game from 1996, three years before the PlayStation version hit US shores. But that doesn’t mean that it was something to pass on--far from it, actually. It told a memorable story and the gameplay rivaled that of any classic RPG. But the standout feature involved what happened when you weren’t in control.[CR][CR]Instead of CGI cutscenes, fully animated cartoon sequences drove the narrative forward in between battle and exploration. This simple idea gave all the characters more depth and relatability than was normally seen in an RPG, and allowed players to more easily invest themselves in the story. It also didn’t hurt that the English localization and voice acting were top-notch.</plot>
 				<releasedate>1/6/1999</releasedate>
@@ -1588,7 +1588,7 @@
 			</game>
 			<game name="Worms Armageddon (USA)">
 				<description>13.  Worms Armageddon</description>
-				<rom crc="954ce623" name="psx_redump_usa_20141221/Worms Armageddon (USA).7z" sha1="4480665caff23a8d396c5a7783785d15ccc50a48" size="271179357" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Worms%20Armageddon%20%28USA%29.zip" size="304856145" />
 				<title_clean>Worms Armageddon</title_clean>
 				<plot>Controlling worms has never been so much fun. Especially when those worms set out to kill other worms with an arsenal that would make the US Army sweat bullets. When another player gets involved... friendships will be tested. Worms Armageddon is simple, mindless fun, and what more can we really ask for?[CR][CR]Our worms have swung on ninja ropes, blown each other up with missiles, and sent plenty of their brethren into the watery depths below each stage. No matter how long we play, no matter how much we destroy, it never gets old. We still have a blast with it, over 10 years after we originally tried it. Our love for worm destruction will never die.</plot>
 				<releasedate>25/12/1999</releasedate>
@@ -1623,49 +1623,8 @@
 				<clearlogo1>http://thegamesdb.net/banners/clearlogo/6179.png</clearlogo1>
 			</game>
 			<game name="Gran Turismo 2 (USA) (Arcade Mode) (v1.1)">
-				<description>12.  Gran Turismo 2</description>
-				<rom crc="733dd6e9" name="psx_redump_usa_20141221/Gran Turismo 2 (USA) (Arcade Mode) (v1.1).7z" sha1="8d1cec7da352286cf3360f2753b7c44850979ce9" size="432751046" />
-				<title_clean>Gran Turismo 2</title_clean>
-				<plot>Remember that time when your parents walked into the living room and thought you were watching TV, even though you were actually playing a video game? Chances are, that happened during a race replay in Gran Turismo 2. Yep, it looked that good.[CR][CR]Obviously, GT2 was more than just a super-sleek tech demo. The series popularized the racing sim genre with its faithful yet accessible action, and GT2 was simply as good as things got on the PS. Even those who were uninterested in cars and/or racing were drawn in by the influential power of the title. And let’s not forget the over 600 highly detailed vehicles and a realistically robust customization system. Good times.</plot>
-				<releasedate>17/12/1999</releasedate>
-				<year>1999</year>
-				<genre>Action, Driving, Racing, Simulation</genre>
-				<studio>Sony Computer Entertainment America, Inc.</studio>
-				<nplayers>1-2 Alt</nplayers>
-				<perspective>1st-Person</perspective>
-				<rating>3.9</rating>
-				<ESRB>E - Everyone</ESRB>
-				<thegamesdb_id>1008</thegamesdb_id>
-				<mobygames_url>http://www.mobygames.com/game/playstation/gran-turismo-2</mobygames_url>
-				<giantbomb_url>http://www.giantbomb.com/gran-turismo-2/3030-8100/</giantbomb_url>
-				<consolegrid_url>http://consolegrid.com/games/3128</consolegrid_url>
-				<boxart1>http://static.giantbomb.com/uploads/scale_large/8/87790/1794103-box_gt2.png</boxart1>
-				<boxart2>http://thegamesdb.net/banners/boxart/original/back/1008-1.jpg</boxart2>
-				<boxart3>http://www.mobygames.com/images/covers/l/26377-gran-turismo-2-playstation-media.jpg</boxart3>
-				<boxart4>http://www.mobygames.com/images/covers/l/26378-gran-turismo-2-playstation-media.jpg</boxart4>
-				<boxart5>http://www.mobygames.com/images/covers/l/89900-gran-turismo-2-playstation-media.jpg</boxart5>
-				<boxart6>http://www.mobygames.com/images/covers/l/89901-gran-turismo-2-playstation-media.jpg</boxart6>
-				<boxart7>http://www.mobygames.com/images/covers/l/128359-gran-turismo-2-playstation-media.jpg</boxart7>
-				<boxart8>http://www.mobygames.com/images/covers/l/128362-gran-turismo-2-playstation-media.jpg</boxart8>
-				<boxart9>http://www.mobygames.com/images/covers/l/110354-gran-turismo-2-playstation-media.jpg</boxart9>
-				<boxart10>http://www.mobygames.com/images/covers/l/212179-gran-turismo-2-playstation-media.jpg</boxart10>
-				<snapshot1>http://thegamesdb.net/banners/screenshots/1008-1.jpg</snapshot1>
-				<snapshot2>http://thegamesdb.net/banners/screenshots/1008-2.jpg</snapshot2>
-				<snapshot3>http://thegamesdb.net/banners/screenshots/1008-3.jpg</snapshot3>
-				<snapshot4>http://thegamesdb.net/banners/screenshots/1008-4.jpg</snapshot4>
-				<snapshot5>http://thegamesdb.net/banners/screenshots/1008-5.jpg</snapshot5>
-				<snapshot6>http://thegamesdb.net/banners/screenshots/1008-6.jpg</snapshot6>
-				<snapshot7>http://www.mobygames.com/images/shots/l/15501-gran-turismo-2-playstation-screenshot-the-fast-and-the-beautiful.jpg</snapshot7>
-				<snapshot8>http://www.mobygames.com/images/shots/l/601223-gran-turismo-2-playstation-screenshot-title-screen.jpg</snapshot8>
-				<snapshot9>http://www.mobygames.com/images/shots/l/15502-gran-turismo-2-playstation-screenshot-solid-snake-the-dodge.jpg</snapshot9>
-				<snapshot10>http://www.mobygames.com/images/shots/l/15503-gran-turismo-2-playstation-screenshot-nothing-but-open-road.jpg</snapshot10>
-				<fanart1>http://thegamesdb.net/banners/fanart/original/1008-1.jpg</fanart1>
-				<fanart2>http://thegamesdb.net/banners/fanart/original/1008-2.jpg</fanart2>
-				<banner1>http://i.imgur.com/rMI8V3D.jpg</banner1>
-			</game>
-			<game name="Gran Turismo 2 (V1.1) - Disc 1 (Arcade Mode Disc)">
 					<description>12.  Gran Turismo 2 - Arcade Mode</description>
-					<rom name="PSRoms/PS%20Roms%20Pack%206/gran_turismo_2_%28v1.1%29_%28disc_1%29_%28arcade_mode_disc%29.zip/gran_turismo_2_%28v1.1%29_%28disc_1%29_%28arcade_mode_disc%29.bin" size="729423408"/>
+					<rom name="RedumpSonyPlayStationAmerica20160617/Gran%20Turismo%202%20%28USA%29%20%28Arcade%20Mode%29%20%28v1.1%29.zip" size="530334707" />
 					<plot>Remember that time when your parents walked into the living room and thought you were watching TV, even though you were actually playing a video game? Chances are, that happened during a race replay in Gran Turismo 2. Yep, it looked that good.[CR][CR]Obviously, GT2 was more than just a super-sleek tech demo. The series popularized the racing sim genre with its faithful yet accessible action, and GT2 was simply as good as things got on the PS. Even those who were uninterested in cars and/or racing were drawn in by the influential power of the title. And let’s not forget the over 600 highly detailed vehicles and a realistically robust customization system. Good times.</plot>
 					<genre>Racing</genre>
 					<releasedate>12/11/1999</releasedate>
@@ -1694,9 +1653,9 @@
 					<snapshot10>http://www.mobygames.com/images/shots/l/15503-gran-turismo-2-playstation-screenshot-nothing-but-open-road.jpg</snapshot10>
 					<banner1>http://thegamesdb.net/banners/graphical/1008-g.jpg</banner1>
 			</game>
-			<game name="Gran Turismo 2 (USA) (Simulation Mode) (v1.1)">
+			<game name="Gran Turismo 2 (USA) (Simulation Mode) (v1.2)">
 				<description>12.  Gran Turismo 2 - Simulation Mode</description>
-				<rom crc="9592abc8" name="psx_redump_usa_20141221/Gran Turismo 2 (USA) (Simulation Mode) (v1.1).7z" sha1="a9b7a4e22231b84ebf07cccc87d9f742e06f9ee9" size="425320859" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Gran%20Turismo%202%20%28USA%29%20%28Simulation%20Mode%29%20%28v1.2%29.zip" size="537638712" />
 				<title_clean>Gran Turismo 2</title_clean>
 				<plot>Remember that time when your parents walked into the living room and thought you were watching TV, even though you were actually playing a video game? Chances are, that happened during a race replay in Gran Turismo 2. Yep, it looked that good.[CR][CR]Obviously, GT2 was more than just a super-sleek tech demo. The series popularized the racing sim genre with its faithful yet accessible action, and GT2 was simply as good as things got on the PS. Even those who were uninterested in cars and/or racing were drawn in by the influential power of the title. And let’s not forget the over 600 highly detailed vehicles and a realistically robust customization system. Good times.</plot>
 				<releasedate>17/12/1999</releasedate>
@@ -1737,7 +1696,7 @@
 			</game>
 			<game name="Super Puzzle Fighter II Turbo (USA)">
 				<description>11.  Super Puzzle Fighter II Turbo</description>
-				<rom crc="ccab9119" name="psx_redump_usa_20141221/Super Puzzle Fighter II Turbo (USA).7z" sha1="5e0bbe1cd9897303b94ba8691b0a9267b3b46b11" size="365516741" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Super%20Puzzle%20Fighter%20II%20Turbo%20%28USA%29.zip" size="383144261" />
 				<title_clean>Super Puzzle Fighter II Turbo</title_clean>
 				<plot>It’s one thing to create a great competitive puzzle game. It’s another to throw in cartoony, parodic sprite versions of the world’s most famous 2D fighters to represent your spatial-relation triumphs in real time.[CR][CR]Super Puzzle Fighter II Turbo pitted two players (or one and the computer) against each other to see who could keep their stack of gems from reaching the top of the screen. Your success directly translated into torture for your opponent, dropping junk blocks onto their stack and forcing them to act fast. All the while, your chosen fighters would battle it out via some of the most charming animations we’ve seen. Simply put, SPF2T’s puzzle system was good enough to rival Tetris. Yes, Tetris. Everything else was just ridiculously colorful icing on the cake.</plot>
 				<releasedate>6/12/1996</releasedate>
@@ -1774,7 +1733,7 @@
 			</game>
 			<game name="Wipeout XL (USA)">
 				<description>10.  Wipeout XL</description>
-				<rom crc="81756305" name="psx_redump_usa_20141221/Wipeout XL (USA).7z" sha1="4865771eb7fce90a4bd1d67299f5ba6a1f08e7a8" size="592764330" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Wipeout%20XL%20%28USA%29.zip" size="643217032" />
 				<title_clean>Wipeout XL</title_clean>
 				<plot>Wipeout, Sony’s answer to F-Zero, has always managed to scratch an itch that no car sim or kart racer could. Wipeout XL was the highly-improved follow-up that took that concept of extreme racing to the next level, giving us faster vehicles, new weapons, and crazier tracks. Of course, the memorable (and licensed) techno soundtrack perfectly matched the futuristic setting (because obviously that was and will always be the music of the future).[CR][CR]Another notable addition was the 12-ship races (up from the original Wipeout’s 8). This upped the intensity of not only the racing, but the combat. Trying to maintain a decent line while 11 competitors tried to blow you off the track was no easy task, but we enjoyed every single adrenaline-filled second of it.</plot>
 				<releasedate>30/9/1996</releasedate>
@@ -1810,7 +1769,7 @@
 			</game>
 			<game name="PaRappa the Rapper (USA) (En,Fr,De,Es,It)">
 				<description>9.  PaRappa the Rapper</description>
-				<rom crc="7224ea87" name="psx_redump_usa_20141221/PaRappa the Rapper (USA) (En,Fr,De,Es,It).7z" sha1="2eb885d201ff12e153334bec960c0336f598f6b5" size="333082615" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/PaRappa%20the%20Rapper%20%28USA%29%20%28En%2cFr%2cDe%2cEs%2cIt%29.zip" size="399815525" />
 				<title_clean>PaRappa the Rapper</title_clean>
 				<plot>The precursor for rhythm games such as DDR and Rock Band, PaRappa the Rapper took the nifty idea of timing button presses to match specific beats and added charming paper-like animations, funny lyrics, and seriously catchy tunes. With songs about learning to drive a car and competing for a turn on the toilet, the tone was always light-hearted and extremely enjoyable.[CR][CR]It didn’t take much for that enjoyment to quickly devolve into a hilarious mess if you mistimed your button presses. Honestly, hearing PaRappa miss his cues and come in at the wrong times was just as satisfying as winning the game. Well, for spectators at least.</plot>
 				<releasedate>19/11/1997</releasedate>
@@ -1850,7 +1809,7 @@
 			</game>
 			<game name="Silent Hill (USA)">
 				<description>8.  Silent Hill</description>
-				<rom crc="11b5eb7b" name="psx_redump_usa_20141221/Silent Hill (USA).7z" sha1="e7bf6999a1b06337efa9ccbd6d528406811d982f" size="252257787" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Silent%20Hill%20%28USA%29.zip" size="331101892" />
 				<title_clean>Silent Hill</title_clean>
 				<plot>Silent Hill wasn’t content with mere jump scares and ugly creatures. It aimed to psychologically devastate you, to ensure you were afraid to go to sleep. And for some reason, we absolutely loved it for that.[CR][CR]With its dense fog, smothering darkness, and multiple dimensions, Silent Hill created one of the most terrifying yet memorable environments ever seen in a video game. Even more unsettling was that the game’s protagonist, Harry Mason, wasn’t some chain-smoking space marine: He was a normal dude who sucked at fighting. Whether this was an excuse for a poor control scheme or an intentional combat deterrent, we certainly gained a new appreciation for the term “survival.” Running away is exactly what you would do if being chased by deadly monsters, and we’ll always appreciate Konami’s understanding of this idea. Also, an alien abduction ending was possible. Too cool.</plot>
 				<releasedate>31/1/1999</releasedate>
@@ -1894,7 +1853,7 @@
 			</game>
 			<game name="Twisted Metal 2 (USA)">
 				<description>7.  Twisted Metal 2</description>
-				<rom crc="ea3d72cd" name="psx_redump_usa_20141221/Twisted Metal 2 (USA).7z" sha1="0b0c3c70422affee25ec5c191f6b4eea0c23777d" size="571712459" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Twisted%20Metal%202%20%28USA%29.zip" size="602357532" />
 				<title_clean>Twisted Metal 2</title_clean>
 				<plot>As soon as cars were invented, drivers dreamed of mounting machine guns on them and wreaking havoc on other motor vehicles, violently and without judgment. Twisted Metal gave us exactly that. Then Twisted Metal 2 gave us even more, wrapped it all up in a straitjacket, and set it on fire, creating one big ball of flaming insanity (see the game’s cover for proof).[CR][CR]Of course the extreme demolition-derby aspects were satisfying, but the settings in which the battles took place and the disturbing character portrayals injected personality into an otherwise mechanical and faceless game concept. Sony was banking on there being a demented sadist inside of all of us, and it was totally spot on.</plot>
 				<releasedate>31/10/1996</releasedate>
@@ -1929,10 +1888,10 @@
 			</game>
 			<game name="Final Fantasy IX (USA) (v1.0)">
 				<description>6.  Final Fantasy IX</description>
-				<rom crc="41b0c951" name="psx_redump_usa_20141221/Final Fantasy IX (USA) (Disc 1) (v1.1).7z" sha1="5fb5ca466e7f72cce6c350d48fab23731c9b8246" size="410566403" />
-				<rom crc="41b0c951" name="psx_redump_usa_20141221/Final Fantasy IX (USA) (Disc 2) (v1.1).7z" sha1="5fb5ca466e7f72cce6c350d48fab23731c9b8246" size="329719767" />
-				<rom crc="41b0c951" name="psx_redump_usa_20141221/Final Fantasy IX (USA) (Disc 3) (v1.1).7z" sha1="5fb5ca466e7f72cce6c350d48fab23731c9b8246" size="356108298" />
-				<rom crc="41b0c951" name="psx_redump_usa_20141221/Final Fantasy IX (USA) (Disc 4) (v1.1).7z" sha1="5fb5ca466e7f72cce6c350d48fab23731c9b8246" size="370594889" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Final%20Fantasy%20IX%20%28USA%29%20%28Disc%201%29%20%28v1.1%29.zip" size="502871275" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Final%20Fantasy%20IX%20%28USA%29%20%28Disc%202%29%20%28v1.1%29.zip" size="431934569" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Final%20Fantasy%20IX%20%28USA%29%20%28Disc%203%29%20%28v1.1%29.zip" size="465347772" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Final%20Fantasy%20IX%20%28USA%29%20%28Disc%204%29%20%28v1.1%29.zip" size="468573132" />
 				<title_clean>Final Fantasy IX</title_clean>
 				<plot>In diverging from the aesthetic absurdity normally present in three-dimensional Final Fantasy games, Square proved that a more traditional fantasy world of swords, armor, castles, and magic could survive and thrive on the modern graphic powerhouse that was the PlayStation. Sure, a certain lack of guns, gun-arms, and gun-swords may have made FF9 less appealing to some (it sold relatively poorly despite the unmatched critical acclaim), but we’ll always remember it as one of the most perfectly cohesive games of the series.[CR][CR]Not only did FF9 manage to surpass its predecessors graphically, but we actually liked the characters this time around and cared about what happened to them. By the end of the smartly evolving story, we were so emotionally invested in the cast and thoroughly satisfied by the old-school, non-convoluted combat system that we couldn’t help but hold FF9 above both of its console brethren. Sorry, almost everyone else.</plot>
 				<releasedate>14/11/2000</releasedate>
@@ -1983,8 +1942,8 @@
 			</game>
 			<game name="Resident Evil 2 - Dual Shock Ver. (USA) (Leon)">
 				<description>5.  Resident Evil 2</description>
-				<rom crc="59f59e28" name="psx_redump_usa_20141221/Resident Evil 2 - Dual Shock Ver. (USA) (Disc 1) (Leon).7z" sha1="9a02eb89fce4424982a08bbe7b5858fb882f956b" size="395153338" />
-				<rom crc="59f59e28" name="psx_redump_usa_20141221/Resident Evil 2 - Dual Shock Ver. (USA) (Disc 2) (Claire).7z" sha1="9a02eb89fce4424982a08bbe7b5858fb882f956b" size="397710568" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Resident%20Evil%202%20%28USA%29%20%28Disc%201%29.zip" size="427517233" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Resident%20Evil%202%20%28USA%29%20%28Disc%202%29.zip" size="433139929" />
 				<title_clean>Resident Evil 2 - Dual Shock Ver.</title_clean>
 				<plot>The original Resident Evil was a standout in its own right, but also contained a lot of flaws that kept it from true greatness (laughable FMV sequences come to mind). Capcom learned its lesson quickly, however, and bounced back two years later with Resident Evil 2: a game superior to the first in nearly every way.[CR][CR]Gore, horror, puzzles, developed characters, and of course, the anxiety of surviving as opposed to destroying everything in sight were elements essentially perfected (at least in terms of the PlayStation’s capabilities) by RE2. RE3 may have offered some enhanced gameplay, but it had nowhere near the personality or memorability.</plot>
 				<releasedate>1/11/1998</releasedate>
@@ -2020,7 +1979,7 @@
 			</game>
 			<game name="Tony Hawk's Pro Skater 2 (USA)">
 				<description>4.  Tony Hawk's Pro Skater 2</description>
-				<rom crc="e7a657c1" name="psx_redump_usa_20141221/Tony Hawk's Pro Skater 2 (USA).7z" sha1="ea5388de4fa83e3d3b5f37d752f1eb8d3bd5d88e" size="481700533" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Tony%20Hawk%27s%20Pro%20Skater%202%20%28USA%29.zip" size="513905057" />
 				<title_clean>Tony Hawk's Pro Skater 2</title_clean>
 				<plot>If Tony Hawks Pro Skater effectively combined two of the coolest things in the world--skateboarding and video games--to create gaming gold, THPS2 was gaming unobtainium. It was an instant classic that didn’t just blow the mind of current gamers, it created an army of brand-new ones.[CR][CR]Increased level size, creating a custom skater, building your own skate parks, and using manuals to link combos were monumental additions proving THPS2 was way more than just a cash-in on a successful concept (though we can’t say the same for any Tony Hawk game released in the last 10 years). Plus, THPS2 is the reason why we all know Powerman 5000’s “When Worlds Collide” by heart, and why we still have an urge to bust out a frontside nosegrind every time we see an escalator--even if we aren’t skaters. Such was the impact of this incredible game.</plot>
 				<releasedate>19/9/2000</releasedate>
@@ -2058,7 +2017,7 @@
 			</game>
 			<game name="Final Fantasy Tactics (USA)">
 				<description>3.  Final Fantasy Tactics</description>
-				<rom crc="b347a10b" name="psx_redump_usa_20141221/Final Fantasy Tactics (USA).7z" sha1="d04e83046bc453c302432df170a54d96712bdb06" size="193773729" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Final%20Fantasy%20Tactics%20%28USA%29.zip" size="250745402" />
 				<title_clean>Final Fantasy Tactics</title_clean>
 				<plot>For those who didn’t run away screaming when they realized it was unlike anything the franchise had previously produced, Final Fantasy Tactics provided a complex and rewarding experience with its chess-like approach to combat. Anyone who’s spent an hour with their party in a circle formation boosting xp by chucking stones at each other understands the sense of accomplishment to be had from mastering one of the games 20 job classes.[CR][CR]But it wasn’t all about experience points and hit percentages. The world of Ivalice was as visually stunning as an isometric, grid-based world could get, and the mature approach to storytelling was a perfect match for the gameplay. Granted, we couldn’t really understand some of the nonsensical translation until it was redone for the 2007 War of the Lions remake, but the groundwork was there. Oh yeah, and the soundtrack contains some of our favorite video game music ever.</plot>
 				<releasedate>29/1/1998</releasedate>
@@ -2103,8 +2062,8 @@
 			</game>
 			<game name="Metal Gear Solid (USA) (v1.0)">
 				<description>2.  Metal Gear Solid</description>
-				<rom crc="201ce24c" name="psx_redump_usa_20141221/Metal Gear Solid (USA) (Disc 1) (v1.1).7z" sha1="a6a8c27d7d7cf346e8c3bdf3d7fd5a09dd8b21a8" size="433027136" />
-				<rom crc="201ce24c" name="psx_redump_usa_20141221/Metal Gear Solid (USA) (Disc 2) (v1.1).7z" sha1="a6a8c27d7d7cf346e8c3bdf3d7fd5a09dd8b21a8" size="395831687" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Metal%20Gear%20Solid%20%28USA%29%20%28Disc%201%29%20%28v1.1%29.zip" size="498018663" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Metal%20Gear%20Solid%20%28USA%29%20%28Disc%202%29%20%28v1.1%29.zip" size="455272608" />
 				<title_clean>Metal Gear Solid</title_clean>
 				<plot>Metal Gear Solid demanded a lot from its players. For one, we had to learn to stop mashing on our controllers like mindless sitcom actors for two seconds and simply watch a video game. When we did have control, there was a whole lot of careful sneaking and quiet killing. Go in guns blazing (well, as close as you could get to guns blazing in MGS) and you were met with swift, crushing defeat. Why did we ever put up with it?[CR][CR]Because not only did MGS deliver a thrilling interactive experience, it was the next evolution in gaming. Its movie-like cutscenes and meticulously designed, stealth-centric levels were evidence of a production value not normally seen in a video game. Konami and Kojima tried for a lot here, and pulled it all off brilliantly.</plot>
 				<releasedate>30/9/1998</releasedate>
@@ -2153,7 +2112,7 @@
 			</game>
 			<game name="Castlevania - Symphony of the Night (USA)">
 				<description>1.  Castlevania - Symphony of the Night</description>
-				<rom crc="71a8a4a5" name="psx_redump_usa_20141221/Castlevania - Symphony of the Night (USA).7z" sha1="ca4e472fa26c0a49903099eef65401295c42031e" size="368509351" />
+				<rom name="RedumpSonyPlayStationAmerica20160617/Castlevania%20-%20Symphony%20of%20the%20Night%20%28USA%29.zip" size="406466289" />
 				<title_clean>Castlevania - Symphony of the Night</title_clean>
 				<plot>Upon hearing the Castlevania name, many gamers’ thoughts go directly to Symphony of the Night. And so they should, the game was amazing. If that descriptor seems a little too vague or generic for your tastes, that probably means you haven’t actually played this classic. And now we have a problem.[CR][CR]The expansive map, RPG elements, unlockable skills, and (enjoyable) backtracking of SOTN led to the coinage of the term “Metroidvania” to describe similar games. And, thanks to Konami focusing on using the PS’s power to amplify the 2D graphics instead of delving into the trendy territory of early 3D gaming, SOTN holds up extremely well. So much so, it’s considered one of the best games of not only the PS era, but of all time.</plot>
 				<releasedate>2/10/1997</releasedate>
