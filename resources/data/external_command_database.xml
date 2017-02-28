@@ -3231,10 +3231,16 @@
 	<launcher name="MSX.EMU (MSX)" os="Android">
 		<launcher_command>/system/bin/am start -n com.explusalpha.MsxEmu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="Mupen64Plus FZ (N64)" os="Android">
+		<launcher_command>/system/bin/am start -n org.mupen64plusae.v3.fzurita/paulscode.android.mupen64plusae.SplashActivity --user 0 -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="MAME4Droid (Arcade)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -n com.seleuco.mame4droid/com.seleuco.mame4droid.MAME4droid -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="ePSXe (PS1)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -n com.epsxe.ePSXe/.ePSXe -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e com.epsxe.ePSXe.isoName "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="Snes9x+ (SNES)" os="Android">
+		<launcher_command>/system/bin/am start -n com.explusalpha.Snes9xPlus/com.imagine.BaseActivity --user 0 -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
 	</launcher>
 </system>
