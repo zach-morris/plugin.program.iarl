@@ -332,6 +332,10 @@ def update_xml_value(xml_id):
         xbmc.log(msg='IARL:  Updating external launch command for: '+str(xml_id), level=xbmc.LOGDEBUG)
         update_external_launch_commands(iarl_data,xml_id,plugin)
 
+    elif tag_value == 'emu_launch_cmd_review':
+        xbmc.log(msg='IARL:  Showing launch command for: '+str(xml_id), level=xbmc.LOGDEBUG)
+        review_archive_launch_commands(xml_id)
+
     elif tag_value == 'hide_archive':
         xbmc.log(msg='IARL:  Updating archive visibility for: '+str(xml_id), level=xbmc.LOGDEBUG)
         hide_selected_archive(iarl_data,xml_id,plugin)
@@ -447,6 +451,7 @@ def index():
                         #update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_postdlaction','Update Post DL Action'), #Hidden now since users shouldnt change this
                         update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_launcher','Update Launcher'),
                         update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_ext_launch_cmd','Update Ext Launcher Command'),
+                        update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_launch_cmd_review','Review Launch Command'),
                         update_context(iarl_data['archive_data']['emu_filepath'][ii],'hide_archive','Hide This Archive'),
                         update_context(iarl_data['archive_data']['emu_filepath'][ii],'refresh_archive_cache','Refresh Archive Listing'),]
 
@@ -1392,7 +1397,7 @@ def post_download_action(iarl_data,option,option2):
         if iarl_data['current_save_data']['overall_conversion_success']:
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
-            xbmc.log(msg='IARL:  There was an error converting the 7z files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)  
+            xbmc.log(msg='IARL:  There was an error converting the zip files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)  
     elif 'convert_7z_track1_bin' in option:
         if iarl_data['current_save_data']['rom_save_filenames']:
             conversion_success, converted_filename = convert_7z_bin_cue_gdi(iarl_data,'track 1')
@@ -1416,7 +1421,7 @@ def post_download_action(iarl_data,option,option2):
         if iarl_data['current_save_data']['overall_conversion_success']:
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
-            xbmc.log(msg='IARL:  There was an error converting the 7z track 1 files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
+            xbmc.log(msg='IARL:  There was an error converting the 7z gdi files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
     elif 'convert_7z_cue' in option:
         if iarl_data['current_save_data']['rom_save_filenames']:
             conversion_success, converted_filename = convert_7z_bin_cue_gdi(iarl_data,'cue')
@@ -1428,7 +1433,7 @@ def post_download_action(iarl_data,option,option2):
         if iarl_data['current_save_data']['overall_conversion_success']:
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
-            xbmc.log(msg='IARL:  There was an error converting the 7z track 1 files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
+            xbmc.log(msg='IARL:  There was an error converting the 7z cue files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
     elif 'convert_7z_iso' in option:
         if iarl_data['current_save_data']['rom_save_filenames']:
             conversion_success, converted_filename = convert_7z_bin_cue_gdi(iarl_data,'iso')
@@ -1441,6 +1446,66 @@ def post_download_action(iarl_data,option,option2):
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
             xbmc.log(msg='IARL:  There was an error converting the 7z iso files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
+    elif 'convert_zip_track1_bin' in option:
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            conversion_success, converted_filename = convert_zip_bin_cue_gdi(iarl_data,'track 1')
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error converting the zip track 1 files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
+    elif 'convert_zip_gdi' in option:
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            conversion_success, converted_filename = convert_zip_bin_cue_gdi(iarl_data,'gdi')
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error converting the zip gdi files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
+    elif 'convert_zip_cue' in option:
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            conversion_success, converted_filename = convert_zip_bin_cue_gdi(iarl_data,'cue')
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error converting the zip cue files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
+    elif 'convert_zip_iso' in option:
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            conversion_success, converted_filename = convert_zip_bin_cue_gdi(iarl_data,'iso')
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error converting the zip iso files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
+    elif 'convert_adf_folder' in option:
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            conversion_success, converted_filename = convert_adf_folder(iarl_data,'adf')
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error converting the zipped adf files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
     elif 'convert_mame_softlist' in option:
         try:
             softlist_type = re.search(r'\([^)]*\)',option).group(0).replace('(','').replace(')','').replace("'",'').strip()

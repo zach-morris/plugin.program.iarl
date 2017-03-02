@@ -785,6 +785,26 @@ def update_external_launch_commands(iarl_data,xml_id,plugin):
 		current_dialog = xbmcgui.Dialog()
 		ok_ret = current_dialog.ok('Notice','External Launch Addon Settings are not available.')
 
+def review_archive_launch_commands(xml_id):
+
+	archive_info = get_archive_info()
+	
+	try:
+		current_index = archive_info['xml_id'].index(os.path.splitext(os.path.split(xml_id)[-1])[0])
+	except:
+		xbmc.log(msg='IARL:  The archive '+str(xml_id)+' could not be found for review.', level=xbmc.LOGERROR)
+		current_index = None
+
+	if current_index is not None:
+		current_dialog = xbmcgui.Dialog()
+		line1 = str('Launch with: '+archive_info['emu_launcher'][current_index])
+		line2 = str('Post DL CMD: '+archive_info['emu_post_download_action'][current_index])
+		line3 = str('Launch CMD: '+archive_info['emu_ext_launch_cmd'][current_index])
+		xbmc.log(msg='IARL:  Command Review - '+line1, level=xbmc.LOGDEBUG)
+		xbmc.log(msg='IARL:  Command Review - '+line2, level=xbmc.LOGDEBUG)
+		xbmc.log(msg='IARL:  Command Review - '+line3, level=xbmc.LOGDEBUG)
+		ok_ret = current_dialog.ok('Launch Command',line1,line2,line3)
+
 def replace_external_launch_variables(iarl_data):
 
 	if iarl_data['current_rom_data']['rom_override_cmd'] is not None and len(iarl_data['current_rom_data']['rom_override_cmd']) > 0:
@@ -2036,6 +2056,94 @@ def generate_uae_cd32_conf_file(iarl_data):
 	return conf_success, conf_file
 
 
+def convert_adf_folder(iarl_data,point_to_file_type):
+
+	if not point_to_file_type:
+		point_to_file_type = 'adf' #Default to point to amiga file
+
+	converted_success = list()
+	overall_success = False
+	current_save_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][0])
+	current_save_path = current_save_fileparts[0]
+	unzip_folder_name = clean_file_folder_name(iarl_data['current_rom_data']['rom_title'])
+
+	if unzip_folder_name == os.path.split(current_save_path)[-1]: #GDI game folder is already present on system
+		unzip_folder_path = current_save_path #Change the unzip folder to the existing folder at a minimum, then check if the gdi file is already present
+	else:
+		unzip_folder_path = os.path.join(current_save_path,unzip_folder_name)
+
+	output_filename = None
+	current_dialog = xbmcgui.Dialog()
+	current_dialog.notification('Please Wait','Converting Files...', xbmcgui.NOTIFICATION_INFO, 500000)
+
+	if not os.path.isdir(unzip_folder_path): #If the directory doesnt already exist
+		for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
+			if zipfile.is_zipfile(iarl_data['current_save_data']['rom_save_filenames'][ii]):
+				try:
+					z_file = zipfile.ZipFile(iarl_data['current_save_data']['rom_save_filenames'][ii])
+					z_file.extractall(unzip_folder_path)
+					z_file.close()
+					zip_success = True
+					xbmc.log(msg='IARL:  Unzip Successful for ' +str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+					converted_success.append(True)
+				except:
+					xbmc.log(msg='IARL:  Unzip Failed for ' +str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+					converted_success.append(False)
+			elif '.adf' in iarl_data['current_save_data']['rom_save_filenames'][ii].lower():
+				copyFile(iarl_data['current_save_data']['rom_save_filenames'][ii],os.path.join(unzip_folder_path,os.path.split(iarl_data['current_save_data']['rom_save_filenames'][ii])[-1]))
+				if os.path.isfile(os.path.join(unzip_folder_path,os.path.split(iarl_data['current_save_data']['rom_save_filenames'][ii])[-1])): #Copy was successful, delete addondata file
+					os.remove(iarl_data['current_save_data']['rom_save_filenames'][ii]) #Remove the original file since its been copied
+					converted_success.append(True)
+				else:
+					converted_success.append(False)
+					xbmc.log(msg='IARL:  Copying the ADF file '+str(iarl_data['current_save_data']['rom_save_filenames'][ii])+' failed.', level=xbmc.LOGERROR)
+		if False in converted_success:
+			overall_success = False
+		else:
+			if 'adf' in point_to_file_type.lower():
+				found_file = False
+				for ffiles in os.listdir(unzip_folder_path):
+					if 'disk1' in ffiles.lower() or 'disk 1' in ffiles.lower() or 'disc1' in ffiles.lower() or 'disc 1' in ffiles.lower():
+						if not found_file:
+							output_filename = os.path.join(unzip_folder_path,ffiles)
+							found_files = True
+							overall_success = True
+			else: #Just look for the selected file extension (cue/gdi/etc), point to the first one
+				found_file = False
+				for ffiles in os.listdir(unzip_folder_path):
+					if ffiles.endswith(point_to_file_type):
+						if not found_file:
+							output_filename = os.path.join(unzip_folder_path,ffiles)
+							found_files = True
+							overall_success = True
+		# hide_busy_dialog()
+	else: #Folder already exists
+		if 'adf' in point_to_file_type.lower():
+			found_file = False
+			for ffiles in os.listdir(unzip_folder_path):
+				if 'disk1' in ffiles.lower() or 'disk 1' in ffiles.lower() or 'disc1' in ffiles.lower() or 'disc 1' in ffiles.lower():
+					if not found_file:
+						output_filename = os.path.join(unzip_folder_path,ffiles)
+						found_files = True
+						overall_success = True
+		else: #Just look for the selected file extension (cue/gdi/etc), point to the first one
+			found_file = False
+			for ffiles in os.listdir(unzip_folder_path):
+				if ffiles.endswith(point_to_file_type):
+					if not found_file:
+						output_filename = os.path.join(unzip_folder_path,ffiles)
+						found_files = True
+						overall_success = True
+	if overall_success:
+		current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
+		for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
+			if zipfile.is_zipfile(iarl_data['current_save_data']['rom_save_filenames'][ii]):
+				os.remove(iarl_data['current_save_data']['rom_save_filenames'][ii]) #Remove ZIP File, leave only decrompressed files
+	else:
+		current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
+
+	return overall_success, output_filename
+
 def generate_uae4arm_conf_file(iarl_data):
 	conf_file = None
 	conf_success = False
@@ -2321,7 +2429,6 @@ def convert_chd_bin(current_fname,iarl_setting_chdman_path,point_to_file_type):
 	return chd_success, new_fname
 
 
-
 def convert_7z_bin_cue_gdi(iarl_data,point_to_file_type):
 
 	if not point_to_file_type:
@@ -2407,6 +2514,88 @@ def convert_7z_bin_cue_gdi(iarl_data,point_to_file_type):
 						found_files = True
 						overall_success = True
 		current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
+				
+	return overall_success, output_filename
+
+
+def convert_zip_bin_cue_gdi(iarl_data,point_to_file_type):
+
+	if not point_to_file_type:
+		point_to_file_type = 'bin' #Default to point to bin file
+
+	converted_success = list()
+	overall_success = False
+	current_save_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][0])
+	current_save_path = current_save_fileparts[0]
+	unzip_folder_name = clean_file_folder_name(iarl_data['current_rom_data']['rom_title'])
+
+	if unzip_folder_name == os.path.split(current_save_path)[-1]: #GDI game folder is already present on system
+		unzip_folder_path = current_save_path #Change the unzip folder to the existing folder at a minimum, then check if the gdi file is already present
+	else:
+		unzip_folder_path = os.path.join(current_save_path,unzip_folder_name)
+
+	output_filename = None
+	current_dialog = xbmcgui.Dialog()
+	current_dialog.notification('Please Wait','Converting zip File...', xbmcgui.NOTIFICATION_INFO, 500000)
+
+	if not os.path.isdir(unzip_folder_path): #If the directory doesnt already exist
+		for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
+			if zipfile.is_zipfile(iarl_data['current_save_data']['rom_save_filenames'][ii]):
+				try:
+					z_file = zipfile.ZipFile(iarl_data['current_save_data']['rom_save_filenames'][ii])
+					z_file.extractall(unzip_folder_path)
+					z_file.close()
+					zip_success = True
+					xbmc.log(msg='IARL:  Unzip Successful for ' +str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+					converted_success.append(True)
+				except:
+					xbmc.log(msg='IARL:  Unzip Failed for ' +str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+					converted_success.append(False)
+
+		if False in converted_success:
+			overall_success = False
+		else:
+			if 'track 1' in point_to_file_type.lower():
+				found_file = False
+				for ffiles in os.listdir(unzip_folder_path):
+					if 'track 1' in ffiles.lower():
+						if not found_file:
+							output_filename = os.path.join(unzip_folder_path,ffiles)
+							found_files = True
+							overall_success = True
+			else: #Just look for the selected file extension (cue/gdi/etc), point to the first one
+				found_file = False
+				for ffiles in os.listdir(unzip_folder_path):
+					if ffiles.endswith(point_to_file_type):
+						if not found_file:
+							output_filename = os.path.join(unzip_folder_path,ffiles)
+							found_files = True
+							overall_success = True
+		# hide_busy_dialog()
+	else: #Folder already exists
+		if 'track 1' in point_to_file_type.lower():
+			found_file = False
+			for ffiles in os.listdir(unzip_folder_path):
+				if 'track 1' in ffiles.lower():
+					if not found_file:
+						output_filename = os.path.join(unzip_folder_path,ffiles)
+						found_files = True
+						overall_success = True
+		else: #Just look for the selected file extension (cue/gdi/etc), point to the first one
+			found_file = False
+			for ffiles in os.listdir(unzip_folder_path):
+				if ffiles.endswith(point_to_file_type):
+					if not found_file:
+						output_filename = os.path.join(unzip_folder_path,ffiles)
+						found_files = True
+						overall_success = True
+	if overall_success:
+		current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
+		for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
+			if zipfile.is_zipfile(iarl_data['current_save_data']['rom_save_filenames'][ii]):
+				os.remove(iarl_data['current_save_data']['rom_save_filenames'][ii]) #Remove ZIP File, leave only decrompressed files
+	else:
+		current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
 				
 	return overall_success, output_filename
 
@@ -2527,11 +2716,9 @@ def convert_zip_m3u(iarl_data):
 				fout.write(m3u_content)
 				fout.close()
 				overall_success = True
-				current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
 	else: #Folder already exists
 		if os.path.isfile(m3u_filename): #The m3u file already exists
 			overall_success = True
-			current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
 		else: #Make the m3u file
 			if '.cue' in [os.path.splitext(x)[-1] for x in os.listdir(unzip_folder_path)]:
 				m3u_content = '\r\n'.join([x for x in os.listdir(unzip_folder_path) if 'cue' in x])
@@ -2539,8 +2726,15 @@ def convert_zip_m3u(iarl_data):
 				fout.write(m3u_content)
 				fout.close()
 				overall_success = True
+
+	if overall_success:
 		current_dialog.notification('Complete', 'Conversion Successful', xbmcgui.NOTIFICATION_INFO, 1000)
-				
+		for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
+			if zipfile.is_zipfile(iarl_data['current_save_data']['rom_save_filenames'][ii]):
+				os.remove(iarl_data['current_save_data']['rom_save_filenames'][ii]) #Remove ZIP File, leave only decrompressed files
+	else:
+		current_dialog.notification('Error', 'Error Converting, please see log', xbmcgui.NOTIFICATION_INFO, 1000)
+
 	return overall_success, m3u_filename
 
 

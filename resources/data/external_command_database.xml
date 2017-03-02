@@ -129,6 +129,9 @@
 	<launcher name="RetroArch MAME 2014 (Arcade 0.159)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2014_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch MAME 2016 (Arcade 0.174)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2016_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -394,6 +397,9 @@
 	<launcher name="RetroArch MAME 2014 (Arcade 0.159)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2014_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch MAME 2016 (Arcade 0.174)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame2016_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -638,6 +644,9 @@
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/genesis_plus_gx_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch ParaLLEl N64 (N64)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/parallel_n64_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Glupen64 (N64)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/glupen64_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -661,6 +670,9 @@
 	</launcher>
 	<launcher name="RetroArch MAME 2014 (Arcade 0.159)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mame2014_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2016 (Arcade 0.174)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mame2016_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mame_libretro.so "%ROM_PATH%"</launcher_command>
@@ -718,9 +730,6 @@
 	</launcher>
 	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/o2em_libretro.so "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch ParaLLEl (N64)" os="Linux/Kodibuntu">
-		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/parallel_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PCSX ReArmed (PS1)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/pcsx_rearmed_libretro.so "%ROM_PATH%"</launcher_command>
@@ -912,6 +921,9 @@
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/genesis_plus_gx_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch ParaLLEl N64 (N64)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/parallel_n64_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Glupen64 (N64)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/glupen64_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -935,6 +947,9 @@
 	</launcher>
 	<launcher name="RetroArch MAME 2014 (Arcade 0.159)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mame2014_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2016 (Arcade 0.174)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mame2016_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/mame_libretro.so "%ROM_PATH%"</launcher_command>
@@ -992,9 +1007,6 @@
 	</launcher>
 	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/o2em_libretro.so "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch ParaLLEl (N64)" os="Linux/Kodibuntu Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/parallel_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PCSX ReArmed (PS1)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/pcsx_rearmed_libretro.so "%ROM_PATH%"</launcher_command>
@@ -1186,6 +1198,9 @@
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\genesis_plus_gx_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch ParaLLEl (N64)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\parallel_n64_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Glupen64 (N64)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\glupen64_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1209,6 +1224,9 @@
 	</launcher>
 	<launcher name="RetroArch MAME 2014 (Arcade 0.159)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mame2014_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2016 (Arcade 0.174)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mame2016_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mame_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1266,9 +1284,6 @@
 	</launcher>
 	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\o2em_libretro.dll" "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch ParaLLEl (N64)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\parallel_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PCSX ReArmed (PS1)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\pcsx_rearmed_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1460,6 +1475,9 @@
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\genesis_plus_gx_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch ParaLLEl (N64)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\parallel_n64_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Glupen64 (N64)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\glupen64_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1483,6 +1501,9 @@
 	</launcher>
 	<launcher name="RetroArch MAME 2014 (Arcade 0.159)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mame2014_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2016 (Arcade 0.174)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mame2016_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mame_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1540,9 +1561,6 @@
 	</launcher>
 	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\o2em_libretro.dll" "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch ParaLLEl (N64)" os="Windows Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\parallel_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PCSX ReArmed (PS1)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\pcsx_rearmed_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1734,6 +1752,9 @@
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh genesis_plus_gx "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch ParaLLEl (N64)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh parallel_n64_libretro "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Glupen64 (N64)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh glupen64 "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1757,6 +1778,9 @@
 	</launcher>
 	<launcher name="RetroArch MAME 2014 (Arcade 0.159)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh mame2014 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2016 (Arcade 0.174)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh mame2016 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh mame "%ROM_PATH%"</launcher_command>
@@ -1814,9 +1838,6 @@
 	</launcher>
 	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh o2em "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch ParaLLEl (N64)" os="OpenElec x86 (tssemek Addon)">
-		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh parallel "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PCSX ReArmed (PS1)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh pcsx_rearmed "%ROM_PATH%"</launcher_command>
@@ -2011,6 +2032,9 @@
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/genesis_plus_gx_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch ParaLLEl (N64)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/parallel_n64_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Glupen64 (N64)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/glupen64_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -2034,6 +2058,9 @@
 	</launcher>
 	<launcher name="RetroArch MAME 2014 (Arcade 0.159)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mame2014_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2016 (Arcade 0.174)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mame2016_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mame_libretro.so "%ROM_PATH%"</launcher_command>
@@ -2285,6 +2312,9 @@
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="LibreElec SX05">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh genesis_plus_gx "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch ParaLLEl (N64)" os="LibreElec SX05">
+		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh parallel_n64_libretro "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Glupen64 (N64)" os="LibreElec SX05">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh glupen64 "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -2308,6 +2338,9 @@
 	</launcher>
 	<launcher name="RetroArch MAME 2014 (Arcade 0.159)" os="LibreElec SX05">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh mame2014 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2016 (Arcade 0.174)" os="LibreElec SX05">
+		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh mame2016 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="LibreElec SX05">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh mame "%ROM_PATH%"</launcher_command>
@@ -2439,7 +2472,7 @@
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh yabause "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<!-- OpenElec RPi (Gamestarter Addon), by default you must close Kodi with OE, Netplay not implemented with this yet -->
-	<launcher name="Amiga UAE4ARM" os="OpenElec RPi (Gamestarter Addon)">
+	<launcher name="Amiga Gamestarter" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh amiga "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch 4DO (3DO)" os="OpenElec RPi (Gamestarter Addon)">
@@ -2544,6 +2577,9 @@
 	<launcher name="RetroArch Glupen64 GLES3 (N64)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh glupen64_gles3 "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch ParaLLEl (N64)" os="OpenElec RPi (Gamestarter Addon)">
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh parallel_n64_libretro "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Glupen64 (N64)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh glupen64 "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -2570,6 +2606,9 @@
 	</launcher>
 	<launcher name="RetroArch MAME 2014 (Arcade 0.159)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mame2014 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2016 (Arcade 0.174)" os="OpenElec RPi (Gamestarter Addon)">
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mame2016 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh mame "%ROM_PATH%"</launcher_command>
@@ -2624,9 +2663,6 @@
 	</launcher>
 	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh o2em "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="RetroArch ParaLLEl (N64)" os="OpenElec RPi (Gamestarter Addon)">
-		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh parallel "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PCSX ReArmed (PS1)" os="OpenElec RPi (Gamestarter Addon)">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh pcsx_rearmed "%ROM_PATH%"</launcher_command>
@@ -2817,6 +2853,9 @@
 	</launcher>
 	<launcher name="RetroArch MAME 2014 (Arcade 0.159)" os="OpenElec RPi (Mezo/lollo78 Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mame2014 "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2016 (Arcade 0.174)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mame2016 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="OpenElec RPi (Mezo/lollo78 Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh mame "%ROM_PATH%"</launcher_command>
@@ -3041,6 +3080,9 @@
 	<launcher name="RetroArch Glupen64 GLES3 (N64)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/glupen64_gles3_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
+	<launcher name="RetroArch ParaLLEl (N64)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/parallel_n64_libretro.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Glupen64 (N64)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/glupen64_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
@@ -3064,6 +3106,9 @@
 	</launcher>
 	<launcher name="RetroArch MAME 2014 (Arcade 0.159)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mame2014_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MAME 2016 (Arcade 0.174)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mame2016_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MAME (Arcade)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mame_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
@@ -3118,9 +3163,6 @@
 	</launcher>
 	<launcher name="RetroArch O2EM (Odyssey2/Videopac)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/o2em_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
-	</launcher>
-	<launcher name="RetroArch ParaLLEl (N64)" os="Android">
-		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/parallel_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PCSX ReArmed (PS1)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/pcsx_rearmed_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
@@ -3231,16 +3273,10 @@
 	<launcher name="MSX.EMU (MSX)" os="Android">
 		<launcher_command>/system/bin/am start -n com.explusalpha.MsxEmu/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="Mupen64Plus FZ (N64)" os="Android">
-		<launcher_command>/system/bin/am start -n org.mupen64plusae.v3.fzurita/paulscode.android.mupen64plusae.SplashActivity --user 0 -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
-	</launcher>
 	<launcher name="MAME4Droid (Arcade)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -n com.seleuco.mame4droid/com.seleuco.mame4droid.MAME4droid -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="ePSXe (PS1)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -n com.epsxe.ePSXe/.ePSXe -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e com.epsxe.ePSXe.isoName "%ROM_PATH%"</launcher_command>
-	</launcher>
-	<launcher name="Snes9x+ (SNES)" os="Android">
-		<launcher_command>/system/bin/am start -n com.explusalpha.Snes9xPlus/com.imagine.BaseActivity --user 0 -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
 	</launcher>
 </system>
