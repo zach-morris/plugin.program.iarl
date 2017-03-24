@@ -2,7 +2,7 @@
 #Zach Morris
 #https://github.com/zach-morris/plugin.program.iarl
 
-import os, sys, re, shutil, json, zipfile, urllib, glob
+import os, sys, re, shutil, json, zipfile, urllib, glob, difflib
 import xbmc, xbmcaddon, xbmcvfs, xbmcgui
 # 	from resources.lib.xbmcswift2b import xbmcgui
 from descriptionparserfactory import *
@@ -177,7 +177,7 @@ def make_scripts_executable():
 	#Attempt to make addon scripts executable
 	bin_path = get_addondata_bindir()
 
-	bin_file_list = [os.path.join('7za','7za.android'), os.path.join('7za','7za.armv6l'), os.path.join('7za','7za.armv7l'), os.path.join('7za','7za.exe'), os.path.join('7za','7za.OSX'),os.path.join('7za','7za.Nix'),os.path.join('7za','7za.x86_64'), 'applaunch_OE.sh', 'applaunch-vbs.bat', 'applaunch.bat', 'applaunch.sh',os.path.join('chdman','chdman.armhf'),os.path.join('chdman','chdman.OSX'),os.path.join('chdman','chdman.Nix'),os.path.join('chdman','chdman.exe'),'LaunchKODI.vbs', 'romlaunch_OE_RPi2.sh', 'romlaunch_OE.sh', 'Sleep.vbs']
+	bin_file_list = [os.path.join('7za','7za.android'), os.path.join('7za','7za.armv6l'), os.path.join('7za','7za.armv7l'), os.path.join('7za','7za.exe'), os.path.join('7za','7za.OSX'),os.path.join('7za','7za.Nix'),os.path.join('7za','7za.x86_64'), 'applaunch_OE.sh', 'applaunch-vbs.bat', 'applaunch.bat', 'applaunch.sh',os.path.join('chdman','chdman.armhf'),os.path.join('chdman','chdman.OSX'),os.path.join('chdman','chdman.Nix'),os.path.join('chdman','chdman.exe'),'LaunchKODI.vbs', 'romlaunch_OE_RPi2.sh', 'romlaunch_OE.sh', 'libreelec-fs-uae.sh', 'libreelec-fs-uae.start', 'Sleep.vbs']
 	
 	for ffiles in bin_file_list:
 		try:
@@ -2297,6 +2297,104 @@ def setup_mame_softlist_game(iarl_data,softlist_type):
 
 	return overall_success, new_fname
 
+def setup_mess2014_softlist_game(iarl_data,softlist_type):
+	overall_success = False
+	converted_success = list()
+	new_fname = None
+	continue_launch = False
+	check_and_download_hash = False
+
+	current_save_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][0])
+	current_save_path = current_save_fileparts[0]
+	containing_folder = os.path.split(os.path.dirname(iarl_data['current_save_data']['rom_save_filenames'][0]))[-1]
+	file_base_name = clean_file_folder_name(iarl_data['current_rom_data']['rom_title'])
+
+	current_sys_path = iarl_data['settings']['path_to_retroarch_system_dir']
+
+	if current_sys_path is not None: #If the setting for retroarch system directory is defined, then check for/download hash file
+		if len(current_sys_path)>0:
+			continue_launch = True
+			check_and_download_hash = True
+
+	if not continue_launch:
+		if 'true' in __addon__.getSetting(id='iarl_setting_warn_retroarch_sys_dir').lower():
+			current_dialog = xbmcgui.Dialog()
+			ret1 = current_dialog.select('System Directory setting undefined, try launch anyway?', ['Yes','No','Yes, stop warning me!'])
+			if ret1==0:
+				continue_launch = True
+			elif ret1==1:
+				continue_launch = False
+			else:
+				__addon__.setSetting(id='iarl_setting_warn_retroarch_sys_dir',value='false') #No longer show the warning
+				continue_launch = True
+		else:
+			continue_launch = True
+
+
+	if continue_launch:
+		if len(softlist_type)>0:
+			#1 Check for and download hash file if needed
+			parserfile = get_parser_file('mame_softlist_parser.xml')
+			softlistfile = get_parser_file('mame_softlist_database.xml')
+			descParser = DescriptionParserFactory.getParser(parserfile)
+			results = descParser.parseDescription(softlistfile,'xml')
+			softlist_info = [x for x in results if str(softlist_type) in x['system']][0]
+			# print 'ztest'
+			# print softlist_info
+			if check_and_download_hash:
+				current_hash_path = os.path.join(current_sys_path,'mess2014','hash')
+				save_hash_filename = os.path.join(current_hash_path,os.path.split(softlist_info['web_url'][0])[-1])
+				if not os.path.exists(current_hash_path):
+					try:
+						os.makedirs(current_hash_path)
+					except:
+						xbmc.log(msg='IARL:  Error creating MESS2014 hash path: ' +str(current_hash_path), level=xbmc.LOGERROR)
+				if not os.path.isfile(save_hash_filename): #Download the hash file if it's not already present
+					from resources.lib.webutils import *
+					hash_dl_success = download_tools().Downloader(softlist_info['web_url'][0],save_hash_filename,False,'','',99999,str(os.path.split(softlist_info['web_url'][0])),'Downloading hash file, please wait...') #No login required for github raw files
+					if not hash_dl_success:
+						xbmc.log(msg='IARL:  Error downloading MESS2014 hash file: ' +str(softlist_info['web_url'][0]), level=xbmc.LOGERROR)
+				else:
+					xbmc.log(msg='IARL:  MESS2014 Softlist hash file was found for '+str(softlist_type), level=xbmc.LOGDEBUG)
+			#2 Check for correct folder and create if needed, then move all files to the folder
+			if containing_folder == softlist_info['folder_name'][0]: #Save location already correctly named
+				xbmc.log(msg='IARL:  MESS2014 folder already defined for '+str(softlist_type), level=xbmc.LOGDEBUG)
+			else: #Make the correct folder
+				if not os.path.exists(os.path.join(current_save_path,softlist_info['folder_name'][0])):
+					try:
+						os.makedirs(os.path.join(current_save_path,softlist_info['folder_name'][0]))
+					except:
+						xbmc.log(msg='IARL:  Error creating MESS2014 folder path for ' +str(softlist_type), level=xbmc.LOGERROR)
+				for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
+					if os.path.isfile(iarl_data['current_save_data']['rom_save_filenames'][ii]): #Copy files to new location
+						new_save_file_location = os.path.join(current_save_path,softlist_info['folder_name'][0],os.path.split(iarl_data['current_save_data']['rom_save_filenames'][ii])[-1])
+						if not os.path.isfile(new_save_file_location):
+							copyFile(iarl_data['current_save_data']['rom_save_filenames'][ii],new_save_file_location)
+						if os.path.isfile(new_save_file_location): #Copy was successful
+							try:
+								if new_save_file_location != iarl_data['current_save_data']['rom_save_filenames'][ii]: #Only remove the old file if the new save location is different
+									os.remove(iarl_data['current_save_data']['rom_save_filenames'][ii]) #Remove the old file
+									xbmc.log(msg='IARL:  File deleted '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+								else:
+									xbmc.log(msg='IARL:  File already exists and will not be deleted '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+							except:
+								xbmc.log(msg='IARL:  Old file was not found and could not be deleted '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+							iarl_data['current_save_data']['rom_save_filenames'][ii] = new_save_file_location
+							converted_success.append(True)
+						else:
+							converted_success.append(False)
+							xbmc.log(msg='IARL:  Copying the XML file '+str(new_save_file_location)+' failed.', level=xbmc.LOGERROR)
+					else:
+						xbmc.log(msg='IARL:  Skipped copy of '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+			#3 Define new launch filename
+			if False in converted_success:
+				overall_success = False
+			else:
+				overall_success = True
+				new_fname = iarl_data['current_save_data']['rom_save_filenames'][0]
+
+	return overall_success, new_fname
+
 def unzip_scummvm_update_conf_file(iarl_data):
 	zip_success = list()
 	overall_success = False
@@ -2923,10 +3021,12 @@ def set_new_emu_launcher(xml_id,plugin):
 	else:
 		pass
 
-def check_file_exists_wildcard(file_path,file_name_2):
+def check_file_exists_wildcard(file_path,file_name_2,exact_match_req):
 	#A more robust file exists check.  This will check for any file or folder with the same base filename (replacing spaces with wildcard and file extension with wildcard) that is trying to be launched
 	#It will not match retroarch save filetypes like srm, sav, etc
+	xbmc.log(msg='IARL:  Looking for matches for '+str(file_path)+' - Exact Matching: '+str(exact_match_req),level=xbmc.LOGDEBUG)
 	file_found = False #Default to not found
+	idx = None
 	try:
 		file_path_base = os.path.split(file_path)[0]
 		file_path_name = os.path.splitext(os.path.split(file_path)[-1])[0].replace('][','*').replace('[','*').replace(']','*') #glob doesnt like literal brackets in filenames
@@ -2954,10 +3054,27 @@ def check_file_exists_wildcard(file_path,file_name_2):
 			matching_files = matching_files+glob.glob(os.path.join(file_path_base,clean_file_folder_name(file_path_name2.replace(',','*').split('(')[0])+'*')) #Add search for processed filenames used in IARL
 		remove_these_filetypes = ['srm','sav','fs','state','auto'] #Save filetypes
 		matching_files = list(set([x for x in matching_files if x.split('.')[-1].lower() not in remove_these_filetypes])) #Remove duplicates and save filetypes
-		if len(matching_files)>0:
-			file_found = True
+		if len(matching_files)>0: #Matches were found, look for an exact match first
 			xbmc.log(msg='IARL:  Matching files found for '+str(file_path)+': '+str(', '.join(matching_files)), level=xbmc.LOGDEBUG)
-			file_path = str(matching_files[0]) #Return the first file found?  Not sure if this will work in all cases, maybe prompt the user?
+			try:
+				idx = matching_files.index(file_path)
+				xbmc.log(msg='IARL:  Exact match found for '+str(file_path), level=xbmc.LOGDEBUG)
+				file_path = matching_files[idx]
+				file_found = True
+			except:
+				idx = None
+				xbmc.log(msg='IARL:  Exact match not found.', level=xbmc.LOGDEBUG)
+				file_found = False
+			if not exact_match_req: #If an exact match is not required for launching
+				if idx is None: #And an exact match wasnt found, search for the best match
+					try:
+						xbmc.log(msg='IARL:  Best match '+str(file_path)+': '+str(difflib.get_close_matches(str(file_path),matching_files,1)[0]), level=xbmc.LOGDEBUG)
+						file_path = difflib.get_close_matches(str(file_path),matching_files,1)[0]
+						file_found = True
+					except:
+						xbmc.log(msg='IARL:  2nd best match '+str(file_path)+': '+str(matching_files[0]), level=xbmc.LOGDEBUG)
+						file_path = str(matching_files[0]) #Return the first file found?  Not sure if this will work in all cases, maybe prompt the user?
+						file_found = True
 		else:
 			xbmc.log(msg='IARL:  No matching file found for '+str(file_path), level=xbmc.LOGDEBUG)
 	except:

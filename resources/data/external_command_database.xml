@@ -174,6 +174,9 @@
 	<launcher name="RetroArch Meteor (GBA)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/meteor_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch MESS 2014 (MESS)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mess2014_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch mGBA (GBA)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mgba_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -441,6 +444,9 @@
 	</launcher>
 	<launcher name="RetroArch Meteor (GBA)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/meteor_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch MESS 2014 (MESS)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mess2014_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch mGBA (GBA)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mgba_libretro.dylib" "%ROM_PATH%"</launcher_command>

@@ -57,7 +57,7 @@ class download_tools():
 			last_time = time.time()
 			for chunk in r.iter_content(1024):
 				size = size + 1024.0
-				percent = 100.0 * size / est_filesize
+				percent = 100.0 * size / (est_filesize + 1) #Added 1 byte to avoid div by zero
 				f.write(chunk)
 				now = time.time()
 				diff = now - last_time
@@ -76,7 +76,7 @@ class download_tools():
 			try:
 				xbmc.log(msg='IARL:  Download no login URL: '+str(url), level=xbmc.LOGDEBUG)
 				xbmc.log(msg='IARL:  Download save filename: '+str(dest), level=xbmc.LOGDEBUG)
-				urllib.urlretrieve(url,dest,lambda nb, bs, fs, url=url: self._pbhook(nb,bs,fs,est_filesize,dp))
+				urllib.urlretrieve(url,dest,lambda nb, bs, fs, url=url: self._pbhook(nb,bs,fs,est_filesize+1,dp))
 				success = True
 			except IOError as e:
 				xbmc.log(msg='IARL:  There was an error downloading: '+str(e.strerror), level=xbmc.LOGERROR)

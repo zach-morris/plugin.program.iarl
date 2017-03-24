@@ -13,7 +13,7 @@
 		<setting id="iarl_setting_autoplay_trailer" type="select" label="Autoplay Game Trailer" values="No|Yes" default="No"/>
 		<setting id="iarl_setting_dl_cache" type="select" label="Cache Size (MB)" values="Zero (One ROM and Supporting Files Only)|10 MB|25MB|50MB|100MB|150MB|200MB|250MB|300MB|350MB|400MB|450MB|500MB|1GB|2GB|5GB|10GB|20GB" default="Zero (One ROM and Supporting Files Only)"/>
 		<setting id="iarl_enable_login" type="select" label="Enable Login" values="Enabled|Disabled" default="Disabled"/>
-		<setting id="iarl_setting_ia_username" type="text" label="archive.org Username" default="" visible="eq(-1,Enabled)"/>
+		<setting id="iarl_setting_ia_username" type="text" label="archive.org Email" default="" visible="eq(-1,Enabled)"/>
  +		<setting id="iarl_setting_ia_password" type="text" label="archive.org Password" default="" option="hidden" visible="eq(-2,Enabled)"/>  
 	</category>
 	<category label="External Launchers">
@@ -52,6 +52,7 @@
 	</category>
 	<category label="Advanced Settings">
 		<setting label="Note:  You should not use these settings unless you're sure of what you are doing!" type="lsep"/>
+		<setting id="iarl_enable_post_dl_edit" type="select" label="Enable Editing for Post DL Command" values="Disabled|Enabled" default="Disabled"  visible="true"/>
 		<setting visible="true" label="Set addon to provide games (RetroPlayer Only)" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/update_addonxml_provides_games.py)"/>
 		<setting visible="true" label="Set addon to provide Video" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/update_addonxml_provides_video.py)"/>
 		<setting visible="true" label="Set addon to provide Programs" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/update_addonxml_provides_program.py)"/>

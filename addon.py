@@ -32,11 +32,11 @@ iarl_data = {
                             'ia_password' : plugin.get_setting('iarl_setting_ia_password',unicode),
                             'external_launch_env' : plugin.get_setting('iarl_external_user_external_env',unicode),
                             'external_launch_close_kodi' : plugin.get_setting('iarl_external_launch_close_kodi',unicode),
-                            'path_to_retroarch' : plugin.get_setting('iarl_path_to_retroarch',unicode),
-                            'path_to_retroarch_system_dir' : plugin.get_setting('iarl_path_to_retroarch_system_dir',unicode),
-                            'path_to_retroarch_cfg' : plugin.get_setting('iarl_path_to_retroarch_cfg',unicode),
+                            'path_to_retroarch' : xbmc.translatePath(plugin.get_setting('iarl_path_to_retroarch',unicode)),
+                            'path_to_retroarch_system_dir' : xbmc.translatePath(plugin.get_setting('iarl_path_to_retroarch_system_dir',unicode)),
+                            'path_to_retroarch_cfg' : xbmc.translatePath(plugin.get_setting('iarl_path_to_retroarch_cfg',unicode)),
                             'enable_additional_emulators' : [plugin.get_setting('iarl_additional_emulator_1_type',unicode),plugin.get_setting('iarl_additional_emulator_2_type',unicode),plugin.get_setting('iarl_additional_emulator_3_type',unicode)],
-                            'path_to_additional_emulators' : [plugin.get_setting('iarl_additional_emulator_1_path',unicode),plugin.get_setting('iarl_additional_emulator_2_path',unicode),plugin.get_setting('iarl_additional_emulator_3_path',unicode)],
+                            'path_to_additional_emulators' : [xbmc.translatePath(plugin.get_setting('iarl_additional_emulator_1_path',unicode)),xbmc.translatePath(plugin.get_setting('iarl_additional_emulator_2_path',unicode)),xbmc.translatePath(plugin.get_setting('iarl_additional_emulator_3_path',unicode))],
                             'enable_netplay' : None, #Initialize variable and set later
                             'netplay_host_or_client' : plugin.get_setting('iarl_netplay_hostclient',unicode),
                             'netplay_host_nickname' : plugin.get_setting('iarl_netplay_nickname1',unicode),
@@ -45,6 +45,7 @@ iarl_data = {
                             'netplay_host_IP' : plugin.get_setting('iarl_netplay_IP',unicode),
                             'netplay_host_port' : plugin.get_setting('iarl_netplay_port',unicode),
                             'netplay_sync_frames' : None, #Initialize variable and set later
+                            'enable_postdl_edit' :  None, #Initialize variable and set later
                             'hidden_setting_clear_cache_value' : plugin.get_setting('iarl_setting_clear_cache_value',bool),
                             'hidden_setting_clear_hidden_archives' : plugin.get_setting('iarl_setting_clear_hidden_archives',bool),
                             'hidden_setting_warn_chd' : plugin.get_setting('iarl_setting_warn_chd',bool),
@@ -197,6 +198,14 @@ except ValueError:
 
 if iarl_data['settings']['ia_enable_login'] is None:
     iarl_data['settings']['ia_enable_login'] = False #Default to False if not initialized correctly
+
+try:
+    iarl_data['settings']['enable_postdl_edit'] = enabled_disabled_options[plugin.get_setting('iarl_enable_post_dl_edit',unicode)]
+except ValueError:
+    iarl_data['settings']['enable_postdl_edit'] = False #Default to False if not initialized correctly
+
+if iarl_data['settings']['enable_postdl_edit'] is None:
+    iarl_data['settings']['enable_postdl_edit'] = False #Default to False if not initialized correctly
 
 #Define path to 7za binary
 if xbmc.getCondVisibility('System.HasAddon(virtual.system-tools)'):
@@ -447,13 +456,22 @@ def index():
 
     for ii in range(0,iarl_data['archive_data']['total_num_archives']):
         #Generate the context menu
-        context_menus = [update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_downloadpath','Update Download Path'),
-                        #update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_postdlaction','Update Post DL Action'), #Hidden now since users shouldnt change this
-                        update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_launcher','Update Launcher'),
-                        update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_ext_launch_cmd','Update Ext Launcher Command'),
-                        update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_launch_cmd_review','Review Launch Command'),
-                        update_context(iarl_data['archive_data']['emu_filepath'][ii],'hide_archive','Hide This Archive'),
-                        update_context(iarl_data['archive_data']['emu_filepath'][ii],'refresh_archive_cache','Refresh Archive Listing'),]
+        if iarl_data['settings']['enable_postdl_edit']:
+            context_menus = [update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_downloadpath','Update Download Path'),
+                            update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_postdlaction','Update Post DL Action'),
+                            update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_launcher','Update Launcher'),
+                            update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_ext_launch_cmd','Update Ext Launcher Command'),
+                            update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_launch_cmd_review','Review Launch Command'),
+                            update_context(iarl_data['archive_data']['emu_filepath'][ii],'hide_archive','Hide This Archive'),
+                            update_context(iarl_data['archive_data']['emu_filepath'][ii],'refresh_archive_cache','Refresh Archive Listing'),]
+        else:
+            context_menus = [update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_downloadpath','Update Download Path'),
+                            #update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_postdlaction','Update Post DL Action'), #Hidden by default since users shouldnt change this
+                            update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_launcher','Update Launcher'),
+                            update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_ext_launch_cmd','Update Ext Launcher Command'),
+                            update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_launch_cmd_review','Review Launch Command'),
+                            update_context(iarl_data['archive_data']['emu_filepath'][ii],'hide_archive','Hide This Archive'),
+                            update_context(iarl_data['archive_data']['emu_filepath'][ii],'refresh_archive_cache','Refresh Archive Listing'),]
 
         if 'hidden' not in iarl_data['archive_data']['emu_category'][ii]: #Don't include the archive if it's tagged hidden
             if 'alphabetical' in iarl_data['settings']['listing_convention'].lower(): #List alphabetically
@@ -1064,13 +1082,32 @@ def download_rom_only(iarl_data):
     if 'default' in iarl_data['current_archive_data']['emu_download_path']:
         check_temp_folder_and_clean(iarl_data['settings']['download_cache'])
 
+    #1b.  Check about matching policy
+    exact_match_check = False #Default to False
+    if iarl_data['current_rom_data']['rom_override_postdl'] is not None and len(iarl_data['current_rom_data']['rom_override_postdl']) > 0:
+        try:
+            if iarl_data['current_rom_data']['rom_override_postdl'] in ['none','None','NONE']: #If the file will not be processed, it needs to match exactly
+                exact_match_check = True
+            else:
+                exact_match_check = False
+        except:
+            exact_match_check = False
+    else:
+        try:
+            if iarl_data['current_archive_data']['emu_post_download_action'] in ['none','None','NONE']: #If the file will not be processed, it needs to match exactly
+                exact_match_check = True
+            else:
+                exact_match_check = False
+        except:
+            exact_match_check = False
+
     #2.  Check if filename(s) already exist
     for filenames in iarl_data['current_rom_data']['rom_save_filenames']:
         if filenames:
             if filenames.lower() != 'none':
                 iarl_data['current_save_data']['rom_save_filenames'].append(filenames)
                 # if os.path.exists(filenames):
-                file_exists_wc, file_found_wc = check_file_exists_wildcard(filenames,iarl_data['current_rom_data']['rom_name'])
+                file_exists_wc, file_found_wc = check_file_exists_wildcard(filenames,iarl_data['current_rom_data']['rom_name'],exact_match_check)
                 if file_exists_wc:
                     iarl_data['current_save_data']['rom_save_filenames_exist'].append(True)
                     iarl_data['current_save_data']['matching_rom_save_filenames'].append(file_found_wc)
@@ -1084,7 +1121,7 @@ def download_rom_only(iarl_data):
             if filenames.lower() != 'none':
                 iarl_data['current_save_data']['rom_save_supporting_filenames'].append(filenames)
                 # if os.path.exists(filenames):
-                file_exists_wc, file_found_wc = check_file_exists_wildcard(filenames,iarl_data['current_rom_data']['rom_name'])
+                file_exists_wc, file_found_wc = check_file_exists_wildcard(filenames,iarl_data['current_rom_data']['rom_name'],True) #Supporting files require the exact correct name
                 if file_exists_wc:
                     iarl_data['current_save_data']['rom_save_supporting_filenames_exist'].append(True)
                     iarl_data['current_save_data']['matching_rom_save_supporting_filenames'].append(file_found_wc)
@@ -1523,6 +1560,23 @@ def post_download_action(iarl_data,option,option2):
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
             xbmc.log(msg='IARL:  There was an error setting up the MAME softlist game '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
+    elif 'convert_mess2014_softlist' in option:
+        try:
+            softlist_type = re.search(r'\([^)]*\)',option).group(0).replace('(','').replace(')','').replace("'",'').strip()
+        except:
+            softlist_type = ''
+            xbmc.log(msg='IARL:  MESS2014 softlist type could not be defined', level=xbmc.LOGERROR)
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            conversion_success, converted_filename = setup_mess2014_softlist_game(iarl_data,softlist_type)
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error setting up the MESS2014 softlist game '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
     elif 'favorites_post_action' in option:
         if '|' in option:
             option_1 = rom_emu_command.split('|')[0]
