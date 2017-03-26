@@ -132,10 +132,10 @@
 		<emu_downloadpath>default</emu_downloadpath>
 		<emu_postdlaction>unzip_rom</emu_postdlaction>
 		<emu_comment>Doom and Doom II Retroarch port, provided by Lefty420.</emu_comment>
-			<emu_thumb>http://farm3.static.flickr.com/2646/4137994079_896635b329_o.jpg</emu_thumb>
-			<emu_banner>http://cdn.gamecloud.net.au/wp-content/uploads/2014/02/doom-banner-gamecloud.jpg</emu_banner>
-			<emu_fanart>http://wallpapersrang.com/wp-content/uploads/2016/01/download-doom-wallpaper-1920x1080-wallpoper.jpg</emu_fanart>
-			<emu_logo>http://www.pngall.com/wp-content/uploads/2016/06/Doom-Free-Download-PNG.png</emu_logo>
+			<emu_thumb>http://i.imgur.com/Ow2yRG0.jpg</emu_thumb>
+			<emu_banner>http://i.imgur.com/8kceD3y.jpg</emu_banner>
+			<emu_fanart>http://i.imgur.com/22s811K.jpg</emu_fanart>
+			<emu_logo>http://i.imgur.com/qfsEaC0.png</emu_logo>
 			<emu_trailer>BkaC1-QoraY</emu_trailer>
 		</header>
 			<game name="Doom">

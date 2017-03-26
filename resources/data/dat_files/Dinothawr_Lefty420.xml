@@ -133,9 +133,9 @@
 		<emu_downloadpath>default</emu_downloadpath>
 		<emu_postdlaction>unzip_update_rom_path_dosbox</emu_postdlaction>
 		<emu_comment>Dinothawr Retroarch port, provided by Lefty420.</emu_comment>
-			<emu_thumb>https://camo.githubusercontent.com/5b90c0cf264eef33ecd7623b9dd4b21f9f8f8f42/687474703a2f2f77696b692e6c6962726574726f2e636f6d2f696d616765732f322f32352f44696e6f74686177725469746c6553637265656e2e706e67</emu_thumb>
-			<emu_banner>https://rpigame.files.wordpress.com/2016/02/dinothawr.png?w=920</emu_banner>
-			<emu_fanart>https://lh5.ggpht.com/Mw3S3ekvWv02glYgP8fMNi0lRmSYXupsYuNemY5hmo10qyOvDwXMkYD2wf5hrhr4Yx4=h900</emu_fanart>
+			<emu_thumb>http://i.imgur.com/QutBVWe.jpg</emu_thumb>
+			<emu_banner>http://i.imgur.com/wyqeBmz.jpg</emu_banner>
+			<emu_fanart>http://i.imgur.com/NkhqZah.jpg</emu_fanart>
 			<emu_logo>http://i.imgur.com/F7IxpAE.png</emu_logo>
 			<emu_trailer>VQpHejqlzzY</emu_trailer>
 		</header>
