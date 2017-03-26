@@ -1,6 +1,8 @@
 <meta name=”robots” content=”noindex, nofollow”>
+
 Internet Archive ROM Launcher
 ==========================
+
 ![IARL](https://github.com/zach-morris/plugin.program.iarl/blob/master/fanart.jpg)
 
 Play retro games from the cloud!
