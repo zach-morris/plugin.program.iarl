@@ -15,6 +15,12 @@ xbmc.log(msg='IARL:  Lets Play!', level=xbmc.LOGNOTICE)
 #Initialize Stuff
 plugin = Plugin()
 
+try:  #Added for even more viewtypes depending on the skin
+    if plugin.get_setting('iarl_setting_setcontent',unicode) != 'None':
+        xbmcplugin.setContent(int(sys.argv[1]),str(plugin.get_setting('iarl_setting_setcontent',unicode)))
+except:
+    xbmc.log(msg='IARL:  Unable to set content type', level=xbmc.LOGDEBUG)
+
 iarl_data = {
             'settings' : {  'cache_list' : plugin.get_setting('iarl_setting_cache_list',bool),
                             'clean_list' : plugin.get_setting('iarl_setting_clean_list',bool),

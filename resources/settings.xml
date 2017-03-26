@@ -56,6 +56,7 @@
 		<setting visible="true" label="Set addon to provide games (RetroPlayer Only)" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/update_addonxml_provides_games.py)"/>
 		<setting visible="true" label="Set addon to provide Video" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/update_addonxml_provides_video.py)"/>
 		<setting visible="true" label="Set addon to provide Programs" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/update_addonxml_provides_program.py)"/>
+		<setting id="iarl_setting_setcontent" type="select" label="Addon Content Type" values="movies|tvshows|videos|mixed|games|None" default="tvshows"/>
 		<setting type="sep"/>
 		<setting visible="true" label="Unhide All Archives" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/unhide_all_archives.py)"/>
 		<setting type="sep"/>
