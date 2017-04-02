@@ -6,6 +6,7 @@ import os, sys, re, shutil, json, zipfile, urllib, glob, difflib
 import xbmc, xbmcaddon, xbmcvfs, xbmcgui
 # 	from resources.lib.xbmcswift2b import xbmcgui
 from descriptionparserfactory import *
+from resources.lib.webutils import *
 from dateutil import parser as date_parser
 try:
     import cPickle as pickle
@@ -2252,7 +2253,7 @@ def setup_mame_softlist_game(iarl_data,softlist_type):
 					except:
 						xbmc.log(msg='IARL:  Error creating MAME hash path: ' +str(current_hash_path), level=xbmc.LOGERROR)
 				if not os.path.isfile(save_hash_filename): #Download the hash file if it's not already present
-					from resources.lib.webutils import *
+					# from resources.lib.webutils import *
 					hash_dl_success = download_tools().Downloader(softlist_info['web_url'][0],save_hash_filename,False,'','',99999,str(os.path.split(softlist_info['web_url'][0])),'Downloading hash file, please wait...') #No login required for github raw files
 					if not hash_dl_success:
 						xbmc.log(msg='IARL:  Error downloading MAME hash file: ' +str(softlist_info['web_url'][0]), level=xbmc.LOGERROR)
@@ -2350,7 +2351,7 @@ def setup_mess2014_softlist_game(iarl_data,softlist_type):
 					except:
 						xbmc.log(msg='IARL:  Error creating MESS2014 hash path: ' +str(current_hash_path), level=xbmc.LOGERROR)
 				if not os.path.isfile(save_hash_filename): #Download the hash file if it's not already present
-					from resources.lib.webutils import *
+					# from resources.lib.webutils import *
 					hash_dl_success = download_tools().Downloader(softlist_info['web_url'][0],save_hash_filename,False,'','',99999,str(os.path.split(softlist_info['web_url'][0])),'Downloading hash file, please wait...') #No login required for github raw files
 					if not hash_dl_success:
 						xbmc.log(msg='IARL:  Error downloading MESS2014 hash file: ' +str(softlist_info['web_url'][0]), level=xbmc.LOGERROR)
@@ -2959,45 +2960,100 @@ def set_new_post_dl_action(xml_id,plugin):
 	current_xml_filename = current_xml_fileparts[1]
 	current_xml_path = current_xml_fileparts[0]
 	current_dialog = xbmcgui.Dialog()
-	ret1 = current_dialog.select('Select New Post Download Action', ['None','Unzip','Unzip and Update DOSBox CMD','Convert CHD to BIN/CUE','Convert CHD to CUE/BIN','Rename with .gg ext','Cancel'])
-	if ret1 == 0:
-		ret2 = current_dialog.select('Are you sure you want to set the post DL action to none for '+current_xml_filename, ['Yes','Cancel'])
-		if ret2<1:
-			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','none')
-			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to None[CR]Cache was cleared for new settings')
-			delete_userdata_list_cache_file(current_xml_filename.split('.')[0])
-	elif ret1 == 1:
-		ret2 = current_dialog.select('Are you sure you want to set the post DL action to Unzip for '+current_xml_filename, ['Yes','Cancel'])
-		if ret2<1:
-			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','unzip_rom')
-			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to Unzip[CR]Cache was cleared for new settings')
-			delete_userdata_list_cache_file(current_xml_filename.split('.')[0])
-	elif ret1 == 2:
-		ret2 = current_dialog.select('Are you sure you want to set the post DL action to Unzip and Update DOSBox CMDs for '+current_xml_filename, ['Yes','Cancel'])
-		if ret2<1:
-			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','unzip_update_rom_path_dosbox')
-			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to Unzip and Update DOSBox CMDs[CR]Cache was cleared for new settings')
-			delete_userdata_list_cache_file(current_xml_filename.split('.')[0])
-	elif ret1 == 3:
-		ret2 = current_dialog.select('Are you sure you want to set the post DL action to convert CHD to BIN/CUE (launch BIN) for '+current_xml_filename, ['Yes','Cancel'])
-		if ret2<1:
-			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','convert_chd_bin')
-			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to convert CHD to BIN/CUE[CR]Cache was cleared for new settings')
-			delete_userdata_list_cache_file(current_xml_filename.split('.')[0])
-	elif ret1 == 4:
-		ret2 = current_dialog.select('Are you sure you want to set the post DL action to convert CHD to CUE/BIN (launch CUE) for'+current_xml_filename, ['Yes','Cancel'])
-		if ret2<1:
-			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','convert_chd_cue')
-			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to convert CHD to CUE/BIN[CR]Cache was cleared for new settings')
-			delete_userdata_list_cache_file(current_xml_filename.split('.')[0])
-	elif ret1 == 5:
-		ret2 = current_dialog.select('Are you sure you want to set the post DL action to rename file with .gg extension for '+current_xml_filename, ['Yes','Cancel'])
-		if ret2<1:
-			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','rename_rom_postdl('"'gg'"')')
-			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to rename file with .gg extension[CR]Cache was cleared for new settings')
-			delete_userdata_list_cache_file(current_xml_filename.split('.')[0])
+
+	post_dl_actions_list = ['None',
+							'UnZIP Archive',
+							'UnZIP Archive and Rename',
+							'UnZIP DOSBox, Run Command',
+							'UnZIP DOSBox, Launch Conf',
+							'UnZIP SCUMMVm, Generate Conf',
+							'Convert CHD, Launch bin',
+							'Convert CHD, Launch cue',
+							'Convert Lynx Headerless Rom',
+							'Update downloaded file extension',
+							'Unzip Archive, Generate FS-UAE Conf',
+							'UnZIP Archive, Generate UAE4ARM Conf',
+							'UnZIP Archive, Generate FS-UAE CD32 Conf',
+							'Un7Z Archive, Generate M3U',
+							'Un7Z Archive, Launch track1.bin',
+							'Un7Z Archive, Launch gdi',
+							'Un7Z Archive, Launch cue',
+							'Un7Z Archive, Launch iso',
+							'UnZIP Archive, Generate M3U',
+							'UnZIP Archive, Launch track1.bin',
+							'UnZIP Archive, Launch gdi',
+							'UnZIP Archive, Launch cue',
+							'UnZIP Archive, Launch iso',
+							'UnZIP Archive, Launch disk1.adf',
+							'Generate MAME Softlist Command',
+							'Generate MESS2014 Softlist Command',
+							'Cancel']
+	post_dl_commands_list = ['none',
+							'unzip_rom',
+							'unzip_and_rename_file',
+							'unzip_update_rom_path_dosbox',
+							'unzip_dosbox_update_conf_file',
+							'unzip_scummvm_update_conf_file',
+							'convert_chd_bin',
+							'convert_chd_cue',
+							'lynx_header_fix',
+							'rename_rom_postdl',
+							'generate_uae_conf_file',
+							'generate_uae4arm_conf_file',
+							'generate_uae_cd32_conf_file',
+							'convert_7z_m3u',
+							'convert_7z_track1_bin',
+							'convert_7z_gdi',
+							'convert_7z_cue',
+							'convert_7z_iso',
+							'convert_zip_m3u',
+							'convert_zip_track1_bin',
+							'convert_zip_gdi',
+							'convert_zip_cue',
+							'convert_zip_iso',
+							'convert_adf_folder',
+							'convert_mame_softlist',
+							'convert_mess2014_softlist',
+							'Cancel']
+
+	ret1 = current_dialog.select('Select New Post Download Action',post_dl_actions_list)
+
+	try:
+		print 'ztest'
+		print ret1
+		selected_action = post_dl_actions_list[ret1]
+		selected_command = post_dl_commands_list[ret1]
+		print 'ztest'
+		print selected_action
+		print selected_command
+	except:
+		selected_action = 'Cancel'
+		selected_command = None
+		xbmc.log(msg='IARL:  An unknown post DL action was selected, defaulting to Cancel', level=xbmc.LOGDEBUG)
+
+	new_command_append = None
+	if selected_action != 'Cancel': #Attempt to update post DL command if Cancel was not selected
+		if selected_command is not None:
+			ret2 = current_dialog.select('Are you sure you want to set the post DL action to '+selected_action+' for '+current_xml_filename, ['Yes','Cancel'])
+			if ret2<1: #If the user selected YES, then keep going
+				if selected_command == 'rename_rom_postdl': #Ask user for new extension
+					new_command_append = current_dialog.input('Enter the new file extension:')
+				elif selected_command == 'convert_mame_softlist': #Ask user for mame softlist type
+					new_command_append = current_dialog.input('Enter the softlist type:')
+				elif selected_command == 'convert_mess2014_softlist': #Ask user for mess2014 softlist type
+					new_command_append = current_dialog.input('Enter the softlist type:')
+
+				if new_command_append is not None:
+					selected_command = selected_command+"('"+new_command_append+"')"
+					selected_action = selected_action+" ("+new_command_append+")"
+				xbmc.log(msg='IARL:  POSTDL Update: '+str(selected_command), level=xbmc.LOGDEBUG)
+				update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction',selected_command)
+				ok_ret = current_dialog.ok('Complete','Post Download Action Updated to '+selected_action+'[CR]Cache was cleared for new settings')
+				delete_userdata_list_cache_file(current_xml_filename.split('.')[0])
+		else:
+			xbmc.log(msg='IARL:  An unknown post DL action was selected, no changes were made', level=xbmc.LOGDEBUG)
 	else:
-		pass
+		xbmc.log(msg='IARL:  The post DL action was canceled, no changes were made', level=xbmc.LOGDEBUG)
 
 def set_new_emu_launcher(xml_id,plugin):
 	current_xml_fileparts = os.path.split(xml_id)
