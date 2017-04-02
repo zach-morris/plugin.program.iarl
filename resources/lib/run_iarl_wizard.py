@@ -558,7 +558,7 @@ wizard_data = {
 							'Cavestory_Lefty420' : ['RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)','RetroArch CaveStory (NXEngine)'],
 							'Dinothawr_Lefty420' : ['RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)','RetroArch Dinothawr (Other)'],
 							},
-			'OpenElec RPi (Gamestarter Addon)' : { '32X_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
+			'RPi Gamestarter Addon' : { '32X_ZachMorris' : ['RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)','RetroArch PicoDrive (SMS/Gen/Sega CD/32X)'],
 							'3DO_ZachMorris' : ['hidden','hidden','hidden'], #4DO core not available
 							'Amiga_CD32_Full' : ['hidden','hidden','hidden'],
 							'Amiga_Full_ZRL' : ['hidden','hidden','hidden'],
@@ -840,7 +840,7 @@ if 'Select' in wizard_data['settings']['iarl_wizard_launcher_group']:
 	not_ready_reason = 'Please select (Playable/Accurate/Balanced)[CR]Then hit OK to close & save addon settings and try again.'
 	not_ready = True
 
-# Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|OpenElec RPi (Gamestarter Addon)|Android
+# Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|RPi Gamestarter Addon|Android
 if not not_ready:
 	if 'Select' in wizard_data['settings']['iarl_external_user_external_env']:
 		# ok_ret = current_dialog.ok('Setup not ready','Please select your system type[CR]Then hit OK to save your settings and try again.')
@@ -884,7 +884,7 @@ if not not_ready:
 			external_launch_database_os = wizard_data['settings']['iarl_external_user_external_env'] + ' Close_Kodi' #Look for launch commands to close Kodi
 		else:
 			external_launch_database_os = wizard_data['settings']['iarl_external_user_external_env']
-		if wizard_data['settings']['iarl_external_user_external_env'] in 'OpenElec x86 (tssemek Addon)|OpenElec RPi (Gamestarter Addon)|OpenElec RPi (Mezo/lollo78 Addon)|Android'.split('|'):
+		if wizard_data['settings']['iarl_external_user_external_env'] in 'OpenElec x86 (tssemek Addon)|RPi Gamestarter Addon|OpenElec RPi (Mezo/lollo78 Addon)|Android'.split('|'):
 			external_launch_database_os = external_launch_database_os.replace(' Close_Kodi','') #By default, the above setups auto close Kodi, so there's only one list of launchers to choose from
 		
 		for entries in results:
