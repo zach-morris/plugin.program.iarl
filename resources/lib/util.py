@@ -6,7 +6,7 @@ import os, sys, re, shutil, json, zipfile, urllib, glob, difflib
 import xbmc, xbmcaddon, xbmcvfs, xbmcgui
 # 	from resources.lib.xbmcswift2b import xbmcgui
 from descriptionparserfactory import *
-from resources.lib.webutils import *
+from webutils import *
 from dateutil import parser as date_parser
 try:
     import cPickle as pickle
