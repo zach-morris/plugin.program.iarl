@@ -858,7 +858,7 @@ if not not_ready:
 
 if not not_ready:
 	if 'OSX' in wizard_data['settings']['iarl_external_user_external_env'] or 'Windows' in wizard_data['settings']['iarl_external_user_external_env'] or 'Linux/Kodibuntu' in wizard_data['settings']['iarl_external_user_external_env']:
-		if len(wizard_data['settings']['iarl_path_to_retroarch'])<1:
+		if len(wizard_data['settings']['iarl_path_to_retroarch'])<1 and 'RetroPlayer' not in wizard_data['settings']['iarl_wizard_launcher_group']:
 			# ok_ret = current_dialog.ok('External Program Warning','Path to retroarch must be set first.[CR]Then hit OK to save your settings and try again.')
 			not_ready_reason = 'Path to retroarch must be set first.[CR]Then hit OK to close & save addon settings and try again.'
 			not_ready = True
