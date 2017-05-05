@@ -3148,11 +3148,11 @@ def check_downloaded_file(file_path):
 		xbmc.log(msg='IARL:  The file '+str(file_path)+' was 0 bytes in size.', level=xbmc.LOGERROR)
 		os.remove(file_path) #Remove Zero Byte File
 		bad_file_found = True
-	if st.st_size > 1 and st.st_size < 6000: #Small file, check if archive.org returned 'item not found'
+	if st.st_size > 1 and st.st_size < 40000: #Small file, check if archive.org returned 'item not found'
 		try:
 			with open(file_path, 'r') as content_file:
 				file_contents = content_file.read().replace('\n', '')
-			if '<title>item not available' in file_contents.lower():
+			if '<title>item not available' in file_contents.lower() or '<title>internet archive: page not found' in file_contents.lower():
 				current_dialog = xbmcgui.Dialog()
 				ok_ret = current_dialog.ok('Error','Archive returned no file or requires login in settings.')
 				xbmc.log(msg='IARL:  Archive.org returned a bad file for '+str(file_path)+'.  The archive may require login to download this file.', level=xbmc.LOGERROR)
