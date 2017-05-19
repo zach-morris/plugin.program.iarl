@@ -3152,7 +3152,7 @@ def check_downloaded_file(file_path):
 		try:
 			with open(file_path, 'r') as content_file:
 				file_contents = content_file.read().replace('\n', '')
-			if '<title>item not available' in file_contents.lower() or '<title>internet archive: page not found' in file_contents.lower():
+			if '<title>item not available' in file_contents.lower() or '<title>internet archive' in file_contents.lower() or '<title>archive.org' in file_contents.lower():
 				current_dialog = xbmcgui.Dialog()
 				ok_ret = current_dialog.ok('Error','Archive returned no file or requires login in settings.')
 				xbmc.log(msg='IARL:  Archive.org returned a bad file for '+str(file_path)+'.  The archive may require login to download this file.', level=xbmc.LOGERROR)
