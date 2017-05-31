@@ -847,6 +847,23 @@ def replace_external_launch_variables(iarl_data):
 	command_out = command_out.replace('%ROM_PATH%',iarl_data['current_save_data']['launch_filename']) #Replace ROM filepath
 	command_out = command_out.replace('%ROM_BASE_PATH%',os.path.join(os.path.split(iarl_data['current_save_data']['launch_filename'])[0],'')) #Replace ROM Base path
 
+	if '%RETROARCH_CORE_DIR%' in command_out:
+		possible_core_dirs = ['/usr/lib/libretro','/usr/lib/x86_64-linux-gnu/libretro','/usr/lib/i386-linux-gnu/libretro','/usr/local/lib/libretro','/tmp/cores']
+		default_core_dir = '/usr/lib/libretro'
+		core_found_idx = None
+		for jj in range(0,len(possible_core_dirs)):
+			try:
+				if os.path.isfile(os.path.join(possible_core_dirs[jj],os.path.split(command_out.split('%RETROARCH_CORE_DIR%')[-1].split('.so')[0]+'.so')[-1])):
+					core_found_idx = jj
+			except:
+				pass
+		if core_found_idx is not None:
+			xbmc.log(msg='IARL:  The Retroarch Core directory was found at '+str(possible_core_dirs[core_found_idx]), level=xbmc.LOGDEBUG)
+			command_out = command_out.replace('%RETROARCH_CORE_DIR%',possible_core_dirs[core_found_idx])
+		else:
+			xbmc.log(msg='IARL:  The Retroarch Core directory could not be found.  Defaulting to '+str(default_core_dir), level=xbmc.LOGERROR)
+			command_out = command_out.replace('%RETROARCH_CORE_DIR%',default_core_dir)
+
 	for jj in range(0,len(iarl_data['settings']['enable_additional_emulators'])):
 	    if 'FS-UAE' in iarl_data['settings']['enable_additional_emulators'][jj]:
 	        command_out = command_out.replace('%APP_PATH_FS_UAE%',iarl_data['settings']['path_to_additional_emulators'][jj])
