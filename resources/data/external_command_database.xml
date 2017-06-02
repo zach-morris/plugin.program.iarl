@@ -255,6 +255,9 @@
 	<launcher name="RetroArch VECX (Vectrex)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vecx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch VICE (C64)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vice_x64_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Virtual Jaguar (Jaguar)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/virtualjaguar_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -525,6 +528,9 @@
 	</launcher>
 	<launcher name="RetroArch VECX (Vectrex)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vecx_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VICE (C64)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/vice_x64_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Virtual Jaguar (Jaguar)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/virtualjaguar_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -803,6 +809,9 @@
 	<launcher name="RetroArch VECX (Vectrex)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/vecx_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch VICE (C64)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/vice_x64_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Virtual Jaguar (Jaguar)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/virtualjaguar_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1080,6 +1089,9 @@
 	<launcher name="RetroArch VECX (Vectrex)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/vecx_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch VICE (C64)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/vice_x64_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Virtual Jaguar (Jaguar)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L /usr/lib/libretro/virtualjaguar_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1353,6 +1365,9 @@
 	</launcher>
 	<launcher name="RetroArch VECX (Vectrex)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\vecx_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VICE (C64)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\vice_x64_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Virtual Jaguar (Jaguar)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\virtualjaguar_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1630,6 +1645,9 @@
 	</launcher>
 	<launcher name="RetroArch VECX (Vectrex)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\vecx_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VICE (C64)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\vice_x64_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Virtual Jaguar (Jaguar)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\virtualjaguar_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1911,6 +1929,9 @@
 	<launcher name="RetroArch VECX (Vectrex)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh vecx "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch VICE (C64)" os="OpenElec x86 (tssemek Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh vice_x64 "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Virtual Jaguar (Jaguar)" os="OpenElec x86 (tssemek Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE.sh virtualjaguar "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -2190,6 +2211,9 @@
 	</launcher>
 	<launcher name="RetroArch VECX (Vectrex)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/vecx_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VICE (C64)" os="LibreElec x86">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/vice_x64_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Virtual Jaguar (Jaguar)" os="LibreElec x86">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/virtualjaguar_libretro.so "%ROM_PATH%"</launcher_command>
@@ -2471,6 +2495,9 @@
 	<launcher name="RetroArch VECX (Vectrex)" os="LibreElec SX05">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh vecx "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch VICE (C64)" os="LibreElec SX05">
+		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh vice_x64 "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Virtual Jaguar (Jaguar)" os="LibreElec SX05">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh virtualjaguar "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -2733,6 +2760,9 @@
 	<launcher name="RetroArch VECX (Vectrex)" os="RPi Gamestarter Addon">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh vecx "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch VICE (C64)" os="RPi Gamestarter Addon">
+		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh vice_x64 "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch Virtual Jaguar (Jaguar)" os="RPi Gamestarter Addon">
 		<launcher_command>/storage/.kodi/addons/script.gamestarter/resources/bin/gamestarter.sh virtualjaguar "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -2970,6 +3000,9 @@
 	</launcher>
 	<launcher name="RetroArch VECX (Vectrex)" os="OpenElec RPi (Mezo/lollo78 Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh vecx "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VICE (C64)" os="OpenElec RPi (Mezo/lollo78 Addon)">
+		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh vice_x64 "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Virtual Jaguar (Jaguar)" os="OpenElec RPi (Mezo/lollo78 Addon)">
 		<launcher_command>%ADDON_DIR%/resources/bin/romlaunch_OE_RPi2.sh virtualjaguar "%ROM_PATH%"</launcher_command>
@@ -3232,6 +3265,9 @@
 	</launcher>
 	<launcher name="RetroArch VECX (Vectrex)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/vecx_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
+	<launcher name="RetroArch VICE (C64)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/vice_x64_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Virtual Jaguar (Jaguar)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/virtualjaguar_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
