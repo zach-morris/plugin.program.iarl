@@ -57,6 +57,7 @@ iarl_data = {
                             'hidden_setting_warn_chd' : plugin.get_setting('iarl_setting_warn_chd',bool),
                             'hidden_setting_warn_iso' : plugin.get_setting('iarl_setting_warn_iso',bool),
                             'launch_with_subprocess' : plugin.get_setting('iarl_setting_subprocess_launch',bool),
+                            'hard_code_favorite_settings' : plugin.get_setting('iarl_setting_favorite_hard_code',bool),
                             'hard_coded_include_back_link' : False,
                         },
             'addon_data':{  'plugin_name' : 'plugin.program.iarl',
@@ -398,27 +399,33 @@ def update_favorite_items(item_string):
     iarl_data['current_rom_data']['rom_rating'] = ystr(xbmc.getInfoLabel('ListItem.Property(rating)'))
     iarl_data['current_rom_data']['rom_esrb'] = ystr(xbmc.getInfoLabel('ListItem.Property(esrb)'))
     iarl_data['current_rom_data']['rom_perspective'] = ystr(xbmc.getInfoLabel('ListItem.Property(perspective)'))
-    iarl_data['current_rom_data']['rom_emu_command'] = ystr(xbmc.getInfoLabel('ListItem.Property(rom_emu_command)'))
-    try:
-        iarl_data['current_rom_data']['rom_override_cmd'] = ystr(xbmc.getInfoLabel('ListItem.Property(rom_override_cmd)'))
-    except:
-        iarl_data['current_rom_data']['rom_override_cmd'] = None
-    try:
-        iarl_data['current_rom_data']['rom_override_postdl'] = ystr(xbmc.getInfoLabel('ListItem.Property(rom_override_postdl)'))
-    except:
-        iarl_data['current_rom_data']['rom_override_postdl'] = None
-    try:
-        iarl_data['current_rom_data']['rom_override_downloadpath'] = ystr(xbmc.getInfoLabel('ListItem.Property(rom_override_downloadpath)'))
-    except:
-        iarl_data['current_rom_data']['rom_override_downloadpath'] = None
     iarl_data['current_rom_data']['rom_label'] = ystr(xbmc.getInfoLabel('ListItem.Label'))
     iarl_data['current_rom_data']['emu_ext_launch_cmd'] = ystr(xbmc.getInfoLabel('ListItem.Property(emu_ext_launch_cmd)')) #Needed to add this for xml favorites
     iarl_data['current_rom_data']['emu_post_download_action'] = ystr(xbmc.getInfoLabel('ListItem.Property(emu_post_download_action)')) #Needed to add this for xml favorites
     iarl_data['current_rom_data']['emu_download_path'] = ystr(xbmc.getInfoLabel('ListItem.Property(emu_download_path)')) #Needed to add this for xml favorites
-    iarl_data['current_rom_data']['rom_filenames'] = [ystr(x) for x in xbmc.getInfoLabel('ListItem.Property(rom_filenames)').split(',')] #Split into list
-    iarl_data['current_rom_data']['rom_supporting_filenames'] = [ystr(x) for x in xbmc.getInfoLabel('ListItem.Property(rom_supporting_filenames)').split(',')] #Split into list
-    iarl_data['current_rom_data']['rom_save_filenames'] = [ystr(x) for x in xbmc.getInfoLabel('ListItem.Property(rom_save_filenames)').split(',')] #Split into list
-    iarl_data['current_rom_data']['rom_save_supporting_filenames'] = [ystr(x) for x in xbmc.getInfoLabel('ListItem.Property(rom_save_supporting_filenames)').split(',')] #Split into list
+    if not iarl_data['settings']['hard_code_favorite_settings']: #Only provide link path to original XML
+        xbmc.log(msg='IARL:  Generating IARL Favorite with plugin:// link', level=xbmc.LOGDEBUG)
+        iarl_data['current_rom_data']['rom_filenames'] = [ystr(xbmc.getInfoLabel('ListItem.FolderPath'))]
+    else: #Hard code settings into favorites XML
+        xbmc.log(msg='IARL:  Generating IARL Favorite with hardcoded settings', level=xbmc.LOGDEBUG)
+        iarl_data['current_rom_data']['rom_filenames'] = [ystr(x) for x in xbmc.getInfoLabel('ListItem.Property(rom_filenames)').split(',')] #Split into list
+        iarl_data['current_rom_data']['rom_supporting_filenames'] = [ystr(x) for x in xbmc.getInfoLabel('ListItem.Property(rom_supporting_filenames)').split(',')] #Split into list
+        iarl_data['current_rom_data']['rom_save_filenames'] = [ystr(x) for x in xbmc.getInfoLabel('ListItem.Property(rom_save_filenames)').split(',')] #Split into list
+        iarl_data['current_rom_data']['rom_save_supporting_filenames'] = [ystr(x) for x in xbmc.getInfoLabel('ListItem.Property(rom_save_supporting_filenames)').split(',')] #Split into list
+        iarl_data['current_rom_data']['rom_emu_command'] = ystr(xbmc.getInfoLabel('ListItem.Property(rom_emu_command)'))
+        try:
+            iarl_data['current_rom_data']['rom_override_cmd'] = ystr(xbmc.getInfoLabel('ListItem.Property(rom_override_cmd)'))
+        except:
+            iarl_data['current_rom_data']['rom_override_cmd'] = None
+        try:
+            iarl_data['current_rom_data']['rom_override_postdl'] = ystr(xbmc.getInfoLabel('ListItem.Property(rom_override_postdl)'))
+        except:
+            iarl_data['current_rom_data']['rom_override_postdl'] = None
+        try:
+            iarl_data['current_rom_data']['rom_override_downloadpath'] = ystr(xbmc.getInfoLabel('ListItem.Property(rom_override_downloadpath)'))
+        except:
+            iarl_data['current_rom_data']['rom_override_downloadpath'] = None
+
     iarl_data['current_rom_data']['rom_size'] = [int(x) for x in xbmc.getInfoLabel('ListItem.Property(rom_file_sizes)').split(',')] #Split into list, convert to int
     for ii in range(0,total_arts):
         iarl_data['current_rom_data']['rom_fanarts'][ii] = ystr(xbmc.getInfoLabel('ListItem.Property(fanart'+str(ii+1)+')'))
@@ -712,7 +719,8 @@ def get_selected_rom(category_id,romname):
 
     if len(xbmc.getInfoLabel('Listitem.Title'))>0:
         if len(xbmc.getInfoLabel('ListItem.Property(rom_filenames)'))>0:
-            list_item_available = True
+            if 'plugin://' not in xbmc.getInfoLabel('ListItem.Property(rom_filenames)'): #Added for favorites bookmarks
+                list_item_available = True
 
     if not list_item_available:
         #The listitem is not defined, so we'll need to rescrape the xml for the game (most likely a favorite or other URL route)
@@ -810,34 +818,38 @@ def get_selected_rom(category_id,romname):
             iarl_data['current_rom_data']['rom_snapshots'][ii] = ystr(xbmc.getInfoLabel('ListItem.Property(snapshot'+str(ii+1)+')'))
             iarl_data['current_rom_data']['rom_logos'][ii] = ystr(xbmc.getInfoLabel('ListItem.Property(logo'+str(ii+1)+')'))
 
-    check_for_warn(iarl_data['current_rom_data']['rom_size']) #Added warning for file sizes over 100MB
 
-    #Show ROM Info window selected in settings
-    if 'ROM Info Page'.lower() in iarl_data['settings']['game_select_action'].lower():
-        if 'IARL Classic Window'.lower() in iarl_data['settings']['window_theme'].lower():
-            MyROMWindow = ROMWindow('default.xml',iarl_data['addon_data']['addon_install_path'],'Default','720p',iarl_data=iarl_data)
-            MyROMWindow.doModal()
-        # elif: #Not yet implemented
-        #     print xbmc.getSkinDir()
-        #     print get_skin_install_path(xbmc.getSkinDir())
-        #     MyROMWindow = ROMWindow('Confluence.xml',iarl_data['addon_data']['addon_install_path'],'Default','720p',iarl_data=iarl_data)
-        #     MyROMWindow.doModal()
-        else: #Default to classic
-            MyROMWindow = ROMWindow('default.xml',iarl_data['addon_data']['addon_install_path'],'Default','720p',iarl_data=iarl_data)
-            MyROMWindow.doModal()
-
-    #Download and launch selected in settings
-    elif 'Download and Launch'.lower() in iarl_data['settings']['game_select_action'].lower():
-        download_and_launch_rom(None,iarl_data)
-    #Download only selected in settings
-    elif 'Download Only'.lower() in iarl_data['settings']['game_select_action'].lower():
-        iarl_data['current_save_data'] = download_rom_only(iarl_data)
-        if iarl_data['current_save_data']['overall_download_success']:
-            current_dialog = xbmcgui.Dialog()
-            ok_ret = current_dialog.ok('Complete',iarl_data['current_rom_data']['rom_name']+' was successfully downloaded')          
+    if 'plugin://plugin.program.iarl' in iarl_data['current_rom_data']['rom_filenames'][0]: #IARL Favorites bookmark link, will link back to original xml listing
+        plugin.redirect('plugin://'+iarl_data['current_rom_data']['rom_filenames'][0].split('plugin://')[-1])
     else:
-        xbmc.log(msg='IARL:  Selected game action is unknown', level=xbmc.LOGERROR)
-        pass #Shouldn't ever see this
+        check_for_warn(iarl_data['current_rom_data']['rom_size']) #Added warning for file sizes over 100MB
+
+        #Show ROM Info window selected in settings
+        if 'ROM Info Page'.lower() in iarl_data['settings']['game_select_action'].lower():
+            if 'IARL Classic Window'.lower() in iarl_data['settings']['window_theme'].lower():
+                MyROMWindow = ROMWindow('default.xml',iarl_data['addon_data']['addon_install_path'],'Default','720p',iarl_data=iarl_data)
+                MyROMWindow.doModal()
+            # elif: #Not yet implemented
+            #     print xbmc.getSkinDir()
+            #     print get_skin_install_path(xbmc.getSkinDir())
+            #     MyROMWindow = ROMWindow('Confluence.xml',iarl_data['addon_data']['addon_install_path'],'Default','720p',iarl_data=iarl_data)
+            #     MyROMWindow.doModal()
+            else: #Default to classic
+                MyROMWindow = ROMWindow('default.xml',iarl_data['addon_data']['addon_install_path'],'Default','720p',iarl_data=iarl_data)
+                MyROMWindow.doModal()
+
+        #Download and launch selected in settings
+        elif 'Download and Launch'.lower() in iarl_data['settings']['game_select_action'].lower():
+            download_and_launch_rom(None,iarl_data)
+        #Download only selected in settings
+        elif 'Download Only'.lower() in iarl_data['settings']['game_select_action'].lower():
+            iarl_data['current_save_data'] = download_rom_only(iarl_data)
+            if iarl_data['current_save_data']['overall_download_success']:
+                current_dialog = xbmcgui.Dialog()
+                ok_ret = current_dialog.ok('Complete',iarl_data['current_rom_data']['rom_name']+' was successfully downloaded')          
+        else:
+            xbmc.log(msg='IARL:  Selected game action is unknown', level=xbmc.LOGERROR)
+            pass #Shouldn't ever see this
 
     pass
 

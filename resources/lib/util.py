@@ -1469,32 +1469,33 @@ def add_favorite_to_xml(iarl_data,favorites_xml_filename):
 		except: pass
 
 	#Provide new launching commands.  If there is an override command already present, we will use that.  Otherwise, we will use the current archives command.
-	if iarl_data['current_rom_data']['rom_override_cmd'] is not None and len(iarl_data['current_rom_data']['rom_override_cmd']) > 0:
-		xml_string = xml_string+'<rom_override_cmd>%ROM_OVERRIDE_CMD%</rom_override_cmd>\r\n'.replace('%ROM_OVERRIDE_CMD%',xstr(iarl_data['current_rom_data']['rom_override_cmd']))
-		# except: pass
-	else:
-		xml_string = xml_string+'<rom_override_cmd>%ROM_OVERRIDE_CMD%</rom_override_cmd>\r\n'.replace('%ROM_OVERRIDE_CMD%',xstr(iarl_data['current_rom_data']['emu_ext_launch_cmd']))
-		# except: pass
-	#Provide new post DL commands.  If there is an override command already present, we will use that.  Otherwise, we will use the current archives command.
-	if iarl_data['current_rom_data']['rom_override_postdl'] is not None and len(iarl_data['current_rom_data']['rom_override_postdl']) > 0:
-		try: xml_string = xml_string+'<rom_override_postdl>%ROM_OVERRIDE_POSTDL%</rom_override_postdl>\r\n'.replace('%ROM_OVERRIDE_POSTDL%',xstr(iarl_data['current_rom_data']['rom_override_postdl']))
-		except: pass
-	else:
-		try: xml_string = xml_string+'<rom_override_postdl>%ROM_OVERRIDE_POSTDL%</rom_override_postdl>\r\n'.replace('%ROM_OVERRIDE_POSTDL%',xstr(iarl_data['current_rom_data']['emu_post_download_action']))
-		except: pass
-	#Provide new post DL commands.  If there is an override command already present, we will use that.  Otherwise, we will use the current archives command.
-	if iarl_data['current_rom_data']['rom_override_downloadpath'] is not None and len(iarl_data['current_rom_data']['rom_override_downloadpath']) > 0:
-		try: xml_string = xml_string+'<rom_override_downloadpath>%ROM_OVERRIDE_DLPATH%</rom_override_downloadpath>\r\n'.replace('%ROM_OVERRIDE_DLPATH%',xstr(iarl_data['current_rom_data']['rom_override_downloadpath']))
-		except: pass
-	#Provide new DL location.	If there is an override command already present, we will use that.  Otherwise, we will use the current archives location.
-	else:
-		try:
-			if iarl_data['current_rom_data']['emu_download_path'] != iarl_data['addon_data']['addon_temp_dl_path']:
-				xml_string = xml_string+'<rom_override_downloadpath>%ROM_OVERRIDE_DLPATH%</rom_override_downloadpath>\r\n'.replace('%ROM_OVERRIDE_DLPATH%',xstr(iarl_data['current_rom_data']['emu_download_path']))
-			else:
-				xml_string = xml_string+'<rom_override_downloadpath>%ROM_OVERRIDE_DLPATH%</rom_override_downloadpath>\r\n'.replace('%ROM_OVERRIDE_DLPATH%','default')
-		except:
-			pass
+	if iarl_data['settings']['hard_code_favorite_settings']: #Only need to define these settings for hard coded favorites
+		if iarl_data['current_rom_data']['rom_override_cmd'] is not None and len(iarl_data['current_rom_data']['rom_override_cmd']) > 0:
+			xml_string = xml_string+'<rom_override_cmd>%ROM_OVERRIDE_CMD%</rom_override_cmd>\r\n'.replace('%ROM_OVERRIDE_CMD%',xstr(iarl_data['current_rom_data']['rom_override_cmd']))
+			# except: pass
+		else:
+			xml_string = xml_string+'<rom_override_cmd>%ROM_OVERRIDE_CMD%</rom_override_cmd>\r\n'.replace('%ROM_OVERRIDE_CMD%',xstr(iarl_data['current_rom_data']['emu_ext_launch_cmd']))
+			# except: pass
+		#Provide new post DL commands.  If there is an override command already present, we will use that.  Otherwise, we will use the current archives command.
+		if iarl_data['current_rom_data']['rom_override_postdl'] is not None and len(iarl_data['current_rom_data']['rom_override_postdl']) > 0:
+			try: xml_string = xml_string+'<rom_override_postdl>%ROM_OVERRIDE_POSTDL%</rom_override_postdl>\r\n'.replace('%ROM_OVERRIDE_POSTDL%',xstr(iarl_data['current_rom_data']['rom_override_postdl']))
+			except: pass
+		else:
+			try: xml_string = xml_string+'<rom_override_postdl>%ROM_OVERRIDE_POSTDL%</rom_override_postdl>\r\n'.replace('%ROM_OVERRIDE_POSTDL%',xstr(iarl_data['current_rom_data']['emu_post_download_action']))
+			except: pass
+		#Provide new post DL commands.  If there is an override command already present, we will use that.  Otherwise, we will use the current archives command.
+		if iarl_data['current_rom_data']['rom_override_downloadpath'] is not None and len(iarl_data['current_rom_data']['rom_override_downloadpath']) > 0:
+			try: xml_string = xml_string+'<rom_override_downloadpath>%ROM_OVERRIDE_DLPATH%</rom_override_downloadpath>\r\n'.replace('%ROM_OVERRIDE_DLPATH%',xstr(iarl_data['current_rom_data']['rom_override_downloadpath']))
+			except: pass
+		#Provide new DL location.	If there is an override command already present, we will use that.  Otherwise, we will use the current archives location.
+		else:
+			try:
+				if iarl_data['current_rom_data']['emu_download_path'] != iarl_data['addon_data']['addon_temp_dl_path']:
+					xml_string = xml_string+'<rom_override_downloadpath>%ROM_OVERRIDE_DLPATH%</rom_override_downloadpath>\r\n'.replace('%ROM_OVERRIDE_DLPATH%',xstr(iarl_data['current_rom_data']['emu_download_path']))
+				else:
+					xml_string = xml_string+'<rom_override_downloadpath>%ROM_OVERRIDE_DLPATH%</rom_override_downloadpath>\r\n'.replace('%ROM_OVERRIDE_DLPATH%','default')
+			except:
+				pass
 	try: xml_string = xml_string+'<plot>%GAME_PLOT%</plot>\r\n'.replace('%GAME_PLOT%',xstr(iarl_data['current_rom_data']['rom_plot']))
 	except: pass
 	try: xml_string = xml_string+'<year>%GAME_YEAR%</year>\r\n'.replace('%GAME_YEAR%',xstr(iarl_data['current_rom_data']['rom_year']))

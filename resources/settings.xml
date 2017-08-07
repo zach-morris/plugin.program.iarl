@@ -66,5 +66,6 @@
 		<setting visible="false" id="iarl_setting_warn_size" type="bool" label="Display Size Warning" default="true"/>
 		<setting visible="false" id="iarl_setting_warn_retroarch_sys_dir" type="bool" label="No System Dir Defined" default="true"/>
 		<setting visible="false" id="iarl_setting_subprocess_launch" type="bool" label="Launch Games with Subprocess" default="false"/>
+		<setting visible="false" id="iarl_setting_favorite_hard_code" type="bool" label="Hard Code Settings Into IARL Favorites" default="false"/>
 	</category>
 </settings>
