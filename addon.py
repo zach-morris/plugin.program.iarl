@@ -56,6 +56,7 @@ iarl_data = {
                             'hidden_setting_clear_hidden_archives' : plugin.get_setting('iarl_setting_clear_hidden_archives',bool),
                             'hidden_setting_warn_chd' : plugin.get_setting('iarl_setting_warn_chd',bool),
                             'hidden_setting_warn_iso' : plugin.get_setting('iarl_setting_warn_iso',bool),
+                            'hidden_setting_tou_agree' : plugin.get_setting('iarl_setting_tou',bool),
                             'launch_with_subprocess' : plugin.get_setting('iarl_setting_subprocess_launch',bool),
                             'hard_code_favorite_settings' : plugin.get_setting('iarl_setting_favorite_hard_code',bool),
                             'hard_coded_include_back_link' : False,
@@ -460,6 +461,7 @@ def update_context_favorite(item_in,context_label):
 ## Main Start/Index Page of Addon
 @plugin.route('/')
 def index():
+
     items = []
     initialize_userdata()
     if iarl_data['archive_data'] is None:
@@ -566,8 +568,16 @@ def index():
         items[-1].set_clearlogo(items[-1].get_property('clearlogo'))
         items[-1].set_clearart(items[-1].get_property('clearlogo'))
 
-
-    return plugin.finish(items, update_listing=True, sort_methods=[xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_GENRE])
+    #if TOU has not been agreed to, show TOU window first
+    if not iarl_data['settings']['hidden_setting_tou_agree']:
+        MyTOUWindow = TOUWindow('TOU.xml',iarl_data['addon_data']['addon_install_path'],'Default','720p')
+        MyTOUWindow.doModal()
+        if 'true' in xbmcaddon.Addon(id='plugin.program.iarl').getSetting(id='iarl_setting_tou'):
+            return plugin.finish(items, update_listing=True, sort_methods=[xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_GENRE])
+        else:
+            return plugin.finish([], update_listing=True)
+    else:
+        return plugin.finish(items, update_listing=True, sort_methods=[xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_GENRE])
 
 @plugin.route('/Emulator/<category_id>/<page_id>')
 def get_rom_page(category_id,page_id):
@@ -1805,6 +1815,9 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
         self.button_action2.setLabel('Launch')
         self.button_exit.setLabel('Close')
 
+        self.button_action1.setEnabled(True)
+        self.button_action2.setEnabled(True)
+        self.button_exit.setEnabled(True)
         # self.plot_box.setText(iarl_data['current_rom_data']['rom_plot']) #Enter the plot if its available
         # self.logo_art.setImage(iarl_data['current_archive_data']['emu_logo']) #Place the emu logo
         # self.title_box.setText(iarl_data['current_rom_data']['rom_title'])
@@ -1878,6 +1891,8 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
     def onClick(self, controlId):
         #Download Only
         if controlId == self.control_id_button_action1:
+            self.button_action1.setEnabled(False)
+
             if xbmc.Player().isPlaying():
                 xbmc.Player().stop()
                 xbmc.sleep(100)
@@ -1888,14 +1903,19 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
                 current_dialog = xbmcgui.Dialog()
                 ok_ret = current_dialog.ok('Complete',iarl_data['current_rom_data']['rom_name']+' was successfully downloaded')
 
+            self.button_action1.setEnabled(True)
+
         #Download and Launch
         if controlId == self.control_id_button_action2:
+            self.button_action2.setEnabled(False)
+
             if xbmc.Player().isPlaying():
                 xbmc.Player().stop()
                 xbmc.sleep(100)
             # self.please_wait.setVisible(True)
             download_and_launch_rom(self,iarl_data)
             # self.please_wait.setVisible(False)
+            self.button_action2.setEnabled(True)
 
         #Play the Trailer
         if controlId == self.control_id_button_action3: #Play the trailer if it exists
@@ -1920,6 +1940,9 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
             if xbmc.Player().isPlaying():
                 xbmc.Player().stop()
                 xbmc.sleep(100)
+
+            self.button_action1.setEnabled(True)
+            self.button_action2.setEnabled(True)
             self.closeDialog()
 
     def doAction(self, controlId):
@@ -2088,6 +2111,58 @@ class SearchWindow(xbmcgui.WindowXMLDialog):
 
     def closeDialog(self):
         self.close()
+
+class TOUWindow(xbmcgui.WindowXMLDialog):
+    def __init__(self,strXMLname, strFallbackPath, strDefaultName, forceFallback, *args, **kwargs):
+        # Changing the three varibles passed won't change, anything
+        # Doing strXMLname = "bah.xml" will not change anything.
+        # don't put GUI sensitive stuff here (as the xml hasn't been read yet
+        # Idea to initialize your variables here
+        self.iarl_data = kwargs
+        xbmc.log(msg='IARL:  TOUWindow Opened', level=xbmc.LOGDEBUG)
+        pass
+    def onInit(self):
+        self.action_exitkeys_id = [10, 13]
+        #Create invisible listitem for skinning purposes
+        # get control ids
+        self.control_id_button_action1 = 3001 #Agree and Close
+        self.control_id_button_exit = 3003 #Do not Agree and Close
+        self.control_id_label_action = 3011
+        # set actions
+        self.button_action1 = self.getControl(self.control_id_button_action1)
+        self.button_exit = self.getControl(self.control_id_button_exit)
+
+    def onAction(self, action):
+        # Same as normal python Windows.  Same as do not agree
+        if action in self.action_exitkeys_id:
+            self.closeDialog()
+
+    def onFocus(self, controlId):
+        pass
+
+    def onClick(self, controlId):
+        #Agree and Close
+        if controlId == self.control_id_button_action1:
+            if xbmc.Player().isPlaying():
+                xbmc.Player().stop()
+                xbmc.sleep(100)
+            xbmcaddon.Addon(id='plugin.program.iarl').setSetting(id='iarl_setting_tou',value='true')
+            xbmc.sleep(500)
+            xbmc.log(msg='IARL:  Terms of Use Agree', level=xbmc.LOGDEBUG)
+            self.closeDialog()
+        #Do not Agree
+        elif controlId == self.control_id_button_exit:
+            if xbmc.Player().isPlaying():
+                xbmc.Player().stop()
+                xbmc.sleep(100)
+            xbmc.log(msg='IARL:  Terms of Use do not Agree', level=xbmc.LOGDEBUG)
+            self.closeDialog()
+    def doAction(self, controlId):
+        # print controlId
+        pass
+    def closeDialog(self):
+        self.close()
+
 
 if __name__ == '__main__':
     plugin.run()
