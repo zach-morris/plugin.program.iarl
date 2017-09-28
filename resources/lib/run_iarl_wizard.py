@@ -2,6 +2,11 @@ import xbmc, xbmcaddon, xbmcgui, os
 from descriptionparserfactory import *
 from util import *
 
+#Create dialog right away so user knows something is happening
+dp = xbmcgui.DialogProgress()
+dp.create('IARL Wizard','Please Wait...','')
+dp.update(0)
+
 addon = xbmcaddon.Addon(id='plugin.program.iarl')
 archive_data = get_archive_info()
 
@@ -863,6 +868,7 @@ if not not_ready:
 			not_ready_reason = 'Path to retroarch must be set first.[CR]Then hit OK to close & save addon settings and try again.'
 			not_ready = True
 		if 'Disabled' in wizard_data['settings']['iarl_additional_emulator_1_type'] and 'Disabled' in wizard_data['settings']['iarl_additional_emulator_2_type']:
+			dp.close()
 			ret2 = current_dialog.select('Additional emulators for some archives are not setup, continue?', ['Yes','Cancel'])
 			if ret2>0:
 				not_ready = True
@@ -984,4 +990,5 @@ else:
 	xbmc.log(msg='IARL:  W_Setting RA Path:  '+str(wizard_data['settings']['iarl_path_to_retroarch']), level=xbmc.LOGDEBUG)
 	xbmc.log(msg='IARL:  W_Setting RA CFG Path:  '+str(wizard_data['settings']['iarl_path_to_retroarch_cfg']), level=xbmc.LOGDEBUG)
 	xbmc.log(msg='IARL:  W_Setting Launch Group:  '+str(wizard_data['settings']['iarl_wizard_launcher_group']), level=xbmc.LOGDEBUG)
+	dp.close()
 	ok_ret = current_dialog.ok('Setup not ready',not_ready_reason)
