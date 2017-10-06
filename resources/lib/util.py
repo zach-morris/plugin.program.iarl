@@ -3126,7 +3126,7 @@ def check_file_exists_wildcard(file_path,file_name_2,exact_match_req):
 			matching_files = matching_files+glob.glob(os.path.join(file_path_base,file_path_name2.replace(',','*').replace(' ','*')+'*')) #Search for the filename with a different extension or folder with same name
 			matching_files = matching_files+glob.glob(os.path.join(file_path_base,'*',file_path_name2.replace(',','*').replace(' ','*')+'*')) #Add recursive search one folder down for MESS type setups
 			matching_files = matching_files+glob.glob(os.path.join(file_path_base,clean_file_folder_name(file_path_name2.replace(',','*').split('(')[0])+'*')) #Add search for processed filenames used in IARL
-		remove_these_filetypes = ['srm','sav','fs','state','auto'] #Save filetypes
+		remove_these_filetypes = ['srm','sav','fs','state','auto','xml'] #Save filetypes
 		matching_files = list(set([x for x in matching_files if x.split('.')[-1].lower() not in remove_these_filetypes])) #Remove duplicates and save filetypes
 		if len(matching_files)>0: #Matches were found, look for an exact match first
 			xbmc.log(msg='IARL:  Matching files found for '+str(file_path)+': '+str(', '.join(matching_files)), level=xbmc.LOGDEBUG)
