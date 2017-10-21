@@ -1,0 +1,199 @@
+<?xml version="1.0" ?>
+<!DOCTYPE datafile [
+<!ELEMENT datafile ANY>
+	<!ELEMENT header ANY>
+		<!ELEMENT emu_name (#PCDATA)>
+		<!ELEMENT emu_parser (#PCDATA)>
+		<!ELEMENT emu_description (#PCDATA)>
+		<!ELEMENT emu_category (#PCDATA)>
+		<!ELEMENT emu_version (#PCDATA)>
+		<!ELEMENT emu_date (#PCDATA)>
+		<!ELEMENT emu_author (#PCDATA)>
+		<!ELEMENT emu_homepage (#PCDATA)>
+		<!ELEMENT emu_baseurl (#PCDATA)>
+		<!ELEMENT emu_launcher (#PCDATA)>
+		<!ELEMENT emu_ext_launch_cmd (#PCDATA)>
+		<!ELEMENT emu_downloadpath (#PCDATA)>
+		<!ELEMENT emu_postdlaction (#PCDATA)>
+		<!ELEMENT emu_comment (#PCDATA)>
+		<!ELEMENT emu_thumb (#PCDATA)>
+		<!ELEMENT emu_banner (#PCDATA)>
+		<!ELEMENT emu_fanart (#PCDATA)>
+		<!ELEMENT emu_logo (#PCDATA)>
+		<!ELEMENT emu_trailer (#PCDATA)>
+	<!ELEMENT game ANY>
+		<!ATTLIST game name CDATA #REQUIRED>
+		<!ELEMENT description (#PCDATA)>
+		<!ELEMENT rom EMPTY>
+			<!ATTLIST rom name CDATA #REQUIRED>
+			<!ATTLIST rom size CDATA #REQUIRED>
+			<!ATTLIST rom crc CDATA #IMPLIED>
+			<!ATTLIST rom sha1 CDATA #IMPLIED>
+			<!ATTLIST rom status (baddump|nodump|good|verified) "good">
+		<!ELEMENT emu_command (#PCDATA)>
+		<!ELEMENT title_clean (#PCDATA)>
+		<!ELEMENT plot (#PCDATA)>
+		<!ELEMENT releasedate (#PCDATA)>
+		<!ELEMENT year (#PCDATA)>
+		<!ELEMENT genre (#PCDATA)>
+		<!ELEMENT studio (#PCDATA)>
+		<!ELEMENT nplayers (#PCDATA)>
+		<!ELEMENT perspective (#PCDATA)>
+		<!ELEMENT rating (#PCDATA)>
+		<!ELEMENT ESRB (#PCDATA)>
+		<!ELEMENT videoid (#PCDATA)>
+		<!ELEMENT thegamesdb_id (#PCDATA)>
+		<!ELEMENT gamefaqs_url (#PCDATA)>
+		<!ELEMENT moby_url (#PCDATA)>
+		<!ELEMENT consolegrid_url (#PCDATA)>
+		<!ELEMENT boxart1 (#PCDATA)>
+		<!ELEMENT boxart2 (#PCDATA)>
+		<!ELEMENT boxart3 (#PCDATA)>
+		<!ELEMENT boxart4 (#PCDATA)>
+		<!ELEMENT boxart5 (#PCDATA)>
+		<!ELEMENT boxart6 (#PCDATA)>
+		<!ELEMENT boxart7 (#PCDATA)>
+		<!ELEMENT boxart8 (#PCDATA)>
+		<!ELEMENT boxart9 (#PCDATA)>
+		<!ELEMENT boxart10 (#PCDATA)>
+		<!ELEMENT snapshot1 (#PCDATA)>
+		<!ELEMENT snapshot2 (#PCDATA)>
+		<!ELEMENT snapshot3 (#PCDATA)>
+		<!ELEMENT snapshot4 (#PCDATA)>
+		<!ELEMENT snapshot5 (#PCDATA)>
+		<!ELEMENT snapshot6 (#PCDATA)>
+		<!ELEMENT snapshot7 (#PCDATA)>
+		<!ELEMENT snapshot8 (#PCDATA)>
+		<!ELEMENT snapshot9 (#PCDATA)>
+		<!ELEMENT snapshot10 (#PCDATA)>		
+		<!ELEMENT fanart1 (#PCDATA)>
+		<!ELEMENT fanart2 (#PCDATA)>
+		<!ELEMENT fanart3 (#PCDATA)>
+		<!ELEMENT fanart4 (#PCDATA)>
+		<!ELEMENT fanart5 (#PCDATA)>
+		<!ELEMENT fanart6 (#PCDATA)>
+		<!ELEMENT fanart7 (#PCDATA)>
+		<!ELEMENT fanart8 (#PCDATA)>
+		<!ELEMENT fanart9 (#PCDATA)>
+		<!ELEMENT fanart10 (#PCDATA)>
+		<!ELEMENT fanart11 (#PCDATA)>
+		<!ELEMENT fanart12 (#PCDATA)>
+		<!ELEMENT fanart13 (#PCDATA)>
+		<!ELEMENT fanart14 (#PCDATA)>
+		<!ELEMENT fanart15 (#PCDATA)>
+		<!ELEMENT fanart16 (#PCDATA)>
+		<!ELEMENT fanart17 (#PCDATA)>
+		<!ELEMENT fanart18 (#PCDATA)>
+		<!ELEMENT fanart19 (#PCDATA)>
+		<!ELEMENT fanart20 (#PCDATA)>
+		<!ELEMENT fanart21 (#PCDATA)>
+		<!ELEMENT fanart22 (#PCDATA)>
+		<!ELEMENT fanart23 (#PCDATA)>
+		<!ELEMENT fanart24 (#PCDATA)>
+		<!ELEMENT fanart25 (#PCDATA)>
+		<!ELEMENT fanart26 (#PCDATA)>
+		<!ELEMENT fanart27 (#PCDATA)>
+		<!ELEMENT fanart28 (#PCDATA)>
+		<!ELEMENT fanart29 (#PCDATA)>
+		<!ELEMENT fanart30 (#PCDATA)>
+		<!ELEMENT banner1 (#PCDATA)>
+		<!ELEMENT banner2 (#PCDATA)>
+		<!ELEMENT banner3 (#PCDATA)>
+		<!ELEMENT banner4 (#PCDATA)>
+		<!ELEMENT banner5 (#PCDATA)>
+		<!ELEMENT banner6 (#PCDATA)>
+		<!ELEMENT banner7 (#PCDATA)>
+		<!ELEMENT banner8 (#PCDATA)>
+		<!ELEMENT banner9 (#PCDATA)>
+		<!ELEMENT banner10 (#PCDATA)>
+		<!ELEMENT clearlogo1 (#PCDATA)>
+		<!ELEMENT clearlogo2 (#PCDATA)>
+		<!ELEMENT clearlogo3 (#PCDATA)>
+		<!ELEMENT clearlogo4 (#PCDATA)>
+		<!ELEMENT clearlogo5 (#PCDATA)>
+		<!ELEMENT clearlogo6 (#PCDATA)>
+		<!ELEMENT clearlogo7 (#PCDATA)>
+		<!ELEMENT clearlogo8 (#PCDATA)>
+		<!ELEMENT clearlogo9 (#PCDATA)>
+		<!ELEMENT clearlogo10 (#PCDATA)>
+]>
+<datafile>
+	<header>
+		<emu_name>Lutro</emu_name>
+		<emu_parser>NoIntro_parser.xml</emu_parser>
+		<emu_description>Lotru</emu_description>
+		<emu_category>Love</emu_category>
+		<emu_version>10132017</emu_version>
+		<emu_date>10/13/2017</emu_date>
+		<emu_author>Zach Morris</emu_author>
+		<emu_homepage>http://www.no-intro.org</emu_homepage>
+		<emu_baseurl>https://buildbot.libretro.com/assets/cores/Lutro/</emu_baseurl>
+		<emu_launcher>external</emu_launcher>
+		<emu_ext_launch_cmd>none</emu_ext_launch_cmd>
+		<emu_downloadpath>default</emu_downloadpath>
+		<emu_postdlaction>none</emu_postdlaction>
+		<emu_comment>Lutro List by Zach Morris[CR]Lutro is an in-development Love 2D reimplementation written in Lua.  With Lutro, it is possible to easily create Lua games with no knowledge of C being necessary, or having to compile any code.</emu_comment>
+			<emu_thumb>https://i.imgur.com/fJKIkXT.png</emu_thumb>
+			<emu_banner>https://i.imgur.com/80iRAPM.png</emu_banner>
+			<emu_fanart>https://i.imgur.com/M9waixy.png</emu_fanart>
+			<emu_logo>https://i.imgur.com/T7QFlwF.png</emu_logo>
+			<emu_trailer>Yw4pTtJjZWI</emu_trailer>
+		</header>
+			<game name="Deep Dungeon">
+				<description>Deep Dungeon</description>
+				<rom name="Deep%20Dungeon.lutro" size="1056768" />
+				<title_clean>Deep Dungeon</title_clean>
+				<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Lutro/Named_Snaps/Deep%20Dungeon.png</snapshot1>
+				<snapshot2>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Lutro/Named_Titles/Deep%20Dungeon.png</snapshot2>
+			</game>
+			<game name="Game of Life">
+				<description>Game of Life</description>
+				<rom name="Game%20of%20Life.lutro" size="2048" />
+				<title_clean>Game of Life</title_clean>
+				<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Lutro/Named_Snaps/Game%20of%20Life.png</snapshot1>
+			</game>
+			<game name="In Your Face City Trains">
+				<description>In Your Face City Trains</description>
+				<rom name="In%20Your%20Face%20City%20Trains.lutro" size="1770496" />
+				<title_clean>In Your Face City Trains</title_clean>
+				<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Lutro/Named_Snaps/In%20Your%20Face%20City%20Trains.png</snapshot1>
+				<snapshot2>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Lutro/Named_Titles/In%20Your%20Face%20City%20Trains.png</snapshot2>
+			</game>
+			<game name="Platformer">
+				<description>Platformer</description>
+				<rom name="Platformer.lutro" size="425984" />
+				<title_clean>Platformer</title_clean>
+				<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Lutro/Named_Snaps/Platformer.png</snapshot1>
+			</game>
+			<game name="Pong">
+				<description>Pong</description>
+				<rom name="Pong.lutro" size="59392" />
+				<title_clean>Pong</title_clean>
+				<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Lutro/Named_Snaps/Pong.png</snapshot1>
+			</game>
+			<game name="Sienna">
+				<description>Sienna</description>
+				<rom name="Sienna.lutro" size="1685504" />
+				<title_clean>Sienna</title_clean>
+				<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Lutro/Named_Snaps/Sienna.png</snapshot1>
+				<snapshot2>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Lutro/Named_Titles/Sienna.png</snapshot2>
+			</game>
+			<game name="Snake">
+				<description>Snake</description>
+				<rom name="Snake.lutro" size="1024" />
+				<title_clean>Snake</title_clean>
+				<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Lutro/Named_Snaps/Snake.png</snapshot1>
+			</game>
+			<game name="Spaceship">
+				<description>Spaceship</description>
+				<rom name="Spaceship.lutro" size="634880" />
+				<title_clean>Spaceship</title_clean>
+				<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Lutro/Named_Snaps/Spaceship.png</snapshot1>
+			</game>
+			<game name="Tetris">
+				<description>Tetris</description>
+				<rom name="Tetris.lutro" size="1516544" />
+				<title_clean>Tetris</title_clean>
+				<snapshot1>https://raw.githubusercontent.com/libretro/libretro-thumbnails/master/Lutro/Named_Snaps/Tetris.png</snapshot1>
+			</game>
+</datafile>
