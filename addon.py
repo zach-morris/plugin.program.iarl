@@ -865,6 +865,7 @@ def get_selected_rom(category_id,romname):
 
 @plugin.route('/Search_Results/<search_term>') #Not sure why normal routing with extra kwargs isn't working for this route...
 def search_roms_results(search_term,**kwargs):
+    xbmc.executebuiltin("Dialog.Close(all, true)")
     search_results = []
 
     current_search_term = search_term.lower().strip()
@@ -1571,6 +1572,23 @@ def post_download_action(iarl_data,option,option2):
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
             xbmc.log(msg='IARL:  There was an error converting the zipped adf files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
+    elif 'convert_mame_softlist_dummy_file' in option:
+        try:
+            softlist_type = re.search(r'\([^)]*\)',option).group(0).replace('(','').replace(')','').replace("'",'').strip()
+        except:
+            softlist_type = ''
+            xbmc.log(msg='IARL:  MAME softlist type could not be defined', level=xbmc.LOGERROR)
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            conversion_success, converted_filename = setup_mame_softlist_game_dummy_file(iarl_data,softlist_type)
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error setting up the MAME softlist game '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
     elif 'convert_mame_softlist' in option:
         try:
             softlist_type = re.search(r'\([^)]*\)',option).group(0).replace('(','').replace(')','').replace("'",'').strip()
@@ -1588,6 +1606,23 @@ def post_download_action(iarl_data,option,option2):
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
             xbmc.log(msg='IARL:  There was an error setting up the MAME softlist game '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
+    elif 'convert_mess2014_softlist_dummy_file' in option:
+        try:
+            softlist_type = re.search(r'\([^)]*\)',option).group(0).replace('(','').replace(')','').replace("'",'').strip()
+        except:
+            softlist_type = ''
+            xbmc.log(msg='IARL:  MESS2014 softlist type could not be defined', level=xbmc.LOGERROR)
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            conversion_success, converted_filename = setup_mess2014_softlist_game_dummy_file(iarl_data,softlist_type)
+            iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+            iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error setting up the MESS2014 softlist game '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
     elif 'convert_mess2014_softlist' in option:
         try:
             softlist_type = re.search(r'\([^)]*\)',option).group(0).replace('(','').replace(')','').replace("'",'').strip()
@@ -1604,7 +1639,7 @@ def post_download_action(iarl_data,option,option2):
         if iarl_data['current_save_data']['overall_conversion_success']:
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
-            xbmc.log(msg='IARL:  There was an error setting up the MESS2014 softlist game '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR) 
+            xbmc.log(msg='IARL:  There was an error setting up the MESS2014 softlist game '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)
     elif 'favorites_post_action' in option:
         if '|' in option:
             option_1 = rom_emu_command.split('|')[0]

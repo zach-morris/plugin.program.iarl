@@ -2316,6 +2316,118 @@ def setup_mame_softlist_game(iarl_data,softlist_type):
 
 	return overall_success, new_fname
 
+def setup_mame_softlist_game_dummy_file(iarl_data,softlist_type):
+	overall_success = False
+	converted_success = list()
+	new_fname = None
+	continue_launch = False
+	check_and_download_hash = False
+
+	current_save_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][0])
+	current_save_path = current_save_fileparts[0]
+	containing_folder = os.path.split(os.path.dirname(iarl_data['current_save_data']['rom_save_filenames'][0]))[-1]
+	file_base_name = clean_file_folder_name(iarl_data['current_rom_data']['rom_title'])
+	try:
+		current_dummy_file = iarl_data['current_rom_data']['rom_filenames'][0].split('%2F')[1]
+		if len(current_dummy_file)>0:
+			current_dummy_file = current_dummy_file+'.zip'
+		else:
+			current_dummy_file = None
+			xbmc.log(msg='IARL:  Error creating MAME launch filename: ' +str(current_dummy_file), level=xbmc.LOGDEBUG)
+	except:
+		current_dummy_file = None
+		xbmc.log(msg='IARL:  Error creating MAME launch filename: ' +str(current_dummy_file), level=xbmc.LOGDEBUG)
+	current_sys_path = iarl_data['settings']['path_to_retroarch_system_dir']
+
+	if current_sys_path is not None: #If the setting for retroarch system directory is defined, then check for/download hash file
+		if len(current_sys_path)>0:
+			continue_launch = True
+			check_and_download_hash = True
+
+	if not continue_launch:
+		if 'true' in __addon__.getSetting(id='iarl_setting_warn_retroarch_sys_dir').lower():
+			current_dialog = xbmcgui.Dialog()
+			ret1 = current_dialog.select('System Directory setting undefined, try launch anyway?', ['Yes','No','Yes, stop warning me!'])
+			if ret1==0:
+				continue_launch = True
+			elif ret1==1:
+				continue_launch = False
+			else:
+				__addon__.setSetting(id='iarl_setting_warn_retroarch_sys_dir',value='false') #No longer show the warning
+				continue_launch = True
+		else:
+			continue_launch = True
+
+
+	if continue_launch:
+		if len(softlist_type)>0:
+			#1 Check for and download hash file if needed
+			parserfile = get_parser_file('mame_softlist_parser.xml')
+			softlistfile = get_parser_file('mame_softlist_database.xml')
+			descParser = DescriptionParserFactory.getParser(parserfile)
+			results = descParser.parseDescription(softlistfile,'xml')
+			softlist_info = [x for x in results if str(softlist_type) in x['system']][0]
+			# print 'ztest'
+			# print softlist_info
+			if check_and_download_hash:
+				current_hash_path = os.path.join(current_sys_path,'mame','hash')
+				save_hash_filename = os.path.join(current_hash_path,os.path.split(softlist_info['web_url'][0])[-1])
+				if not os.path.exists(current_hash_path):
+					try:
+						os.makedirs(current_hash_path)
+					except:
+						xbmc.log(msg='IARL:  Error creating MAME hash path: ' +str(current_hash_path), level=xbmc.LOGERROR)
+				if not os.path.isfile(save_hash_filename): #Download the hash file if it's not already present
+					# from resources.lib.webutils import *
+					hash_dl_success = download_tools().Downloader(softlist_info['web_url'][0],save_hash_filename,False,'','',99999,str(os.path.split(softlist_info['web_url'][0])),'Downloading hash file, please wait...') #No login required for github raw files
+					if not hash_dl_success:
+						xbmc.log(msg='IARL:  Error downloading MAME hash file: ' +str(softlist_info['web_url'][0]), level=xbmc.LOGERROR)
+				else:
+					xbmc.log(msg='IARL:  MAME Softlist hash file was found for '+str(softlist_type), level=xbmc.LOGDEBUG)
+			#2 Check for correct folder and create if needed, then move all files to the folder
+			if containing_folder == softlist_info['folder_name'][0]: #Save location already correctly named
+				xbmc.log(msg='IARL:  MAME folder already defined for '+str(softlist_type), level=xbmc.LOGDEBUG)
+			else: #Make the correct folder
+				if not os.path.exists(os.path.join(current_save_path,softlist_info['folder_name'][0])):
+					try:
+						os.makedirs(os.path.join(current_save_path,softlist_info['folder_name'][0]))
+					except:
+						xbmc.log(msg='IARL:  Error creating MAME folder path for ' +str(softlist_type), level=xbmc.LOGERROR)
+				for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
+					if os.path.isfile(iarl_data['current_save_data']['rom_save_filenames'][ii]): #Copy files to new location
+						new_save_file_location = os.path.join(current_save_path,softlist_info['folder_name'][0],os.path.split(iarl_data['current_save_data']['rom_save_filenames'][ii])[-1])
+						if not os.path.isfile(new_save_file_location):
+							copyFile(iarl_data['current_save_data']['rom_save_filenames'][ii],new_save_file_location)
+						if os.path.isfile(new_save_file_location): #Copy was successful
+							try:
+								if new_save_file_location != iarl_data['current_save_data']['rom_save_filenames'][ii]: #Only remove the old file if the new save location is different
+									os.remove(iarl_data['current_save_data']['rom_save_filenames'][ii]) #Remove the old file
+									xbmc.log(msg='IARL:  File deleted '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+								else:
+									xbmc.log(msg='IARL:  File already exists and will not be deleted '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+							except:
+								xbmc.log(msg='IARL:  Old file was not found and could not be deleted '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+							iarl_data['current_save_data']['rom_save_filenames'][ii] = new_save_file_location
+							converted_success.append(True)
+						else:
+							converted_success.append(False)
+							xbmc.log(msg='IARL:  Copying the XML file '+str(new_save_file_location)+' failed.', level=xbmc.LOGERROR)
+					else:
+						xbmc.log(msg='IARL:  Skipped copy of '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+			#3 Define new launch filename
+			if False in converted_success:
+				overall_success = False
+			else:
+				overall_success = True
+				new_fname = iarl_data['current_save_data']['rom_save_filenames'][0]
+				if current_dummy_file is not None:
+					new_fname = os.path.join(os.path.split(new_fname)[0],current_dummy_file)
+					if not os.path.exists(new_fname):
+						with open(new_fname, 'w') as fout:
+							fout.write('Empty IARL launch file for MAME!')
+
+	return overall_success, new_fname
+
 def setup_mess2014_softlist_game(iarl_data,softlist_type):
 	overall_success = False
 	converted_success = list()
@@ -2413,6 +2525,119 @@ def setup_mess2014_softlist_game(iarl_data,softlist_type):
 				new_fname = iarl_data['current_save_data']['rom_save_filenames'][0]
 
 	return overall_success, new_fname
+
+def setup_mess2014_softlist_game_dummy_file(iarl_data,softlist_type):
+	overall_success = False
+	converted_success = list()
+	new_fname = None
+	continue_launch = False
+	check_and_download_hash = False
+
+	current_save_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][0])
+	current_save_path = current_save_fileparts[0]
+	containing_folder = os.path.split(os.path.dirname(iarl_data['current_save_data']['rom_save_filenames'][0]))[-1]
+	file_base_name = clean_file_folder_name(iarl_data['current_rom_data']['rom_title'])
+	try:
+		current_dummy_file = iarl_data['current_rom_data']['rom_filenames'][0].split('%2F')[1]
+		if len(current_dummy_file)>0:
+			current_dummy_file = current_dummy_file+'.zip'
+		else:
+			current_dummy_file = None
+			xbmc.log(msg='IARL:  Error creating MESS2014 launch filename: ' +str(current_dummy_file), level=xbmc.LOGDEBUG)
+	except:
+		current_dummy_file = None
+		xbmc.log(msg='IARL:  Error creating MESS2014 launch filename: ' +str(current_dummy_file), level=xbmc.LOGDEBUG)
+	current_sys_path = iarl_data['settings']['path_to_retroarch_system_dir']
+
+	if current_sys_path is not None: #If the setting for retroarch system directory is defined, then check for/download hash file
+		if len(current_sys_path)>0:
+			continue_launch = True
+			check_and_download_hash = True
+
+	if not continue_launch:
+		if 'true' in __addon__.getSetting(id='iarl_setting_warn_retroarch_sys_dir').lower():
+			current_dialog = xbmcgui.Dialog()
+			ret1 = current_dialog.select('System Directory setting undefined, try launch anyway?', ['Yes','No','Yes, stop warning me!'])
+			if ret1==0:
+				continue_launch = True
+			elif ret1==1:
+				continue_launch = False
+			else:
+				__addon__.setSetting(id='iarl_setting_warn_retroarch_sys_dir',value='false') #No longer show the warning
+				continue_launch = True
+		else:
+			continue_launch = True
+
+
+	if continue_launch:
+		if len(softlist_type)>0:
+			#1 Check for and download hash file if needed
+			parserfile = get_parser_file('mame_softlist_parser.xml')
+			softlistfile = get_parser_file('mame_softlist_database.xml')
+			descParser = DescriptionParserFactory.getParser(parserfile)
+			results = descParser.parseDescription(softlistfile,'xml')
+			softlist_info = [x for x in results if str(softlist_type) in x['system']][0]
+			# print 'ztest'
+			# print softlist_info
+			if check_and_download_hash:
+				current_hash_path = os.path.join(current_sys_path,'mess2014','hash')
+				save_hash_filename = os.path.join(current_hash_path,os.path.split(softlist_info['web_url'][0])[-1])
+				if not os.path.exists(current_hash_path):
+					try:
+						os.makedirs(current_hash_path)
+					except:
+						xbmc.log(msg='IARL:  Error creating MESS2014 hash path: ' +str(current_hash_path), level=xbmc.LOGERROR)
+				if not os.path.isfile(save_hash_filename): #Download the hash file if it's not already present
+					# from resources.lib.webutils import *
+					hash_dl_success = download_tools().Downloader(softlist_info['web_url'][0],save_hash_filename,False,'','',99999,str(os.path.split(softlist_info['web_url'][0])),'Downloading hash file, please wait...') #No login required for github raw files
+					if not hash_dl_success:
+						xbmc.log(msg='IARL:  Error downloading MESS2014 hash file: ' +str(softlist_info['web_url'][0]), level=xbmc.LOGERROR)
+				else:
+					xbmc.log(msg='IARL:  MESS2014 Softlist hash file was found for '+str(softlist_type), level=xbmc.LOGDEBUG)
+			#2 Check for correct folder and create if needed, then move all files to the folder
+			if containing_folder == softlist_info['folder_name'][0]: #Save location already correctly named
+				xbmc.log(msg='IARL:  MESS2014 folder already defined for '+str(softlist_type), level=xbmc.LOGDEBUG)
+			else: #Make the correct folder
+				if not os.path.exists(os.path.join(current_save_path,softlist_info['folder_name'][0])):
+					try:
+						os.makedirs(os.path.join(current_save_path,softlist_info['folder_name'][0]))
+					except:
+						xbmc.log(msg='IARL:  Error creating MESS2014 folder path for ' +str(softlist_type), level=xbmc.LOGERROR)
+				for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
+					if os.path.isfile(iarl_data['current_save_data']['rom_save_filenames'][ii]): #Copy files to new location
+						new_save_file_location = os.path.join(current_save_path,softlist_info['folder_name'][0],os.path.split(iarl_data['current_save_data']['rom_save_filenames'][ii])[-1])
+						if not os.path.isfile(new_save_file_location):
+							copyFile(iarl_data['current_save_data']['rom_save_filenames'][ii],new_save_file_location)
+						if os.path.isfile(new_save_file_location): #Copy was successful
+							try:
+								if new_save_file_location != iarl_data['current_save_data']['rom_save_filenames'][ii]: #Only remove the old file if the new save location is different
+									os.remove(iarl_data['current_save_data']['rom_save_filenames'][ii]) #Remove the old file
+									xbmc.log(msg='IARL:  File deleted '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+								else:
+									xbmc.log(msg='IARL:  File already exists and will not be deleted '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+							except:
+								xbmc.log(msg='IARL:  Old file was not found and could not be deleted '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+							iarl_data['current_save_data']['rom_save_filenames'][ii] = new_save_file_location
+							converted_success.append(True)
+						else:
+							converted_success.append(False)
+							xbmc.log(msg='IARL:  Copying the XML file '+str(new_save_file_location)+' failed.', level=xbmc.LOGERROR)
+					else:
+						xbmc.log(msg='IARL:  Skipped copy of '+str(iarl_data['current_save_data']['rom_save_filenames'][ii]), level=xbmc.LOGDEBUG)
+			#3 Define new launch filename
+			if False in converted_success:
+				overall_success = False
+			else:
+				overall_success = True
+				new_fname = iarl_data['current_save_data']['rom_save_filenames'][0]
+				if current_dummy_file is not None:
+					new_fname = os.path.join(os.path.split(new_fname)[0],current_dummy_file)
+					if not os.path.exists(new_fname):
+						with open(new_fname, 'w') as fout:
+							fout.write('Empty IARL launch file for MESS2014!')
+
+	return overall_success, new_fname
+
 
 def unzip_scummvm_update_conf_file(iarl_data):
 	zip_success = list()

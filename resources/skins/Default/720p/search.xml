@@ -59,6 +59,7 @@
             <posx>610</posx>
             <posy>120</posy>
             <width>500</width>
+            <height>29</height>
             <visible>true</visible>
             <aligny>center</aligny>
             <hinttext>(Leave blank for all results)</hinttext>
