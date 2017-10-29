@@ -119,7 +119,7 @@
 			<emu_homepage>http://www.tosecdev.org/</emu_homepage>
 			<emu_baseurl>http://archive.org/download/</emu_baseurl>
 			<emu_launcher>external</emu_launcher>
-			<emu_ext_launch_cmd>"%APP_PATH%/Contents/MacOS/RetroArch" -- %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mame_libretro.dylib" "%ROM_PATH%"</emu_ext_launch_cmd>
+			<emu_ext_launch_cmd>none</emu_ext_launch_cmd>
 			<emu_downloadpath>default</emu_downloadpath>
 			<emu_postdlaction>convert_mame_softlist('apple2gs')</emu_postdlaction>
 			<emu_comment>Apple 2GS List by Zach Morris, filtered to remove duplicates and games not many people actually want to play.[CR]The Apple IIgs is the fifth and most powerful model in the Apple II series of personal computers produced by Apple Computer. The "GS" in the name stands for Graphics and Sound, referring to its enhanced multimedia capabilities, especially its state-of-the-art sound and music synthesis, which greatly surpassed previous models of the line and most contemporary machines like the Macintosh and IBM PC.[CR]The machine is a radical departure from any previous Apple II, with its true 16-bit architecture, increased processing speed, direct access to megabytes of RAM, wavetable synthesis music synthesizer, graphical user interface, and mouse. While still maintaining full backwards compatibility with earlier Apple II models, it blended the Apple II and aspects of Macintosh technology into one. Keeping with Apple's *Apple II Forever* slogan of the time, the IIgs set forth a promising future and evolutionary advancement of the Apple II line, but Apple paid it relatively little attention as the company increasingly focused on the Macintosh platform.[CR]

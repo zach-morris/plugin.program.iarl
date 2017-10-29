@@ -178,7 +178,7 @@ def make_scripts_executable():
 	#Attempt to make addon scripts executable
 	bin_path = get_addondata_bindir()
 
-	bin_file_list = [os.path.join('7za','7za.android'), os.path.join('7za','7za.armv6l'), os.path.join('7za','7za.armv7l'), os.path.join('7za','7za.exe'), os.path.join('7za','7za.OSX'),os.path.join('7za','7za.Nix'),os.path.join('7za','7za.x86_64'), 'applaunch_OE.sh', 'applaunch-vbs.bat', 'applaunch.bat', 'applaunch.sh',os.path.join('chdman','chdman.armhf'),os.path.join('chdman','chdman.OSX'),os.path.join('chdman','chdman.Nix'),os.path.join('chdman','chdman.exe'),'LaunchKODI.vbs', 'romlaunch_OE_RPi2.sh', 'romlaunch_OE.sh', 'libreelec-fs-uae.sh', 'libreelec-fs-uae.start', 'Sleep.vbs']
+	bin_file_list = [os.path.join('7za','7za.android'), os.path.join('7za','7za.armv6l'), os.path.join('7za','7za.armv7l'), os.path.join('7za','7za.exe'), os.path.join('7za','7za.OSX'),os.path.join('7za','7za.Nix'),os.path.join('7za','7za.x86_64'), 'applaunch_OE.sh', 'applaunch-vbs.bat', 'applaunch.bat', 'applaunch.sh','applaunch_Android.sh','sx05re_launch.sh','sx05re.start',os.path.join('chdman','chdman.armhf'),os.path.join('chdman','chdman.OSX'),os.path.join('chdman','chdman.Nix'),os.path.join('chdman','chdman.exe'),'LaunchKODI.vbs', 'romlaunch_OE_RPi2.sh', 'romlaunch_OE.sh', 'Sleep.vbs','LaunchKODI.vbs']
 	
 	for ffiles in bin_file_list:
 		try:
@@ -756,7 +756,7 @@ def update_external_launch_commands(iarl_data,xml_id,plugin):
 			external_launch_database_os = iarl_data['settings']['external_launch_env'] + ' Close_Kodi' #Look for launch commands to close Kodi
 		else:
 			external_launch_database_os = iarl_data['settings']['external_launch_env']
-		if iarl_data['settings']['external_launch_env'] in 'OpenElec x86 (tssemek Addon)|LibreElec x86|LibreElec SX05|RPi Gamestarter Addon|Android'.split('|'):
+		if iarl_data['settings']['external_launch_env'] in 'LibreElec Remix|LibreElec Sx05RE|LibreElec S905 Addon|Gamestarter Addon|Android'.split('|'):
 			external_launch_database_os = external_launch_database_os.replace(' Close_Kodi','') #By default, the above setups auto close Kodi, so there's only one list of launchers to choose from
 		for entries in results:
 			if entries['operating_system'][0] == external_launch_database_os:
@@ -1796,6 +1796,8 @@ def unzip_and_rename_file(iarl_data): #This will probably only work when there i
 def unzip_dosbox_file(current_fname,current_rom_emu_command):
 	zip_success = False
 	new_fname = None
+	new_pointer_fname = None
+	new_pointer_content = None
 
 	if zipfile.is_zipfile(current_fname):
 		try:
@@ -1815,15 +1817,35 @@ def unzip_dosbox_file(current_fname,current_rom_emu_command):
 		if zip_success:
 			os.remove(current_fname)
 	else:
-		xbmc.log(msg='IARL:  There was an error unzipping files for '+str(current_fname), level=xbmc.LOGERROR)
+		xbmc.log(msg='IARL:  DOSBox searching for previously launched file', level=xbmc.LOGDEBUG)
+		for root, dirnames, filenames in os.walk(os.path.split(current_fname)[0]):
+			for filename in glob.glob(os.path.join(root,'*.iarl')):
+				if new_pointer_fname is None:
+					new_pointer_fname = filename
+		if new_pointer_fname is None:
+			xbmc.log(msg='IARL:  There was an error unzipping files for '+str(current_fname), level=xbmc.LOGERROR)
+			zip_success = False
+		else:
+			with open(new_pointer_fname, 'r') as content_file:
+				new_pointer_content = content_file.read()
 
-	if current_rom_emu_command: #The file was unzipped, change from zip to rom extension
-		try:
-			new_fname = os.path.join(current_zip_path,os.path.join(*current_rom_emu_command.split('/')))
-		except:
-			new_fname = current_fname #Didn't unzip or didn't find a file extension
+	if new_pointer_content is not None:
+		new_fname = os.path.join(os.path.split(new_pointer_fname)[0],new_pointer_content)
+		xbmc.log(msg='IARL:  DOSBox pointing to previously launched file '+str(new_fname), level=xbmc.LOGDEBUG)
+		zip_success = True
 	else:
-		new_fname = current_fname #Didn't unzip or didn't find a file extension
+		if current_rom_emu_command: #The file was unzipped, change from zip to rom extension
+			try:
+				new_fname = os.path.join(current_zip_path,os.path.join(*current_rom_emu_command.split('/')))
+				#Create a pointer file for launching the same file for future launches of the game
+				new_pointer_fname = os.path.join(os.path.split(new_fname)[0],os.path.splitext(os.path.split(current_fname)[-1])[0]+'.iarl')
+				if not os.path.exists(new_pointer_fname):
+					with open(new_pointer_fname, 'w') as fout:
+						fout.write(current_rom_emu_command.split('/')[-1])
+			except:
+				new_fname = current_fname #Didn't unzip or didn't find a file extension
+		else:
+			new_fname = current_fname #Didn't unzip or didn't find a file extension
 
 	return zip_success, new_fname
 
