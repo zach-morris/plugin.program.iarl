@@ -17,7 +17,7 @@
  +		<setting id="iarl_setting_ia_password" type="text" label="archive.org Password" default="" option="hidden" visible="eq(-2,Enabled)"/>  
 	</category>
 	<category label="External Launchers">
-		<setting id="iarl_external_user_external_env" type="select" label="My System Type" values="Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|LibreElec x86|LibreElec SX05|RPi Gamestarter Addon|Android" default="Select" visible="true"/>
+		<setting id="iarl_external_user_external_env" type="select" label="My System Type" values="Select|OSX|Linux/Kodibuntu|Windows|LibreElec Remix|LibreElec Sx05RE|LibreElec S905 Addon|Gamestarter Addon|Android" default="Select" visible="true"/>
 		<setting id="iarl_external_launch_close_kodi" type="select" label="Close Kodi on Launch" values="Disabled|Enabled" default="Disabled" visible="eq(-1,OSX)|eq(-1,Windows)|eq(-1,Linux/Kodibuntu)"/>
 		<setting id="iarl_path_to_retroarch" type="executable" label="RetroArch App Location" visible="eq(-2,OSX)|eq(-2,Windows)|eq(-2,Linux/Kodibuntu)"/>
 		<setting id="iarl_path_to_retroarch_system_dir" type="folder" label="RetroArch System Folder" visible="!eq(-3,Select)"/>
@@ -41,14 +41,13 @@
 		<setting id="iarl_netplay_frames" type="select" label="Sync Frames" values="Enabled|Disabled" default="Disabled" visible="eq(-7,Enabled)+!eq(-6,Player 1 Host)"/>
 	</category>
 	<category label="Setup Wizard">
-		<setting label="Wizard setup for external launchers" type="lsep" visible="true"/>
-		<setting label="Before running, please setup the external launcher tab" type="lsep" visible="true"/>
-		<setting id="iarl_external_user_external_env" type="select" label="My System Type" values="Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|LibreElec x86|LibreElec SX05|RPi Gamestarter Addon|Android" default="Select" visible="true" enable="false"/>
+		<setting label="Wizard setup tool for IARL" type="lsep" visible="true"/>
+		<setting label="Before running, please setup the external launcher tab" type="lsep" visible="false"/>
+		<setting id="iarl_external_user_external_env" type="select" label="My System Type" values="Select|OSX|Linux/Kodibuntu|Windows|LibreElec Remix|LibreElec Sx05RE|LibreElec S905 Addon|Gamestarter Addon|Android" default="Select" visible="true" enable="false"/>
 		<setting id="iarl_external_launch_close_kodi" type="select" label="Close Kodi on Launch" values="Disabled|Enabled" default="Disabled" visible="true" enable="false"/>
-		<setting id="iarl_wizard_launcher" type="select" label="Emulator Launcher" values="Select|External|Kodi Retroplayer" default="External" visible="false"/>
-		<setting id="iarl_wizard_launcher_group" type="select" label="Set me up for" values="Select|Most Playable (Least CPU Intensive)|Balanced|Most Accurate|RetroPlayer" default="Select" visible="true"/>
+		<setting id="iarl_wizard_launcher" type="select" label="Emulator Launcher" values="External|Kodi Retroplayer" default="External" visible="true"/>
 		<setting type="sep"/>
-		<setting visible="true" label="Run the Wizard" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/run_iarl_wizard.py)"/>
+		<setting visible="true" label="Execute Setup Wizard" type="action" option="close" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/run_iarl_wizard.py)"/>
 	</category>
 	<category label="Advanced Settings">
 		<setting label="Note:  You should not use these settings unless you're sure of what you are doing!" type="lsep"/>
@@ -68,5 +67,6 @@
 		<setting visible="false" id="iarl_setting_warn_retroarch_sys_dir" type="bool" label="No System Dir Defined" default="true"/>
 		<setting visible="false" id="iarl_setting_subprocess_launch" type="bool" label="Launch Games with Subprocess" default="false"/>
 		<setting visible="false" id="iarl_setting_favorite_hard_code" type="bool" label="Hard Code Settings Into IARL Favorites" default="false"/>
+		<setting visible="false" id="iarl_setting_back_link_hard_code" type="bool" label="Add Next and Prev Page items in the list" default="false"/>
 	</category>
 </settings>

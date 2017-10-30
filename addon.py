@@ -59,7 +59,7 @@ iarl_data = {
                             'hidden_setting_tou_agree' : plugin.get_setting('iarl_setting_tou',bool),
                             'launch_with_subprocess' : plugin.get_setting('iarl_setting_subprocess_launch',bool),
                             'hard_code_favorite_settings' : plugin.get_setting('iarl_setting_favorite_hard_code',bool),
-                            'hard_coded_include_back_link' : False,
+                            'hard_coded_include_back_link' : plugin.get_setting('iarl_setting_back_link_hard_code',bool),
                         },
             'addon_data':{  'plugin_name' : 'plugin.program.iarl',
                             'log_level' : 'LOG_LEVEL_INFO',
