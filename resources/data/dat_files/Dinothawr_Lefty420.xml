@@ -133,8 +133,8 @@
 		<emu_downloadpath>default</emu_downloadpath>
 		<emu_postdlaction>unzip_update_rom_path_dosbox</emu_postdlaction>
 		<emu_comment>Dinothawr Retroarch port, provided by Lefty420.</emu_comment>
-			<emu_thumb>http://i.imgur.com/QutBVWe.jpg</emu_thumb>
-			<emu_banner>http://i.imgur.com/wyqeBmz.jpg</emu_banner>
+			<emu_thumb>https://i.imgur.com/T5PSkqb.jpg</emu_thumb>
+			<emu_banner>https://i.imgur.com/F1y5y5A.jpg</emu_banner>
 			<emu_fanart>http://i.imgur.com/NkhqZah.jpg</emu_fanart>
 			<emu_logo>http://i.imgur.com/F7IxpAE.png</emu_logo>
 			<emu_trailer>VQpHejqlzzY</emu_trailer>
@@ -151,8 +151,8 @@
 				<thegamesdb_id></thegamesdb_id>
 				<videoid>d62cb9z6j9M</videoid>
 				<giantbomb_url>http://www.giantbomb.com/dinothawr/3030-45105/</giantbomb_url>
-				<boxart1>https://s-media-cache-ak0.pinimg.com/236x/87/f3/c6/87f3c6298d7377c6fc835b3582c32816.jpg</boxart1>
-				<banner1>https://rpigame.files.wordpress.com/2016/02/dinothawr.png</banner1>
+				<boxart1>https://i.imgur.com/T5PSkqb.jpg</boxart1>
+				<banner1>https://i.imgur.com/F1y5y5A.jpg</banner1>
 				<emu_command>dinothawr.game</emu_command>
 			</game>
 </datafile>

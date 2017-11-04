@@ -122,25 +122,11 @@
 			<emu_ext_launch_cmd>none</emu_ext_launch_cmd>
 			<emu_downloadpath>default</emu_downloadpath>
 			<emu_postdlaction>convert_mame_softlist('apple2gs')</emu_postdlaction>
-			<emu_comment>Apple 2GS List by Zach Morris, filtered to remove duplicates and games not many people actually want to play.[CR]The Apple IIgs is the fifth and most powerful model in the Apple II series of personal computers produced by Apple Computer. The "GS" in the name stands for Graphics and Sound, referring to its enhanced multimedia capabilities, especially its state-of-the-art sound and music synthesis, which greatly surpassed previous models of the line and most contemporary machines like the Macintosh and IBM PC.[CR]The machine is a radical departure from any previous Apple II, with its true 16-bit architecture, increased processing speed, direct access to megabytes of RAM, wavetable synthesis music synthesizer, graphical user interface, and mouse. While still maintaining full backwards compatibility with earlier Apple II models, it blended the Apple II and aspects of Macintosh technology into one. Keeping with Apple's *Apple II Forever* slogan of the time, the IIgs set forth a promising future and evolutionary advancement of the Apple II line, but Apple paid it relatively little attention as the company increasingly focused on the Macintosh platform.[CR]
-
-Developer:  Apple
-
-Manufacturer:  Apple
-
-CPU:  65C816
-
-Memory:  256 kB or 1 MB (expandable up to 8 MB)
-
-Graphics:  VGC 12-bpp palette, 320×200, 640×200
-
-Sound:  Ensoniq ES5503 DOC 8-bit wavetable synthesis sound chip, 32-channels, stereo
-
-Media:  Floppy</emu_comment>
+			<emu_comment>Apple 2GS List by Zach Morris, filtered to remove duplicates and games not many people actually want to play.[CR]The Apple IIgs is the fifth and most powerful model in the Apple II series of personal computers produced by Apple Computer. The "GS" in the name stands for Graphics and Sound, referring to its enhanced multimedia capabilities, especially its state-of-the-art sound and music synthesis, which greatly surpassed previous models of the line and most contemporary machines like the Macintosh and IBM PC.[CR]The machine is a radical departure from any previous Apple II, with its true 16-bit architecture, increased processing speed, direct access to megabytes of RAM, wavetable synthesis music synthesizer, graphical user interface, and mouse. While still maintaining full backwards compatibility with earlier Apple II models, it blended the Apple II and aspects of Macintosh technology into one. Keeping with Apple's *Apple II Forever* slogan of the time, the IIgs set forth a promising future and evolutionary advancement of the Apple II line, but Apple paid it relatively little attention as the company increasingly focused on the Macintosh platform.[CR]Developer:  Apple[CR]Manufacturer:  Apple[CR]CPU:  65C816[CR]Memory:  256 kB or 1 MB (expandable up to 8 MB)[CR]Graphics:  VGC 12-bpp palette, 320×200, 640×200[CR]Sound:  Ensoniq ES5503 DOC 8-bit wavetable synthesis sound chip, 32-channels, stereo[CR]Media:  Floppy</emu_comment>
 			<emu_thumb>http://i.imgur.com/TO6h5bZ.png</emu_thumb>
 			<emu_banner>http://i.imgur.com/XhdwvU7.jpg</emu_banner>
-			<emu_fanart>https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Apple_IIgs_001_%28white_background%29.jpg/1074px-Apple_IIgs_001_%28white_background%29.jpg</emu_fanart>
-			<emu_logo>https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Apple_Computer_Logo_rainbow.svg/698px-Apple_Computer_Logo_rainbow.svg.png</emu_logo>
+			<emu_fanart>https://i.imgur.com/K8WmqyY.jpg</emu_fanart>
+			<emu_logo>https://i.imgur.com/paN4ziG.png</emu_logo>
 			<emu_trailer>6gtjbi3-oE8</emu_trailer>
 		</header>
 			<game name="The Three Stooges">

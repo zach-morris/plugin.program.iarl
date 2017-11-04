@@ -122,27 +122,11 @@
 			<emu_ext_launch_cmd>none</emu_ext_launch_cmd>
 			<emu_downloadpath>default</emu_downloadpath>
 			<emu_postdlaction>generate_uae_conf_file</emu_postdlaction>
-			<emu_comment>Amiga List by Zach Morris.  This is the FULL UNFILTERED list of available games from the archive.[CR][CR]The Amiga is a family of personal computers sold by Commodore in the 1980s and 1990s. Based on the Motorola 68000 family of microprocessors, the machine has a custom chipset with graphics and sound capabilities that were unprecedented for the price, and a pre-emptive multitasking operating system called AmigaOS. The Amiga provided a significant upgrade from earlier 8-bit home computers, including Commodore's own C64.
-
-Developer:  Commodore
-
-Manufacturer:  Commodore
-
-CPU:  Motorola 68000
-
-Memory:  16MB
-
-Graphics:  AGA chipset
-
-Sound:  The sound chip, named Paula, supports four sound channels (two for the left speaker and two for the right) with 8-bit resolution for each channel and a 6-bit volume control per channel.
-
-Media:  Disk
-
-Max Controllers:  1</emu_comment>
-			<emu_thumb>special://home/addons/plugin.program.iarl/resources/skins/Default/media/4911-1.jpg</emu_thumb>
-			<emu_banner>http://thegamesdb.net/banners/platform/banners/4911-1.jpg</emu_banner>
-			<emu_fanart>https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Amiga500_system.jpg/1280px-Amiga500_system.jpg</emu_fanart>
-			<emu_logo>https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Amiga_Logo_1985.svg/640px-Amiga_Logo_1985.svg.png</emu_logo>
+			<emu_comment>Amiga List by Zach Morris.  This is the FULL UNFILTERED list of available games from the archive.[CR][CR]The Amiga is a family of personal computers sold by Commodore in the 1980s and 1990s. Based on the Motorola 68000 family of microprocessors, the machine has a custom chipset with graphics and sound capabilities that were unprecedented for the price, and a pre-emptive multitasking operating system called AmigaOS. The Amiga provided a significant upgrade from earlier 8-bit home computers, including Commodore's own C64.[CR]Developer:  Commodore[CR]Manufacturer:  Commodore[CR]CPU:  Motorola 68000[CR]Memory:  16MB[CR]Graphics:  AGA chipset[CR]Sound:  The sound chip, named Paula, supports four sound channels (two for the left speaker and two for the right) with 8-bit resolution for each channel and a 6-bit volume control per channel.[CR]Media:  Disk[CR]Max Controllers:  1</emu_comment>
+			<emu_thumb>https://i.imgur.com/so9degl.jpg</emu_thumb>
+			<emu_banner>https://i.imgur.com/SEoxWk4.jpg</emu_banner>
+			<emu_fanart>https://i.imgur.com/6t8wYdV.jpg</emu_fanart>
+			<emu_logo>https://i.imgur.com/WxZIEbj.png</emu_logo>
 			<emu_trailer>iUKKLzD4Pto</emu_trailer>
 		</header>
 			<game name="'Allo 'Allo! Cartoon Fun!">

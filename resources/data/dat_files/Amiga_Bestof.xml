@@ -123,10 +123,10 @@
 			<emu_downloadpath>default</emu_downloadpath>
 			<emu_postdlaction>generate_uae_conf_file</emu_postdlaction>
 			<emu_comment>For those who owned one, the Commodore Amiga home computer will always hold a special place in their heart. During the late eighties and early nineties, the various Amiga models that were realised during this time became the kings of the home computer market.[CR]Amiga fans will fondly remember the incredible gameplay of the titles released on the platform. It may have been an era when a computer’s memory was measured in megabytes instead of gigabytes - graphics look positively antiquated by today’s standards - and games could be spread across as many as fifteen floppy disks, but at the time, Commodore's machine was the best gaming computer you could own.[CR]Although it may be gone it’s far from forgotten, with numerous releases today able to trace their lineage back to the Amiga’s heyday. But out of all the classics that were released back then, here are the games considered the best.</emu_comment>
-			<emu_thumb>special://home/addons/plugin.program.iarl/resources/skins/Default/media/bestof_Amiga.png</emu_thumb>
-			<emu_banner>special://home/addons/plugin.program.iarl/resources/skins/Default/media/bestof_Amiga_banner.jpg</emu_banner>
-			<emu_fanart>https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Amiga500_system.jpg/1280px-Amiga500_system.jpg</emu_fanart>
-			<emu_logo>https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Amiga_Logo_1985.svg/640px-Amiga_Logo_1985.svg.png</emu_logo>
+			<emu_thumb>https://i.imgur.com/iEGCtl4.png</emu_thumb>
+			<emu_banner>https://i.imgur.com/ZwCuodA.jpg</emu_banner>
+			<emu_fanart>https://i.imgur.com/6t8wYdV.jpg</emu_fanart>
+			<emu_logo>https://i.imgur.com/WxZIEbj.png</emu_logo>
 			<emu_trailer>uXkYFqHyV98</emu_trailer>
 		</header>
 			<game name="Lionheart">
