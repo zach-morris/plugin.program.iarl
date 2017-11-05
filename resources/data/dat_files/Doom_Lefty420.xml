@@ -132,10 +132,10 @@
 		<emu_downloadpath>default</emu_downloadpath>
 		<emu_postdlaction>unzip_rom</emu_postdlaction>
 		<emu_comment>Doom and Doom II Retroarch port, provided by Lefty420.</emu_comment>
-			<emu_thumb>http://i.imgur.com/Ow2yRG0.jpg</emu_thumb>
-			<emu_banner>http://i.imgur.com/8kceD3y.jpg</emu_banner>
-			<emu_fanart>http://i.imgur.com/22s811K.jpg</emu_fanart>
-			<emu_logo>http://i.imgur.com/qfsEaC0.png</emu_logo>
+			<emu_thumb>https://i.imgur.com/Ow2yRG0.jpg</emu_thumb>
+			<emu_banner>https://i.imgur.com/8kceD3y.jpg</emu_banner>
+			<emu_fanart>https://i.imgur.com/22s811K.jpg</emu_fanart>
+			<emu_logo>https://i.imgur.com/qfsEaC0.png</emu_logo>
 			<emu_trailer>BkaC1-QoraY</emu_trailer>
 		</header>
 			<game name="Doom">

@@ -123,10 +123,10 @@
 			<emu_downloadpath>default</emu_downloadpath>
 			<emu_postdlaction>none</emu_postdlaction>
 			<emu_comment>All killer No filler is a gamelist by BadMouth and MAME version 0.185.  The games are listed per genre for people who are interested in quality over quantity.[CR]Yes, it's subjective.  This is not about listing every game in a genre.  That would put us right back up to scrolling through thousands of games, most of which suck.[CR]Arcade games only.[CR]Plain old joystick controls only.[CR]You may think not every game on these lists is "killer", but it sounds better than "you probably won't miss any games not on this list because they are either redundant in respect to games already on the list or they just aren't that good"</emu_comment>
-			<emu_thumb>special://home/addons/plugin.program.iarl/resources/skins/Default/media/aknf_boxart.jpg</emu_thumb>
-			<emu_banner>special://home/addons/plugin.program.iarl/resources/skins/Default/media/aknf_banner.jpg</emu_banner>
-			<emu_fanart>http://i.imgur.com/zT3Ektt.jpg</emu_fanart>
-			<emu_logo>http://i.imgur.com/oH4rRaQ.png</emu_logo>
+			<emu_thumb>https://i.imgur.com/dsNkXcP.jpg</emu_thumb>
+			<emu_banner>https://i.imgur.com/P7Ygxz2.jpg</emu_banner>
+			<emu_fanart>https://i.imgur.com/zT3Ektt.jpg</emu_fanart>
+			<emu_logo>https://i.imgur.com/oH4rRaQ.png</emu_logo>
 			<emu_trailer>tN7-LNHbAcY</emu_trailer>
 		</header>
 			<game name="Asteroids Deluxe (rev 3)">

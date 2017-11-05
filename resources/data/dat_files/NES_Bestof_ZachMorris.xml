@@ -132,10 +132,10 @@
 		<emu_downloadpath>default</emu_downloadpath>
 		<emu_postdlaction>unzip_rom</emu_postdlaction>
 		<emu_comment>The NES is iconic. Whether you started playing game before, during, or after the era of the little gray box that could, Nintendo's first Entertainment System provided joy, laughs, frustration, and straight up anger for millions of kids and adults alike. Even now, long-time players will bring the NES out, wade through the inevitable flashing screens and cartridges that won't start until they're blown in, and play their favorites for old times' sake.[CR]We'd wager that a lot of those favorites can be found here in this list of the 50 best games on the original Nintendo. There are names here that still live on today and others that have fallen by the wayside, but all of them are incredible experiences from a time when games were more about fun and challenge than big budgets and flashy graphics. These are the classics</emu_comment>
-			<emu_thumb>special://home/addons/plugin.program.iarl/resources/skins/Default/media/NES_bestof.jpg</emu_thumb>
-			<emu_banner>special://home/addons/plugin.program.iarl/resources/skins/Default/media/NES_bestof_banner.jpg</emu_banner>
-			<emu_fanart>http://img15.deviantart.net/2a5a/i/2010/004/b/c/nintendo_nes_wallpaper_by_solidalexei.jpg</emu_fanart>
-			<emu_logo>http://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/NES_logo.svg/1280px-NES_logo.svg.png</emu_logo>
+			<emu_thumb>https://i.imgur.com/p8xjk1N.jpg</emu_thumb>
+			<emu_banner>https://i.imgur.com/Z6f1SE9.jpg</emu_banner>
+			<emu_fanart>https://i.imgur.com/IgVINMH.jpg</emu_fanart>
+			<emu_logo>https://i.imgur.com/KmotA88.png</emu_logo>
 			<emu_trailer>eX4MdXF3OWI</emu_trailer>
 		</header>
 			<game name="R.B.I. Baseball (USA)">

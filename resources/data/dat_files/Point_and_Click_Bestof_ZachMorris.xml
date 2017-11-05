@@ -123,10 +123,10 @@
 			<emu_downloadpath>default</emu_downloadpath>
 			<emu_postdlaction>unzip_dosbox_update_conf_file</emu_postdlaction>
 			<emu_comment>Whether you were a fan of Sierra and LucasArts's fantastic point-and-click adventures or its remarkable licensed games, there's a good chance you have fond, nostalgic memories of the projects they spawned.  Though the companies have shut down, their legacy will live on in the developers it inspired to make their own games, to create their own worlds, and to tell their own stories.[CR]This collection honors Sierra and LucasArts' development legacy.</emu_comment>
-			<emu_thumb>special://home/addons/plugin.program.iarl/resources/skins/Default/media/bestof_Sierra_LucasArts.png</emu_thumb>
-			<emu_banner>special://home/addons/plugin.program.iarl/resources/skins/Default/media/bestof_Sierra_LucasArts_banner.jpg</emu_banner>
-			<emu_fanart>http://i.imgur.com/HAENC3o.jpg</emu_fanart>
-			<emu_logo>https://upload.wikimedia.org/wikipedia/commons/d/dd/DOSBox_icon.png</emu_logo>
+			<emu_thumb>https://i.imgur.com/A49Fhol.png</emu_thumb>
+			<emu_banner>https://i.imgur.com/9Aa9uf5.jpg</emu_banner>
+			<emu_fanart>https://i.imgur.com/HAENC3o.jpg</emu_fanart>
+			<emu_logo>https://i.imgur.com/WygULvn.png</emu_logo>
 			<emu_trailer>7iM9ljabZ-E</emu_trailer>
 		</header>
 			<game name="Adventures of Willy Beamish, The (1991)">

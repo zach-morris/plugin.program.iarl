@@ -124,9 +124,9 @@
 			<emu_postdlaction>generate_uae_cd32_conf_file</emu_postdlaction>
 			<emu_comment>Amiga CD32 List by Zach Morris.  This is the list of available games, homebrew games, and homebrew compilations available from the TOSEC archive.[CR][CR]The Amiga CD32 is the first 32-bit home video game console released in western Europe, Australia, Canada and Brazil. It was based on Commodore's Advanced Graphics Architecture chipset, and is of similar specification to the Amiga 1200 computer. Using third party devices, it is possible to upgrade the CD32 with keyboard, floppy drive, hard drive, RAM and mouse, turning it into the equivalent of an Amiga 1200 personal computer. The CD32 is capable of running most of the titles developed for the Amiga CDTV multimedia device, but differences in CPU speed and Kickstart version prevent some of the earlier CDTV titles from running. Many of the games released for the CD32 are simply ports of games that are already available for Amiga computers. One benefit of this is that, when appropriate, many games retain the ability to use an Amiga mouse (in port 2) or Amiga keyboard (plugged into the AUX port).[CR]Developer:  Commodore[CR]Manufacturer:  Commodore[CR]CPU:  Motorola 68EC020[CR]Memory:  2 MB[CR]Graphics:  Advanced Graphics Architecture[CR]Sound:  4 × 8-bit PCM channels (2 stereo channels)[CR]Display:  320×256[CR]Media:  CD[CR]Max Controllers:  2</emu_comment>
 			<emu_thumb>https://i.imgur.com/76o7L71.jpg</emu_thumb>
-			<emu_banner>http://i.imgur.com/OVOrASa.jpg</emu_banner>
+			<emu_banner>https://i.imgur.com/OVOrASa.jpg</emu_banner>
 			<emu_fanart>https://i.imgur.com/LlWLfQV.jpg</emu_fanart>
-			<emu_logo>http://i.imgur.com/07L8rtQ.png</emu_logo>
+			<emu_logo>https://i.imgur.com/07L8rtQ.png</emu_logo>
 			<emu_trailer>ugMcKfl2kuw</emu_trailer>
 		</header>
 			<game name="ATR - All Terrain Racing">

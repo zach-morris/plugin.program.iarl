@@ -123,10 +123,10 @@
 			<emu_downloadpath>default</emu_downloadpath>
 			<emu_postdlaction>convert_mame_softlist('vectrex')</emu_postdlaction>
 			<emu_comment>Vectrex List by Zach Morris, filtered to remove duplicates and games not many people actually want to play.[CR]The Vectrex is a vector display-based home video game console that was developed by Western Technologies/Smith Engineering. It was licensed and distributed first by General Consumer Electronics (GCE), and then by Milton Bradley Company after its purchase of GCE. Unlike other non-portable video game consoles, which connected to televisions and rendered raster graphics, the Vectrex has an integrated vector monitor which displays vector graphics. The Vectrex is monochrome and uses plastic screen overlays to simulate color and various static graphics and decorations. At the time, many of the most popular arcade games used vector displays, and through a licensing deal with Cinematronics, GCE was able to produce high-quality versions of arcade games such as Space Wars and Armor Attack.[CR]Developer:  Western Technologies[CR]Manufacturer:  General Consumer Electronics[CR]CPU:  Motorola 68A09 @ 1.5 MHz[CR]Memory:  1 kB (two 4-bit 2114 chips)[CR]Graphics:  MOS 6522 Versatile Interface Adapter (VIA)[CR]Sound:  General Instrument AY-3-8912[CR]Display:  Vector CRT[CR]Media:  Cartridge[CR]Max Controllers:  2</emu_comment>
-			<emu_thumb>http://i.imgur.com/kAOXEcp.jpg</emu_thumb>
-			<emu_banner>http://i.imgur.com/3Cw4tjw.jpg</emu_banner>
-			<emu_fanart>http://i.imgur.com/mUQ7tZD.jpg</emu_fanart>
-			<emu_logo>http://i.imgur.com/Sb0bUW2.png</emu_logo>
+			<emu_thumb>https://i.imgur.com/kAOXEcp.jpg</emu_thumb>
+			<emu_banner>https://i.imgur.com/3Cw4tjw.jpg</emu_banner>
+			<emu_fanart>https://i.imgur.com/mUQ7tZD.jpg</emu_fanart>
+			<emu_logo>https://i.imgur.com/Sb0bUW2.png</emu_logo>
 			<emu_trailer>nudeLb5KAX8</emu_trailer>
 		</header>
 			<game name="3D Mine Storm">
