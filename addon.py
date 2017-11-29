@@ -31,6 +31,9 @@ iarl_data = {
                             'local_file_action' : plugin.get_setting('iarl_setting_localfile_action',unicode),
                             'game_select_action' : plugin.get_setting('iarl_setting_default_action',unicode),
                             'window_theme' : plugin.get_setting('iarl_setting_rom_window_theme',unicode),
+                            'show_search_item' : None, #Initialize variable and set later
+                            'show_randomplay_item' : None, #Initialize variable and set later
+                            'show_history_item' : None, #Initialize variable and set later
                             'autoplay_trailer' : plugin.get_setting('iarl_setting_autoplay_trailer',unicode),
                             'download_cache' : None, #Initialize variable and set later
                             'ia_enable_login' : None, #Initialize variable and set later
@@ -180,6 +183,32 @@ except ValueError:
 
 if iarl_data['settings']['download_cache'] is None:
     iarl_data['settings']['download_cache'] = 0 #Default to 0 if not initialized correctly
+
+#Convert Show/Hide to True/False
+show_hide_options = {'Show':True,'Hide':False}
+try:
+    iarl_data['settings']['show_search_item'] = show_hide_options[plugin.get_setting('iarl_setting_show_search',unicode)]
+except ValueError:
+    iarl_data['settings']['show_search_item'] = True #Default to True if not initialized correctly
+
+if iarl_data['settings']['show_search_item'] is None:
+    iarl_data['settings']['show_search_item'] = True #Default to True if not initialized correctly
+
+try:
+    iarl_data['settings']['show_randomplay_item'] = show_hide_options[plugin.get_setting('iarl_setting_show_randomplay',unicode)]
+except ValueError:
+    iarl_data['settings']['show_randomplay_item'] = True #Default to True if not initialized correctly
+
+if iarl_data['settings']['show_randomplay_item'] is None:
+    iarl_data['settings']['show_randomplay_item'] = True #Default to True if not initialized correctly
+
+try:
+    iarl_data['settings']['show_history_item'] = show_hide_options[plugin.get_setting('iarl_setting_show_gamehistory',unicode)]
+except ValueError:
+    iarl_data['settings']['show_history_item'] = True #Default to True if not initialized correctly
+
+if iarl_data['settings']['show_history_item'] is None:
+    iarl_data['settings']['show_history_item'] = True #Default to True if not initialized correctly
 
 #Convert Enabled/Disabled to True/False
 enabled_disabled_options = {'Enabled':True,'Disabled':False}
@@ -518,55 +547,58 @@ def index():
             items[-1].set_clearart(items[-1].get_property('clearlogo'))
 
     #Append Search Function
-    items.append(plugin._listitemify({ 
-        'label' : '\xc2\xa0Search',
-        'path' :  plugin.url_for('search_roms_window'),
-        'icon': os.path.join(iarl_data['addon_data']['addon_media_path'],'search.jpg'),
-        'thumbnail' : os.path.join(iarl_data['addon_data']['addon_media_path'],'search.jpg'),
-        'info' : {'genre': '\xc2\xa0',
-                  'date': '01/01/2999',
-                  'plot' : 'Search for a particular game.'},
-        'properties' : {'fanart_image' : os.path.join(iarl_data['addon_data']['addon_media_path'],'fanart.jpg'),
-                        'banner' : os.path.join(iarl_data['addon_data']['addon_media_path'],'search_banner.jpg')}
-        }))
-    items[-1].set_banner(items[-1].get_property('banner'))
-    items[-1].set_landscape(items[-1].get_property('banner'))
-    items[-1].set_poster(items[-1].get_property('poster'))
-    items[-1].set_clearlogo(items[-1].get_property('clearlogo'))
-    items[-1].set_clearart(items[-1].get_property('clearlogo'))
-
-    #Append Random Play Function
-    items.append(plugin._listitemify({ 
-        'label' : '\xc2\xa0\xc2\xa0Random Play',
-        'path' :  plugin.url_for('random_play'),
-        'icon': os.path.join(iarl_data['addon_data']['addon_media_path'],'lucky.jpg'),
-        'thumbnail' : os.path.join(iarl_data['addon_data']['addon_media_path'],'lucky.jpg'),
-        'info' : {'genre': '\xc2\xa0\xc2\xa0', 'date': '01/01/2999', 'plot' : 'Play a random game from the archive.'},
-        'properties' : {'fanart_image' : os.path.join(iarl_data['addon_data']['addon_media_path'],'fanart.jpg'),
-                        'banner' : os.path.join(iarl_data['addon_data']['addon_media_path'],'lucky_banner.jpg')}
-        }))
-    items[-1].set_banner(items[-1].get_property('banner'))
-    items[-1].set_landscape(items[-1].get_property('banner'))
-    items[-1].set_poster(items[-1].get_property('poster'))
-    items[-1].set_clearlogo(items[-1].get_property('clearlogo'))
-    items[-1].set_clearart(items[-1].get_property('clearlogo'))
-
-    if iarl_data['settings']['cache_list']: #Only show if history is turned ON
-        #Append Last Played Function
+    if iarl_data['settings']['show_search_item']:
         items.append(plugin._listitemify({ 
-            'label' : '\xc2\xa0\xc2\xa0\xc2\xa0Last Played',
-            'path' :  plugin.url_for('last_played'),
-            'icon': os.path.join(iarl_data['addon_data']['addon_media_path'],'last_played.jpg'),
-            'thumbnail' : os.path.join(iarl_data['addon_data']['addon_media_path'],'last_played.jpg'),
-            'info' : {'genre': '\xc2\xa0\xc2\xa0\xc2\xa0', 'date': '01/01/2999', 'plot' : 'View your game history.'},
+            'label' : '\xc2\xa0Search',
+            'path' :  plugin.url_for('search_roms_window'),
+            'icon': os.path.join(iarl_data['addon_data']['addon_media_path'],'search.jpg'),
+            'thumbnail' : os.path.join(iarl_data['addon_data']['addon_media_path'],'search.jpg'),
+            'info' : {'genre': '\xc2\xa0',
+                      'date': '01/01/2999',
+                      'plot' : 'Search for a particular game.'},
             'properties' : {'fanart_image' : os.path.join(iarl_data['addon_data']['addon_media_path'],'fanart.jpg'),
-                            'banner' : os.path.join(iarl_data['addon_data']['addon_media_path'],'last_played_banner.jpg')}
+                            'banner' : os.path.join(iarl_data['addon_data']['addon_media_path'],'search_banner.jpg')}
             }))
         items[-1].set_banner(items[-1].get_property('banner'))
         items[-1].set_landscape(items[-1].get_property('banner'))
         items[-1].set_poster(items[-1].get_property('poster'))
         items[-1].set_clearlogo(items[-1].get_property('clearlogo'))
         items[-1].set_clearart(items[-1].get_property('clearlogo'))
+
+    #Append Random Play Function
+    if iarl_data['settings']['show_randomplay_item']:
+        items.append(plugin._listitemify({ 
+            'label' : '\xc2\xa0\xc2\xa0Random Play',
+            'path' :  plugin.url_for('random_play'),
+            'icon': os.path.join(iarl_data['addon_data']['addon_media_path'],'lucky.jpg'),
+            'thumbnail' : os.path.join(iarl_data['addon_data']['addon_media_path'],'lucky.jpg'),
+            'info' : {'genre': '\xc2\xa0\xc2\xa0', 'date': '01/01/2999', 'plot' : 'Play a random game from the archive.'},
+            'properties' : {'fanart_image' : os.path.join(iarl_data['addon_data']['addon_media_path'],'fanart.jpg'),
+                            'banner' : os.path.join(iarl_data['addon_data']['addon_media_path'],'lucky_banner.jpg')}
+            }))
+        items[-1].set_banner(items[-1].get_property('banner'))
+        items[-1].set_landscape(items[-1].get_property('banner'))
+        items[-1].set_poster(items[-1].get_property('poster'))
+        items[-1].set_clearlogo(items[-1].get_property('clearlogo'))
+        items[-1].set_clearart(items[-1].get_property('clearlogo'))
+
+    #Append Last Played Function
+    if iarl_data['settings']['cache_list']: #Only show if history is turned ON
+        if iarl_data['settings']['show_history_item']: #And if enabled in settings
+            items.append(plugin._listitemify({ 
+                'label' : '\xc2\xa0\xc2\xa0\xc2\xa0Last Played',
+                'path' :  plugin.url_for('last_played'),
+                'icon': os.path.join(iarl_data['addon_data']['addon_media_path'],'last_played.jpg'),
+                'thumbnail' : os.path.join(iarl_data['addon_data']['addon_media_path'],'last_played.jpg'),
+                'info' : {'genre': '\xc2\xa0\xc2\xa0\xc2\xa0', 'date': '01/01/2999', 'plot' : 'View your game history.'},
+                'properties' : {'fanart_image' : os.path.join(iarl_data['addon_data']['addon_media_path'],'fanart.jpg'),
+                                'banner' : os.path.join(iarl_data['addon_data']['addon_media_path'],'last_played_banner.jpg')}
+                }))
+            items[-1].set_banner(items[-1].get_property('banner'))
+            items[-1].set_landscape(items[-1].get_property('banner'))
+            items[-1].set_poster(items[-1].get_property('poster'))
+            items[-1].set_clearlogo(items[-1].get_property('clearlogo'))
+            items[-1].set_clearart(items[-1].get_property('clearlogo'))
 
     #if TOU has not been agreed to, show TOU window first
     if not iarl_data['settings']['hidden_setting_tou_agree']:
@@ -865,7 +897,7 @@ def get_selected_rom(category_id,romname):
 
 @plugin.route('/Search_Results/<search_term>') #Not sure why normal routing with extra kwargs isn't working for this route...
 def search_roms_results(search_term,**kwargs):
-    xbmc.executebuiltin("Dialog.Close(all, true)")
+    # xbmc.executebuiltin("Dialog.Close(all, true)")
     search_results = []
 
     current_search_term = search_term.lower().strip()
