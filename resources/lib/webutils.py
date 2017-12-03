@@ -37,6 +37,7 @@ from StringIO import StringIO
 user_agent = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1468.0 Safari/537.36'
 
 class download_tools():
+	#Downloader with login option for archive.org
 	def Downloader(self,url,dest,login_opt,username,password,est_filesize,description,heading):
 		dp = xbmcgui.DialogProgress()
 		dp.create(heading,description,'')

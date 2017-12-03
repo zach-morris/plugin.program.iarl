@@ -34,6 +34,7 @@ iarl_data = {
                             'show_search_item' : None, #Initialize variable and set later
                             'show_randomplay_item' : None, #Initialize variable and set later
                             'show_history_item' : None, #Initialize variable and set later
+                            'show_extras_item' : None, #Initialize variable and set later
                             'autoplay_trailer' : plugin.get_setting('iarl_setting_autoplay_trailer',unicode),
                             'download_cache' : None, #Initialize variable and set later
                             'ia_enable_login' : None, #Initialize variable and set later
@@ -209,6 +210,14 @@ except ValueError:
 
 if iarl_data['settings']['show_history_item'] is None:
     iarl_data['settings']['show_history_item'] = True #Default to True if not initialized correctly
+
+try:
+    iarl_data['settings']['show_extras_item'] = show_hide_options[plugin.get_setting('iarl_setting_show_extras',unicode)]
+except ValueError:
+    iarl_data['settings']['show_extras_item'] = True #Default to True if not initialized correctly
+
+if iarl_data['settings']['show_extras_item'] is None:
+    iarl_data['settings']['show_extras_item'] = True #Default to True if not initialized correctly
 
 #Convert Enabled/Disabled to True/False
 enabled_disabled_options = {'Enabled':True,'Disabled':False}
@@ -599,6 +608,25 @@ def index():
             items[-1].set_poster(items[-1].get_property('poster'))
             items[-1].set_clearlogo(items[-1].get_property('clearlogo'))
             items[-1].set_clearart(items[-1].get_property('clearlogo'))
+
+    #Append IARL Extras
+    if iarl_data['settings']['show_extras_item']:
+        items.append(plugin._listitemify({ 
+            'label' : '\xc2\xa0IARL Extras',
+            'path' :  plugin.url_for('get_iarl_extras'),
+            'icon': os.path.join(iarl_data['addon_data']['addon_media_path'],'iarl_extras.jpg'),
+            'thumbnail' : os.path.join(iarl_data['addon_data']['addon_media_path'],'iarl_extras.jpg'),
+            'info' : {'genre': '\xc2\xa0',
+                      'date': '01/01/2999',
+                      'plot' : 'Download extra game lists from the community.'},
+            'properties' : {'fanart_image' : os.path.join(iarl_data['addon_data']['addon_media_path'],'fanart.jpg'),
+                            'banner' : os.path.join(iarl_data['addon_data']['addon_media_path'],'extras_banner.png')}
+            }))
+        items[-1].set_banner(items[-1].get_property('banner'))
+        items[-1].set_landscape(items[-1].get_property('banner'))
+        items[-1].set_poster(items[-1].get_property('poster'))
+        items[-1].set_clearlogo(items[-1].get_property('clearlogo'))
+        items[-1].set_clearart(items[-1].get_property('clearlogo'))
 
     #if TOU has not been agreed to, show TOU window first
     if not iarl_data['settings']['hidden_setting_tou_agree']:
@@ -1116,6 +1144,48 @@ def last_played():
         return rom_list
     else:
         pass
+
+@plugin.route('/Extras')
+def get_iarl_extras():
+    load_success, extras_data = load_iarl_extras()
+    items = []
+
+    if load_success:
+        for ii in range(0,len(extras_data['emu_extras_filename'])):
+            items.append(plugin._listitemify({ 
+                'label' : extras_data['emu_name'][ii],
+                'path': plugin.url_for('download_iarl_extra', xml_filename=extras_data['emu_extras_filename'][ii].split('/')[-1]),
+                'icon': extras_data['emu_logo'][ii],
+                'thumbnail' : extras_data['emu_thumb'][ii],
+                'info' : {'date': extras_data['emu_date'][ii],
+                          'plot': extras_data['emu_plot'][ii],
+                          'trailer': get_youtube_plugin_url(extras_data['emu_trailer'][ii])},
+                'properties' : {'fanart_image' : extras_data['emu_fanart'][ii],
+                                'banner' : extras_data['emu_banner'][ii],
+                                'clearlogo': extras_data['emu_logo'][ii],
+                                'poster': extras_data['emu_thumb'][ii]},
+                # 'context_menu' : context_menus
+                }))
+            items[-1].set_banner(items[-1].get_property('banner'))
+            items[-1].set_landscape(items[-1].get_property('banner'))
+            items[-1].set_poster(items[-1].get_property('poster'))
+            items[-1].set_clearlogo(items[-1].get_property('clearlogo'))
+            items[-1].set_clearart(items[-1].get_property('clearlogo'))
+
+    return plugin.finish(items, update_listing=True, sort_methods=[xbmcplugin.SORT_METHOD_NONE, xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_DATE])
+
+@plugin.route('/Extras/<xml_filename>')
+def download_iarl_extra(xml_filename):
+    extra_datfile_base_url = 'https://raw.githubusercontent.com/zach-morris/iarl.extras/master/dat_files/'
+    xbmc.log(msg='IARL:  Requesting IARL extras file: '+str(extra_datfile_base_url+xml_filename), level=xbmc.LOGDEBUG)
+
+    download_success = download_iarl_extra_file(str(extra_datfile_base_url+xml_filename))
+    
+    if download_success:
+        xbmc.log(msg='IARL:  IARL extras file was downloaded: '+str(xml_filename), level=xbmc.LOGDEBUG)
+    else:
+        xbmc.log(msg='IARL:  IARL extras file download failed: '+str(xml_filename), level=xbmc.LOGDEBUG)
+    pass
 
 def download_rom_only(iarl_data):
     xbmc.log(msg='IARL:  Download started for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGNOTICE)

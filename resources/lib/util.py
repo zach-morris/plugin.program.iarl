@@ -453,6 +453,85 @@ def load_userdata_list_cache_file(category_id):
 
 	return load_success, list_object
 
+def load_iarl_extras():
+	load_success = False
+	extras_data = {
+	'emu_extras_filename' : list(),
+	'emu_name' : list(),
+	'emu_description' : list(),
+	'emu_version' : list(),
+	'emu_date' : list(),
+	'emu_plot' : list(),
+	'emu_thumb' : list(),
+	'emu_banner' : list(),
+	'emu_fanart' : list(),
+	'emu_logo': list(),
+	'emu_trailer': list(),
+	'total_num_archives' : None,
+	}
+
+	extras_url = 'https://raw.githubusercontent.com/zach-morris/iarl.extras/master/iarl_extras.xml'
+	
+	try:
+		extras_content = makeRequest(extras_url)
+	except:
+		extras_content = None
+		xbmc.log(msg='IARL:  Unable to reach IARL Extras URL', level=xbmc.LOGERROR)
+	if extras_content is not None:
+		extrafile_list = extras_content.split('<extrafile>')
+		for extrafiles in extrafile_list[1:]:
+			try:
+				extras_data['emu_extras_filename'].append(extrafiles.split('<emu_extras_filename>')[1].split('</emu_extras_filename>')[0])
+				extras_data['emu_name'].append(extrafiles.split('<emu_name>')[1].split('</emu_name>')[0])
+				extras_data['emu_description'].append(extrafiles.split('<emu_description>')[1].split('</emu_description>')[0])
+				extras_data['emu_version'].append(extrafiles.split('<emu_version>')[1].split('</emu_version>')[0])
+				extras_data['emu_date'].append(extrafiles.split('<emu_date>')[1].split('</emu_date>')[0])
+				extras_data['emu_plot'].append(extrafiles.split('<emu_comment>')[1].split('</emu_comment>')[0])
+				extras_data['emu_thumb'].append(extrafiles.split('<emu_thumb>')[1].split('</emu_thumb>')[0])
+				extras_data['emu_banner'].append(extrafiles.split('<emu_banner>')[1].split('</emu_banner>')[0])
+				extras_data['emu_fanart'].append(extrafiles.split('<emu_fanart>')[1].split('</emu_fanart>')[0])
+				extras_data['emu_logo'].append(extrafiles.split('<emu_logo>')[1].split('</emu_logo>')[0])
+				extras_data['emu_trailer'].append(extrafiles.split('<emu_trailer>')[1].split('</emu_trailer>')[0])
+			except:
+				pass
+		extras_data['total_num_archives'] = len(extras_data['emu_extras_filename'])
+	else:
+		load_success = False
+	if extras_data['total_num_archives'] is not None:
+		load_success = True
+
+	return load_success, extras_data
+
+def download_iarl_extra_file(extras_url):
+	dl_success = False
+	userdata_xmldir = get_userdata_xmldir()
+	save_filename = os.path.join(userdata_xmldir,os.path.split(extras_url)[-1])
+	current_dialog = xbmcgui.Dialog()
+
+	ret1 = current_dialog.select('Are you sure you want to add this game list?', ['No','Yes'])
+	if ret1 == 0:
+		pass
+	else:
+		#Check to see if file already exists, if it does then ask user if they want to overwite it
+		if os.path.isfile(save_filename):
+			ret2 = current_dialog.select('The file already exists locally, overwrite?', ['No','Yes'])
+			if ret2 == 0:
+				pass
+			else:
+				dl_success = download_tools().Downloader(extras_url,save_filename,False,'','',99999,str(os.path.split(extras_url)[-1]),'Downloading extras file, please wait...') #No login required for github raw files
+				if dl_success:
+					ok_ret = current_dialog.ok('Complete','The list was added.[CR]You may have to update the new list settings for launching')
+				else:
+					ok_ret = current_dialog.ok('Error','There was an error downloading the list.[CR]See log for more details.')
+		else: #Otherwise, download
+			dl_success = download_tools().Downloader(extras_url,save_filename,False,'','',99999,str(os.path.split(extras_url)[-1]),'Downloading extras file, please wait...') #No login required for github raw files
+			if dl_success:
+				ok_ret = current_dialog.ok('Complete','The list was added.[CR]You may have to update the new list settings for launching')
+			else:
+				ok_ret = current_dialog.ok('Error','There was an error downloading the list.[CR]See log for more details.')
+
+	return dl_success
+
 def delete_userdata_list_cache_file(category_id):
 	clear_success = False
 	list_cache_dir = get_userdata_list_cache_dir()
@@ -2282,8 +2361,6 @@ def setup_mame_softlist_game(iarl_data,softlist_type):
 			descParser = DescriptionParserFactory.getParser(parserfile)
 			results = descParser.parseDescription(softlistfile,'xml')
 			softlist_info = [x for x in results if str(softlist_type) in x['system']][0]
-			# print 'ztest'
-			# print softlist_info
 			if check_and_download_hash:
 				current_hash_path = os.path.join(current_sys_path,'mame','hash')
 				save_hash_filename = os.path.join(current_hash_path,os.path.split(softlist_info['web_url'][0])[-1])
@@ -2389,8 +2466,6 @@ def setup_mame_softlist_game_dummy_file(iarl_data,softlist_type):
 			descParser = DescriptionParserFactory.getParser(parserfile)
 			results = descParser.parseDescription(softlistfile,'xml')
 			softlist_info = [x for x in results if str(softlist_type) in x['system']][0]
-			# print 'ztest'
-			# print softlist_info
 			if check_and_download_hash:
 				current_hash_path = os.path.join(current_sys_path,'mame','hash')
 				save_hash_filename = os.path.join(current_hash_path,os.path.split(softlist_info['web_url'][0])[-1])
@@ -2492,8 +2567,6 @@ def setup_mess2014_softlist_game(iarl_data,softlist_type):
 			descParser = DescriptionParserFactory.getParser(parserfile)
 			results = descParser.parseDescription(softlistfile,'xml')
 			softlist_info = [x for x in results if str(softlist_type) in x['system']][0]
-			# print 'ztest'
-			# print softlist_info
 			if check_and_download_hash:
 				current_hash_path = os.path.join(current_sys_path,'mess2014','hash')
 				save_hash_filename = os.path.join(current_hash_path,os.path.split(softlist_info['web_url'][0])[-1])
@@ -2599,8 +2672,6 @@ def setup_mess2014_softlist_game_dummy_file(iarl_data,softlist_type):
 			descParser = DescriptionParserFactory.getParser(parserfile)
 			results = descParser.parseDescription(softlistfile,'xml')
 			softlist_info = [x for x in results if str(softlist_type) in x['system']][0]
-			# print 'ztest'
-			# print softlist_info
 			if check_and_download_hash:
 				current_hash_path = os.path.join(current_sys_path,'mess2014','hash')
 				save_hash_filename = os.path.join(current_hash_path,os.path.split(softlist_info['web_url'][0])[-1])
@@ -3284,13 +3355,8 @@ def set_new_post_dl_action(xml_id,plugin):
 	ret1 = current_dialog.select('Select New Post Download Action',post_dl_actions_list)
 
 	try:
-		print 'ztest'
-		print ret1
 		selected_action = post_dl_actions_list[ret1]
 		selected_command = post_dl_commands_list[ret1]
-		print 'ztest'
-		print selected_action
-		print selected_command
 	except:
 		selected_action = 'Cancel'
 		selected_command = None
