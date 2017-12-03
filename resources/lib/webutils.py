@@ -167,8 +167,8 @@ def makeRequest(url, headers=None):
 		response.close()
 		return data
 	except:
-		mensagemok(translate(40000),translate(40122))
-		sys.exit(0)
+		return None
+		xbmc.log(msg='IARL:  URL request failed', level=xbmc.LOGDEBUG)
 		
 def url_isup(url, headers=None):
 	try:
