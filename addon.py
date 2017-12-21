@@ -370,7 +370,10 @@ def update_xml_value(xml_id):
         tag_value = args_in['tag_value'][0]
     except:
         tag_value = None
-
+    try:
+        current_xml_name = str(os.path.split(xml_id)[-1])
+    except:
+        current_xml_name = str(xml_id)
     if tag_value == 'emu_downloadpath':
         xbmc.log(msg='IARL:  Updating archive download path for: '+str(xml_id), level=xbmc.LOGDEBUG)
         set_new_dl_path(xml_id,plugin)
@@ -407,6 +410,49 @@ def update_xml_value(xml_id):
         if clear_cache_success:
             current_dialog = xbmcgui.Dialog()
             ok_ret = current_dialog.ok('Complete','Archive Listing Refreshed')
+    elif tag_value == 'update_favorite_metadata':
+        xbmc.log(msg='IARL:  Updating Favorites metadata for: '+str(xml_id), level=xbmc.LOGDEBUG)
+        current_dialog = xbmcgui.Dialog()
+        ret1 = current_dialog.select('Update Favorite Metadata for '+current_xml_name, ['Title','Description','Author','Thumbnail URL','Banner URL','Fanart URL','Logo URL','Youtube Trailer'])
+        if ret1 == 0: #Update Title
+            xbmc.log(msg='IARL:  Updating Favorites title for: '+str(xml_id), level=xbmc.LOGDEBUG)
+            new_xml_text = current_dialog.input('Enter a new title:')
+            set_new_favorite_metadata(xml_id,new_xml_text.replace('\n',' ').replace('\r',' ').replace('<',' ').replace('>',' '),0)
+        elif ret1 == 1: #Update Description
+            xbmc.log(msg='IARL:  Updating Favorites description for: '+str(xml_id), level=xbmc.LOGDEBUG)
+            new_xml_text = current_dialog.input('Enter a new description:')
+            set_new_favorite_metadata(xml_id,new_xml_text.replace('\n','[CR]').replace('\r','[CR]').replace('<',' ').replace('>',' '),1)
+        elif ret1 == 2: #Update Author
+            xbmc.log(msg='IARL:  Updating Favorites author for: '+str(xml_id), level=xbmc.LOGDEBUG)
+            new_xml_text = current_dialog.input('Enter a new author:')
+            set_new_favorite_metadata(xml_id,new_xml_text.replace('\n',' ').replace('\r',' ').replace('<',' ').replace('>',' '),2)
+        elif ret1 == 3: #Update Thumbnail
+            xbmc.log(msg='IARL:  Updating Favorites Thumbnail URL for: '+str(xml_id), level=xbmc.LOGDEBUG)
+            new_xml_text = current_dialog.input('Enter a new Thumbnail URL:')
+            set_new_favorite_metadata(xml_id,new_xml_text.replace('\n',' ').replace('\r',' ').replace('<',' ').replace('>',' '),3)
+        elif ret1 == 4: #Update Banner
+            xbmc.log(msg='IARL:  Updating Favorites Banner URL for: '+str(xml_id), level=xbmc.LOGDEBUG)
+            new_xml_text = current_dialog.input('Enter a new Banner URL:')
+            set_new_favorite_metadata(xml_id,new_xml_text.replace('\n',' ').replace('\r',' ').replace('<',' ').replace('>',' '),4)
+        elif ret1 == 5: #Update Fanart
+            xbmc.log(msg='IARL:  Updating Favorites Fanart URL for: '+str(xml_id), level=xbmc.LOGDEBUG)
+            new_xml_text = current_dialog.input('Enter a new Fanart URL:')
+            set_new_favorite_metadata(xml_id,new_xml_text.replace('\n',' ').replace('\r',' ').replace('<',' ').replace('>',' '),5)
+        elif ret1 == 6: #Update Logo
+            xbmc.log(msg='IARL:  Updating Favorites Logo URL for: '+str(xml_id), level=xbmc.LOGDEBUG)
+            new_xml_text = current_dialog.input('Enter a new Logo URL:')
+            set_new_favorite_metadata(xml_id,new_xml_text.replace('\n',' ').replace('\r',' ').replace('<',' ').replace('>',' '),6)
+        elif ret1 == 7: #Update Video
+            xbmc.log(msg='IARL:  Updating Favorites Video ID for: '+str(xml_id), level=xbmc.LOGDEBUG)
+            new_xml_text = current_dialog.input('Enter a new YouTube URL:')
+            set_new_favorite_metadata(xml_id,new_xml_text.replace('\n',' ').replace('\r',' ').replace('<',' ').replace('>',' '),7)
+        elif ret1 == -1: #Cancelled
+            xbmc.log(msg='IARL:  Updating Favorites metadata was cancelled', level=xbmc.LOGDEBUG)
+        else: #Unknown
+            xbmc.log(msg='IARL:  Unknown selection for metadata update for: '+str(xml_id), level=xbmc.LOGERROR)
+    elif tag_value == 'share_favorites_list':
+        xbmc.log(msg='IARL:  Share Favorites List started for: '+str(xml_id), level=xbmc.LOGDEBUG)
+        share_my_iarl_favorite(xml_id)
     else:
         xbmc.log(msg='IARL:  Context menu selection is not defined', level=xbmc.LOGERROR)
         pass #Do Nothing
@@ -525,6 +571,9 @@ def index():
                             update_context(iarl_data['archive_data']['emu_filepath'][ii],'emu_launch_cmd_review','Review Launch Command'),
                             update_context(iarl_data['archive_data']['emu_filepath'][ii],'hide_archive','Hide This Archive'),
                             update_context(iarl_data['archive_data']['emu_filepath'][ii],'refresh_archive_cache','Refresh Archive Listing'),]
+
+        if 'favorites' in iarl_data['archive_data']['emu_category'][ii].lower(): #Add additional context to Favorites
+            context_menus = context_menus+[update_context(iarl_data['archive_data']['emu_filepath'][ii],'update_favorite_metadata','Update Favorite Metadata'),update_context(iarl_data['archive_data']['emu_filepath'][ii],'share_favorites_list','Share My List!'),]
 
         if 'hidden' not in iarl_data['archive_data']['emu_category'][ii]: #Don't include the archive if it's tagged hidden
             if 'alphabetical' in iarl_data['settings']['listing_convention'].lower(): #List alphabetically

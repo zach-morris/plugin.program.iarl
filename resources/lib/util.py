@@ -3473,6 +3473,136 @@ def set_new_emu_launcher(xml_id,plugin):
 	else:
 		pass
 
+def set_new_favorite_metadata(xml_id,new_xml_text,selection):
+	# ['Title','Description','Author','Thumbnail URL','Banner URL','Fanart URL','Logo URL','Video Trailer']
+	current_xml_fileparts = os.path.split(xml_id)
+	current_xml_filename = current_xml_fileparts[1]
+	current_xml_path = current_xml_fileparts[0]
+	supported_image_extensions = ['gif','jpg','jpeg','png','ico']
+	if selection == 0:
+		if new_xml_text is not None and len(new_xml_text)>0:
+			current_dialog = xbmcgui.Dialog()
+			ret1 = current_dialog.select('Are you sure you want to update Title for '+current_xml_filename, ['Yes','Cancel'])
+			if ret1<1:
+				update_xml_header(current_xml_path,current_xml_filename,'emu_name',new_xml_text)
+				ok_ret = current_dialog.ok('Complete','Title was updated for your list[CR]You may have to restart IARL for the settings to take effect.')
+				delete_userdata_list_cache_file(current_xml_filename.split('.')[0])
+			else:
+				xbmc.log(msg='IARL:  Updating favorites title was cancelled by the user',level=xbmc.LOGDEBUG)
+		else:
+			xbmc.log(msg='IARL:  Updating favorites title was not updated due to an incomplete entry',level=xbmc.LOGDEBUG)
+	elif selection == 1:
+		if new_xml_text is not None and len(new_xml_text)>0:
+			current_dialog = xbmcgui.Dialog()
+			ret1 = current_dialog.select('Are you sure you want to update the descrption for '+current_xml_filename, ['Yes','Cancel'])
+			if ret1<1:
+				update_xml_header(current_xml_path,current_xml_filename,'emu_comment',new_xml_text)
+				ok_ret = current_dialog.ok('Complete','Description was updated for your list[CR]You may have to restart IARL for the settings to take effect.')
+				delete_userdata_list_cache_file(current_xml_filename.split('.')[0])
+			else:
+				xbmc.log(msg='IARL:  Updating favorites description was cancelled by the user',level=xbmc.LOGDEBUG)
+		else:
+			xbmc.log(msg='IARL:  Updating favorites descrption was not updated due to an incomplete entry',level=xbmc.LOGDEBUG)
+	elif selection == 2:
+		if new_xml_text is not None and len(new_xml_text)>0:
+			current_dialog = xbmcgui.Dialog()
+			ret1 = current_dialog.select('Are you sure you want to update the author for '+current_xml_filename, ['Yes','Cancel'])
+			if ret1<1:
+				update_xml_header(current_xml_path,current_xml_filename,'emu_author',new_xml_text)
+				ok_ret = current_dialog.ok('Complete','Author was updated for your list[CR]You may have to restart IARL for the settings to take effect.')
+				delete_userdata_list_cache_file(current_xml_filename.split('.')[0])
+			else:
+				xbmc.log(msg='IARL:  Updating favorites author was cancelled by the user',level=xbmc.LOGDEBUG)
+		else:
+			xbmc.log(msg='IARL:  Updating favorites author was not updated due to an incomplete entry',level=xbmc.LOGDEBUG)
+	elif selection == 3 or selection == 4 or selection == 5 or selection == 6:
+		if selection == 3:
+			tag_to_update = 'emu_thumb'
+		elif selection == 4:
+			tag_to_update = 'emu_banner'
+		elif selection == 5:
+			tag_to_update = 'emu_fanart'
+		elif selection == 6:
+			tag_to_update = 'emu_logo'
+		if new_xml_text is not None and len(new_xml_text)>0:
+			current_dialog = xbmcgui.Dialog()
+			if 'http' not in new_xml_text or new_xml_text.split('.')[-1].lower() not in supported_image_extensions:
+				ok_ret = current_dialog.ok('Error','The image entry must be an URL and of type gif, jpg, png, or ico')
+				xbmc.log(msg='IARL:  Updating favorites image was not correctly formatted: '+str(new_xml_text),level=xbmc.LOGDEBUG)
+			else:
+				ret1 = current_dialog.select('Are you sure you want to update the image for '+current_xml_filename, ['Yes','Cancel'])
+				if ret1<1:
+					update_xml_header(current_xml_path,current_xml_filename,tag_to_update,new_xml_text)
+					ok_ret = current_dialog.ok('Complete','Image was updated for your list[CR]You may have to restart IARL for the settings to take effect.')
+					delete_userdata_list_cache_file(current_xml_filename.split('.')[0])
+				else:
+					xbmc.log(msg='IARL:  Updating favorites image was cancelled by the user',level=xbmc.LOGDEBUG)
+		else:
+			xbmc.log(msg='IARL:  Updating favorites image was not updated due to an incomplete entry',level=xbmc.LOGDEBUG)
+	elif selection == 7:
+		if new_xml_text is not None and len(new_xml_text)>0:
+			current_dialog = xbmcgui.Dialog()
+			ret1 = current_dialog.select('Are you sure you want to update the Video Trailer for '+current_xml_filename, ['Yes','Cancel'])
+			if ret1<1:
+				update_xml_header(current_xml_path,current_xml_filename,'emu_trailer',new_xml_text.split('v=')[-1].split('&')[0])
+				ok_ret = current_dialog.ok('Complete','Video Trailer was updated for your list[CR]You may have to restart IARL for the settings to take effect.')
+				delete_userdata_list_cache_file(current_xml_filename.split('.')[0])
+			else:
+				xbmc.log(msg='IARL:  Updating favorites Video Trailer was cancelled by the user',level=xbmc.LOGDEBUG)
+		else:
+			xbmc.log(msg='IARL:  Updating favorites Video Trailer was not updated due to an incomplete entry',level=xbmc.LOGDEBUG)
+
+def share_my_iarl_favorite(xml_id):
+	current_xml_fileparts = os.path.split(xml_id)
+	current_xml_filename = current_xml_fileparts[1]
+	current_xml_path = current_xml_fileparts[0]
+	current_dialog = xbmcgui.Dialog()
+	ret1 = current_dialog.select('Are you sure you want to upload and share your list '+current_xml_filename, ['Yes','Cancel'])
+	if ret1<1:
+		xbmc.log(msg='IARL:  Share favorites is initiated',level=xbmc.LOGDEBUG)
+		ret2 = current_dialog.select('Do you want to update the metadata for your list before you upload[CR](images, description, etc)?', ['Yes','No'])
+		if ret2<1:
+			ok_ret = current_dialog.ok('Update Metadata First','Please select Update Favorite Metadata from the context menu')
+		else:
+			current_title = None
+			current_author = None
+			current_description = None
+			share_success = False
+			total_lines = 500  #Read up to this many lines looking for the header
+			f=open(xml_id,'rU')
+			f.seek(0)
+			header_end=0
+			line_num=0
+			header_text = ''
+			while header_end < 1:
+				line=f.readline()
+				header_text+=str(line)
+				line_num = line_num+1
+				if '</header>' in header_text: #Found the header
+					header_end = 1
+					header_text = header_text.split('<header>')[1].split('</header>')[0]
+					current_title = header_text.split('<emu_name>')[1].split('</emu_name>')[0]
+					current_author = header_text.split('<emu_author>')[1].split('</emu_author>')[0]
+					current_description = header_text.split('<emu_comment>')[1].split('</emu_comment>')[0]
+					f.close()
+				if line_num == total_lines:  #Couldn't find the header
+					header_end = 1
+					f.close()
+					xbmc.log(msg='IARL:  Unable to parse header in xml file '+str(ffile), level=xbmc.LOGERROR)
+			if current_title is not None and current_author is not None and current_description is not None:
+				from iarl_share_tools import *
+				show_busy_dialog()
+				share_success, share_message = iarl_share_tools().share_fav(current_title,current_author,current_description,xml_id,True)
+				if share_success:
+					hide_busy_dialog()
+					ok_ret = current_dialog.ok('Thank you!','Thanks for sharing, your list will be reviewed for addition into IARL Extras!')
+				else:
+					hide_busy_dialog()
+					ok_ret = current_dialog.ok('Error','Unable to upload your list.  Please see the log.')
+					xbmc.log(msg='IARL:  Unable to upload the xml file '+str(xml_id)+' Share Error: '+str(share_message), level=xbmc.LOGERROR)
+	else:
+		xbmc.log(msg='IARL:  Share favorites was cancelled by the user',level=xbmc.LOGDEBUG)
+
 def check_file_exists_wildcard(file_path,file_name_2,exact_match_req):
 	#A more robust file exists check.  This will check for any file or folder with the same base filename (replacing spaces with wildcard and file extension with wildcard) that is trying to be launched
 	#It will not match retroarch save filetypes like srm, sav, etc
