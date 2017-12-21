@@ -1381,6 +1381,28 @@ def post_download_action(iarl_data,option,option2):
             iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
         else:
             xbmc.log(msg='IARL:  There was an error unzipping and reanaming for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)  
+    elif option == 'unzip_standalone_port_file':
+        if iarl_data['current_save_data']['rom_save_filenames']:
+            for filenames in iarl_data['current_save_data']['rom_save_filenames']:
+                if option2 is None:
+                    option2 = iarl_data['current_rom_data']['rom_emu_command']
+                conversion_success, converted_filename = unzip_standalone_port_file(filenames,option2)
+                iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+                iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        if iarl_data['current_save_data']['rom_save_supporting_filenames']:
+            for filenames in iarl_data['current_save_data']['rom_save_supporting_filenames']:
+                if option2 is None:
+                    option2 = iarl_data['current_rom_data']['rom_emu_command']
+                conversion_success, converted_filename = unzip_standalone_port_file(filenames,option2)
+                iarl_data['current_save_data']['rom_converted_filenames'].append(converted_filename)
+                iarl_data['current_save_data']['rom_converted_filenames_success'].append(conversion_success)
+        for check in iarl_data['current_save_data']['rom_converted_filenames_success']:
+            if not check:
+                iarl_data['current_save_data']['overall_conversion_success'] = False
+        if iarl_data['current_save_data']['overall_conversion_success']:
+            iarl_data['current_save_data']['launch_filename'] = iarl_data['current_save_data']['rom_converted_filenames'][0] #Define the launch filename as the first one
+        else:
+            xbmc.log(msg='IARL:  There was an error converting Standalone Port files for '+str(iarl_data['current_rom_data']['rom_name']), level=xbmc.LOGERROR)
     elif option == 'unzip_update_rom_path_dosbox':
         if iarl_data['current_save_data']['rom_save_filenames']:
             for filenames in iarl_data['current_save_data']['rom_save_filenames']:

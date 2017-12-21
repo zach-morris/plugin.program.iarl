@@ -674,7 +674,10 @@ def initialize_userdata():
 				userdata_file_info = get_xml_header_version(os.path.join(userdata_xmldir,file_name))
 				if addon_file_info['emu_version'][0] == userdata_file_info['emu_version'][0]: #Files are the same, delete addondata file
 					xbmc.log(msg='IARL: '+str(file_name)+' same version detected, deleting addondata file', level=xbmc.LOGDEBUG)
-					os.remove(os.path.join(addondata_xmldir,file_name))
+					try:
+						os.remove(os.path.join(addondata_xmldir,file_name))
+					except:
+						xbmc.log(msg='IARL:  Attempt to delete the old XML file '+str(file_name)+' failed.', level=xbmc.LOGERROR)
 				else:
 					current_dialog = xbmcgui.Dialog()
 					current_dialog.ok('New Version Found', 'New version '+addon_file_info['emu_version'][0]+' for the file:', addon_file_info['emu_name'][0], 'was detected.')
@@ -687,19 +690,28 @@ def initialize_userdata():
 							xbmc.log(msg='IARL:  Attempt to delete the old XML file '+str(file_name)+' failed.', level=xbmc.LOGERROR)
 						copyFile(os.path.join(addondata_xmldir,file_name), os.path.join(userdata_xmldir,file_name))
 						if os.path.isfile(os.path.join(userdata_xmldir,file_name)): #Copy was successful, delete addondata file
-							os.remove(os.path.join(addondata_xmldir,file_name)) #Remove the file from the addondata folder
+							try:
+								os.remove(os.path.join(addondata_xmldir,file_name)) #Remove the file from the addondata folder
+							except:
+								xbmc.log(msg='IARL:  Attempt to delete the old XML file '+str(file_name)+' failed.', level=xbmc.LOGERROR)
 						else:
 							xbmc.log(msg='IARL:  Copying the XML file '+str(file_name)+' failed.', level=xbmc.LOGERROR)
 					elif ret1 == 1: #Remind me later
 						xbmc.log(msg='IARL:  XML File will not be copied at this time', level=xbmc.LOGDEBUG)
 					else: #No, delete the file
 						xbmc.log(msg='IARL:  XML File will be deleted', level=xbmc.LOGDEBUG)
-						os.remove(os.path.join(addondata_xmldir,file_name)) #Remove the file from the addondata folder
+						try:
+							os.remove(os.path.join(addondata_xmldir,file_name)) #Remove the file from the addondata folder
+						except:
+							xbmc.log(msg='IARL:  Attempt to delete the old XML file '+str(file_name)+' failed.', level=xbmc.LOGERROR)
 			else: #The files does not yet exist in userdata
 				xbmc.log(msg='IARL:  Copying new file '+str(file_name)+' to userdata', level=xbmc.LOGDEBUG)
 				copyFile(os.path.join(addondata_xmldir,file_name), os.path.join(userdata_xmldir,file_name))
 				if os.path.isfile(os.path.join(userdata_xmldir,file_name)): #Copy was successful, delete addondata file
-					os.remove(os.path.join(addondata_xmldir,file_name)) #Remove the file from the addondata folder
+					try:
+						os.remove(os.path.join(addondata_xmldir,file_name)) #Remove the file from the addondata folder
+					except:
+						xbmc.log(msg='IARL:  Attempt to delete the old XML file '+str(file_name)+' failed.', level=xbmc.LOGERROR)
 				else:
 					xbmc.log(msg='IARL:  Copying the XML file '+str(file_name)+' failed.', level=xbmc.LOGERROR)
 		xbmc.sleep(500) #Sleep for a moment
@@ -1869,6 +1881,59 @@ def unzip_and_rename_file(iarl_data): #This will probably only work when there i
 		overall_success = False
 	else:
 		overall_success = True
+
+	return zip_success, new_fname
+
+def unzip_standalone_port_file(current_fname,current_rom_emu_command):
+	zip_success = False
+	new_fname = None
+	new_pointer_fname = None
+	new_pointer_content = None
+
+	if zipfile.is_zipfile(current_fname): #First time standalone is downloaded, still in zip
+		try:
+			current_zip_fileparts = os.path.split(current_fname)
+			current_zip_path = current_zip_fileparts[0]
+			z_file = zipfile.ZipFile(current_fname)
+			z_file.extractall(current_zip_path)
+			z_file.close()
+			zip_success = True
+			xbmc.log(msg='IARL:  Standalone Unzip sucessfull for ' +str(current_fname), level=xbmc.LOGDEBUG)
+		except:
+			zip_success = False
+			xbmc.log(msg='IARL:  Standalone Unzip failed for ' +str(current_fname), level=xbmc.LOGERROR)
+		if zip_success:
+			os.remove(current_fname)
+	else:  #Likely standalone files already exist locally, search for them
+		xbmc.log(msg='IARL:  Standalone searching for previously launched file', level=xbmc.LOGDEBUG)
+		for root, dirnames, filenames in os.walk(current_fname):
+			for filename in glob.glob(os.path.join(root,'*.iarl')):
+				if new_pointer_fname is None:
+					new_pointer_fname = filename
+		if new_pointer_fname is None:
+			xbmc.log(msg='IARL:  There was an error unzipping files for '+str(current_fname), level=xbmc.LOGERROR)
+			zip_success = False
+		else:
+			with open(new_pointer_fname, 'r') as content_file:
+				new_pointer_content = content_file.read()
+
+	if new_pointer_content is not None:
+		new_fname = os.path.join(os.path.split(new_pointer_fname)[0],new_pointer_content)
+		xbmc.log(msg='IARL:  Standalone pointing to previously launched file '+str(new_fname), level=xbmc.LOGDEBUG)
+		zip_success = True
+	else:
+		if current_rom_emu_command: #The file was unzipped, change from zip to rom extension
+			try:
+				new_fname = os.path.join(current_zip_path,os.path.join(*current_rom_emu_command.split('/')))
+				#Create a pointer file for launching the same file for future launches of the game
+				new_pointer_fname = os.path.join(os.path.split(new_fname)[0],os.path.splitext(os.path.split(current_fname)[-1])[0]+'.iarl')
+				if not os.path.exists(new_pointer_fname):
+					with open(new_pointer_fname, 'w') as fout:
+						fout.write(current_rom_emu_command.split('/')[-1])
+			except:
+				new_fname = current_fname #Didn't unzip or didn't find a file extension
+		else:
+			new_fname = current_fname #Didn't unzip or didn't find a file extension
 
 	return zip_success, new_fname
 
@@ -3479,7 +3544,7 @@ def check_downloaded_file(file_path):
 		xbmc.log(msg='IARL:  The file '+str(file_path)+' was 0 bytes in size.', level=xbmc.LOGERROR)
 		os.remove(file_path) #Remove Zero Byte File
 		bad_file_found = True
-	if st.st_size > 1 and st.st_size < 40000: #Small file, check if archive.org returned 'item not found'
+	if st.st_size > 1 and st.st_size < 80000: #Small file, check if archive.org returned 'item not found'
 		try:
 			with open(file_path, 'r') as content_file:
 				file_contents = content_file.read().replace('\n', '')
