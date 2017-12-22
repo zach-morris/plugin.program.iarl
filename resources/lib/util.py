@@ -1937,6 +1937,63 @@ def unzip_standalone_port_file(current_fname,current_rom_emu_command):
 
 	return zip_success, new_fname
 
+
+def unzip_win31_file(current_title,current_fname,current_rom_emu_command):
+	zip_success = False
+	new_fname = None
+	new_pointer_fname = None
+	new_pointer_content = None
+	current_save_fileparts1 = os.path.split(current_fname[0])
+	current_save_fileparts2 = os.path.split(current_fname[1])
+	current_save_path = current_save_fileparts1[0]
+	unzip_folder_name = clean_file_folder_name(current_title)
+	unzip_folder_path = os.path.join(current_save_path,unzip_folder_name)
+
+	if zipfile.is_zipfile(current_fname[0]): #First time standalone is downloaded, still in zip
+		try:
+			z_file = zipfile.ZipFile(current_fname[0])
+			z_file.extractall(unzip_folder_path)
+			z_file.close()
+			zip_success1 = True
+			xbmc.log(msg='IARL:  WIN31 Unzip 1 sucessfull for ' +str(current_fname[0]), level=xbmc.LOGDEBUG)
+		except:
+			zip_success1 = False
+			xbmc.log(msg='IARL:  WIN31 Unzip 1 failed for ' +str(current_fname[0]), level=xbmc.LOGERROR)
+		if zip_success1:
+			os.remove(current_fname[0])
+			# fileList = [os.listdir(unzip_folder_path)filename for filename in os.listdir(unzip_folder_path)]
+		if zipfile.is_zipfile(current_fname[1]): #Supporting win31 files
+			try:
+				current_zip_fileparts = os.path.split(current_fname[1])
+				current_zip_path = current_zip_fileparts[0]
+				z_file = zipfile.ZipFile(current_fname[1])
+				z_file.extractall(unzip_folder_path)
+				z_file.close()
+				zip_success2 = True
+				xbmc.log(msg='IARL:  WIN31 Unzip 2 sucessfull for ' +str(current_fname[1]), level=xbmc.LOGDEBUG)
+			except:
+				zip_success2 = False
+				xbmc.log(msg='IARL:  WIN31 Unzip 2 failed for ' +str(current_fname[1]), level=xbmc.LOGERROR)
+			if zip_success2:
+				os.remove(current_fname[1])
+		if zip_success1 and zip_success2:
+			with open(os.path.join(unzip_folder_path,unzip_folder_name+'.bat'), 'w') as fout: #Update BAT file
+				fout.write('@echo off\r\npath=%path%;\r\ncopy c:\\iniback\\*.* c:\\windows\\\r\nsetini c:\windows\system.ini boot shell "C:\XXCOMMANDXX"\r\nc:\r\ncd \\\r\nc:\\windows\\win\r\n'.replace('XXCOMMANDXX',current_rom_emu_command))
+			zip_success = True
+			new_fname = os.path.join(os.path.join(unzip_folder_path,unzip_folder_name+'.bat'))
+	else:  #Likely launch file exists, look for it
+		xbmc.log(msg='IARL:  WIN31 searching for previously launched file', level=xbmc.LOGDEBUG)
+		if os.path.isfile(os.path.join(unzip_folder_path,unzip_folder_name+'.bat')): #Look for the ini file
+			xbmc.log(msg='IARL:  WIN31 found bat file to launch '+str(os.path.join(unzip_folder_path,unzip_folder_name+'.bat')), level=xbmc.LOGDEBUG)
+			new_fname = os.path.join(unzip_folder_path,unzip_folder_name+'.bat')
+			zip_success = True
+		else:
+			xbmc.log(msg='IARL:  WIN31 unable to find previously launched file', level=xbmc.LOGDEBUG)
+			new_fname = current_fname
+			zip_success = False
+
+	return zip_success, new_fname
+
 def unzip_dosbox_file(current_fname,current_rom_emu_command):
 	zip_success = False
 	new_fname = None
