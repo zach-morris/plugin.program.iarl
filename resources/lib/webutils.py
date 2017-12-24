@@ -1,40 +1,21 @@
-# -*- coding: utf-8 -*-
-
-""" Web Utils taken from the p2p-streams addon (2014 enen92 fightnight), updated for IARL purposes
-
-    This file contains web utilities
+# Zach Morris IARL Web Utilities
     
-    Classes:
-    
-    download_tools() -> Contains a downloader, a extraction function and a remove function
-    
-    Functions:
-    
-    get_page_source -> Get a webpage source code through urllib2
-    mechanize_browser(url) -> Get a webpage source code through mechanize module. To avoid DDOS protections.
-    makeRequest(url, headers=None) -> check if a page is up and retrieve its source code
-    clean(text) -> Remove specific characters from the page source
-    url_isup(url, headers=None) -> Check if url is up. Returns True or False.
-   	
-   	Thanks to primaeval for updated code for login capability
-"""
-    
-import xbmc,xbmcplugin,xbmcgui,xbmcaddon,urllib,urllib2,tarfile,os,sys,re,gzip
-
-try: #Enable login
-	if 'Enabled' in xbmcaddon.Addon('plugin.program.iarl').getSetting('iarl_enable_login'):
-		import requests
-		import time
-		import requests.packages.urllib3
-		requests.packages.urllib3.disable_warnings()
-	else:
-		xbmc.log(msg='IARL:  Login not enabled', level=xbmc.LOGDEBUG)
-except:
-	xbmc.log(msg='IARL:  script.module.requests is not installed, login is not supported without it!', level=xbmc.LOGDEBUG)
-
+import xbmc,xbmcgui,xbmcaddon,xbmcplugin,urllib,urllib2,tarfile,os,sys,re,gzip,random,time
 from StringIO import StringIO
+try:
+	import requests
+	import requests.packages.urllib3
+	requests.packages.urllib3.disable_warnings()
+except:
+	xbmc.log(msg='IARL:  script.module.requests is not installed and is required', level=xbmc.LOGERROR)
 
-user_agent = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1468.0 Safari/537.36'
+try:
+	user_agent_options = ['Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36','Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36','Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36','Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/604.3.5 (KHTML, like Gecko) Version/11.0.1 Safari/604.3.5','Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0','Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0','Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1468.0 Safari/537.36']
+	user_agent = user_agent_options[random.randint(0,len(user_agent_options)-1)]  #Just pick a random user agent from the top 10 according to the internet
+except:
+	user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
+chunk_size = 102400 #100 KB chunks
+download_timeout = 60 #Seems long... according to the internet this is the default
 
 class download_tools():
 	#Downloader with login option for archive.org
@@ -44,92 +25,76 @@ class download_tools():
 		dp.update(0)
 		success = False
 		if len(username)>0 and len(password)>0 and login_opt: #Attempt to login for downloading
-			s = requests.Session()
-			r = s.get("https://archive.org/account/login.php")
-			data={"username":username, "password":password, "remember":"CHECKED","action":"login","submit":"Log+in"}
-			r = s.post('https://archive.org/account/login.php', data=data)
-			if 'that password seems incorrect' in str(r.text.encode('utf-8')).lower():
-				xbmc.log(msg='IARL:  Login and Password were not accepted, we will try to download anyway', level=xbmc.LOGDEBUG)
-			xbmc.log(msg='IARL:  Download with login URL: '+str(url), level=xbmc.LOGDEBUG)
-			xbmc.log(msg='IARL:  Download save filename: '+str(dest), level=xbmc.LOGDEBUG)
-			r = s.get(url,verify=False,stream=True)
-			f = open(dest, 'wb')
-			size = 0
-			last_time = time.time()
-			for chunk in r.iter_content(1024):
-				size = size + 1024.0
-				percent = 100.0 * size / (est_filesize + 1) #Added 1 byte to avoid div by zero
-				f.write(chunk)
-				now = time.time()
-				diff = now - last_time
-				if diff > 1:
-					percent = int(percent)
-					last_time = now
-					dp.update(percent)
+			try:
+				s = requests.Session()
+				r = s.get("https://archive.org/account/login.php")
+				data={"username":username, "password":password, "remember":"CHECKED","action":"login","submit":"Log+in"}
+				r = s.post('https://archive.org/account/login.php', data=data)
+				if 'that password seems incorrect' in str(r.text.encode('utf-8')).lower():
+					xbmc.log(msg='IARL:  Login and Password were not accepted, we will try to download anyway', level=xbmc.LOGDEBUG)
+				xbmc.log(msg='IARL:  Download with login URL: '+str(url), level=xbmc.LOGDEBUG)
+				xbmc.log(msg='IARL:  Download save filename: '+str(dest), level=xbmc.LOGDEBUG)
+				r = s.get(url,verify=False,stream=True,timeout=download_timeout)
+				f = open(dest, 'wb')
+				size = 0
+				last_time = time.time()
+				for chunk in r.iter_content(chunk_size):
 					if dp.iscanceled():
 						dp.close()
-						raise
-			f.flush()
-			f.close()
-			success = True
-			dp.close()
-		else: #No login / pass available or login not enabled, use the old download method
-			try:
-				xbmc.log(msg='IARL:  Download no login URL: '+str(url), level=xbmc.LOGDEBUG)
-				xbmc.log(msg='IARL:  Download save filename: '+str(dest), level=xbmc.LOGDEBUG)
-				urllib.urlretrieve(url,dest,lambda nb, bs, fs, url=url: self._pbhook(nb,bs,fs,est_filesize+1,dp))
+						raise Exception('User Cancelled Download')
+					size = size + chunk_size
+					percent = 100.0 * size / (est_filesize + 1) #Added 1 byte to avoid div by zero
+					f.write(chunk)
+					now = time.time()
+					diff = now - last_time
+					if diff > 1:
+						percent = int(percent)
+						last_time = now
+						dp.update(percent)
+						if dp.iscanceled():
+							dp.close()
+							raise Exception('User Cancelled Download')
+				f.flush()
+				f.close()
 				success = True
-			except IOError as e:
-				xbmc.log(msg='IARL:  There was an error downloading: '+str(e.strerror), level=xbmc.LOGERROR)
-				current_dialog = xbmcgui.Dialog()
-				current_dialog.notification('Error', 'Error Downloading, see log', xbmcgui.NOTIFICATION_INFO, 1000)
+				dp.close()
+			except Exception as web_except:
+				xbmc.log(msg='IARL:  There was a download error (with login): '+str(url)+' - '+str(web_except), level=xbmc.LOGERROR)
 				success = False
-			except:
-				xbmc.log(msg='IARL:  Download was cancelled by the user or some unknown error occured.', level=xbmc.LOGNOTICE)
-				current_dialog = xbmcgui.Dialog()
-				current_dialog.notification('Stopped', 'Download Stopped, see log', xbmcgui.NOTIFICATION_INFO, 1000)
+		else:
+			try:
+				s = requests.Session()
+				xbmc.log(msg='IARL:  Download with no login URL: '+str(url), level=xbmc.LOGDEBUG)
+				xbmc.log(msg='IARL:  Download save filename: '+str(dest), level=xbmc.LOGDEBUG)
+				r = s.get(url,verify=False,stream=True,timeout=download_timeout)
+				f = open(dest, 'wb')
+				size = 0
+				last_time = time.time()
+				for chunk in r.iter_content(chunk_size):
+					if dp.iscanceled():
+						dp.close()
+						raise Exception('User Cancelled Download')
+					size = size + chunk_size
+					percent = 100.0 * size / (est_filesize + 1) #Added 1 byte to avoid div by zero
+					f.write(chunk)
+					now = time.time()
+					diff = now - last_time
+					if diff > 1:
+						percent = int(percent)
+						last_time = now
+						dp.update(percent)
+						if dp.iscanceled():
+							dp.close()
+							raise Exception('User Cancelled Download')
+				f.flush()
+				f.close()
+				success = True
+				dp.close()
+			except Exception as web_except:
+				xbmc.log(msg='IARL:  There was a download error (no login): '+str(url)+' - '+str(web_except), level=xbmc.LOGERROR)
 				success = False
 
 		return success
-
-	def _pbhook(self,numblocks, blocksize, filesize, est_filesize, dp=None):
-
-		#Filesize from archive.org is not available in most archives, use xml value
-		try:
-			perc_filesize = max(filesize,est_filesize)
-		except:
-			perc_filesize = filesize
-
-		try:
-			percent = int((int(numblocks)*int(blocksize)*100)/int(perc_filesize))
-			dp.update(percent)
-			# print 'test'
-			# print str(numblocks)
-			# print str(blocksize)
-			# print str(filesize)
-			# print str(percent)
-		except:
-			percent = 100
-			dp.update(percent)
-		if dp.iscanceled():
-			dp.close()
-			raise
-	
-	def extract(self,file_tar,destination):
-		dp = xbmcgui.DialogProgress()
-		dp.create(translate(40000),translate(40044))
-		tar = tarfile.open(file_tar)
-		tar.extractall(destination)
-		dp.update(100)
-		tar.close()
-		dp.close()
-		
-	def remove(self,file_):
-		dp = xbmcgui.DialogProgress()
-		dp.create(translate(40000),translate(40045))
-		os.remove(file_)
-		dp.update(100)
-		dp.close()
 
 def get_page_source(url):
 	req = urllib2.Request(url)
@@ -151,7 +116,7 @@ def mechanize_browser(url):
 	br.set_handle_redirect(True)
 	br.set_handle_referer(True)
 	br.set_handle_robots(False)
-	br.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1')]
+	br.addheaders = [('User-agent', user_agent)]
 	r = br.open(url)
 	html = r.read()
 	html_source= br.response().read()
@@ -160,7 +125,7 @@ def mechanize_browser(url):
 def makeRequest(url, headers=None):
 	try:
 		if not headers:
-			headers = {'User-agent' : 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0'}
+			headers = {'User-agent' : user_agent}
 		req = urllib2.Request(url,None,headers)
 		response = urllib2.urlopen(req)
 		data = response.read()
@@ -173,18 +138,13 @@ def makeRequest(url, headers=None):
 def url_isup(url, headers=None):
 	try:
 		if not headers:
-			headers = {'User-agent' : 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0'}
+			headers = {'User-agent' : user_agent}
 		req = urllib2.Request(url,None,headers)
 		response = urllib2.urlopen(req)
 		data = response.read()
 		response.close()
 		return True
 	except: return False
-		
-def clean(text):
-      command={'\r':'','\n':'','\t':'','&nbsp;':' ','&quot;':'"','&#039;':'','&#39;':"'",'&#227;':'ã','&170;':'ª','&#233;':'é','&#231;':'ç','&#243;':'ó','&#226;':'â','&ntilde;':'ñ','&#225;':'á','&#237;':'í','&#245;':'õ','&#201;':'É','&#250;':'ú','&amp;':'&','&#193;':'Á','&#195;':'Ã','&#202;':'Ê','&#199;':'Ç','&#211;':'Ó','&#213;':'Õ','&#212;':'Ó','&#218;':'Ú'}
-      regex = re.compile("|".join(map(re.escape, command.keys())))
-      return regex.sub(lambda mo: command[mo.group(0)], text)
 
 def quote_url(text):
 	if 'drive.google.com' not in text: #Dont quote google drive urls
