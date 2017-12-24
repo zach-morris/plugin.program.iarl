@@ -509,7 +509,7 @@ def download_iarl_extra_file(extras_url):
 	current_dialog = xbmcgui.Dialog()
 
 	ret1 = current_dialog.select('Are you sure you want to add this game list?', ['No','Yes'])
-	if ret1 == 0:
+	if ret1 == 0 or ret1 == -1:
 		pass
 	else:
 		#Check to see if file already exists, if it does then ask user if they want to overwite it
@@ -575,7 +575,7 @@ def get_youtube_plugin_url(videoid):
 def update_addonxml(option):
 	current_dialog = xbmcgui.Dialog()
 	ret1 = current_dialog.select('Are you sure you want to update this setting?', ['No','Yes'])
-	if ret1 == 0:
+	if ret1 == 0 or ret1 == -1:
 		pass
 	else:
 		ok_ret = current_dialog.ok('Complete','The addon was updated.[CR]You may have to restart Kodi for the settings to take effect.')
@@ -2394,7 +2394,7 @@ def generate_uae4arm_conf_file(iarl_data):
 	if len(iarl_data['current_save_data']['rom_save_filenames'])>4:
 		current_dialog = xbmcgui.Dialog()
 		ret1 = current_dialog.select('There are more than 4 disks for this game, launch anyway?', ['Yes','No'])
-		if ret1 == 0:
+		if ret1 == 0 or ret1 == -1:
 			continue_launch = False
 		else:
 			continue_launch = True

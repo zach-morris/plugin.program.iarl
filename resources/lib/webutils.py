@@ -153,6 +153,26 @@ def quote_url(text):
 		new_url = text
 	return new_url
 
+def get_iarl_extras_update_content():
+	xx = 0
+	extras_update_content = ''
+	url = 'https://raw.githubusercontent.com/zach-morris/iarl.extras/master/iarl_extras.xml'
+	try:
+		r = requests.get(url, stream=True, timeout=5)
+		for lines in r.iter_lines():
+			if lines and xx<5:
+				extras_update_content = extras_update_content+str(lines)
+				if '</last_update_comment>' in lines:
+					xx = 5
+					break
+			else:
+				break
+			xx = xx+1
+	except:
+		xbmc.log(msg='IARL:  Unable to reach iarl.extras repo', level=xbmc.LOGDEBUG)
+
+	return extras_update_content
+
 def unquote_name(text):
 	new_text = urllib.unquote(text)
 	return new_text

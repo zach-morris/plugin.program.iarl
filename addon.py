@@ -660,14 +660,24 @@ def index():
 
     #Append IARL Extras
     if iarl_data['settings']['show_extras_item']:
+        extras_content = get_iarl_extras_update_content()
+        extras_plot = 'Download extra game lists from the community.'
+        extras_date = '01/01/2999'
+        if len(extras_content)>0:
+            try:
+                extras_date = extras_content.split('<last_update>')[1].split('</last_update>')[0]
+                extras_plot = extras_plot+'[CR]Last Updated: '+str(extras_date)+'[CR]Latest Additions:  '+extras_content.split('<last_update_comment>')[1].split('</last_update_comment>')[0]
+            except:
+                extras_date = '01/01/2999'
+                extras_plot = 'Download extra game lists from the community.'
         items.append(plugin._listitemify({ 
             'label' : '\xc2\xa0IARL Extras',
             'path' :  plugin.url_for('get_iarl_extras'),
             'icon': os.path.join(iarl_data['addon_data']['addon_media_path'],'iarl_extras.jpg'),
             'thumbnail' : os.path.join(iarl_data['addon_data']['addon_media_path'],'iarl_extras.jpg'),
             'info' : {'genre': '\xc2\xa0',
-                      'date': '01/01/2999',
-                      'plot' : 'Download extra game lists from the community.'},
+                      'date': extras_date,
+                      'plot' : extras_plot},
             'properties' : {'fanart_image' : os.path.join(iarl_data['addon_data']['addon_media_path'],'fanart.jpg'),
                             'banner' : os.path.join(iarl_data['addon_data']['addon_media_path'],'extras_banner.png')}
             }))
