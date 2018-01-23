@@ -109,9 +109,9 @@
 ]>
 	<datafile>
 		<header>
-			<emu_name>Woderswan</emu_name>
+			<emu_name>Wonderswan</emu_name>
 			<emu_parser>NoIntro_parser.xml</emu_parser>
-			<emu_description>Woderswan</emu_description>
+			<emu_description>Wonderswan</emu_description>
 			<emu_category>Bandai</emu_category>
 			<emu_version>070116</emu_version>
 			<emu_date>07/01/2016</emu_date>
