@@ -18,6 +18,8 @@
 	</system>
 	<system name="a7800">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/a7800.xml</web_url>
+		<folder_name>a7800</folder_name>
+		<media_type>-cart</media_type>
 	</system>
 	<system name="a800">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/a800.xml</web_url>
@@ -150,6 +152,8 @@
 	</system>
 	<system name="astrocde">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/astrocde.xml</web_url>
+		<folder_name>astrocde</folder_name>
+		<media_type>-cart</media_type>
 	</system>
 	<system name="atom_cass">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/atom_cass.xml</web_url>
@@ -270,6 +274,8 @@
 	</system>
 	<system name="casloopy">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/casloopy.xml</web_url>
+		<folder_name>casloopy</folder_name>
+		<media_type>-cart</media_type>
 	</system>
 	<system name="cbm2_cart">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/cbm2_cart.xml</web_url>
@@ -296,6 +302,8 @@
 	</system>
 	<system name="cdtv">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/cdtv.xml</web_url>
+		<folder_name>cdtv</folder_name>
+		<media_type>-cdrom</media_type>
 	</system>
 	<system name="cgenie_cart">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/cgenie_cart.xml</web_url>
@@ -305,6 +313,8 @@
 	</system>
 	<system name="channelf">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/channelf.xml</web_url>
+		<folder_name>channelf</folder_name>
+		<media_type>-cart</media_type>
 	</system>
 	<system name="coco_cart">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/coco_cart.xml</web_url>
@@ -418,6 +428,8 @@
 	</system>
 	<system name="gamecom">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/gamecom.xml</web_url>
+		<folder_name>gamecom</folder_name>
+		<media_type>-cart</media_type>
 	</system>
 	<system name="gamegear">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/gamegear.xml</web_url>
@@ -466,6 +478,8 @@
 	</system>
 	<system name="gx4000">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/gx4000.xml</web_url>
+		<folder_name>gx4000</folder_name>
+		<media_type>-cart</media_type>
 	</system>
 	<system name="h21">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/h21.xml</web_url>
@@ -624,6 +638,8 @@
 	</system>
 	<system name="megaduck">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/megaduck.xml</web_url>
+		<folder_name>megaduck</folder_name>
+		<media_type>-cart</media_type>
 	</system>
 	<system name="megapc">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/megapc.xml</web_url>
@@ -1098,6 +1114,8 @@
 	</system>
 	<system name="svision">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/svision.xml</web_url>
+		<folder_name>svision</folder_name>
+		<media_type>-cart</media_type>
 	</system>
 	<system name="svmu">
 		<web_url>https://raw.githubusercontent.com/mamedev/mame/master/hash/svmu.xml</web_url>
