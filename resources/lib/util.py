@@ -420,7 +420,8 @@ def update_history_cache_file(iarl_data,plugin):
 
 			for ii in range(0,max(0,min(iarl_data['settings']['iarl_setting_history'],len(history_list)))): #Iterate up to either the max number of items allowed or the total number of history items
 				if ii < iarl_data['settings']['iarl_setting_history']-1:
-					list_out.append(history_list[ii])
+					if list_out[0]['path'] != history_list[ii]['path']: #Remove any duplicates to the last played
+						list_out.append(history_list[ii])
 
 			save_success = save_userdata_list_cache_file(list_out,'iarl_history')
 
