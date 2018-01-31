@@ -1,0 +1,338 @@
+<!-- Zach Morris  IARL Default InfoDialog
+Window is setup as follows:
+<control type="list" id=113>  #A listitem which can be hidden, but contains all the selected games metadata, properties included:
+'label' = Rom Name
+'fanart_image' = The first available fanart
+'banner' = The first available banner
+'clearlogo' = The first available logo
+'poster' = The first available boxart
+'tag' = game Tag, Example:  Mario (USA, Rom Hack) Tag = USA, Rom Hack
+'rating' = game rating
+'perspective' = game perspective
+'esrb' = ESRB
+'rom_name' = Rom Name
+'rom_icon' = Icon / Clear Logo
+'rom_thumbnail' = Thumbnail
+'rom_title' = Title
+'rom_studio' = Studio
+'rom_genre' = Genre
+'rom_date' = Release Date, typically MM/DD/YYYY
+'rom_year' = Release Year, typically YYYY
+'rom_plot' = Game Plot
+'rom_trailer'= Game Trailer / YouTube ID
+'rom_label' = Label for the game from the listitem, this can change based on IARL settings user has setup
+'nplayers' = Number of Players
+'rom_size' = Size of game in bytes
+'emu_name' = Name of current game list, Example:  Nintendo Entertainment System
+'emu_boxart' = Boxart for current game list
+'emu_banner' = Banner for current game list
+'emu_fanart' = Fanart for current game list
+'emu_logo' = Logo for current game list
+'emu_trailer' = Trailer / YouTube ID for current game list
+'emu_category' = Category for current game list
+'emu_plot' = Plot for current game list
+
+<control type="textbox" id=3007> #Game Title
+<control type="textbox" id=3008> #Game Genre
+<control type="textbox" id=3009> #Game Number of players
+<control type="textbox" id=3010> #Game Studio
+
+<control type="wraplist" id=111>
+<description>Poster Slideshow List</description>  #Art on the left of the screen in the default window, all boxarts and carts in a slideshow
+<control type="wraplist" id=112>  #Art on the right of the screen in the default window, all fanarts and snapshots in a slideshow
+<description>Fanart Slideshow List</description>
+
+<control type="button" id="3001"> #Download only button
+<control type="button" id="3002"> #Download and Launch
+<control type="button" id="3003"> #Close Window
+<control type="button" id="3005"> #Play Trailer
+<control type="button" id="3006"> #Stop Trailer
+<control type="button" id="3011"> #Control Grabber to avoid 'double taps' on controllers that can instantly close the window after its opened
+-->
+<window id="4069">
+    <defaultcontrol always="false">3011</defaultcontrol>
+    <allowoverlay>yes</allowoverlay>
+  <type>dialog</type>
+  <visible>true</visible>
+    <coordinates>
+        <system>1</system>
+        <posx>0</posx>
+        <posy>0</posy>
+    </coordinates>
+    <controls>
+        <control type="image">
+            <description>Background Image</description>
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>1280</width>
+            <height>720</height>
+            <texture>$INFO[Window(HOME).Property(iarl.bg_color)]</texture>
+            <ondown>3001</ondown>
+            <onup>3001</onup>
+            <onleft>3001</onleft>
+            <onright>3001</onright>
+        </control>
+        <control type="list" id=113>
+            <description>Invisible List for Info</description>
+            <posx>1</posx>
+            <posy>1</posy>
+            <itemlayout width="0" height="0"></itemlayout>
+            <focusedlayout width="0" height="0"></focusedlayout>
+        </control>
+        <control type="wraplist" id=111>
+            <description>Poster Slideshow List</description>
+            <posx>25</posx>
+            <posy>75</posy>
+            <orientation>vertical</orientation>
+            <scrolltime>9000</scrolltime>
+            <autoscroll>True</autoscroll>
+            <itemlayout width="0" height="0"></itemlayout>
+            <focusedlayout width="0" height="0"></focusedlayout>
+        </control>
+        <control type="image" id=101>
+            <description>Poster Slideshow Image</description>
+            <posx>25</posx>
+            <posy>75</posy>
+            <width>415</width>
+            <height>570</height>
+            <aspectratio>keep</aspectratio>
+            <fadetime>200</fadetime>
+            <bordertexture border="2">white.png</bordertexture>
+            <bordersize>2</bordersize>
+            <texture background="true">$INFO[Container(111).ListItem.Thumb]</texture>
+            <ondown>3001</ondown>
+            <onup>3001</onup>
+        </control>
+        <control type="wraplist" id=112>
+            <description>Fanart Slideshow List</description>
+            <posx>453</posx>
+            <posy>75</posy>
+            <orientation>horizontal</orientation>
+            <scrolltime>7000</scrolltime>
+            <autoscroll>True</autoscroll>
+            <itemlayout width="0" height="0"></itemlayout>
+            <focusedlayout width="0" height="0"></focusedlayout>
+        </control>
+        <control type="videowindow" id=105>
+            <description>Trailer Window</description>
+            <posx>453</posx>
+            <posy>75</posy>
+            <width>815</width>
+            <height>410</height>
+            <visible>true</visible>
+        </control>
+        <control type="image" id=102>
+            <description>Fanart Slideshow Image</description>
+            <posx>453</posx>
+            <posy>75</posy>
+            <width>815</width>
+            <height>410</height>
+            <aspectratio>keep</aspectratio>
+            <fadetime>200</fadetime>
+            <bordertexture border="2">white.png</bordertexture>
+            <bordersize>2</bordersize>
+            <texture background="true">$INFO[Container(112).ListItem.Thumb]</texture>
+            <visible>Control.IsVisible(112)</visible>
+            <ondown>3003</ondown>
+            <onup>3003</onup>
+        </control>
+        <control type="textbox" id=104>
+         <description>Plot</description>
+         <posx>453</posx>
+         <posy>490</posy>
+         <width>815</width>
+         <height>155</height>
+         <ondown>3001</ondown>
+         <onup>3001</onup>
+         <onleft>3001</onleft>
+         <onright>3001</onright>
+         <visible>true</visible>
+         <colordiffuse>FFFFFFFF</colordiffuse>
+         <font>font13</font>
+         <textcolor>white</textcolor>
+         <pulseonselect></pulseonselect>
+         <pagecontrol>13</pagecontrol>
+         <scrolltime>200</scrolltime>
+         <autoscroll delay="3000" time="1000" repeat="10000"></autoscroll>
+         <label>$INFO[Container(113).ListItem.Property(rom_plot)]</label>
+        </control>
+        <control type="image">
+            <description>Header Color</description>
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>1280</width>
+            <height>72</height>
+            <texture>$INFO[Window(HOME).Property(iarl.header_color)]</texture>
+        </control>
+        <control type="image" id=103>
+            <description>Logo Image</description>
+            <posx>540</posx>
+            <posy>0</posy>
+            <width>200</width>
+            <height>70</height>
+            <aspectratio>keep</aspectratio>
+            <texture>$INFO[Container(113).ListItem.Property(emu_logo)]</texture>
+        </control>
+        <control type="button" id="3001">
+            <description>Download Only Button</description>
+            <posx>85</posx>
+            <posy>650</posy>
+            <width>140</width>
+            <height>60</height>
+            <textoffsetx>12</textoffsetx>
+            <align>center</align>
+            <aligny>center</aligny>
+            <texturenofocus>button-nofocus2.png</texturenofocus>
+            <texturefocus>button-highlight1.png</texturefocus>
+            <onleft>3003</onleft>
+            <onright>3002</onright>
+        </control>
+        <control type="button" id="3002">
+            <description>Download and Launch Button</description>
+            <posx>580</posx>
+            <posy>650</posy>
+            <width>140</width>
+            <height>60</height>
+            <textoffsetx>12</textoffsetx>
+            <align>center</align>
+            <aligny>center</aligny>
+            <texturenofocus>button-nofocus2.png</texturenofocus>
+            <texturefocus>button-highlight1.png</texturefocus>
+            <onleft>3001</onleft>
+            <onright>3003</onright>
+        </control>
+        <control type="button" id="3003">
+            <description>Exit Button</description>
+            <posx>1100</posx>
+            <posy>650</posy>
+            <width>140</width>
+            <height>60</height>
+            <textoffsetx>12</textoffsetx>
+            <align>center</align>
+            <aligny>center</aligny>
+            <texturenofocus>button-nofocus2.png</texturenofocus>
+            <texturefocus>button-highlight1.png</texturefocus>
+            <onleft>3002</onleft>
+            <onright>3001</onright>
+            <onup>3005</onup>
+            <ondown>3006</ondown>
+        </control>
+        <control type="button" id="3011">
+            <description>Control Grabber</description>
+            <posx>1</posx>
+            <posy>1</posy>
+            <width>1</width>
+            <height>1</height>
+            <texturefocus>transparent.png</texturefocus>
+            <texturenofocus>transparent.png</texturenofocus>
+            <onleft>3003</onleft>
+            <onright>3003</onright>
+            <onup>3003</onup>
+            <ondown>3003</ondown>
+        </control>
+        <control type="button" id="3005">
+            <description>Trailer Play Button</description>
+            <posx>900</posx>
+            <posy>10</posy>
+            <width>50</width>
+            <height>50</height>
+            <visible>True</visible>
+            <texturenofocus>play_nofocus.png</texturenofocus>
+            <texturefocus>play_focus.png</texturefocus>
+            <onleft>3006</onleft>
+            <onright>3006</onright>
+            <ondown>3003</ondown>
+            <onup>3003</onup>
+        </control>
+        <control type="button" id="3006">
+            <description>Trailer Stop Button</description>
+            <posx>900</posx>
+            <posy>10</posy>
+            <width>50</width>
+            <height>50</height>
+            <visible>True</visible>
+            <texturenofocus>stop_nofocus.png</texturenofocus>
+            <texturefocus>stop_focus.png</texturefocus>
+            <onleft>3005</onleft>
+            <onright>3005</onright>
+            <ondown>3003</ondown>
+            <onup>3003</onup>
+        </control>
+        <control type="textbox" id=3007>
+           <description>Title</description>
+           <posx>5</posx>
+           <posy>5</posy>
+           <width>300</width>
+           <height>65</height>
+           <align>center</align>
+           <ondown>3001</ondown>
+           <onup>3001</onup>
+           <onleft>3001</onleft>
+           <onright>3001</onright>
+           <visible>true</visible>
+           <colordiffuse>FFFFFFFF</colordiffuse>
+           <font>font14</font>
+           <textcolor>black</textcolor>
+           <scrolltime>200</scrolltime>
+           <autoscroll delay="3000" time="1000" repeat="10000"></autoscroll>
+           <label>$INFO[Container(113).ListItem.Property(rom_name)]</label>
+       </control>
+        <control type="textbox" id=3008>
+           <description>Genre</description>
+           <posx>350</posx>
+           <posy>5</posy>
+           <width>150</width>
+           <height>65</height>
+           <align>center</align>
+           <ondown>3001</ondown>
+           <onup>3001</onup>
+           <onleft>3001</onleft>
+           <onright>3001</onright>
+           <visible>true</visible>
+           <colordiffuse>FFFFFFFF</colordiffuse>
+           <font>font14</font>
+           <textcolor>black</textcolor>
+           <scrolltime>200</scrolltime>
+           <autoscroll delay="3000" time="1000" repeat="10000"></autoscroll>
+           <label>Unknown</label>
+       </control>
+        <control type="textbox" id=3009>
+           <description>Players</description>
+           <posx>795</posx>
+           <posy>5</posy>
+           <width>75</width>
+           <height>65</height>
+           <align>center</align>
+           <ondown>3001</ondown>
+           <onup>3001</onup>
+           <onleft>3001</onleft>
+           <onright>3001</onright>
+           <visible>true</visible>
+           <colordiffuse>FFFFFFFF</colordiffuse>
+           <font>font14</font>
+           <textcolor>black</textcolor>
+           <scrolltime>200</scrolltime>
+           <autoscroll delay="3000" time="1000" repeat="10000"></autoscroll>
+           <label>Unknown</label>
+       </control>
+        <control type="textbox" id=3010>
+           <description>Studio</description>
+           <posx>1000</posx>
+           <posy>5</posy>
+           <width>250</width>
+           <height>65</height>
+           <align>center</align>
+           <ondown>3001</ondown>
+           <onup>3001</onup>
+           <onleft>3001</onleft>
+           <onright>3001</onright>
+           <visible>true</visible>
+           <colordiffuse>FFFFFFFF</colordiffuse>
+           <font>font14</font>
+           <textcolor>black</textcolor>
+           <scrolltime>200</scrolltime>
+           <autoscroll delay="3000" time="1000" repeat="10000"></autoscroll>
+           <label>Unknown</label>
+       </control>
+   </controls>
+</window>

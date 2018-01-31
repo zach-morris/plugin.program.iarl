@@ -30,7 +30,6 @@ iarl_data = {
                             'iarl_setting_history' : plugin.get_setting('iarl_setting_history',int),
                             'local_file_action' : plugin.get_setting('iarl_setting_localfile_action',unicode),
                             'game_select_action' : plugin.get_setting('iarl_setting_default_action',unicode),
-                            'window_theme' : plugin.get_setting('iarl_setting_rom_window_theme',unicode),
                             'show_search_item' : None, #Initialize variable and set later
                             'show_randomplay_item' : None, #Initialize variable and set later
                             'show_history_item' : None, #Initialize variable and set later
@@ -953,19 +952,10 @@ def get_selected_rom(category_id,romname):
     else:
         check_for_warn(iarl_data['current_rom_data']['rom_size']) #Added warning for file sizes over 100MB
 
-        #Show ROM Info window selected in settings
+        #Show ROM Info window, skins can override the default window by including script-IARL-infodialog.xml in their skin
         if 'ROM Info Page'.lower() in iarl_data['settings']['game_select_action'].lower():
-            if 'IARL Classic Window'.lower() in iarl_data['settings']['window_theme'].lower():
-                MyROMWindow = ROMWindow('default.xml',iarl_data['addon_data']['addon_install_path'],'Default','720p',iarl_data=iarl_data)
-                MyROMWindow.doModal()
-            # elif: #Not yet implemented
-            #     print xbmc.getSkinDir()
-            #     print get_skin_install_path(xbmc.getSkinDir())
-            #     MyROMWindow = ROMWindow('Confluence.xml',iarl_data['addon_data']['addon_install_path'],'Default','720p',iarl_data=iarl_data)
-            #     MyROMWindow.doModal()
-            else: #Default to classic
-                MyROMWindow = ROMWindow('default.xml',iarl_data['addon_data']['addon_install_path'],'Default','720p',iarl_data=iarl_data)
-                MyROMWindow.doModal()
+            MyROMWindow = ROMWindow('script-IARL-infodialog.xml',iarl_data['addon_data']['addon_install_path'],'Default','720p',iarl_data=iarl_data)
+            MyROMWindow.doModal()
 
         #Download and launch selected in settings
         elif 'Download and Launch'.lower() in iarl_data['settings']['game_select_action'].lower():
@@ -2003,13 +1993,13 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
         self.left_art2 = self.getControl(111) #Left Art List
         self.right_art2 = self.getControl(112) #Right Art List
         self.play_button = self.getControl(3005) #Play Trailer
-        self.stop_button = self.getControl(3006) #Top Trailer
+        self.stop_button = self.getControl(3006) #Stop Trailer
         self.right_art2.setVisible(True) #Default Fanart visible for trailer control
 
         self.title_box = self.getControl(3007) #Title - Game Name
         self.genre_box = self.getControl(3008) #Genre
         self.players_box = self.getControl(3009) #Number of players
-        self.studio_box = self.getControl(3010) #Number of players
+        self.studio_box = self.getControl(3010) #Studio
         
 
         # get control ids

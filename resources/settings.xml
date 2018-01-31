@@ -9,7 +9,6 @@
 		<setting id="iarl_setting_history" type="slider" label="Last Played History" default="10" range="0,1,100" option="int"/>
 		<setting id="iarl_setting_localfile_action" type="select" label="If Game Already Exists Locally" values="Prompt|Do Not ReDownload|ReDownload and Overwrite" default="Prompt"/>
 		<setting id="iarl_setting_default_action" type="select" label="Default Action on Selecting ROM" values="Download and Launch|Download Only|ROM Info Page" default="ROM Info Page"/>
-		<setting id="iarl_setting_rom_window_theme" type="select" label="ROM Window Theme" values="IARL Classic Window|Try to Match Skin" default="IARL Classic Window" visible="false"/>
 		<setting id="iarl_setting_show_search" type="select" label="Show Search Item" values="Show|Hide" default="Show" visible="true"/>
 		<setting id="iarl_setting_show_randomplay" type="select" label="Show Random Play Item" values="Show|Hide" default="Show" visible="true"/>
 		<setting id="iarl_setting_show_gamehistory" type="select" label="Show Play History Item" values="Show|Hide" default="Show" visible="true"/>
