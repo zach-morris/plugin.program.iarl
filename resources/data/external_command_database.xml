@@ -48,8 +48,8 @@
 	<launcher name="RetroArch CAP32 (Amstrad CPC)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/cap32_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch ChaiGame (ChaiScript)" os="OSX">
-		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/chaigame_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	<launcher name="RetroArch ChaiLove Engine (ChaiLove)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/chailove_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Citra (3DS)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/citra_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -114,6 +114,9 @@
 	<launcher name="RetroArch fMSX (MSX)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fmsx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FreeIntv (Intellivision)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/freeintv_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FreeJ2ME (Java)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/freej2me_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -125,6 +128,9 @@
 	</launcher>
 	<launcher name="RetroArch Gambatte (GB/GBC)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/gambatte_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Gearboy (GB/GBC)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/gearboy_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/genesis_plus_gx_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -143,6 +149,9 @@
 	</launcher>
 	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/hatari_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES Higan nSide Balanced (SNES)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/higan_sfc_balanced_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES Higan (SNES)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/higan_sfc_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -215,6 +224,9 @@
 	</launcher>
 	<launcher name="RetroArch melonDS (Nintendo DS)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/melonds_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mesen (NES)" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mesen_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MESS 2014 (MESS 0.159)" os="OSX">
 		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mess2014_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -400,6 +412,9 @@
 	<launcher name="MAME Standalone (Arcade)" os="OSX">
 		<launcher_command>"%APP_PATH_MAME%" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Launch App Only" os="OSX">
+		<launcher_command>"%APP_PATH%/Contents/MacOS/RetroArch"</launcher_command>
+	</launcher>
 <!-- OSX External Retroarch Commands, with script to close kodi before launch -->
 	<launcher name="RetroArch 2048 (Standalone Game)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/2048_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -449,8 +464,8 @@
 	<launcher name="RetroArch CAP32 (Amstrad CPC)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/cap32_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch ChaiGame (ChaiScript)" os="OSX Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/chaigame_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	<launcher name="RetroArch ChaiLove Engine (ChaiLove)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/chailove_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Citra (3DS)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/citra_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -515,6 +530,9 @@
 	<launcher name="RetroArch fMSX (MSX)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/fmsx_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FreeIntv (Intellivision)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/freeintv_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FreeJ2ME (Java)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/freej2me_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -526,6 +544,9 @@
 	</launcher>
 	<launcher name="RetroArch Gambatte (GB/GBC)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/gambatte_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Gearboy (GB/GBC)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/gearboy_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/genesis_plus_gx_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -544,6 +565,9 @@
 	</launcher>
 	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/hatari_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES Higan nSide Balanced (SNES)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/higan_sfc_balanced_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES Higan (SNES)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/higan_sfc_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -616,6 +640,9 @@
 	</launcher>
 	<launcher name="RetroArch melonDS (Nintendo DS)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/melonds_libretro.dylib" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mesen (NES)" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mesen_libretro.dylib" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MESS 2014 (MESS 0.159)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch" %NETPLAY_COMMAND% -L "%APP_PATH%/Contents/Resources/cores/mess2014_libretro.dylib" "%ROM_PATH%"</launcher_command>
@@ -801,6 +828,9 @@
 	<launcher name="MAME Standalone (Arcade)" os="OSX Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH_MAME%" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Launch App Only" os="OSX Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%/Contents/MacOS/RetroArch"</launcher_command>
+	</launcher>
 <!-- Linux / Kodibuntu External Retroarch Commands -->
 	<launcher name="RetroArch 2048 (Standalone Game)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/2048_libretro.so "%ROM_PATH%"</launcher_command>
@@ -850,8 +880,8 @@
 	<launcher name="RetroArch CAP32 (Amstrad CPC)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/cap32_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch ChaiGame (ChaiScript)" os="Linux/Kodibuntu">
-		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/chaigame_libretro.so "%ROM_PATH%"</launcher_command>
+	<launcher name="RetroArch ChaiLove Engine (ChaiLove)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/chailove_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Citra (3DS)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/citra_libretro.so "%ROM_PATH%"</launcher_command>
@@ -916,6 +946,9 @@
 	<launcher name="RetroArch fMSX (MSX)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/fmsx_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FreeIntv (Intellivision)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/freeintv_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FreeJ2ME (Java)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/freej2me_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -927,6 +960,9 @@
 	</launcher>
 	<launcher name="RetroArch Gambatte (GB/GBC)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/gambatte_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Gearboy (GB/GBC)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/gearboy_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/genesis_plus_gx_libretro.so "%ROM_PATH%"</launcher_command>
@@ -945,6 +981,9 @@
 	</launcher>
 	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/hatari_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES Higan nSide Balanced (SNES)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/higan_sfc_balanced_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES Higan (SNES)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/higan_sfc_libretro.so "%ROM_PATH%"</launcher_command>
@@ -1017,6 +1056,9 @@
 	</launcher>
 	<launcher name="RetroArch melonDS (Nintendo DS)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/melonds_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mesen (NES)" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/mesen_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MESS 2014 (MESS 0.159)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/mess2014_libretro.so "%ROM_PATH%"</launcher_command>
@@ -1202,6 +1244,9 @@
 	<launcher name="MAME Standalone (Arcade)" os="Linux/Kodibuntu">
 		<launcher_command>"%APP_PATH_MAME%" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Launch App Only" os="Linux/Kodibuntu">
+		<launcher_command>"%APP_PATH%"</launcher_command>
+	</launcher>
 <!-- Linux / Kodibuntu External Retroarch Commands, with script to close kodi before launch -->
 	<launcher name="RetroArch 2048 (Standalone Game)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/2048_libretro.so "%ROM_PATH%"</launcher_command>
@@ -1251,8 +1296,8 @@
 	<launcher name="RetroArch CAP32 (Amstrad CPC)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/cap32_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch ChaiGame (ChaiScript)" os="Linux/Kodibuntu Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/chaigame_libretro.so "%ROM_PATH%"</launcher_command>
+	<launcher name="RetroArch ChaiLove Engine (ChaiLove)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/chailove_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Citra (3DS)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/citra_libretro.so "%ROM_PATH%"</launcher_command>
@@ -1317,6 +1362,9 @@
 	<launcher name="RetroArch fMSX (MSX)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/fmsx_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FreeIntv (Intellivision)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/freeintv_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FreeJ2ME (Java)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/freej2me_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1328,6 +1376,9 @@
 	</launcher>
 	<launcher name="RetroArch Gambatte (GB/GBC)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/gambatte_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Gearboy (GB/GBC)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/gearboy_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/genesis_plus_gx_libretro.so "%ROM_PATH%"</launcher_command>
@@ -1346,6 +1397,9 @@
 	</launcher>
 	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/hatari_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES Higan nSide Balanced (SNES)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/higan_sfc_balanced_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES Higan (SNES)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/higan_sfc_libretro.so "%ROM_PATH%"</launcher_command>
@@ -1418,6 +1472,9 @@
 	</launcher>
 	<launcher name="RetroArch melonDS (Nintendo DS)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/melonds_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mesen (NES)" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/mesen_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MESS 2014 (MESS 0.159)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%" %NETPLAY_COMMAND% -L %RETROARCH_CORE_DIR%/mess2014_libretro.so "%ROM_PATH%"</launcher_command>
@@ -1603,6 +1660,9 @@
 	<launcher name="MAME Standalone (Arcade)" os="Linux/Kodibuntu Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH_MAME%" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Launch App Only" os="Linux/Kodibuntu Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch.sh" "%APP_PATH%"</launcher_command>
+	</launcher>
 <!-- Windows External Retroarch Commands -->
 	<launcher name="RetroArch 2048 (Standalone Game)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\2048_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1652,8 +1712,8 @@
 	<launcher name="RetroArch CAP32 (Amstrad CPC)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\cap32_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch ChaiGame (ChaiScript)" os="Windows">
-		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\chaigame_libretro.dll" "%ROM_PATH%"</launcher_command>
+	<launcher name="RetroArch ChaiLove Engine (ChaiLove)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\chailove_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Citra (3DS)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\citra_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1718,6 +1778,9 @@
 	<launcher name="RetroArch fMSX (MSX)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fmsx_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FreeIntv (Intellivision)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\freeintv_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FreeJ2ME (Java)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\freej2me_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -1729,6 +1792,9 @@
 	</launcher>
 	<launcher name="RetroArch Gambatte (GB/GBC)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\gambatte_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Gearboy (GB/GBC)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\gearboy_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\genesis_plus_gx_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1747,6 +1813,9 @@
 	</launcher>
 	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\hatari_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES Higan nSide Balanced (SNES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\higan_sfc_balanced_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES Higan (SNES)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\higan_sfc_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -1819,6 +1888,9 @@
 	</launcher>
 	<launcher name="RetroArch melonDS (Nintendo DS)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\melonds_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mesen (NES)" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mesen_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MESS 2014 (MESS 0.159)" os="Windows">
 		<launcher_command>"%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mess2014_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -2013,6 +2085,9 @@
 	<launcher name="Project64 (N64)" os="Windows">
 		<launcher_command>"%APP_PATH_PJ64%" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Launch App Only" os="Windows">
+		<launcher_command>"%APP_PATH%\retroarch.exe"</launcher_command>
+	</launcher>
 <!-- Windows External Retroarch Commands, with script to close kodi before launch -->
 	<launcher name="RetroArch 2048 (Standalone Game)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\2048_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -2062,8 +2137,8 @@
 	<launcher name="RetroArch CAP32 (Amstrad CPC)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\cap32_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch ChaiGame (ChaiScript)" os="Windows Close_Kodi">
-		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\chaigame_libretro.dll" "%ROM_PATH%"</launcher_command>
+	<launcher name="RetroArch ChaiLove Engine (ChaiLove)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\chailove_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Citra (3DS)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\citra_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -2128,6 +2203,9 @@
 	<launcher name="RetroArch fMSX (MSX)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\fmsx_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FreeIntv (Intellivision)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\freeintv_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FreeJ2ME (Java)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\freej2me_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -2139,6 +2217,9 @@
 	</launcher>
 	<launcher name="RetroArch Gambatte (GB/GBC)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\gambatte_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Gearboy (GB/GBC)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\gearboy_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\genesis_plus_gx_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -2157,6 +2238,9 @@
 	</launcher>
 	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\hatari_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES Higan nSide Balanced (SNES)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\higan_sfc_balanced_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES Higan (SNES)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\higan_sfc_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -2229,6 +2313,9 @@
 	</launcher>
 	<launcher name="RetroArch melonDS (Nintendo DS)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\melonds_libretro.dll" "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mesen (NES)" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mesen_libretro.dll" "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MESS 2014 (MESS 0.159)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe" %NETPLAY_COMMAND% -L "%APP_PATH%\cores\mess2014_libretro.dll" "%ROM_PATH%"</launcher_command>
@@ -2423,6 +2510,9 @@
 	<launcher name="Project64 (N64)" os="Windows Close_Kodi">
 		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH_PJ64%" "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Launch App Only" os="Windows Close_Kodi">
+		<launcher_command>"%ADDON_DIR%/resources/bin/applaunch-vbs.bat" "%APP_PATH%\retroarch.exe"</launcher_command>
+	</launcher>
 <!-- LibreElec "Remix" (Escalade Build) https://forum.libreelec.tv/thread/302-le8-remix-generic-rpi-emulationstation-chrome-spotify-provide-logs-if-problems/ -->
 	<launcher name="RetroArch 2048 (Standalone Game)" os="LibreElec Remix">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/2048_libretro.so "%ROM_PATH%"</launcher_command>
@@ -2472,8 +2562,8 @@
 	<launcher name="RetroArch CAP32 (Amstrad CPC)" os="LibreElec Remix">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/cap32_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch ChaiGame (ChaiScript)" os="LibreElec Remix">
-		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/chaigame_libretro.so "%ROM_PATH%"</launcher_command>
+	<launcher name="RetroArch ChaiLove Engine (ChaiLove)" os="LibreElec Remix">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/chailove_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Citra (3DS)" os="LibreElec Remix">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/citra_libretro.so "%ROM_PATH%"</launcher_command>
@@ -2538,6 +2628,9 @@
 	<launcher name="RetroArch fMSX (MSX)" os="LibreElec Remix">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/fmsx_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FreeIntv (Intellivision)" os="LibreElec Remix">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/freeintv_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FreeJ2ME (Java)" os="LibreElec Remix">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/freej2me_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -2549,6 +2642,9 @@
 	</launcher>
 	<launcher name="RetroArch Gambatte (GB/GBC)" os="LibreElec Remix">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/gambatte_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Gearboy (GB/GBC)" os="LibreElec Remix">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/gearboy_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="LibreElec Remix">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/genesis_plus_gx_libretro.so "%ROM_PATH%"</launcher_command>
@@ -2567,6 +2663,9 @@
 	</launcher>
 	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="LibreElec Remix">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/hatari_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES Higan nSide Balanced (SNES)" os="LibreElec Remix">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/higan_sfc_balanced_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES Higan (SNES)" os="LibreElec Remix">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/higan_sfc_libretro.so "%ROM_PATH%"</launcher_command>
@@ -2639,6 +2738,9 @@
 	</launcher>
 	<launcher name="RetroArch melonDS (Nintendo DS)" os="LibreElec Remix">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/melonds_libretro.so "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mesen (NES)" os="LibreElec Remix">
+		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mesen_libretro.so "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MESS 2014 (MESS 0.159)" os="LibreElec Remix">
 		<launcher_command>/usr/bin/retroarch.sh %NETPLAY_COMMAND% -L /tmp/cores/mess2014_libretro.so "%ROM_PATH%"</launcher_command>
@@ -2821,6 +2923,9 @@
 	<launcher name="FS-UAE Launcher" os="LibreElec Remix">
 		<launcher_command>/usr/bin/fs-uae.sh "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Launch App Only" os="LibreElec Remix">
+		<launcher_command>/usr/bin/retroarch.sh</launcher_command>
+	</launcher>
 	<launcher name="Vice (C64)" os="LibreElec Remix">
 		<launcher_command>/usr/bin/x64.start -autostart "%ROM_RAW%"</launcher_command>
 	</launcher>
@@ -2873,8 +2978,8 @@
 	<launcher name="RetroArch CAP32 (Amstrad CPC)" os="LibreElec Sx05RE">
 		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh" cap32 "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch ChaiGame (ChaiScript)" os="LibreElec Sx05RE">
-		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh" chaigame "%ROM_PATH%"</launcher_command>
+	<launcher name="RetroArch ChaiLove Engine (ChaiLove)" os="LibreElec Sx05RE">
+		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh" chailove "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Citra (3DS)" os="LibreElec Sx05RE">
 		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh" citra "%ROM_PATH%"</launcher_command>
@@ -2939,6 +3044,9 @@
 	<launcher name="RetroArch fMSX (MSX)" os="LibreElec Sx05RE">
 		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh" fmsx "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FreeIntv (Intellivision)" os="LibreElec Sx05RE">
+		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh" freeintv "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FreeJ2ME (Java)" os="LibreElec Sx05RE">
 		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh" freej2me "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -2950,6 +3058,9 @@
 	</launcher>
 	<launcher name="RetroArch Gambatte (GB/GBC)" os="LibreElec Sx05RE">
 		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh" gambatte "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Gearboy (GB/GBC)" os="LibreElec Sx05RE">
+		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh" gearboy "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="LibreElec Sx05RE">
 		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh" genesis_plus_gx "%ROM_PATH%"</launcher_command>
@@ -2968,6 +3079,9 @@
 	</launcher>
 	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="LibreElec Sx05RE">
 		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh" hatari "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES Higan nSide Balanced (SNES)" os="LibreElec Sx05RE">
+		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh" higan_sfc_balanced "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES Higan (SNES)" os="LibreElec Sx05RE">
 		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh" higan_sfc "%ROM_PATH%"</launcher_command>
@@ -3040,6 +3154,9 @@
 	</launcher>
 	<launcher name="RetroArch melonDS (Nintendo DS)" os="LibreElec Sx05RE">
 		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh" melonds "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mesen (NES)" os="LibreElec Sx05RE">
+		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh" mesen "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MESS 2014 (MESS 0.159)" os="LibreElec Sx05RE">
 		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh" mess2014 "%ROM_PATH%"</launcher_command>
@@ -3215,6 +3332,10 @@
 	<launcher name="RetroArch Yabuse (Saturn)" os="LibreElec Sx05RE">
 		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh" yabause "%ROM_PATH%"</launcher_command>
 	</launcher>
+<!-- LibreElec Sx05RE Build Additional Emulator External Commands -->
+	<launcher name="RetroArch Launch App Only" os="LibreElec Sx05RE">
+		<launcher_command>"%ADDON_DIR%/resources/bin/sx05re_launch.sh"</launcher_command>
+	</launcher>
 <!-- LibreElec S805/S905 Addon https://github.com/JoKeRzBoX/JoKeRzBoX_LibreELEC_Repo_S905 -->
 	<launcher name="RetroArch 2048 (Standalone Game)" os="LibreElec S905 Addon">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh 2048 "%ROM_PATH%"</launcher_command>
@@ -3264,8 +3385,8 @@
 	<launcher name="RetroArch CAP32 (Amstrad CPC)" os="LibreElec S905 Addon">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh cap32 "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch ChaiGame (ChaiScript)" os="LibreElec S905 Addon">
-		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh chaigame "%ROM_PATH%"</launcher_command>
+	<launcher name="RetroArch ChaiLove Engine (ChaiLove)" os="LibreElec S905 Addon">
+		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh chailove "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Citra (3DS)" os="LibreElec S905 Addon">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh citra "%ROM_PATH%"</launcher_command>
@@ -3330,6 +3451,9 @@
 	<launcher name="RetroArch fMSX (MSX)" os="LibreElec S905 Addon">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh fmsx "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FreeIntv (Intellivision)" os="LibreElec S905 Addon">
+		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh freeintv "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FreeJ2ME (Java)" os="LibreElec S905 Addon">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh freej2me "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -3341,6 +3465,9 @@
 	</launcher>
 	<launcher name="RetroArch Gambatte (GB/GBC)" os="LibreElec S905 Addon">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh gambatte "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Gearboy (GB/GBC)" os="LibreElec S905 Addon">
+		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh gearboy "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="LibreElec S905 Addon">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh genesis_plus_gx "%ROM_PATH%"</launcher_command>
@@ -3359,6 +3486,9 @@
 	</launcher>
 	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="LibreElec S905 Addon">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh hatari "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES Higan nSide Balanced (SNES)" os="LibreElec S905 Addon">
+		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh higan_sfc_balanced "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES Higan (SNES)" os="LibreElec S905 Addon">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh higan_sfc "%ROM_PATH%"</launcher_command>
@@ -3431,6 +3561,9 @@
 	</launcher>
 	<launcher name="RetroArch melonDS (Nintendo DS)" os="LibreElec S905 Addon">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh melonds "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mesen (NES)" os="LibreElec S905 Addon">
+		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh mesen "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MESS 2014 (MESS 0.159)" os="LibreElec S905 Addon">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh mess2014 "%ROM_PATH%"</launcher_command>
@@ -3606,6 +3739,10 @@
 	<launcher name="RetroArch Yabuse (Saturn)" os="LibreElec S905 Addon">
 		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh yabause "%ROM_PATH%"</launcher_command>
 	</launcher>
+<!-- LibreElec S805/S905 Addon Additional Emulator External Commands -->
+	<launcher name="RetroArch Launch App Only" os="LibreElec S905 Addon">
+		<launcher_command>/storage/.kodi/addons/emulator.tools.retroarch/bin/retroarch.sh</launcher_command>
+	</launcher>
 <!-- Gamestarter Addon, RetroArch Cores https://github.com/bite-your-idols/Gamestarter -->
 	<launcher name="RetroArch 2048 (Standalone Game)" os="Gamestarter Addon">
 		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh 2048 "%ROM_PATH%"</launcher_command>
@@ -3655,8 +3792,8 @@
 	<launcher name="RetroArch CAP32 (Amstrad CPC)" os="Gamestarter Addon">
 		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh cap32 "%ROM_PATH%"</launcher_command>
 	</launcher>
-	<launcher name="RetroArch ChaiGame (ChaiScript)" os="Gamestarter Addon">
-		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh chaigame "%ROM_PATH%"</launcher_command>
+	<launcher name="RetroArch ChaiLove Engine (ChaiLove)" os="Gamestarter Addon">
+		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh chailove "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Citra (3DS)" os="Gamestarter Addon">
 		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh citra "%ROM_PATH%"</launcher_command>
@@ -3721,6 +3858,9 @@
 	<launcher name="RetroArch fMSX (MSX)" os="Gamestarter Addon">
 		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh fmsx "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FreeIntv (Intellivision)" os="Gamestarter Addon">
+		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh freeintv "%ROM_PATH%"</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FreeJ2ME (Java)" os="Gamestarter Addon">
 		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh freej2me "%ROM_PATH%"</launcher_command>
 	</launcher>
@@ -3732,6 +3872,9 @@
 	</launcher>
 	<launcher name="RetroArch Gambatte (GB/GBC)" os="Gamestarter Addon">
 		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh gambatte "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Gearboy (GB/GBC)" os="Gamestarter Addon">
+		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh gearboy "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="Gamestarter Addon">
 		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh genesis_plus_gx "%ROM_PATH%"</launcher_command>
@@ -3750,6 +3893,9 @@
 	</launcher>
 	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="Gamestarter Addon">
 		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh hatari "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES Higan nSide Balanced (SNES)" os="Gamestarter Addon">
+		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh higan_sfc_balanced "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES Higan (SNES)" os="Gamestarter Addon">
 		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh higan_sfc "%ROM_PATH%"</launcher_command>
@@ -3822,6 +3968,9 @@
 	</launcher>
 	<launcher name="RetroArch melonDS (Nintendo DS)" os="Gamestarter Addon">
 		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh melonds "%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Mesen (NES)" os="Gamestarter Addon">
+		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh mesen "%ROM_PATH%"</launcher_command>
 	</launcher>
 	<launcher name="RetroArch MESS 2014 (MESS 0.159)" os="Gamestarter Addon">
 		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh mess2014 "%ROM_PATH%"</launcher_command>
@@ -4007,6 +4156,9 @@
 	<launcher name="Gamestarter UAE4ARM Addon (Amiga)" os="Gamestarter Addon">
 		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh amiga "%ROM_PATH%"</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Launch App Only" os="Gamestarter Addon">
+		<launcher_command>/storage/.kodi/addons/game.retroarch/addon.sh</launcher_command>
+	</launcher>
 <!-- Android External Retroarch Commands -->
 	<launcher name="RetroArch 2048 (Standalone Game)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/2048_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
@@ -4056,8 +4208,8 @@
 	<launcher name="RetroArch CAP32 (Amstrad CPC)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/cap32_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
-	<launcher name="RetroArch ChaiGame (ChaiScript)" os="Android">
-		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/chaigame_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	<launcher name="RetroArch ChaiLove Engine (ChaiLove)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/chailove_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Citra (3DS)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/citra_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
@@ -4122,6 +4274,9 @@
 	<launcher name="RetroArch fMSX (MSX)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/fmsx_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
+	<launcher name="RetroArch FreeIntv (Intellivision)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/freeintv_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
 	<launcher name="RetroArch FreeJ2ME (Java)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/freej2me_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
@@ -4133,6 +4288,9 @@
 	</launcher>
 	<launcher name="RetroArch Gambatte (GB/GBC)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/gambatte_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Gearboy (GB/GBC)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/gearboy_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch Genesis Plus GX (GG/SMS/Gen/PICO/SG-1000)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/genesis_plus_gx_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
@@ -4151,6 +4309,9 @@
 	</launcher>
 	<launcher name="RetroArch Hatari (Atari ST/STE/TT/Falcon)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/hatari_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
+	<launcher name="RetroArch SNES Higan nSide Balanced (SNES)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/higan_sfc_balanced_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch SNES Higan (SNES)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/higan_sfc_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
@@ -4224,6 +4385,9 @@
 	<launcher name="RetroArch melonDS (Nintendo DS)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/melonds_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
+	<launcher name="RetroArch Mesen (NES)" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mesen_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+	</launcher>
 	<launcher name="RetroArch MESS 2014 (MESS 0.159)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/mess2014_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
@@ -4279,7 +4443,7 @@
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/pcsx_rearmed_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PCSX ReArmed NEON (PS1)" os="Android">
-		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/pcsx_rearmed_libretro_neon.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/pcsx_rearmed_libretro_neon_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="RetroArch PicoDrive (SMS/Gen/Sega CD/32X)" os="Android">
 		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e ROM "%ROM_PATH%" -e LIBRETRO /data/data/com.retroarch/cores/picodrive_libretro_android.so -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
@@ -4473,6 +4637,9 @@
 	</launcher>
 	<launcher name="Reicast (Dreamcast)" os="Android">
 		<launcher_command>/system/bin/am start -n com.reicast.emulator/.GL2JNIActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
+	</launcher>
+	<launcher name="RetroArch Launch App Only" os="Android">
+		<launcher_command>/system/bin/am start --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -e CONFIGFILE %CFG_PATH% -e IME com.android.inputmethod.latin/.LatinIME -n com.retroarch/.browser.retroactivity.RetroActivityFuture</launcher_command>
 	</launcher>
 	<launcher name="Snes9x EX+ (SNES)" os="Android">
 		<launcher_command>/system/bin/am start -n com.explusalpha.Snes9xPlus/com.imagine.BaseActivity -a android.intent.action.VIEW -eu Uri "file://%ROM_PATH%"</launcher_command>
