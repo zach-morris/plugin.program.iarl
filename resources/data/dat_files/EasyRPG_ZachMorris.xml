@@ -9,7 +9,7 @@
 			<emu_author>Zach Morris</emu_author>
 			<emu_homepage>https://easyrpg.org</emu_homepage>
 			<emu_baseurl>http://archive.org/download/</emu_baseurl>
-			<emu_launcher>external</emu_launcher>
+			<emu_launcher>retroplayer</emu_launcher>
 			<emu_ext_launch_cmd>none</emu_ext_launch_cmd>
 			<emu_downloadpath>default</emu_downloadpath>
 			<emu_postdlaction>unzip_standalone_port_file</emu_postdlaction>

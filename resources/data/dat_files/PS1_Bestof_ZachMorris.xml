@@ -127,7 +127,7 @@
 		<emu_author>redump</emu_author>
 		<emu_homepage>http://redump.org/</emu_homepage>
 		<emu_baseurl>https://archive.org/download/</emu_baseurl>
-		<emu_launcher>external</emu_launcher>
+		<emu_launcher>retroplayer</emu_launcher>
 		<emu_ext_launch_cmd>none</emu_ext_launch_cmd>
 		<emu_downloadpath>default</emu_downloadpath>
 		<emu_postdlaction>convert_zip_m3u</emu_postdlaction>

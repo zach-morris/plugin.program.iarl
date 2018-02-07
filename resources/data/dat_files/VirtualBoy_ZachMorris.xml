@@ -9,7 +9,7 @@
 		<emu_author>Zach_Morris</emu_author>
 		<emu_homepage>http://www.no-intro.org</emu_homepage>
 		<emu_baseurl>http://archive.org/download/</emu_baseurl>
-		<emu_launcher>external</emu_launcher>
+		<emu_launcher>retroplayer</emu_launcher>
 		<emu_ext_launch_cmd>none</emu_ext_launch_cmd>
 		<emu_downloadpath>default</emu_downloadpath>
 		<emu_postdlaction>unzip_rom</emu_postdlaction>
