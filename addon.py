@@ -369,6 +369,11 @@ def update_xml_value(xml_id):
         tag_value = args_in['tag_value'][0]
     except:
         tag_value = None
+    if tag_value is None:
+        try:
+            tag_value = sys.argv[2].split('=')[-1]
+        except:
+            tag_value = None
     try:
         current_xml_name = str(os.path.split(xml_id)[-1])
     except:
