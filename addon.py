@@ -1941,9 +1941,20 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
         pass
 
     def onInit(self):
-        # self.please_wait = self.getControl(3012) #Number of players
-        # self.please_wait.setVisible(False)
-        #Define theme for ROM Window
+
+        self.action_exitkeys_id = [10, 13] #Default exit keys to close window via keyboard / controller
+
+        #Control ID's for InfoDialog
+        self.game_info_listitem_id = 113
+        self.left_art_list_id = 111
+        self.right_art_list_id = 112
+        self.download_button_id = 3001
+        self.download_and_launch_button_id = 3002
+        self.exit_button_id = 3003
+        self.play_trailer_button_id = 3005
+        self.stop_trailer_button_id = 3006
+
+        #Define theme for ROM Window - will likely phase this out
         xbmcgui.Window(10000).setProperty('iarl.current_theme',str(iarl_data['current_archive_data']['emu_name']))
         xbmcgui.Window(10000).setProperty('iarl.default_thumb',str(iarl_data['current_archive_data']['emu_boxart']))
         xbmcgui.Window(10000).setProperty('iarl.header_color',str(iarl_data['current_archive_data']['header_color']))
@@ -1951,8 +1962,7 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
         xbmcgui.Window(10000).setProperty('iarl.buttonfocustheme',str(iarl_data['current_archive_data']['button_focus']))
         xbmcgui.Window(10000).setProperty('iarl.buttonnofocustheme',str(iarl_data['current_archive_data']['button_nofocus']))
 
-        self.action_exitkeys_id = [10, 13]
-        #Create invisible listitem for skinning purposes
+        #Define current ROM listitem for window
         self.info_listitem = xbmcgui.ListItem(label=iarl_data['current_rom_data']['rom_name'])
         self.info_listitem.setProperty('fanart_image', iarl_data['current_rom_data']['rom_fanarts'][0])
         self.info_listitem.setProperty('banner', iarl_data['current_rom_data']['rom_banners'][0])
@@ -1969,11 +1979,19 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
         self.info_listitem.setProperty('rom_studio', iarl_data['current_rom_data']['rom_studio'])
         self.info_listitem.setProperty('rom_genre', iarl_data['current_rom_data']['rom_genre'])
         self.info_listitem.setProperty('rom_date', iarl_data['current_rom_data']['rom_date'])
+        if iarl_data['current_rom_data']['rom_date'] is not None:
+            self.info_listitem.setProperty('rom_date_string','Released: '+iarl_data['current_rom_data']['rom_date'])
+        else:
+            self.info_listitem.setProperty('rom_date_string',iarl_data['current_rom_data']['rom_date'])
         self.info_listitem.setProperty('rom_year', iarl_data['current_rom_data']['rom_year'])
         self.info_listitem.setProperty('rom_plot', iarl_data['current_rom_data']['rom_plot'])
         self.info_listitem.setProperty('rom_trailer', iarl_data['current_rom_data']['rom_trailer'])
         self.info_listitem.setProperty('rom_label', iarl_data['current_rom_data']['rom_label'])
         self.info_listitem.setProperty('nplayers', iarl_data['current_rom_data']['rom_nplayers'])
+        if iarl_data['current_rom_data']['rom_nplayers'] is not None:
+            self.info_listitem.setProperty('nplayers_string','Players[CR]'+iarl_data['current_rom_data']['rom_nplayers'])
+        else:
+            self.info_listitem.setProperty('nplayers_string',iarl_data['current_rom_data']['rom_nplayers'])
         self.info_listitem.setProperty('rom_size', str(sum(map(int,iarl_data['current_rom_data']['rom_size']))))
         self.info_listitem.setProperty('emu_name', iarl_data['current_archive_data']['emu_name'])
         self.info_listitem.setProperty('emu_boxart', iarl_data['current_archive_data']['emu_boxart'])
@@ -1983,6 +2001,8 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
         self.info_listitem.setProperty('emu_trailer', iarl_data['current_archive_data']['emu_trailer'])
         self.info_listitem.setProperty('emu_category', iarl_data['current_archive_data']['emu_category'])
         self.info_listitem.setProperty('emu_plot', iarl_data['current_archive_data']['emu_plot'])
+        self.info_listitem.setProperty('current_window_id', str(xbmcgui.getCurrentWindowDialogId()))
+        xbmcgui.Window(10000).setProperty('iarl.trailer_started','False')
         for ii in range(0,total_arts):
             self.info_listitem.setProperty('fanart'+str(ii), iarl_data['current_rom_data']['rom_fanarts'][ii])
             self.info_listitem.setProperty('banner'+str(ii), iarl_data['current_rom_data']['rom_banners'][ii])
@@ -1990,120 +2010,82 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
             self.info_listitem.setProperty('boxart'+str(ii), iarl_data['current_rom_data']['rom_boxarts'][ii])
             self.info_listitem.setProperty('logo'+str(ii), iarl_data['current_rom_data']['rom_logos'][ii])
         
-        # self.logo_art = self.getControl(103) #Logo
-        # self.plot_box = self.getControl(104) #Plot
-        self.info_list = self.getControl(113) #Invisible list for game properties and the like
+        self.info_list = self.getControl(self.game_info_listitem_id)
         self.info_list.addItem(self.info_listitem)
 
-        self.left_art2 = self.getControl(111) #Left Art List
-        self.right_art2 = self.getControl(112) #Right Art List
-        self.play_button = self.getControl(3005) #Play Trailer
-        self.stop_button = self.getControl(3006) #Stop Trailer
-        self.right_art2.setVisible(True) #Default Fanart visible for trailer control
+        #Get controls if available
+        try:
+            self.left_art_list = self.getControl(self.left_art_list_id) #Left Art List
+        except:
+            self.left_art_list = None
+            xbmc.log(msg='IARL:  Left Art List (Control 111) is not present', level=xbmc.LOGDEBUG)
+        try:
+            self.right_art_list = self.getControl(self.right_art_list_id) #Right Art List
+        except:
+            self.right_art_list = None
+            xbmc.log(msg='IARL:  Right Art List (Control 112) is not present', level=xbmc.LOGDEBUG)
+        try:
+            self.download_button = self.getControl(self.download_button_id) #Download Only
+        except:
+            self.download_button = None
+            xbmc.log(msg='IARL:  Download Button (Control 3001) is not present', level=xbmc.LOGDEBUG)
+        try:
+            self.download_and_launch_button = self.getControl(self.download_and_launch_button_id) #Download and Launch
+        except:
+            self.download_and_launch_button = None
+            xbmc.log(msg='IARL:  Download and Launch Button (Control 3002) is not present', level=xbmc.LOGDEBUG)
+        try:
+            self.exit_button = self.getControl(self.exit_button_id) #Close
+        except:
+            self.exit_button = None
+            xbmc.log(msg='IARL:  Close Button (Control 3003) is not present', level=xbmc.LOGDEBUG)
+        try:
+            self.play_trailer_button = self.getControl(self.play_trailer_button_id) #Play Trailer
+        except:
+            self.play_trailer_button = None
+            xbmc.log(msg='IARL:  Play Trailer Button (Control 3005) is not present', level=xbmc.LOGDEBUG)
+        try:
+            self.stop_trailer_button = self.getControl(self.stop_trailer_button_id) #Stop Trailer
+        except:
+            self.stop_trailer_button = None
+            xbmc.log(msg='IARL:  Stop Trailer Button (Control 3006) is not present', level=xbmc.LOGDEBUG)
 
-        self.title_box = self.getControl(3007) #Title - Game Name
-        self.genre_box = self.getControl(3008) #Genre
-        self.players_box = self.getControl(3009) #Number of players
-        self.studio_box = self.getControl(3010) #Studio
-        
+        #Enable the buttons, these are disabled when one is selected to avoid double taps
+        if self.download_button is not None:
+            self.download_button.setEnabled(True)
+        if self.download_and_launch_button is not None:   
+            self.download_and_launch_button.setEnabled(True)
+        if self.download_and_launch_button is not None:   
+            self.exit_button.setEnabled(True)
 
-        # get control ids
-        self.control_id_button_action1 = 3001 #Download Only
-        self.control_id_button_action2 = 3002 #Download and Launch
-        self.control_id_button_action3 = 3005 #Play Trailer
-        self.control_id_button_action4 = 3006 #Stop Trailer
-        self.control_id_button_exit = 3003
-        self.control_id_label_action = 3011
-
-        if iarl_data['current_rom_data']['rom_trailer'] is not None: #If the trailer exists make the play button available
-            self.play_button.setVisible(True)
-            self.stop_button.setVisible(False)
-        else:
-            self.play_button.setVisible(False)
-            self.stop_button.setVisible(False)
-
-        # translation ids - I don't currently translate
-        self.translation_id_action1 = 3101
-        self.translation_id_action2 = 3102
-        self.translation_id_exit = 3103
-        self.translation_id_demotext = 3120
-        
-        # set actions
-        self.button_action1 = self.getControl(self.control_id_button_action1)
-        self.button_action2 = self.getControl(self.control_id_button_action2)
-        self.button_action3 = self.getControl(self.control_id_button_action3)
-        self.button_action4 = self.getControl(self.control_id_button_action4)
-        self.button_exit = self.getControl(self.control_id_button_exit)
-        
-        # translate buttons
-        self.button_action1.setLabel('Download')
-        self.button_action2.setLabel('Launch')
-        self.button_exit.setLabel('Close')
-
-        self.button_action1.setEnabled(True)
-        self.button_action2.setEnabled(True)
-        self.button_exit.setEnabled(True)
-        # self.plot_box.setText(iarl_data['current_rom_data']['rom_plot']) #Enter the plot if its available
-        # self.logo_art.setImage(iarl_data['current_archive_data']['emu_logo']) #Place the emu logo
-        # self.title_box.setText(iarl_data['current_rom_data']['rom_title'])
-
-        if iarl_data['current_rom_data']['rom_genre'] is not None:
-            genre_box_text = str(iarl_data['current_rom_data']['rom_genre'])
-        else:
-            genre_box_text = ''
-        if iarl_data['current_rom_data']['rom_perspective'] is not None:
-            if len(genre_box_text)>0:
-                genre_box_text = genre_box_text+'[CR]'+str(iarl_data['current_rom_data']['rom_perspective'])
-            else:
-                genre_box_text = str(iarl_data['current_rom_data']['rom_perspective'])
-        self.genre_box.setText(genre_box_text)
-        if iarl_data['current_rom_data']['rom_nplayers'] is not None:
-            player_box_text = 'Players[CR]'+str(iarl_data['current_rom_data']['rom_nplayers'])
-        else:
-            player_box_text = ''
-        self.players_box.setText(player_box_text)
-        if iarl_data['current_rom_data']['rom_date'] is not None:
-            studio_box_text = 'Released: '+str(iarl_data['current_rom_data']['rom_date'])
-        else:
-            studio_box_text = ''
-        if iarl_data['current_rom_data']['rom_studio'] is not None:
-            if len(studio_box_text)>0:
-                studio_box_text = studio_box_text+'[CR]'+str(iarl_data['current_rom_data']['rom_studio'])
-            else:
-                studio_box_text = str(iarl_data['current_rom_data']['rom_studio'])
-        self.studio_box.setText(studio_box_text)
- 
-        #Populate the image spots
+        #Populate the image listitems
         left_art_found = False
         right_art_found = False
-        for rom_boxarts in filter(bool,iarl_data['current_rom_data']['rom_boxarts']):
-            left_art_found = True
-            self.left_art2.addItem(xbmcgui.ListItem(label2=str(iarl_data['current_rom_data']['rom_name']), thumbnailImage=rom_boxarts)) #Add boxart to the left image slideshow
 
-        for rom_fanarts in filter(bool,iarl_data['current_rom_data']['rom_fanarts']):
-            right_art_found = True
-            self.right_art2.addItem(xbmcgui.ListItem(label2=str(iarl_data['current_rom_data']['rom_name']), thumbnailImage=rom_fanarts)) #Add fanart to the right image slideshow
+        if self.left_art_list is not None:
+            for rom_boxarts in filter(bool,iarl_data['current_rom_data']['rom_boxarts']):
+                left_art_found = True
+                self.left_art_list.addItem(xbmcgui.ListItem(label2=str(iarl_data['current_rom_data']['rom_name']), thumbnailImage=rom_boxarts)) #Add boxart to the left image slideshow
+            if not left_art_found:
+                self.left_art_list.addItem(xbmcgui.ListItem(label2=str(iarl_data['current_rom_data']['rom_name']), thumbnailImage=iarl_data['current_rom_data']['rom_icon'])) #If no boxart is found, make it the default box
 
-        for rom_snapshots in filter(bool,iarl_data['current_rom_data']['rom_snapshots']):
-            right_art_found = True
-            self.right_art2.addItem(xbmcgui.ListItem(label2=str(iarl_data['current_rom_data']['rom_name']), thumbnailImage=rom_snapshots)) #Add snapshots to the right image slideshow
+        if self.right_art_list is not None:
+            for rom_fanarts in filter(bool,iarl_data['current_rom_data']['rom_fanarts']):
+                right_art_found = True
+                self.right_art_list.addItem(xbmcgui.ListItem(label2=str(iarl_data['current_rom_data']['rom_name']), thumbnailImage=rom_fanarts)) #Add fanart to the right image slideshow
 
-        if not right_art_found:
-            self.right_art2.addItem(xbmcgui.ListItem(label2=str(iarl_data['current_rom_data']['rom_name']), thumbnailImage=iarl_data['current_archive_data']['emu_fanart'])) #If no fanart is found, make it the current emulator fanart
+        if self.right_art_list is not None:
+            for rom_snapshots in filter(bool,iarl_data['current_rom_data']['rom_snapshots']):
+                right_art_found = True
+                self.right_art_list.addItem(xbmcgui.ListItem(label2=str(iarl_data['current_rom_data']['rom_name']), thumbnailImage=rom_snapshots)) #Add snapshots to the right image slideshow
+            if not right_art_found:
+                self.right_art_list.addItem(xbmcgui.ListItem(label2=str(iarl_data['current_rom_data']['rom_name']), thumbnailImage=iarl_data['current_archive_data']['emu_fanart'])) #If no fanart is found, make it the current emulator fanart
 
-        if not left_art_found:
-            self.left_art2.addItem(xbmcgui.ListItem(label2=str(iarl_data['current_rom_data']['rom_name']), thumbnailImage=iarl_data['current_rom_data']['rom_icon'])) #If no boxart is found, make it the default box
-
-        # print xbmc.getInfoLabel('System.BuildVersion') #17.0 or 18.0
         #Auto play trailer if settings are defined
         if 'yes' in iarl_data['settings']['autoplay_trailer'].lower():
             if iarl_data['current_rom_data']['rom_trailer']:
-                self.right_art2.setVisible(False) #Get Fanart out of the way
-                xbmc.sleep(500)
-                xbmc.Player().play(iarl_data['current_rom_data']['rom_trailer'], windowed=True)
-                self.play_button.setVisible(False)
-                self.stop_button.setVisible(True)
-                # self.setFocus(self.stop_button)
+                    xbmc.sleep(500)
+                    xbmc.Player().play(iarl_data['current_rom_data']['rom_trailer'], windowed=True)
 
     def onAction(self, action):
         # Same as normal python Windows.
@@ -2111,63 +2093,49 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
             self.closeDialog()
 
     def onFocus(self, controlId):
+        #Not currently used
         pass
 
     def onClick(self, controlId):
+
         #Download Only
-        if controlId == self.control_id_button_action1:
-            self.button_action1.setEnabled(False)
+        if controlId == self.download_button_id:
+            #Disable buttons while we try to download (avoids double taps)
+            if self.download_button is not None:
+                self.download_button.setEnabled(False)
+                if self.download_and_launch_button is not None:
+                    self.download_and_launch_button.setEnabled(False)
 
-            if xbmc.Player().isPlaying():
-                xbmc.Player().stop()
-                xbmc.sleep(100)
+                iarl_data['current_save_data'] = download_rom_only(iarl_data)
 
-            iarl_data['current_save_data'] = download_rom_only(iarl_data)
+                if iarl_data['current_save_data']['overall_download_success']:
+                    current_dialog = xbmcgui.Dialog()
+                    ok_ret = current_dialog.ok('Complete',iarl_data['current_rom_data']['rom_name']+' was successfully downloaded')
 
-            if iarl_data['current_save_data']['overall_download_success']:
-                current_dialog = xbmcgui.Dialog()
-                ok_ret = current_dialog.ok('Complete',iarl_data['current_rom_data']['rom_name']+' was successfully downloaded')
-
-            self.button_action1.setEnabled(True)
+                #Re-enable buttons after download executes
+                self.download_button.setEnabled(True)
+                if self.download_and_launch_button is not None:
+                    self.download_and_launch_button.setEnabled(True)
 
         #Download and Launch
-        if controlId == self.control_id_button_action2:
-            self.button_action2.setEnabled(False)
+        if controlId == self.download_and_launch_button_id:
+            #Disable buttons while we try to download and launch (avoids double taps)
+            if self.download_and_launch_button is not None:
+                self.download_and_launch_button.setEnabled(False)
+                if self.download_button is not None:
+                    self.download_button.setEnabled(False)
 
-            if xbmc.Player().isPlaying():
-                xbmc.Player().stop()
-                xbmc.sleep(100)
-            # self.please_wait.setVisible(True)
-            download_and_launch_rom(self,iarl_data)
-            # self.please_wait.setVisible(False)
-            self.button_action2.setEnabled(True)
+                download_and_launch_rom(self,iarl_data)
 
-        #Play the Trailer
-        if controlId == self.control_id_button_action3: #Play the trailer if it exists
-            if iarl_data['current_rom_data']['rom_trailer']:
-                self.right_art2.setVisible(False) #Get Fanart out of the way
-                xbmc.sleep(100)
-                xbmc.Player().play(iarl_data['current_rom_data']['rom_trailer'], windowed=True)
-                self.play_button.setVisible(False)
-                self.stop_button.setVisible(True)
-                self.setFocus(self.stop_button)
-        #Stop the Trailer
-        if controlId == self.control_id_button_action4:
-            if xbmc.Player().isPlaying():
-                xbmc.Player().stop()
-                xbmc.sleep(100)
-                self.right_art2.setVisible(True) #Turn the fanart back on
-                self.play_button.setVisible(True)
-                self.stop_button.setVisible(False)
-                self.setFocus(self.play_button)
+                #Re-enable buttons after download and launch executes
+                self.download_and_launch_button.setEnabled(True)
+                if self.download_button is not None:
+                    self.download_button.setEnabled(True)
+
         #Exit the window
-        elif controlId == self.control_id_button_exit:
-            if xbmc.Player().isPlaying():
-                xbmc.Player().stop()
-                xbmc.sleep(100)
-
-            self.button_action1.setEnabled(True)
-            self.button_action2.setEnabled(True)
+        elif controlId == self.exit_button_id:
+            self.download_button.setEnabled(True)
+            self.download_and_launch_button.setEnabled(True)
             self.closeDialog()
 
     def doAction(self, controlId):
