@@ -2084,7 +2084,8 @@ class ROMWindow(xbmcgui.WindowXMLDialog):
         #Auto play trailer if settings are defined
         if 'yes' in iarl_data['settings']['autoplay_trailer'].lower():
             if iarl_data['current_rom_data']['rom_trailer']:
-                    xbmc.sleep(500)
+                    xbmcgui.Window(10000).setProperty('iarl.trailer_started','True')
+                    xbmc.sleep(250)
                     xbmc.Player().play(iarl_data['current_rom_data']['rom_trailer'], windowed=True)
 
     def onAction(self, action):
