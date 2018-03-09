@@ -1823,8 +1823,8 @@ def unzip_file(current_fname):
 			xbmc.log(msg='IARL:  Unzip Successful for ' +str(current_fname), level=xbmc.LOGDEBUG)
 		except Exception, (exc):
 			zip_success = False
-			xbmc.log(msg='IARL:  Unzip Failed for ' +str(current_fname), level=xbmc.LOGERROR)
-			xbmc.log(msg='IARL:  Unzip Error ' +str(exc), level=xbmc.LOGERROR)
+			xbmc.log(msg='IARL:  Unzip Error ' +str(exc), level=xbmc.LOGDEBUG)
+			xbmc.log(msg='IARL:  Unzip Failed for ' +str(current_fname), level=xbmc.LOGDEBUG)
 		if zip_success:
 			os.remove(current_fname)
 	else:
@@ -1871,8 +1871,8 @@ def unzip_and_rename_file(iarl_data): #This will probably only work when there i
 						xbmc.log(msg='IARL:  Unable to rename ' +str(ind_z_file), level=xbmc.LOGDEBUG)
 			except Exception, (exc):
 				zip_success[-1] = False
+				xbmc.log(msg='IARL:  Unzip Error ' +str(exc), level=xbmc.LOGDEBUG)
 				xbmc.log(msg='IARL:  Unzip Failed for ' +str(current_fname), level=xbmc.LOGERROR)
-				xbmc.log(msg='IARL:  Unzip Error ' +str(exc), level=xbmc.LOGERROR)
 			if zip_success:
 				os.remove(current_fname)
 		else:
